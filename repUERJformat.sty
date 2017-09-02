@@ -1,0 +1,1297 @@
+\NeedsTeXFormat{LaTeX2e}
+% desenvolvido por Prof. Luis Fernando de Oliveira IF/UERJ
+\ProvidesPackage{repUERJformat}[2013/06/01 v7.0 repUERJformat.sty]
+
+\RequirePackage{ifthen}
+\RequirePackage{enumitem}
+\RequirePackage{calc}
+\RequirePackage{pifont}
+\RequirePackage{keyval}
+
+% pacotes uteis para diagramacao da pagina
+\RequirePackage{geometry}
+\RequirePackage{eso-pic}
+%\RequirePackage[noframe]{showframe}
+
+\RequirePackage{amsmath}
+%\setlength{\mathindent}{\parindent}
+\setlength{\mathindent}{0pt}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\newboolean{UERJalgline}
+\setboolean{UERJalgline}{true}
+\DeclareOption{algline=yes}  {\setboolean{UERJalgline}{true}}
+\DeclareOption{algline=no}   {\setboolean{UERJalgline}{false}}
+
+\newboolean{UERJshowframe}
+\setboolean{UERJshowframe}{false}
+\DeclareOption{frame=yes}  {\setboolean{UERJshowframe}{true}}
+\DeclareOption{frame=no}   {\setboolean{UERJshowframe}{false}}
+
+\newboolean{flaga}\setboolean{flaga}{false}
+\newboolean{flagb}\setboolean{flagb}{false}
+
+\DeclareOption{font=times}     {\setboolean{flaga}{true}\setboolean{flagb}{false}}
+\DeclareOption{font=sans}      {\setboolean{flaga}{false}\setboolean{flagb}{true}}
+\DeclareOption{font=default}   {\setboolean{flaga}{false}\setboolean{flagb}{false}}
+\DeclareOption{font=lmodern}   {\setboolean{flaga}{true}\setboolean{flagb}{true}}
+
+\ProcessOptions
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\ifthenelse{\boolean{flaga}\and\not\boolean{flagb}}
+  {
+    \RequirePackage{mathptmx}
+    \RequirePackage[T1]{fontenc}
+    \renewcommand*{\rmdefault}{ptm}
+  }
+  {
+    \ifthenelse{\not\boolean{flaga}\and\boolean{flagb}} %
+      {
+        \RequirePackage[scaled=0.9]{helvet}
+        \RequirePackage[T1]{fontenc}
+        \renewcommand{\familydefault}{\sfdefault}
+      }
+      {
+        \ifthenelse{\boolean{flaga}\and\boolean{flagb}} %
+          {
+            \RequirePackage{lmodern}
+            \RequirePackage[T1]{fontenc}
+            \renewcommand{\familydefault}{\sfdefault}
+          }
+          {
+          }
+      }
+  }
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\ifthenelse{\boolean{UERJshowframe}}
+  {\geometry{showframe=true}}{\geometry{showframe=false}}
+
+\setkeys{ESO}{colorgrid=true}
+\gridSetup[mm]{1.266mm}{1.266}{5}{20}{1}
+
+%\ifthenelse{\boolean{UERJshowgrid}}
+%  {\AddToShipoutPicture{\AtTextLowerLeft{\ESO@gridpicture}}}{}
+
+%\ifthenelse{\boolean{UERJshowframe}}
+%  {\AddToShipoutPicture{\ShowFramePicture}}{}
+
+%\renewcommand{\ESO@gridpicture}{
+%  \begingroup
+%    \setlength\unitlength{\ESO@gridunit}%
+
+%    % subgrade
+%    \ESO@color{\ESO@subgridcolor}%
+%    \ESO@div{\textheight}{\ESO@griddelta}%
+%    %linhas horizontais da subgrade
+%    \multiput(-1,0)(0,\ESO@griddeltaY){\@tempcnta}%
+%      {\ESO@hline{\LenToUnit{\textwidth}}}%
+
+%    \ESO@div{\textwidth}{\ESO@griddelta}%
+%    %linhas verticais da subgrade
+%    \multiput(-1,\LenToUnit{\ESO@yoffsetII})(\ESO@griddelta,0){\@tempcnta}%
+%      {\ESO@vline{\LenToUnit{\textheight}}}%
+
+%    % grade
+%    \ESO@color{\ESO@gridcolor}%
+%    \ESO@div{\textheight}{\ESO@gridDelta}%
+%    %linhas horizontais da grade
+%    \multiput(-1,0)(0,\ESO@gridDeltaY){\@tempcnta}%
+%      {\ESO@Hline{\LenToUnit{\textwidth}}}%
+
+%    \ESO@div{\textwidth}{\ESO@gridDelta}%
+%    %linhas verticais da grade
+%    \multiput(-1,\LenToUnit{\ESO@yoffsetII})(\ESO@gridDelta,0){\@tempcnta}%
+%      {\ESO@Vline{\LenToUnit{\textheight}}}%
+
+%    \fontsize{10}{12}\normalfont%
+%    \ESO@div{\textwidth}{\ESO@gridDelta}%
+
+%    \multiput(0,\ESO@gridDeltaY)(\ESO@gridDelta,0){\@tempcnta}{%
+%      \@tempcntb=\@tempcnta\advance\@tempcntb-\@multicnt
+%      \ifnum\@tempcntb>1\relax
+%        \multiply\@tempcntb by \ESO@gridDelta\relax
+%        \@tempdima=\@tempcntb sp\@tempdima=\ESO@labelfactor\@tempdima
+%        \@tempcntb=\@tempdima%
+%        \makebox(0,0)[c]{\ESO@colorbox{white}{\the\@tempcntb}}%
+%      \fi}%
+
+%    \ifx\ESO@gridunitname\@empty\def\@tempa{0}\else\def\@tempa{1}\fi
+%    \ESO@div{\textheight}{\ESO@gridDelta}%
+
+%    \multiput(\ESO@gridDelta,0)(0,\ESO@gridDeltaY){\@tempcnta}{%
+%      \@tempcntb=\@tempcnta\advance\@tempcntb-\@multicnt%
+%      \ifnum\@tempcntb>\@tempa\relax
+%        \multiply\@tempcntb by \ESO@gridDelta\relax%
+%        \@tempdima=\@tempcntb sp\@tempdima=\ESO@labelfactor\@tempdima
+%        \@tempcntb=\@tempdima
+%        \makebox(0,0)[c]{\ESO@colorbox{white}{\the\@tempcntb}}%
+%      \fi}%
+
+%    \ifx\ESO@gridunitname\@empty\else
+%      \thicklines\fboxrule=\@wholewidth
+%      \put(\ESO@gridDelta,\ESO@gridDeltaY){\makebox(0,0)[c]{%
+%        \ESO@fcolorbox{\ESO@gridcolor}{white}{%
+%          \textbf{\ESO@gridunitname}}}}%
+%    \fi
+%    \normalcolor%
+%  \endgroup
+%}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\RequirePackage[brazil]{babel}
+\addto\captionsbrazil{%
+  \renewcommand\contentsname{Sum\'ario}
+  \renewcommand{\listfigurename}{Lista de figuras}
+  \renewcommand{\listtablename}{Lista de tabelas}
+  \renewcommand\bibname{Refer\^encias}
+  \renewcommand\indexname{\'Indice de assuntos}
+  \renewcommand\figurename{Figura}
+  \renewcommand\legendname{Legenda}
+  \renewcommand\sourcename{Fonte}
+  \renewcommand\tablename{Tabela}
+  \renewcommand\partname{}
+  \renewcommand\chaptername{}
+  \renewcommand\appendixname{Ap\^endice}
+  \renewcommand\annexname{Anexo}
+  \renewcommand\abstractname{Abstract}
+}
+
+\newcommand{\abrevnome}{Lista de abreviaturas e siglas}
+\newcommand{\simbnome}{Lista de s\'imbolos}
+\newcommand{\dedicatorianome}{Dedicat\'oria}
+\newcommand{\agradecimentosnome}{Agradecimentos}
+\newcommand{\orientadornome}{Orientador}
+\newcommand{\coorientadornome}{Coorientador}
+\newcommand{\resumonome}{Resumo}
+\newcommand{\glossarionome}{Gloss\'ario}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\newcommand{\ifnotempty}[2]
+	{
+		\ifthenelse{\not\equal{#1}{}}
+		{#2}
+		{}
+	}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos de dados
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Comandos de dados - logo da UERJ
+% ---
+\newcommand{\logo}[1] {%
+  \newcommand{\UERJlogo}{#1}
+}
+% ---
+
+% ---
+% Comandos de dados - marca d'agua da folha de rosto
+% ---
+\newcommand{\marcadagua}[4] {%
+  \newcommand{\UERJmarcadagua}{#1}
+  \newcommand{\imgscale}{#2}
+  \newcommand{\imgposX}{#3}
+  \newcommand{\imgposY}{#4}
+}
+% ---
+
+% ---
+% Comandos de dados - total de paginas do documento
+% ---
+\newcommand{\UERJpaginas}{\pageref{LastPage}}
+% ---
+
+% ---
+% Comandos de dados - t\'itulo do documento
+% ---
+\providecommand{\UERJtitulo}{}
+\newcommand{\titulo}[1]{
+  \renewcommand{\UERJtitulo}{#1}
+}
+
+\newcommand{\UERJtitle}{}
+\renewcommand{\title}[1]{
+  \renewcommand{\UERJtitle}{#1}
+}
+
+\newcommand{\chaveA}{}
+\newcommand{\chaveB}{}
+\newcommand{\chaveC}{}
+\newcommand{\chaveD}{}
+\newcommand{\palavraschaves}[4]{
+  \renewcommand{\chaveA}{#1.}
+  \renewcommand{\chaveB}{#2.}
+  \renewcommand{\chaveC}{#3.}
+  \ifnotempty{#4}{\renewcommand{\chaveD}{#4.}}
+}
+
+\newcommand{\keyA}{}
+\newcommand{\keyB}{}
+\newcommand{\keyC}{}
+\newcommand{\keyD}{}
+\newcommand{\keywords}[4]{
+  \renewcommand{\keyA}{#1.}
+  \renewcommand{\keyB}{#2.}
+  \renewcommand{\keyC}{#3.}
+  \ifnotempty{#4}{\renewcommand{\keyD}{#4.}}
+}
+% ---
+
+% ---
+% Comandos de dados - autor (use \and para múltiplos autores)
+% ---
+\providecommand{\UERJautor}{}
+\newcommand{\autor}[2]{
+  \author{#1 #2}
+  \newcommand{\UERJautornome}{#1}
+  \newcommand{\UERJautorsobrenome}{#2}
+  \renewcommand{\UERJautor}{\UERJautornome\ \UERJautorsobrenome}
+}
+% ---
+
+% ---
+% Comandos de dados - local
+% ---
+\providecommand{\UERJlocal}{}
+\newcommand{\local}[1]{
+  \renewcommand{\UERJlocal}{#1}
+}
+% ---
+
+% ---
+% Comandos de dados - data
+% ---
+\providecommand{\UERJdata}{}
+\newcommand{\data}[3]{
+  \date{#1}
+  \newcommand{\UERJdia}{#1}
+  \newcommand{\UERJmes}{#2}
+  \newcommand{\UERJano}{#3}
+  \renewcommand{\UERJdata}{\UERJano}
+}
+% ---
+
+% ---
+% Comandos de dados - instituicao
+% ---
+\providecommand{\UERJinstituicao}{}
+\newcommand{\instituicao}[4]{
+  \newcommand{\UERJnome}{#1}
+  \newcommand{\UERJcentro}{#2}
+  \newcommand{\UERJunidade}{#3}
+  \newcommand{\UERJunidadenome}{}
+  \ifnotempty{#4}{\renewcommand{\UERJunidadenome}{ #4}}
+  \renewcommand{\UERJinstituicao}{
+    \textbf{\expandafter\uppercase\expandafter{\UERJnome}}
+    \vspace{10pt}
+    \par\line(1,0){250}
+    \vspace{5pt}
+    \par\textbf{\expandafter\uppercase\expandafter{\UERJcentro}}
+    \par\textbf{\expandafter\uppercase\expandafter{\UERJgrau}~EM~\expandafter\uppercase\expandafter{\UERJcurso}}
+  }
+}
+% ---
+
+% ---
+% Comandos de dados - tipo de trabalho
+% ---
+\newcommand{\UERJtitulacao}{}
+\newcommand{\UERJgrau}{}
+\newcommand{\UERJdocumento}{}
+\newcommand{\UERJposgraduacao}{}
+% ---
+\newcommand{\curso}[1]{
+  \newcommand{\UERJcurso}{#1}
+}
+% ---
+\newcommand{\presented}{apresentada}
+% ---
+\newcommand{\grau}[1]{
+  \ifthenelse{\equal{#1}{Mestre}}{
+    \renewcommand{\UERJtitulacao}{Mestre}
+    \renewcommand{\UERJgrau}{Mestrado}
+    \renewcommand{\UERJdocumento}{Disserta\c{c}\~ao}
+    \renewcommand{\UERJposgraduacao}
+      {Programa de P\'os-Gradua\c{c}\~ao em \UERJcurso}
+  }{\ifthenelse{\equal{#1}{Doutor}}{
+      \renewcommand{\UERJtitulacao}{Doutor}
+      \renewcommand{\UERJgrau}{Doutorado}
+      \renewcommand{\UERJdocumento}{Tese}
+      \renewcommand{\UERJposgraduacao}
+        {Programa de P\'os-Gradua\c{c}\~ao em \UERJcurso}
+    }{\ifthenelse{\equal{#1}{Bacharel}}{
+        \renewcommand{\UERJtitulacao}{Bacharel}
+        \renewcommand{\UERJgrau}{Bacharelado}
+        \renewcommand{\UERJdocumento}{Monografia}
+        \renewcommand{\UERJposgraduacao}{\UERJunidade{\UERJunidadenome}}
+      }{\ifthenelse{\equal{#1}{Licenciado}}{
+          \renewcommand{\UERJtitulacao}{Licenciado}
+          \renewcommand{\UERJgrau}{Licenciatura}
+          \renewcommand{\UERJdocumento}{Monografia}
+          \renewcommand{\UERJposgraduacao}{\UERJunidade{\UERJunidadenome}}
+        }{
+          \renewcommand{\UERJtitulacao}{Graduado em \UERJcurso}
+          \renewcommand{\UERJgrau}{Gradua\c{c}\~ao}
+          \renewcommand{\UERJdocumento}{Trabalho de Conclus\~ao de Curso}
+          \renewcommand{\UERJposgraduacao}{\UERJunidade{\UERJunidadenome}}
+          \renewcommand{\presented}{apresentado}
+        }
+      }
+    }
+  }
+}
+% ---
+
+% ---
+% Comandos de dados - preambulo
+% ---
+\providecommand{\UERJconcentracao}{}
+\newcommand{\areadeconcentracao}[1]{
+  \ifnotempty{#1}{\renewcommand{\UERJconcentracao}{\'Area de concentra\c{c}\~ao: #1.}}
+}
+% ---
+\providecommand{\UERJpreambulo}{}
+\newcommand{\preambulo}[1]{
+  \renewcommand{\UERJpreambulo}{\singlespacing{#1}}
+}
+% --- modelo documento UERJ (novo)
+\preambulo{\UERJdocumento\ \presented, como requisito parcial para obten\c{c}\~ao do t\'itulo de \UERJtitulacao, ao \UERJposgraduacao\ do \UERJcentro, da \UERJnome.  \UERJconcentracao}
+% ---
+
+% ---
+% Comandos de dados - cabecalho do resumo
+% ---
+\providecommand{\referencia}{}
+\newcommand{\cabecalho}[1]{
+  \renewcommand{\referencia}{\singlespacing\begin{flushleft}#1\end{flushleft}\vspace*{0.5\baselineskip}}
+}
+% ---
+\cabecalho{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitulo}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso) -- \UERJunidade\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
+% ---
+\newlength{\hanglength}
+\newcommand{\imprimirchaves}{
+  \vspace{0.3\baselineskip}\onehalfspacing \settowidth{\hanglength}{Palavras-chave: }
+  \noindent Palavras-chave: \parbox[t]{\textwidth-\hanglength}{
+    \raggedright \chaveA\ \chaveB\ \chaveC\ \chaveD
+  }
+}
+% ---
+
+% ---
+% Comandos de dados - cabecalho do abstract
+% ---
+\providecommand{\reference}{}
+\newcommand{\headertext}[1]{
+  \renewcommand{\reference}{\singlespacing\begin{flushleft}#1\end{flushleft}\vspace*{0.5\baselineskip}}
+}
+% ---
+\headertext{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitle}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso) -- \UERJunidade\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
+% ---
+\newcommand{\printkeys}{
+  \vspace{0.3\baselineskip}\onehalfspacing \settowidth{\hanglength}{Keywords: }
+  \noindent Keywords: \parbox[t]{\textwidth-\hanglength}{
+    \raggedright \keyA\ \keyB\ \keyC\ \keyD\
+  }
+}
+% ---
+
+% ---
+% Comandos de dados - orientador
+% ---
+\providecommand{\UERJsurpevisor}{}
+\providecommand{\UERJorientador}{}
+\newcommand{\orientador}[5][\orientadornome]{
+  \renewcommand{\UERJsurpevisor}{#1}%
+  \newcommand{\UERJorientadortitulo}{#2}
+  \newcommand{\UERJorientadornome}{#3}
+  \newcommand{\UERJorientadorsobrenome}{#4}
+  \newcommand{\UERJorientadorinstituicao}{#5}
+  \renewcommand{\UERJorientador}
+    {\UERJorientadortitulo\ \UERJorientadornome\ \UERJorientadorsobrenome}
+}
+% ---
+
+% ---
+% Comandos de dados - coorientador
+% ---
+\providecommand{\UERJcosurpevisor}{}
+\providecommand{\UERJcoorientador}{}
+\newcommand{\coorientador}[5][\coorientadornome]{
+  \renewcommand{\UERJcosurpevisor}{#1}%
+  \newcommand{\UERJcoorientadortitulo}{#2}
+  \newcommand{\UERJcoorientadornome}{#3}
+  \newcommand{\UERJcoorientadorsobrenome}{#4}
+  \newcommand{\UERJcoorientadorinstituicao}{#5}
+  \renewcommand{\UERJcoorientador}
+    {\UERJcoorientadortitulo\ \UERJcoorientadornome\ \UERJcoorientadorsobrenome}
+}
+% ---
+
+% ---
+% comprimento do traco de assinatura e do texto abaixo dele
+\newlength{\UERJsignwidth}
+\setlength{\UERJsignwidth}{12.25cm}
+% ---
+% espessura do traco
+\newlength{\UERJsignthickness}
+\setlength{\UERJsignthickness}{1pt}
+% ---
+% espaco entre o traco de assinatura e o texto anterior
+\newlength{\UERJsignskip}
+\setlength{\UERJsignskip}{1.2cm}
+% ---
+% assinatura com traco
+\newcommand{\UERJsign}[1]{%
+  \parbox[t]{\UERJsignwidth}{
+    \vspace*{\UERJsignskip}
+    \rule{\UERJsignwidth}{\UERJsignthickness}\par
+    \nopagebreak #1\par
+  }
+}
+% ---
+% assinatura sem traco
+\newcommand{\UERJunsign}[1]{%
+  \parbox[t]{\UERJsignwidth}{
+    \nopagebreak #1\par
+    \vspace*{\UERJsignskip}
+  }
+}
+% ---
+% assinatura com estrela
+\newcommand{\UERJucsign}[1]%
+  {\par\hspace{1.5cm}\UERJunsign{#1}\par}  
+% ---
+% assinatura sem estrela
+\newcommand{\UERJcsign}[1]%
+  {\begingroup\par\hspace{1.5cm}\UERJsign{#1}\par\endgroup}  
+% ---
+
+% ---
+% Comando \assinatura
+% ---
+\makeatletter
+\newcommand{\assinatura}{\@ifstar{\UERJucsign}{\UERJcsign}}
+\makeatother
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Capa
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\geometry{top=3cm, bottom=2cm, left=3cm, right=2cm}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Capa
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\newlength{\img}
+\setlength{\img}{2.cm}
+\newcommand{\capa}{
+  \setcounter{page}{0}{
+    %\centering\large
+    \raggedleft %\large
+%    \begin{onehalfspace}
+      {\parbox[l]{\img}{\includegraphics[width=\img]{\UERJlogo}}}
+      %\hskip 10pt %plus 1fil minus 0.5fill
+      \hfil
+      {\parbox[t]{0.5\textwidth}{\centering{\UERJinstituicao\par}}} %{\centering{\large\UERJinstituicao\par}}}
+      \hfil
+%      {\hspace{\img}}
+      {\parbox[c]{\img}{\includegraphics[width=3cm]{iprj2.png}}} 
+      \hfil\hfil
+      \centering\large
+      \vfill\vfill
+      \UERJautor\par
+      \vfill\vfill
+      {\bfseries\UERJtitulo}\par
+      \vfill\vfill\vfill\vfill\vfill
+      \UERJlocal\\[0.3\baselineskip]
+%    \end{onehalfspace}
+    \UERJdata
+    \normalsize\cleardoublepage
+  }
+}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Folha de rosto
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+
+\makeatletter
+\newcommand{\folhaderosto}{\@ifstar{\UERJfolhaderostoB}{\UERJfolhaderostoA}}
+
+\newcommand{\UERJfolhaderostoA}{
+  \thispagestyle{empty}%
+  {
+    \centering
+%    \begin{onehalfspace}
+      \AddToShipoutPicture*{
+        \put(\imgposX,\imgposY){
+          \includegraphics[scale=\imgscale]{\UERJmarcadagua}
+        }
+      } 
+      
+      \raggedleft
+      {\parbox[l]{2cm}{\includegraphics[width=2cm]{\UERJlogo}}}
+      %\hskip 10pt %plus 1fil minus 0.5fill
+      \hfil
+      {\parbox[t]{0.5\textwidth}{\centering{\UERJinstituicao\par}}}
+      \hfil
+      {\parbox[c]{\img}{\includegraphics[width=3cm]{iprj2.png}}} 
+      \hfil\hfil
+      \centering
+      \vfill\vfill\vfill
+      
+      
+      \UERJautor\par
+      \vfill\vfill
+      {\bfseries\UERJtitulo}\par
+      \vfill\vfill\vfill
+      \vspace{.8cm}
+      \hspace{.49\textwidth}
+      \begin{minipage}{.5\textwidth}
+         \UERJpreambulo
+       \end{minipage}%
+       \vfill\vfill\vfill\vfill
+      \UERJsurpevisor: \UERJorientador\par
+      \ifnotempty{\UERJcoorientador}{
+         {\UERJcosurpevisor: \UERJcoorientador}\par
+      }
+      \vfill\vfill\vfill\vfill
+      \UERJlocal\\[0.1\baselineskip]
+%    \end{onehalfspace}
+    \UERJdata
+    \cleardoublepage
+  }
+}
+
+\newcommand{\UERJfolhaderostoB}{
+  \thispagestyle{empty}%
+  {
+    \centering
+%    \begin{onehalfspace}
+      
+      \raggedleft
+      {\parbox[l]{2cm}{\includegraphics[width=2cm]{\UERJlogo}}}
+      %\hskip 10pt %plus 1fil minus 0.5fill
+      \hfil
+      {\parbox[t]{0.5\textwidth}{\centering{\UERJinstituicao\par}}}
+      \hfil
+      {\parbox[c]{\img}{\includegraphics[width=3cm]{iprj2.png}}} 
+      \hfil\hfil
+      \centering
+      \vfill\vfill\vfill\vfill
+      
+      \UERJautor\par
+      \vfill\vfill\vfill
+      {\bfseries\UERJtitulo}\par
+      \vfill\vfill
+      \vspace{.8cm}
+      \hspace{.49\textwidth}
+      \begin{minipage}{.5\textwidth}
+         \UERJpreambulo
+       \end{minipage}%
+       \vfill\vfill\vfill\vfill
+      \begin{flushleft}
+        \UERJsurpevisor: \UERJorientador\par
+      \end{flushleft}
+%       \ifnotempty{\UERJcoorientador}{
+%          {\UERJcosurpevisor: \UERJcoorientador}\par
+%       }
+      \vfill\vfill\vfill\vfill\vfill\vfill
+      \UERJlocal\\[0.1\baselineskip]
+%    \end{onehalfspace}
+    \UERJdata
+    \cleardoublepage
+  }
+}
+
+
+% ------------------------------------------------------------------------
+
+\newcommand{\fichacatalografica}[1]{
+  \newgeometry{top=3cm, bottom=2cm, left=2cm, right=3cm}
+  \addtocounter{page}{-1}
+  \ifthenelse{\not\equal{#1}{}}
+    {\includepdf[pages=1]{#1}}
+    { 
+      \vspace*{\fill}
+      \begin{singlespace*}
+        \begin{center}
+          CATALOGA\c{C}\~AO NA FONTE\\
+          UERJ / REDE SIRIUS / BIBLIOTECA CTC/D
+        \end{center}
+        \footnotesize
+        \noindent\hspace*{\fill}
+        {
+          \parbox[t]{14.0cm}{
+            \hrule
+            \hspace*{0.25cm}\parbox[t]{2.0cm}{
+              \vspace*{\baselineskip}
+              D979
+            }
+            \parbox[t]{11.5cm}{
+              \vspace*{\baselineskip}
+
+              \UERJautorsobrenome, \UERJautornome
+
+              \hspace{0.5cm}\UERJtitulo\ / \UERJautor. --
+              \UERJlocal, \UERJdata-
+
+              \hspace{0.5cm}\UERJpaginas\ f.\\
+  
+              \hspace{0.5cm}\UERJsurpevisor: \UERJorientador
+  
+              \hspace{0.5cm}\UERJdocumento\ (\UERJgrau) -- \UERJnome,
+              \UERJunidade, \UERJposgraduacao, \UERJdata.\\
+  
+              \hspace{0.5cm}
+              1. \chaveA.
+              2. \chaveB.
+              3. \chaveC.
+              I. \UERJorientador.
+              II. \UERJnome.
+              III. \UERJunidade.
+              IV. Título\\
+  
+              \hspace{8.05cm}CDU 02:141:005.7\\
+            } % fim \parbox[t]{11.5cm}
+            \hrule
+          } % fim \parbox[t]{14.0cm}
+        }
+        \hspace*{\fill}
+      \end{singlespace*}
+      \vspace*{2.5cm}
+      \normalsize
+      \noindent Autorizo, apenas para fins acad\^emicos e cient\'ificos, a
+                reprodu\c{c}\~ao total ou parcial desta 
+                \MakeLowercase{\UERJdocumento}, desde que citada a fonte.\\
+
+      \noindent\parbox[t]{0.5\textwidth}{
+        \hrule
+  	    \vspace*{0.4cm}
+        \centering{Assinatura}
+      }\hfill\parbox[t]{0.2\textwidth}{
+        \hrule
+        \vspace*{0.4cm}
+        \centering{Data}
+      }
+      \vspace*{1.5cm}
+      \cleardoublepage
+    }
+  \restoregeometry\onehalfspacing
+}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Folha de aprovacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\newenvironment{folhadeaprovacao}{
+  \thispagestyle{empty}%
+%  \begin{onehalfspace}
+    {
+      \centering
+      \UERJautor\par
+      \vspace{1.0cm}
+      {\bfseries\UERJtitulo}\\
+      \vspace{1.0cm}
+    }
+    \noindent\hspace{.49\textwidth}
+    \begin{minipage}{.5\textwidth}
+      \UERJpreambulo
+    \end{minipage}%
+    \vspace{1.3cm}
+    \noindent Aprovada em \UERJdia\ de \UERJmes\ de \UERJano.\par
+    \noindent Banca Examinadora:\\[-1.5\baselineskip]
+      \assinatura{\UERJorientador\ (\UERJsurpevisor)\par
+      \UERJorientadorinstituicao}
+      \ifnotempty{\UERJcoorientador}{
+        \assinatura{\UERJcoorientador\ (\UERJcosurpevisor)\par
+        \UERJcoorientadorinstituicao}
+      }
+%  \end{onehalfspace}
+}
+{
+  \vfill
+  {\centering
+    \UERJlocal\\[0.1\baselineskip]
+    \UERJdata\par
+  }
+  \cleardoublepage
+}
+
+% ------------------------------------------------------------------------
+
+\newenvironment{folhadeaprovacao*}{
+  \thispagestyle{empty}%
+%  \begin{onehalfspace}
+    {
+      \centering
+      \UERJautor\par
+      \vspace*{0.8cm}
+      {\bfseries\UERJtitulo}\par
+      \vspace*{1.3cm}
+    }
+    \noindent\hspace*{.49\textwidth}
+    \begin{minipage}{.5\textwidth}
+      \UERJpreambulo
+    \end{minipage}%
+    \vspace*{1.0cm}
+    \noindent Aprovada em \UERJdia\ de \UERJmes\ de \UERJano.\par
+
+    \ifthenelse{\equal{\UERJcoorientador}{}}
+      {
+        \noindent \UERJsurpevisor:
+        \assinatura*{\UERJorientador\par
+        \UERJorientadorinstituicao}
+      }
+      {
+        \noindent Orientadores:
+        \assinatura*{\UERJorientador\par
+        \UERJorientadorinstituicao}
+        \assinatura*{\UERJcoorientador\par
+        \UERJcoorientadorinstituicao}
+      }
+    \noindent Banca Examinadora:\\[-1.5\baselineskip]
+%  \end{onehalfspace}
+}
+{
+  \vfill
+  {\centering
+    \UERJlocal\\[0.1\baselineskip]
+    \UERJdata\par
+  }
+  \cleardoublepage
+}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Lista de abrebiaturas
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%---
+\makeatletter
+%---
+\newlength{\abrevlabel}
+\setlength{\abrevlabel}{2.5cm}
+
+\newcommand{\abreviatura}[2]{
+  \noindent{\makebox[\abrevlabel]{#1\hfill}\parbox[t]{\textwidth-\abrevlabel}{#2\\[-0.6\baselineskip]}}
+}
+
+\newcommand\abrevitem[2]{%
+  \write\@auxout{\noexpand\@writefile{abr}{\noexpand\abreviatura{#1}{#2}}}
+  {#2 (#1)}
+}
+
+\newcommand\listadeabreviaturas{%
+  \pretextualchapter{\abrevnome}
+    \@starttoc{abr}
+}
+%---
+\makeatother
+%---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Lista de simbolos
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%---
+\makeatletter
+%---
+\newlength{\simblabel}
+\setlength{\simblabel}{2.5cm}
+
+\newcommand{\simbolo}[2]{
+  \noindent{\makebox[\simblabel]{\ensuremath{#1}\hfill}\parbox[t]{\textwidth-\simblabel}{#2\\[-0.6\baselineskip]}}
+}
+
+\newcommand\simbitem[2]{%
+  \write\@auxout{\noexpand\@writefile{sim}{\noexpand\simbolo{#1}{#2}}}
+  {#1: #2}
+}
+
+\newcommand\listadesimbolos{%
+  \pretextualchapter{\simbnome}
+    \@starttoc{sim}
+}
+%---
+\makeatother
+%---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Glossario
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%---
+\makeatletter
+%---
+\newlength{\glosslabel}\setlength{\glosslabel}{2.5cm}
+
+\newcommand{\definicao}[2]{
+  \noindent{\makebox[\glosslabel]{#1\hfill}\parbox[t]{\textwidth-\glosslabel}{#2\\[-0.6\baselineskip]}}
+}
+
+\newcommand\glossitem[2]{%
+  \write\@auxout{\noexpand\@writefile{glo}{\noexpand\definicao{#1}{#2}}}
+}
+
+\newcommand\glossario{%
+  \pretextualchapter{\glossarionome}
+    \@starttoc{glo}
+}
+%---
+\makeatother
+%---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento textual - Configuracao dos parametros de algoritmo
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% turn on/off the line number printing
+\newcommand{\alglinenumberson}{\setboolean{UERJalgline}{true}}
+\newcommand{\alglinenumbersoff}{\setboolean{UERJalgline}{false}}
+
+% font size of line numbers
+\newcommand{\pseudocodefontsize}{\normalsize}
+\newcommand{\pseudocodenumbefontsize}{\small}
+
+\newlength{\tab} % tabbulation length
+\setlength{\tab}{1.5em}
+
+\newcounter{contlin}  % line counter
+\newcounter{conttab}  % tabbulation counter
+\newcounter{contitab} % initial tabbulation counter
+
+% increment and decrement tabbulation
+\newcommand{\backward}{\addtocounter{conttab}{-1}}
+\newcommand{\forward}{\addtocounter{conttab}{1}}
+
+% paragraph tabbulation and incremental tabbulation
+\newcommand{\partab}{\hspace*{\value{contitab}\tab}\ignorespaces}
+\newcommand{\inctab}{\hspace*{\tab}\ignorespaces}
+
+% print the line number or not
+\newcommand{\nlin}{
+  \ifthenelse{\boolean{UERJalgline}}
+    % if option algline=yes
+    {\refstepcounter{contlin}{\partab\pseudocodenumbefontsize\makebox[\tab][l]{\thecontlin.}}\ignorespaces}
+    % if option algline=no
+    {\partab\inctab}
+}
+
+% tabbulation before printed instructions
+\newcommand{\tabulacao}{\nlin\hspace*{\value{conttab}\tab}\ignorespaces}
+
+\newcommand{\delin}{\{}
+\newcommand{\delout}{\}}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento pre-textual - Lista de algoritmos
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%---
+\makeatletter
+%---
+
+\newenvironment{pseudocode}
+  {\setcounter{contlin}{0}
+   \setcounter{conttab}{0}
+   \setcounter{contitab}{0}
+   \pseudocodefontsize\begingroup}
+  {\endgroup}
+
+\newenvironment{pseudocode*}
+  {\pseudocodefontsize\begingroup}
+  {\endgroup}
+
+\newcommand{\algorithmname}{Algoritmo}
+\newcommand{\listalgorithmname}{Lista de algoritmos}
+
+\newcounter{algorithm}
+\renewcommand \thealgorithm {\@arabic\c@algorithm}
+
+\def\fps@algorithm{htbp}
+\def\ftype@algorithm{3}
+\def\ext@algorithm{loa}
+\def\fnum@algorithm{\algorithmname\nobreakspace\thealgorithm}
+
+\newenvironment{algorithm}
+  {\@float{algorithm}}
+  {\end@float}
+
+\newenvironment{algorithm*}
+  {\addtocounter{algorithm}{-1}
+   \captionsetup{list=no}
+   \@dblfloat{algorithm}}
+  {\end@dblfloat}
+
+\DeclareCaptionListFormat{algorithmfmt}{\algorithmname\hfill#2 - }
+\captionsetup[algorithm]{listformat=algorithmfmt}
+
+\newcommand*\l@algorithm{\@dottedtocline{0}{0em}{6.8em}}
+
+\newcommand\listofalgorithms{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \pretextualchapter{\listalgorithmname}%
+    \@starttoc{loa}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%---
+\makeatother
+%---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Elemento textual - Estrutura de algoritmos
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Estrutura basica
+
+\newcommand{\Documentacao}{
+  \addtocounter{contitab}{1}
+  \textsc{Documenta\c{c}\~ao}\\
+}
+
+\newcommand{\Titulo}[1]{
+  \partab\textsc{T\'itulo}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{\textbf{#1}}\\
+}
+
+\newcommand{\Proposito}[1]{
+  \partab\textsc{Prop\'osito}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{#1}\\
+}
+
+\newcommand{\Metodo}[1]{
+  \partab\textsc{M\'etodo}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{#1}\\
+}
+
+\newcommand{\Entradas}[1]{
+  \partab\textsc{Entradas}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{#1}\\
+}
+
+\newcommand{\Saidas}[1]{
+  \partab\textsc{Sa\'idas}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{#1}\\
+}
+
+\newcommand{\Observacoes}[1]{
+  \partab\textsc{Observa\c{c}\~oes, Restri\c{c}\~oes, Requisitos}\\
+  \partab\inctab\parbox[t]{\textwidth-2\tab}{#1}\\
+}
+
+\newcommand{\Algoritmo}[1]{
+  \partab{\textsc{Algoritmo} \ifnotempty{#1}{\textsc{#1}}}\\
+}
+
+\newcommand{\FimAlgoritmo}{
+  \partab{\textsc{Fim algoritmo}}\\
+}
+
+\newcommand{\Funcao}[2]{
+  \partab{\textsc{Função} \textsc{#1} (#2)}\\
+}
+
+\newcommand{\FimFuncao}{
+  \partab{\textsc{Fim função}}\\
+}
+
+\newcommand{\Procedimento}[2]{
+  \partab{\textsc{Procedimento} \textsc{#1} (#2)}\\
+}
+
+\newcommand{\FimProcedimento}{
+  \partab{\textsc{Fim procedimento}}\\
+}
+
+\newcommand{\FimDocumentacao}{
+  \addtocounter{contitab}{-1}
+  \textsc{Fim documenta\c{c}\~ao}\\
+}
+
+% Comandos
+
+\newcommand{\Continua}{
+  \partab\inctab--- \textsl{continua} ---\\
+}
+
+\newcommand{\Continuacao}{
+  \partab\inctab--- \textsl{continua\c{c}\~ao} ---\\
+}
+
+\newcommand{\LinhaEmBranco}{
+  \partab\inctab\\
+}
+
+\newcommand{\Comentario}[1]{
+  \partab\inctab\delin \textsl{#1}\delout\\
+}
+
+\newcommand{\String}[1]{`#1'}
+
+\newcommand{\Parar}{ %parar
+  \tabulacao\textbf{parar}\\
+}
+
+% Instrucoes
+
+\newcommand{\Declarar}[3]{
+  \tabulacao\textbf{declarar} #1 \textbf{#2} \ifnotempty{#3}{(#3)}\\
+}
+
+\newcommand{\Retornar}[1]{
+  \tabulacao\textbf{retornar} #1\\
+}
+
+\newcommand{\Ler}[1]{
+  \tabulacao\textbf{ler} #1\\
+}
+
+\newcommand{\Escrever}[1]{
+  \tabulacao\textbf{escrever} #1\\
+}
+
+\newcommand{\SeEntao}[2][]{
+  \tabulacao\textbf{se} (#2), \textbf{ent\~ao}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward
+}
+
+\newcommand{\SenaoSeEntao}[2][]{
+  \tabulacao\textbf{senão se} (#2), \textbf{ent\~ao}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward
+}
+
+\newcommand{\Senao}[1][]{
+  \backward
+  \tabulacao\textbf{sen\~ao}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward
+}
+
+\newcommand{\FimSe}{
+  \backward
+  \tabulacao\textbf{fim se}\\
+}
+
+\newboolean{enq}
+\setboolean{enq}{false}
+\newcommand{\Enquanto}[2][]{
+  \ifthenelse{\boolean{enq}}
+    {
+      \setboolean{enq}{false}\backward
+      \tabulacao\textbf{enquanto} (#2)\\
+    }
+    {
+      \tabulacao\textbf{enquanto} (#2), \textbf{fazer}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+      \forward
+    }
+}
+
+\newcommand{\FimEnquanto}{
+  \backward
+  \tabulacao\textbf{fim enquanto}\\
+}
+
+\newcommand{\Fazer}[1][]{
+  \tabulacao\textbf{fazer}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward\setboolean{enq}{true}
+}
+
+\newcommand{\Repetir}[1][]{
+  \tabulacao\textbf{repetir}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward
+}
+
+\newcommand{\AteQue}[1]{
+  \backward
+  \tabulacao\textbf{at\'e que} (#1)\\
+}
+
+\newcommand{\ParaDeAte}[5][]{
+  \tabulacao\textbf{para} #2 \textbf{de} #3 \textbf{at\'e} #4\ignorespaces
+  \ifnotempty{#5}{\textbf{passo} #5, }{, }
+  \textbf{fazer}\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \forward
+}
+
+\newcommand{\FimPara}{
+  \backward
+  \tabulacao\textbf{fim para}\\
+}
+
+%---
+\makeatletter
+%---
+\newlength{\ltab}
+\newcommand{\Ins}[2][]{
+  \setlength{\ltab}{\textwidth-2\tab-\value{conttab}\tab}
+  \sbox\@tempboxa{#2}
+  \ifdim \wd\@tempboxa < \ltab
+    \tabulacao#2\ifnotempty{#1}{\inctab\delin \textsl{#1}\delout}\\
+  \else
+    \tabulacao\parbox[t]{\ltab}{\setlength\hangindent{\tab}#2}\vspace{0.35\baselineskip}
+  \fi
+}
+%---
+\makeatother
+%---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+\newlist{itemizacao}{itemize}{1}
+\setlist[itemizacao,1]{leftmargin=*,labelindent=\parindent,
+                       parsep=0pt,itemsep=0pt,label=\textbullet}
+% ---
+\newlist{alinea}{enumerate}{2}
+\setlist[alinea,1]{leftmargin=*,
+                   labelindent=\parindent,
+                   parsep=0pt,
+                   itemsep=0pt,
+                   label={\alph*)}
+}
+\setlist[alinea,2]{leftmargin=*,
+                   labelindent=0pt,
+                   parsep=0pt,
+                   itemsep=0pt,
+                   label={--}%,
+%                   topsep=-0.125\baselineskip
+}
+% ---
+
+% ---
+\newlist{exemplo}{itemize}{1}
+\setlist[exemplo,1]{label={Ex.:},topsep=0.95\baselineskip,parsep=0.5\baselineskip,
+                    itemsep=0pt,leftmargin=*, labelindent=0cm}%
+% ---
+\newlist{lsetap}{itemize}{1}
+\setlist[lsetap,1]{label={\ding{233}},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=\parindent}%
+
+\newlist{lseta}{itemize}{1}
+\setlist[lseta,1]{label={\ding{233}},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+
+\newlist{lquadp}{itemize}{1}
+\setlist[lquadp,1]{label={\ding{111}},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=\parindent}%
+
+\newlist{lquad}{itemize}{1}
+\setlist[lquad,1]{label={\ding{111}},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+
+\newlist{lcircp}{itemize}{1}
+\setlist[lcircp,1]{label={\textbullet},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=\parindent}%
+
+\newlist{lcirc}{itemize}{1}
+\setlist[lcirc,1]{label={\textbullet},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+
+\newlist{ltravep}{itemize}{1}
+\setlist[ltravep,1]{label={--},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=\parindent}%
+
+\newlist{ltrave}{itemize}{1}
+\setlist[ltrave,1]{label={--},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+
+\newlist{lalfap}{enumerate}{1}
+\setlist[lalfap,1]{label={\alph*)},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=\parindent-\labelsep+\labelwidth}%
+
+\newlist{lalfa}{enumerate}{1}
+\setlist[lalfa,1]{label={\alph*)},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+\setlist[lalfa,2]{label={--},topsep=-0.125\baselineskip,parsep=0pt,
+                  itemsep=0pt,leftmargin=*,labelindent=0pt}%
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\newenvironment*{estrutura}{%
+  \list{}{
+    \setlength{\topsep}{\baselineskip}%
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\leftmargin}{0pt}
+    \setlength{\labelindent}{0pt}
+  }%
+  \item[]%
+  \begin{flushleft}%
+}{%
+  \end{flushleft}%
+  \endlist
+}%
+% ---
+
+\newenvironment*{citacao}{%
+  \singlespacing
+  \list{}%
+  \footnotesize%
+  \addtolength{\leftskip}{4cm}%
+  \item[]%
+}{%
+  \endlist
+  \onehalfspacing
+}%
+% ---
+
+\newcommand{\indice}[2]{
+  \ifthenelse{\equal{#1}{}}
+    {\index{#1@\textbf{#1}}}
+    {\index{#1@\textbf{#1}!#2}}
+}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\let\sumario\tableofcontents
+\let\listadefiguras\listoffigures
+\let\listadetabelas\listoftables
+\let\listadealgoritmos\listofalgorithms
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------

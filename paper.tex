@@ -1,0 +1,444 @@
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Modelo de Trabalho Acadêmico utilizando repUERJ 
+% tese de doutorado, dissertação de mestrado e trabalhos monográficos em geral
+%
+% * Este aquivo está editado na codificação de caracteres UTF-8.
+%
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+%
+\documentclass[a4paper,12pt,oneside,onecolumn,final,fleqn]{repUERJ}
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage[brazil]{babel}  % adequacao para o portugues Brasil
+\usepackage[utf8]{inputenc} % Determina a codificacao utiizada
+                            % (conversão automática dos acentos)
+\usepackage{makeidx}        % Cria o indice
+\usepackage{hyperref}       % Controla a formacao do indice
+\usepackage{lastpage}       % Usado pela Ficha catalografica
+\usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
+\usepackage{xcolor}          % Controle das cores
+\usepackage{graphicx}       % Inclusao de graficos
+\usepackage{subfig}
+\usepackage{amsmath}        % pacote matemático
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{setspace}
+\usepackage{caption}
+\captionsetup[table]{singlelinecheck=false}
+\captionsetup[figure]{slc=off}
+\captionsetup{font=singlespacing}
+\captionsetup{tableposition=top}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example}
+
+\usepackage{macrosfabbri-basic}
+\usepackage{macrosfabbri-dg}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\rnum}[1]{\expandafter{\romannumeral #1\relax}}
+\renewcommand{\myparagraph}{\noindent\textbf}
+
+% ---
+% Pacote auxiliar para as normas da UERJ
+% ---
+\usepackage[frame=no,algline=yes,font=default]{repUERJformat}
+% ---
+% Pacotes de citacoes
+% ---
+\usepackage[alf]{abntex2cite}
+
+% *****************************************************************************
+% *****************************************************************************
+% Comandos especificos deste exemplo 
+% * podem ser retirados na edicao de um novo documento
+% *****************************************************************************
+% *****************************************************************************
+
+\newcommand{\comando}[1]{\texttt{\bs #1}}
+\newcommand{\opcoes}[1]{\texttt{[}\textsl{#1}\texttt{]}}
+\newcommand{\param}[1]{\texttt{\{}\textsl{#1}\texttt{\}}}
+\newcommand{\BibTeX}{{{Bib}}\TeX}
+\newcommand{\repUERJ}{\textsf{repUERJ}}
+\newcommand{\formato}[1]{\begin{flushleft}{#1}\end{flushleft}}
+\newcommand{\bs}{\textbackslash}
+\def\ReduceAfterCaptionfigspace{}
+
+% *****************************************************************************
+% *****************************************************************************
+% Informacoes de autoria e institucionais
+% *****************************************************************************
+% *****************************************************************************
+
+%-----------------------------------------------------------------------
+% Imagens pretextuais (precisam estar no mesmo diretorio deste arquivo .tex)
+%-----------------------------------------------------------------------
+
+\logo{logo_uerj_cinza.png}
+
+%-----------------------------------------------------------------------
+% Informacoes da instituicao
+%-----------------------------------------------------------------------
+
+\instituicao{Universidade do Estado do Rio de Janeiro}
+            {Instituto Politécnico} 
+            {Departamento de Modelagem Computacional}  
+            {}
+
+%-----------------------------------------------------------------------
+% Informacoes da autoria do documento
+%-----------------------------------------------------------------------
+
+\autor{Pedro Felipe Pena}{Barata}
+
+\titulo{Técnicas de reconstrução 3D - ????}
+\palavraschaves{Reconstrução densa}{Nuvem de pontos}{SfM}{???}
+
+%\title{Treinamento de um novo rastreador de bordas para múltiplos vídeos de ondas oceânicas}
+%\keywords{Contour Detection}{Edge Fragments}{Machine Learning}{Water Waves}
+
+\orientador{Prof.\ Dr.} 
+           {Ricardo}{Fabbri} 
+           {Instituto Politécnico -- UERJ}
+
+%-----------------------------------------------------------------------
+% Titulacao (Doutor, Mestre, Bacharel, Licenciado) e Curso
+%-----------------------------------------------------------------------
+
+\grau{Graduado}  
+\curso{Engenharia de Computação} 
+\areadeconcentracao{}
+
+%-----------------------------------------------------------------------
+% Informacoes adicionais (local, data e paginas)
+%-----------------------------------------------------------------------
+
+\local{Nova Friburgo} 
+\data{02}{09}{2017} 
+
+% *****************************************************************************
+% *****************************************************************************
+% Configurações de aparência do PDF final
+% *****************************************************************************
+% *****************************************************************************
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+\definecolor{apricot}{RGB}{251,206,177}
+
+% informações do PDF
+\hypersetup{
+  %backref=true,
+  %pagebackref=true,
+  %bookmarks=true,                  % show bookmarks bar?
+  unicode=false,
+  pdftitle={\UERJtitulo},
+  pdfauthor={\UERJautor},
+  pdfsubject={\UERJpreambulo},
+  pdfkeywords={PALAVRAS}{CHAVES}{\chaveA}{\chaveB}{\chaveC}{\chaveD},
+  pdfproducer={\packagename}, % producer of the document
+  pdfcreator={\UERJautor},
+  colorlinks=true,                  % false: boxed links; true: colored links
+  linkcolor=blue,                   % color of internal links blue
+  citecolor=red,                    % color of links to bibliography blue
+  filecolor=magenta,                % color of file links magenta
+  urlcolor=green,
+  bookmarksdepth=4
+}
+
+% *****************************************************************************
+% *****************************************************************************
+% Início do documento
+% *****************************************************************************
+% *****************************************************************************
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% *****************************************************************************
+% *****************************************************************************
+
+\begin{document}
+\pagestyle{empty}
+\begin{tikzpicture}[overlay,remember picture]
+    \draw [line width=2pt ]
+        ($ (current page.north west) + (2cm,-2cm) $)
+        rectangle
+        ($ (current page.south east) + (-1cm,1.5cm) $);
+    \draw [line width=1pt]
+        ($ (current page.north west) + (2.1cm,-2.1cm) $)
+        rectangle
+        ($ (current page.south east) + (-1.1cm,1.6cm) $);
+\end{tikzpicture}
+% ----------------------------------------------------------
+% ELEMENTOS PRE-TEXTUAIS
+% ----------------------------------------------------------
+
+\frontmatter
+
+% ----------------------------------------------------------
+% Capa e a folha de rosto
+% ----------------------------------------------------------
+
+\capa
+\pagestyle{empty}
+\begin{tikzpicture}[overlay,remember picture]
+    \draw [line width=2pt ]
+        ($ (current page.north west) + (2cm,-2cm) $)
+        rectangle
+        ($ (current page.south east) + (-1cm,1.5cm) $);
+    \draw [line width=1pt]
+        ($ (current page.north west) + (2.1cm,-2.1cm) $)
+        rectangle
+        ($ (current page.south east) + (-1.1cm,1.6cm) $);
+\end{tikzpicture}
+\folhaderosto* % modelo de folha de rosto para monografia do Inst. Fís. UERJ
+
+% ----------------------------------------------------------
+% Inserir a ficha catalografica
+% ----------------------------------------------------------
+
+%\fichacatalografica{fichacatalografica.pdf}
+
+% ----------------------------------------------------------
+% Folha de aprovacao
+% ----------------------------------------------------------
+
+\begin{folhadeaprovacao}
+  \assinatura{Banca1\par
+  \UERJorientadorinstituicao}
+  \assinatura{Banca2\par
+  \UERJorientadorinstituicao}
+
+\end{folhadeaprovacao}
+
+% ----------------------------------------------------------
+% Dedicatoria
+% ----------------------------------------------------------
+
+%\pretextualchapter{Dedicatória}
+
+%\vfill
+
+% ----------------------------------------------------------
+% Agradecimentos
+% ----------------------------------------------------------
+
+\pretextualchapter{Agradecimentos}
+%
+%À Deus pela minha vida.
+%
+%À minha família por ser minha fortaleza e meu porto.
+%
+%À Anna Cruz por tudo.
+%
+%Ao meu orientador pela dedicação.
+
+% ----------------------------------------------------------
+% Epigrafe
+% ----------------------------------------------------------
+
+\pretextualchapter{}
+
+%  \vfill\
+%  \begin{flushright}
+%    God grant me the serenity to accept the things I cannot change,\\
+%    Courage to change the things I can change,\\
+%     And wisdom to know the difference.\\
+%    \textsl{Reinhold Niebuhr}
+%  \end{flushright}
+
+% ----------------------------------------------------------
+% RESUMO
+% ----------------------------------------------------------
+
+\pretextualchapter{Resumo}
+
+\referencia
+
+%Os vídeos de ondas de água são desafiadores para rastrear e reconstruir devido a alta transparência, 
+%especularidades, baixo contraste e padrões repetitivos, especialmente no
+%cenário de tanques de água. A maioria das abordagens não são especificamente 
+%projetadas para imagens de água, ou são específicas de uma forma que não 
+%generaliza para vários tipos de imagens. Criamos um detector de borda de subpíxel 
+%e um \textit{linker} especificamente para vídeos de água, 
+%aprendendo geometria e topologia em um conjunto de treinamento, para uso em sistemas recentes de 
+%fotogrametria com base em curva 3D. A abordagem, no entanto, generaliza à criação de 
+%detectores de \emph{features} geométricas específicas para uma série de aplicações adicionais.
+%No cenário geral -- sem textura abundante, 
+%curvas e superfícies seguindo modelos específicos ou limitando a complexidade da
+%cena -- a 
+%reconstrução 3D geralmente produz nuvens pontuais não organizadas, malhas ou representações de voxel, 
+%com algumas técnicas recentes produzindo nuvens desorganizadas de fragmentos de curva 3D. 
+%Essas representações baseadas em curva são ideais para o processamento de imagens 
+%de tanques de água, onde nenhum outro padrão, além de curvas, abundam.
+%O rastreador subpíxel de características de curva e suas transições topológicas desejáveis são 
+%treinados e validados em um extenso conjunto de dados de curvas marcadas à mão
+%que desenvolvemos para este projeto. Construímos um modelo recente de aprendizado de baixo nível, explorando desafios na 
+%interface de aprendizagem de máquina e geometria.
+
+A partir dos anos 2000, a área de reconstrução 3D vem sido amplamente explorada. No início, sensores de alcance, tanto aéreos quanto terrestres, eram empregados em diferentes aplicações, devido à facilidade de manuseio e ao baixo custo. Porém, constantes melhorias na tecnologia, sobretudo, nos {\it hardwares} e {\it softwares} no âmbito da reconstrução, fizeram com que hoje, quase duas décadas depois, novas técnicas surgissem.
+\paragraph{}Muitos cientistas que utilizavam a fotogrametria converteram seus esforços na área dos sensores à laser. Pois além de executarem uma reconstrução mais rápida, possuem uma altíssima acurácia, compensando seu alto custo inicial. Isto dificultou e desacelerou o processo de descoberta de novos algoritmos e métodos na área da fotogrametria. 
+\paragraph{}Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o  {\it Structure of Motion} ({\it SfM}), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
+\paragraph{} ABORDAR O SFM, SIFT E CMVS (POUCO) <<< ?????
+\paragraph{}Com uma combinação de algoritmos, com o {\it SfM}, junto com o SIFT ({\it }) e o CMVS ({\it }), é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}.
+\paragraph{}O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em cap�tulos; O Cap�tulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos � favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os
+resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
+\paragraph{} ABORDAR OS "TODO'S" DO HANGOUTS
+
+\imprimirchaves
+
+% ----------------------------------------------------------
+% Abstract
+% ----------------------------------------------------------
+
+\pretextualchapter{Abstract}
+
+\reference
+
+%Water wave videos are challenging to track and reconstruct due to high transparency,
+%specularities, low contrast, and repetitive patterns, specially in the
+%scenario of water tanks. Most approaches are not specifically
+%engineered for water images, or are specific in a way that does not
+%generalize for multiple types of images.  We have engineered a subpixel
+%curve edge detector and linker specifically for water videos by
+%learning geometry and topology on a sample training set, for use in recent 3D curve-based
+%photogrammetry systems. The approach, however, generalizes to crafting specific
+%geometric feature detectors for a number of additional applications.
+%In the general setting -- without abundant texture,
+%curves and surfaces following specific models or limiting scene complexity -- 3D
+%reconstruction usually produces unorganized point clouds, meshes, or voxel
+%representations, with some recent techniques producing unorganized clouds of 3D curve
+%fragments. These curve-based representations turn out to be a perfect fit for processing
+%water tank images, where no other feature but curves abound.
+%The subpixel curve-feature tracker and its desirable topological transitions are trained
+%and validated on an extensive dataset of hand-marked curves we engineered for
+%this project. We built on a recent low-level learning model, exploring
+%challenges in the interface of machine learning and geometry.
+
+
+\printkeys
+
+% ----------------------------------------------------------
+% Listas de ilustrações e tabelas
+% ----------------------------------------------------------
+
+\listadefiguras
+%\listadetabelas
+
+% ----------------------------------------------------------
+% Outras listas
+% ----------------------------------------------------------
+
+%\listadealgoritmos
+
+% ----------------------------------------------------------
+% Lista de abreviaturas e siglas
+% ----------------------------------------------------------
+
+%\pretextualchapter{Lista de abreviaturas e siglas}
+
+% \abreviatura{ABNT}{Associação Brasileira de Normas Técnicas}
+
+% ----------------------------------------------------------
+% Lista de simbolos
+% ----------------------------------------------------------
+
+%\pretextualchapter{Lista de símbolos}
+
+% \simbolo{\lambda_i}{i-ésimo autovalor}
+
+% ----------------------------------------------------------
+% Sumario
+% ----------------------------------------------------------
+
+\sumario
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+
+\mainmatter
+
+%\input{intro}
+%\input{cfragextract}
+%\input{learningcurves}
+%\input{datasets}
+%\input{experiments}
+%\input{conclusion}
+
+% ----------------------------------------------------------
+% ELEMENTOS POS-TEXTUAIS
+% ----------------------------------------------------------
+
+\backmatter
+
+% ----------------------------------------------------------
+% Referencias
+% ----------------------------------------------------------
+
+%\citeoption{bibliografia}
+\bibliography{rf-multiview,personal,Kimia,indexing,vision,categorization,edge,recognition,segmentation,edge-linking,proceedings}
+
+% ----------------------------------------------------------
+% Glossario
+% ----------------------------------------------------------
+
+%\glossario
+%======================================================================================
+%\postextualchapter*{Glossário}
+%======================================================================================
+
+%\definicao{bit}{A menor unidade de informação computacional, podendo assumir os valores 0 ou 1}
+
+% ----------------------------------------------------------
+% Apendices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\appendix
+
+%======================================================================================
+%\postextualchapter{Primeiro apêndice}
+%======================================================================================
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\annex
+
+%======================================================================================
+\postextualchapter{Vídeos dos tanques de ondas}
+%======================================================================================
+(Os quatro vídeos dos tanques de ondas encontram-se junto deste material gravados em DVD.)
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+\printindex
+
+\end{document}
