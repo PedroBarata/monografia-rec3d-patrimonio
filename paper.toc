@@ -1,2 +1,8 @@
 \select@language {brazil}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {}}\penalty \@M {\bf \uppercase {Anexo} A}\penalty \@M {\normalfont { -- V\IeC {\'\i }deos dos tanques de ondas}} }{9}{section*.1}
+\contentsline {paragraph}{\normalfont \normalsize {}}{5}{section*.2}
+\contentsline {paragraph}{\normalfont \normalsize {}}{5}{section*.4}
+\contentsline {paragraph}{\normalfont \normalsize {}}{5}{section*.6}
+\contentsline {paragraph}{\normalfont \normalsize {}}{5}{section*.8}
+\contentsline {paragraph}{\normalfont \normalsize {}}{5}{section*.10}
+\contentsline {paragraph}{\normalfont \normalsize {}}{6}{section*.12}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {}}\penalty \@M {\bf \uppercase {Anexo} A}\penalty \@M {\normalfont { -- V\IeC {\'\i }deos dos tanques de ondas}} }{10}{section*.13}

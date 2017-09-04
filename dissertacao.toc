@@ -1,17 +1,17 @@
 \select@language {brazil}
 \contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Introdu\IeC {\c c}\IeC {\~a}o}} }{9}{section*.2}
 \contentsline {section}{\numberline {0.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o e Justificativa}}{9}{section*.3}
-\contentsline {paragraph}{\normalfont \normalsize {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{10}{section*.5}
-\contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries {Objetivos}}{11}{section*.6}
-\contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{12}{section*.7}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Pontos de Interesse}} }{13}{chapter.1}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{14}{chapter.2}
-\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{14}{section*.8}
-\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {hpmvs}}{14}{section*.9}
-\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{14}{section*.10}
-\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {mve}}{14}{section*.11}
-\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {falar sobre o mve...}}{14}{section*.12}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{15}{chapter.3}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{16}{chapter.4}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{17}{chapter.5}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{18}{section*.14}
+\contentsline {subsection}{\numberline {0.1.1}\normalfont \normalsize \uline {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{11}{section*.8}
+\contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries {Objetivos}}{13}{section*.10}
+\contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{14}{section*.11}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Pontos de Interesse}} }{15}{chapter.1}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{16}{chapter.2}
+\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{16}{section*.12}
+\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {hpmvs}}{16}{section*.13}
+\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{16}{section*.14}
+\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {mve}}{16}{section*.15}
+\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {falar sobre o mve...}}{16}{section*.16}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{17}{chapter.3}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{18}{chapter.4}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{19}{chapter.5}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{20}{section*.18}
