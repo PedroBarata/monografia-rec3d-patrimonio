@@ -1,7 +1,7 @@
 \select@language {brazil}
 \contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Introdu\IeC {\c c}\IeC {\~a}o}} }{9}{section*.2}
 \contentsline {section}{\numberline {0.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o e Justificativa}}{9}{section*.3}
-\contentsline {subsection}{\numberline {0.1.1}\normalfont \normalsize \uline {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{11}{section*.8}
+\contentsline {subsection}{\numberline {0.1.1}\normalfont \normalsize \uline {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{12}{section*.7}
 \contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries {Objetivos}}{13}{section*.10}
 \contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{14}{section*.11}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Pontos de Interesse}} }{15}{chapter.1}
