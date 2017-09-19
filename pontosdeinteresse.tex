@@ -2,9 +2,20 @@
 %======================================================================================
 %
 A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} (\it{SfM}). Tem como base a utilização de pontos de interesse
-(\it features), que são pontos em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
+(\it features), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
 
-\section {SIFT - Scale-invariant feature transform}
+\section {{\it SIFT - Scale Invariant Feature Transform}}
+
+Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
+O algoritmo pode ser dividido em quatro etapas, das quais:
+\begin{itemize}
+	\item{Scale-space Extrema Detection}
+	\item{Keypoint Localization}
+	\item{Orientation Assignment}
+	\item{Keypoint Descriptor}
+	\item{Keypoint Matching}
+\end{itemize}
+
 %No presente trabalho, nos concentramos na configuração do tanque de onda
 %oceânica descrita na Seção~\ref{sec:setup}, composta por quatro vídeos
 %\emph{Full HD} tirados de diferentes pontos de vista em widebaseline. Cada vídeo tem cerca de 300 MB de
