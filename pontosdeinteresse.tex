@@ -17,6 +17,55 @@ O algoritmo pode ser dividido em cinco etapas, das quais:
 	\item{Combinação de pontos chaves - {\it Keypoint Matching}}
 \end{itemize}
 
+
+\subsection{Deteccão de espaço de escala Extrema}
+
+% From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
+
+Em casos com cantos pequenos, a detecção funciona bem. Porém, raramente utilizaremos a mesma janela para detectar pontos chaves em imagens com diferentes escalas, pois utilizamos imagens grandes e, consequentemente, cantos grandes. Para isso, precisamos de janelas grandes também. Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano (Laplacian of Gaussian "{\it LoG}"). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o {\it kernel} gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um {\it kernel} gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto chave em potencial, com o par $(x,y)$ na escala $\sigma$.
+
+% \begin{equation}
+% LoG(x,y) = - \frac{1}{\pi \sigma ^4 }\left [ 1 - \frac{x^2+y^2}{2 \sigma ^2} \right ]e^{- \frac{x^2+y^2}{2 \sigma ^2}} 
+% \end{equation}
+
+Porém, como o LoG é um pouco custoso, computacionalmente. O SIFT utiliza um algoritmo aproximado do LoG, o DoG (Diferença de Gaussianos - {\it Difference of Gaussians}). O DoG é a diferença de um filtro Gaussiano de uma imagem, com dois valores diferentes de escala $\sigma$. 
+Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{figs/lena.jpg}(a)
+	\includegraphics[width=0.45\linewidth]{figs/lenaSigma1.png}(b)
+	\includegraphics[width=0.45\linewidth]{figs/lenaSigma2.png}(c)
+ 	\includegraphics[width=0.45\linewidth]{figs/lenaDoG.png} (d)
+	\caption{%
+	É aplicado um filtro gaussiano na imagem original (a), com $\sigma$ = 1, tendo como resultado a imagem (b).
+	Um outro filtro gaussiano é usado, porém, neste caso, o $\sigma$ = 2 (c). Após isso, subtrai-se (b) de (c), obtendo 
+	o filtro DoG (d).
+	}\label{fig:lenadog}
+\end{figure}
+
+
+
+No caso, as funções ficariam da seguinte forma: 
+
+\begin{equation}
+	h_\sigma(u,v) = \frac{1}{2 \pi \sigma ^2} e^{-\frac{u^2+u^2}{2 \sigma ^2}}
+	\label{eq:gaussiano}
+\end{equation}
+
+\begin{equation}
+\triangledown^2	h_\sigma(u,v)
+	\label{eq:LoG}
+\end{equation}
+
+\begin{equation}
+	\frac{\partial}{\partial x}h_\sigma(u,v)
+	\label{eq:DoG}
+\end{equation}
+
+
+Onde \ref{eq:gaussiano} é a função padrão do operador gaussiano, a equação \ref{eq:LoG} é o operador LoG,  \ref{eq:DoG} é o operador DoG e $\triangledown^2$ é o operador Laplaciano.
+
 %No presente trabalho, nos concentramos na configuração do tanque de onda
 %oceânica descrita na Seção~\ref{sec:setup}, composta por quatro vídeos
 %\emph{Full HD} tirados de diferentes pontos de vista em widebaseline. Cada vídeo tem cerca de 300 MB de
