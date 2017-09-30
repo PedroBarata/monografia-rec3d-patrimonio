@@ -4,13 +4,16 @@
 \BOOKMARK [1][-]{section*.10}{Objetivos}{section*.2}% 4
 \BOOKMARK [1][-]{section*.11}{Organiza\347\343o deste manuscrito}{section*.2}% 5
 \BOOKMARK [0][-]{chapter.1}{Pontos de Interesse }{}% 6
-\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 7
-\BOOKMARK [1][-]{section*.12}{Introdu\347\343o}{chapter.2}% 8
-\BOOKMARK [1][-]{section*.13}{HPMVS}{chapter.2}% 9
-\BOOKMARK [2][-]{section*.14}{falar sobre o hpmvs...}{section*.13}% 10
-\BOOKMARK [1][-]{section*.15}{MVE}{chapter.2}% 11
-\BOOKMARK [2][-]{section*.16}{falar sobre o mve...}{section*.15}% 12
-\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 13
-\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 14
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 15
-\BOOKMARK [0][-]{section*.18}{Conclus\343o }{}% 16
+\BOOKMARK [1][-]{section*.12}{SIFT - Scale Invariant Feature Transform}{chapter.1}% 7
+\BOOKMARK [2][-]{section*.13}{Detecc\343o de espa\347o-escala extremos}{section*.12}% 8
+\BOOKMARK [2][-]{section*.16}{Localiza\347\343o de pontos chaves}{section*.12}% 9
+\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 10
+\BOOKMARK [1][-]{section*.17}{Introdu\347\343o}{chapter.2}% 11
+\BOOKMARK [1][-]{section*.18}{HPMVS}{chapter.2}% 12
+\BOOKMARK [2][-]{section*.19}{falar sobre o hpmvs...}{section*.18}% 13
+\BOOKMARK [1][-]{section*.20}{MVE}{chapter.2}% 14
+\BOOKMARK [2][-]{section*.21}{falar sobre o mve...}{section*.20}% 15
+\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 16
+\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 17
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 18
+\BOOKMARK [0][-]{section*.23}{Conclus\343o }{}% 19

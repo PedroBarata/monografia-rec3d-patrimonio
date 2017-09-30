@@ -1,8 +1,8 @@
 \chapter{Pontos de Interesse}\label{sec:pontosdeinteresse}
 %======================================================================================
 %
-A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} (\it{SfM}). Tem como base a utilização de pontos de interesse
-(\it features), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
+A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} ({\it SfM}). Tem como base a utilização de pontos de interesse
+({\it features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
 
 \section {{\it SIFT - Scale Invariant Feature Transform}}
 
@@ -22,7 +22,7 @@ O algoritmo pode ser dividido em cinco etapas, das quais:
 
 % From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
 
-Em casos com cantos pequenos, a detecção funciona bem. Porém, raramente utilizaremos a mesma janela para detectar pontos chaves em imagens com diferentes escalas, pois utilizamos imagens grandes e, consequentemente, cantos grandes. Para isso, precisamos de janelas grandes também. Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano (Laplacian of Gaussian "{\it LoG}"). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o núcleo gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto chave em potencial, com o par $(x,y)$ na escala $\sigma$.
+Em casos com cantos pequenos, a detecção funciona bem. Porém, raramente utilizaremos a mesma janela para detectar pontos chaves em imagens com diferentes escalas, pois utilizamos imagens grandes e, consequentemente, cantos grandes. Para isso, precisamos de janelas grandes também. Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano ({\it Laplacian of Gaussian} --  LoG). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o núcleo gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto chave em potencial, com o par $(x,y)$ na escala $\sigma$.
 
 % \begin{equation}
 % LoG(x,y) = - \frac{1}{\pi \sigma ^4 }\left [ 1 - \frac{x^2+y^2}{2 \sigma ^2} \right ]e^{- \frac{x^2+y^2}{2 \sigma ^2}} 
@@ -44,37 +44,36 @@ Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
 	}\label{fig:lenadog}
 \end{figure}
 
-Uma vez que o Dog é aplicado, as iamgens são utilizadas com o espaço e escala extremos. Por exemplo, na imagem \ref{fig:extrema}, um pixel é comparado com seus 8 vizinhos, assim como comparado com os 9 pixels na próxima escala e os 9 pixels na escala anterior. Se esse pixel é um local extremo, ele é um ponto chave em potencial. Isto é, este ponto chave é melhor representado nesta escala.
+Uma vez que o DoG é aplicado, as iamgens são utilizadas com o espaço e escala extremos. Por exemplo, na imagem \ref{fig:extrema}, um pixel é comparado com seus 8 vizinhos, assim como comparado com os 9 pixels na próxima escala e os 9 pixels na escala anterior. Se esse pixel é um local extremo, ele é um ponto chave em potencial. Isto é, este ponto chave é melhor representado nesta escala.
 
 \begin{figure} [!h]
 	\centering
 	\includegraphics[width=0.45\linewidth]{figs/sift_local_extrema.jpg}
 	\caption{%
-	Exemplo de funcionamento de deteccão de espaço de escala extrema
+	Exemplo de funcionamento de deteccão de espaço-escala extrema
 	}\label{fig:extrema}
 \end{figure}
 
 No caso, as funções ficariam da seguinte forma: 
 
 \begin{equation}
+\label{eq:gaussiano}
 	g_\sigma(x) = \frac{1}{2 \pi \sigma ^2} e^{-\frac{1}{2} \frac{x^T x}{\sigma ^2}}
-	\label{eq:gaussiano}
 \end{equation}
 
 \begin{equation}
-	I_\sigma = g_\sigma * I, \sigma >= 0
-
 \label{eq:gaussianScaleSpace}
+	I_\sigma = g_\sigma * I, \sigma >= 0
 \end{equation}
 
 \begin{equation}
-\triangledown^2	g_\sigma(x)
-	\label{eq:LoG}
+\label{eq:LoG}
+	\triangledown^2	g_\sigma(x)
 \end{equation}
 
 \begin{equation}
+\label{eq:DoG}
 	DoG_\sigma(o,s) = I_\sigma(o,s+1) - I_\sigma(o,s)
-	\label{eq:DoG}
 \end{equation}
 
 
@@ -94,20 +93,21 @@ Picos que são pequenos, na maior parte das vezes são gerados a partir de ruíd
 
 %Eliminating edge responses
 
-Para eliminar respostas em bordas, normalmente os picos mais rasos ou horizontais, são gerados por bordas e não possuem características estáveis, portanto estes picos precisam ser removidos. Para isso, dado um pico (x,y, $\sigma$), o algoritmo avalia a matriz Hessiana (x,y) do DoG na escala $\sigma$. Então é computado um valor para esta equação (\ref{eq:hessianaDoG}):
+%It turns out that the ratio of the two eigenvalues, say {\displaystyle \alpha } \alpha  is the larger one, and {\displaystyle \beta } \beta  the smaller one, with ratio {\displaystyle r=\alpha /\beta } r=\alpha /\beta 
+
+Para eliminar respostas em bordas, normalmente os picos mais rasos ou horizontais, são gerados por bordas e não possuem características estáveis, portanto estes picos precisam ser removidos. Para isso, dado um pico (x, y, $\sigma$), o algoritmo avalia a matriz Hessiana (x,y) do DoG na escala $\sigma$. Então é computado um valor para esta equação (\ref{eq:hessianaDoG}):
 
 \begin{equation}
-	v = \frac{( L_p \space D(x,y,\sigma))^2}{Det \space D(x,y,\sigma)}
+	v = \frac{( T_r \space D(x,y,\sigma))^2}{Det \space D(x,y,\sigma)}
 	\label{eq:hessianaDoG}
 \end{equation}
 
-Onde,
-
-D = \begin{bmatrix}
+Onde, Tr é o traço, ou seja, $T_r(H) = D_{xx} + D_{yy}$ e a matriz D é do tipo
+\[D = \begin{bmatrix}
 	\frac{\partial ^2 DoG}{\partial x^2} & \frac{\partial ^2 DoG}{\partial x \partial y} \\ 
 	\frac{\partial ^2 DoG}{\partial x \partial y} & \frac{\partial ^2 DoG}{\partial y^2} 
 \end{bmatrix}
- 
+\]
 No caso, v possui um valor mínimo (igual a 4) quando os autovalores da Jacobiana são iguais (pico curvado) e aumentam à medida que um dos autovalores aumenta e os outros permanecem baixos. Os picos são retidos se $v  < \frac{(t_e+1)(t_e+1)}{t_e}$ , onde $t_e$ é o limite da borda. 
 
 % This score has a minimum (equal to 4) when both eigenvalues of the Jacobian are equal (curved peak) and increases as one of the eigenvalues grows and the other stays small. Peaks are retained if the score is below the quantity (te+1)(te+1)/te(te+1)(te+1)/te, where tete is the edge threshold. Notice that this quantity has a minimum equal to 4 when te=1te=1 and grows thereafter. Therefore the range of the edge threshold is [1,∞)[1,∞).
