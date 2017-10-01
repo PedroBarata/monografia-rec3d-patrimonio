@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  1 OCT 2017 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  1 OCT 2017 17:47
 entering extended mode
 **./dissertacao.tex
 (dissertacao.tex
@@ -1911,13 +1911,38 @@ Package babel Info: Redefining portuges shorthand "|
 [20 <./figs/histogramaOrientado.png> <./figs/descritorKeypoint.png>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 165.
-)
-(denserecon.tex
+
+
+LaTeX Warning: Reference `fig:triangulacao' on page 21 undefined on input line 
+169.
+
+<figs/triangulacao.png, id=424, 392.96812pt x 316.93407pt>
+File: figs/triangulacao.png Graphic file (type png)
+
+<use figs/triangulacao.png>
+Package pdftex.def Info: figs/triangulacao.png used on input line 173.
+(pdftex.def)             Requested size: 204.85846pt x 165.22255pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 183.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 183.
+ [21 <./figs/triangulacao.png>]
+
+LaTeX Warning: Reference `fig:triangulacaoErro' on page 22 undefined on input l
+ine 183.
+
+<figs/triangulacaoErro.png, id=433, 564.60938pt x 362.10281pt>
+File: figs/triangulacaoErro.png Graphic file (type png)
+
+<use figs/triangulacaoErro.png>
+Package pdftex.def Info: figs/triangulacaoErro.png used on input line 187.
+(pdftex.def)             Requested size: 204.85846pt x 131.3846pt.
+) (denserecon.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [21]
+ [22 <./figs/triangulacaoErro.png>]
  2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -1952,7 +1977,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [22
+ [23
 
 ]
  3.
@@ -1967,7 +1992,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [23
+ [24
 
 ]
  4.
@@ -1982,7 +2007,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [24
+ [25
 
 ]
  5.
@@ -1997,7 +2022,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [25
+ [26
 
 ]
 Package babel Info: Redefining portuges shorthand "|
@@ -2019,7 +2044,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 451.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 451.
-[26
+[27
 
 ]
 Package babel Info: Redefining portuges shorthand "|
@@ -2029,38 +2054,53 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 451.
  (dissertacao.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 451.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 451.
-Package rerunfilecheck Info: File `dissertacao.out' has not changed.
-(rerunfilecheck)             Checksum: AD12F6372E027A44832F3EDE4CFD943B;1585.
 
+
+Package rerunfilecheck Warning: File `dissertacao.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `dissertacao.out':
+(rerunfilecheck)             Before: AD12F6372E027A44832F3EDE4CFD943B;1585
+(rerunfilecheck)             After:  D1086D0EEB94BD3CD2249DA9CF8E7FAD;1585.
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 451.
  ) 
 Here is how much of TeX's memory you used:
- 20797 strings out of 493323
- 371148 string characters out of 3139061
+ 20814 strings out of 493323
+ 371509 string characters out of 3139061
  461922 words of memory out of 3000000
- 23776 multiletter control sequences out of 15000+200000
+ 23786 multiletter control sequences out of 15000+200000
  10641 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,10n,54p,1363b,480s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on dissertacao.pdf (27 pages, 11314077 bytes).
+pdfTeX warning (dest): name{section*.24} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.23} has been referenced but does not exist
+, replaced by a fixed one
+
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on dissertacao.pdf (28 pages, 11379105 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 533 PDF objects out of 1000 (max. 8388607)
+ 94 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

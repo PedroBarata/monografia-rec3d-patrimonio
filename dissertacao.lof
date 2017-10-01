@@ -12,3 +12,5 @@
 \contentsline {figure}{\numberline {Figura\hfill 7 - }{\ignorespaces Exemplo de funcionamento de detecc\IeC {\~a}o de espa\IeC {\c c}o-escala extrema \relax }}{18}{figure.caption.15}
 \contentsline {figure}{\numberline {Figura\hfill 8 - }{\ignorespaces Exemplo do resultado obtido do histograma orientado \relax }}{20}{figure.caption.18}
 \contentsline {figure}{\numberline {Figura\hfill 9 - }{\ignorespaces Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma regi\IeC {\~a}o 8x8 \relax }}{20}{figure.caption.20}
+\contentsline {figure}{\numberline {Figura\hfill 10 - }{\ignorespaces Uma triangula\IeC {\c c}\IeC {\~a}o utilizando um ponto qualquer, $X_j$. Onde cada c\IeC {\^a}mera $C_1, C_2, C_3$ possui um {\it feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \relax }}{21}{figure.caption.23}
+\contentsline {figure}{\numberline {Figura\hfill 11 - }{\ignorespaces Erro proveniente da reproje\IeC {\c c}\IeC {\~a}o, onde os pontos $x$ e $x'$ est\IeC {\~a}o mais pr\IeC {\'o}ximos das medidas reais da imagem. \relax }}{22}{figure.caption.24}

@@ -163,3 +163,30 @@ Nesse caso, a razão da distância mais próxima para a segunda distância mais 
 Esse método elimina cerca de 90\% de combinações falsas, enquanto descarta apenas cerca de 5\% de combinações corretas.
 
 \section {Triangulação -- {\it Full pairwise image matching}}
+
+Com os pontos de interesse ({\it features}) extraídos, podemos agora fazer a triangulação entre os pontos das imagens.
+
+A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, dado pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do {\it feature} correspondente àquele ponto 3D \ref{fig:triangulacao}.
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
+	\caption{%
+	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um {\it feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
+	}\label{fig:triangulacao}
+\end{figure}
+
+Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem para aumentar a dificuldade da triangulação: ruídos, posição das câmeras, o feixe das projeções não se encontram no mesmo ponto 3D, não se tem informação da projeções nas câmeras, etc. Entretanto, existem diversos algoritmos para resolução de cada um dos problemas enfretados.
+
+Como o foco deste manuscrito está no {\it software} de reconstrução VisualSfM, atentamos apenas ao algoritmo utilizado pelo mesmo. Neste caso, ele utiliza um algoritmo chamado {\it Bundle Adjustment}. 
+
+Este algoritmo é utilizado para minimizar o erro geométrico proveniente da reprojeção da triangulação \ref{fig:triangulacaoErro}. Dentro dele, existe a técnica de resolução de problemas não-lineares chamada Levenberg-Marquardt.
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{figs/triangulacaoErro.png}
+	\caption{%
+	Erro proveniente da reprojeção, onde os pontos $x$ e $x'$ estão mais próximos das medidas reais da imagem. 
+	}\label{fig:triangulacaoErro}
+\end{figure}
+

@@ -12,13 +12,13 @@
 \contentsline {subsection}{\numberline {1.1.4}\normalfont \normalsize \uline {Descritor de pontos-chaves}}{20}{section*.19}
 \contentsline {subsection}{\numberline {1.1.5}\normalfont \normalsize \uline {Combina\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{21}{section*.21}
 \contentsline {section}{\numberline {1.2}\normalfont \normalsize \bfseries {Triangula\IeC {\c c}\IeC {\~a}o -- {\it Full pairwise image matching}}}{21}{section*.22}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{22}{chapter.2}
-\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{22}{section*.23}
-\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {HPMVS}}{22}{section*.24}
-\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{22}{section*.25}
-\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {MVE}}{22}{section*.26}
-\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {falar sobre o mve...}}{22}{section*.27}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{23}{chapter.3}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{24}{chapter.4}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{25}{chapter.5}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{26}{section*.29}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{23}{chapter.2}
+\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{23}{section*.25}
+\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {HPMVS}}{23}{section*.26}
+\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{23}{section*.27}
+\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {MVE}}{23}{section*.28}
+\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {falar sobre o mve...}}{23}{section*.29}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{24}{chapter.3}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{25}{chapter.4}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{26}{chapter.5}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{27}{section*.31}
