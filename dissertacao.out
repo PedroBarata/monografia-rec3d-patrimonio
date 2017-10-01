@@ -4,16 +4,20 @@
 \BOOKMARK [1][-]{section*.10}{Objetivos}{section*.2}% 4
 \BOOKMARK [1][-]{section*.11}{Organiza\347\343o deste manuscrito}{section*.2}% 5
 \BOOKMARK [0][-]{chapter.1}{Pontos de Interesse }{}% 6
-\BOOKMARK [1][-]{section*.12}{SIFT - Scale Invariant Feature Transform}{chapter.1}% 7
-\BOOKMARK [2][-]{section*.13}{Detecc\343o de espa\347o-escala extremos}{section*.12}% 8
-\BOOKMARK [2][-]{section*.16}{Localiza\347\343o de pontos chaves}{section*.12}% 9
-\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 10
-\BOOKMARK [1][-]{section*.17}{Introdu\347\343o}{chapter.2}% 11
-\BOOKMARK [1][-]{section*.18}{HPMVS}{chapter.2}% 12
-\BOOKMARK [2][-]{section*.19}{falar sobre o hpmvs...}{section*.18}% 13
-\BOOKMARK [1][-]{section*.20}{MVE}{chapter.2}% 14
-\BOOKMARK [2][-]{section*.21}{falar sobre o mve...}{section*.20}% 15
-\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 16
-\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 17
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 18
-\BOOKMARK [0][-]{section*.23}{Conclus\343o }{}% 19
+\BOOKMARK [1][-]{section*.12}{ SIFT \205 Scale Invariant Feature Transform}{chapter.1}% 7
+\BOOKMARK [2][-]{section*.13}{Detec\347\343o de espa\347o-escala extremos}{section*.12}% 8
+\BOOKMARK [2][-]{section*.16}{Localiza\347\343o de pontos-chaves}{section*.12}% 9
+\BOOKMARK [2][-]{section*.17}{Atribui\347\343o de orienta\347\343o}{section*.12}% 10
+\BOOKMARK [2][-]{section*.19}{Descritor de pontos-chaves}{section*.12}% 11
+\BOOKMARK [2][-]{section*.21}{Combina\347\343o de pontos-chaves}{section*.12}% 12
+\BOOKMARK [1][-]{section*.22}{Triangula\347\343o \205 Full pairwise image matching}{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 14
+\BOOKMARK [1][-]{section*.23}{Introdu\347\343o}{chapter.2}% 15
+\BOOKMARK [1][-]{section*.24}{HPMVS}{chapter.2}% 16
+\BOOKMARK [2][-]{section*.25}{falar sobre o hpmvs...}{section*.24}% 17
+\BOOKMARK [1][-]{section*.26}{MVE}{chapter.2}% 18
+\BOOKMARK [2][-]{section*.27}{falar sobre o mve...}{section*.26}% 19
+\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 20
+\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 21
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 22
+\BOOKMARK [0][-]{section*.29}{Conclus\343o }{}% 23
