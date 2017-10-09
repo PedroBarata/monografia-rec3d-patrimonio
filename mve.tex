@@ -30,4 +30,11 @@ Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais
 \end{itemize}
 \end{enumerate}
 
+Como não existem muitas opções para algoritmos de SfM, o MVE permite a utilização de {\it softwares} externos como o {\it Bundler} ou o prório {\it VisualSfM}.
+
+Uma vez com o passo do SfM feito, partimos para o MVS. Com os parâmetros de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos algoritmos para a reconstrução densa, o MVE no caso, utiliza um algoritmo próprio, feito por um de seus criadores, Michael Goesele ({\it Multi-View Stereo for Community Photo Collections approach}), que reconstrói um mapa de profundidade para cada visualização. 
+
+Embora abordagens baseadas em mapeamentos de profundidade produzirem uma grande quantidade de redundância, (isso se dá por causa das inúmeras visualizações que são sobrepostas e possuírem partes similares da mesma cena), este algoritmo é altamente escalável para grandes cenas, pois apenas um pequeno conjunto de visualizações vizinhas é necessário para a reconstrução. Outra vantagem da utilização dos mapas de profundidade como representação intermediária é que a geometria é parametrizada em seu domínio natural, e os dados por visualização (como a cor, por exemplo) estão diretamente acessíveis nas imagens.
+
+
 \subsection {falar sobre o mve...}
