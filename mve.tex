@@ -32,9 +32,38 @@ Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais
 
 Como não existem muitas opções para algoritmos de SfM, o MVE permite a utilização de {\it softwares} externos como o {\it Bundler} ou o prório {\it VisualSfM}.
 
-Uma vez com o passo do SfM feito, partimos para o MVS. Com os parâmetros de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos algoritmos para a reconstrução densa, o MVE no caso, utiliza um algoritmo próprio, feito por um de seus criadores, Michael Goesele ({\it Multi-View Stereo for Community Photo Collections approach}), que reconstrói um mapa de profundidade para cada visualização. 
+Uma vez com o passo do SfM feito, partimos para o MVS. Com os parâmetros de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos algoritmos para a reconstrução densa, o MVE no caso, utiliza um algoritmo próprio, feito por um de seus criadores, Michael Goesele ({\it Multi-View Stereo for Community Photo Collections approach}), que reconstrói um mapa de profundidade para cada foto. 
 
-Embora abordagens baseadas em mapeamentos de profundidade produzirem uma grande quantidade de redundância, (isso se dá por causa das inúmeras visualizações que são sobrepostas e possuírem partes similares da mesma cena), este algoritmo é altamente escalável para grandes cenas, pois apenas um pequeno conjunto de visualizações vizinhas é necessário para a reconstrução. Outra vantagem da utilização dos mapas de profundidade como representação intermediária é que a geometria é parametrizada em seu domínio natural, e os dados por visualização (como a cor, por exemplo) estão diretamente acessíveis nas imagens.
+Embora abordagens baseadas em mapeamentos de profundidade produzirem uma grande quantidade de redundância, (isso se dá por causa das inúmeras fotos que são sobrepostas e possuírem partes similares da mesma cena), este algoritmo é altamente escalável para grandes cenas, pois apenas um pequeno conjunto de fotos vizinhas é necessário para a reconstrução. Outra vantagem da utilização dos mapas de profundidade como representação intermediária é que a geometria é parametrizada em seu domínio natural, e os dados por foto (como a cor, por exemplo) estão diretamente acessíveis nas imagens.
 
+A redundância excessiva nos mapas de profundidade pode ser pesado. Não com relação ao armazenamento, mas na questão do processamento computacional exigido nos mapas de profundidade. Porém, esta abordagem foi capaz de produzir uma geometria detalhada e superar o ruído nos mapas de profundidades individuais.
 
-\subsection {falar sobre o mve...}
+\subsection{Guia de reconstrução com o MVE}
+
+Capturing photos: A dataset reconstructs best if a few sim-
+ple rules are observed. First, in order to successfully recon-
+struct a surface region, it must be seen from at least five
+Figure 5: The final surface reconstruction with color (left)
+and shaded (right). Notice how even the engraved text is vis-
+ible in the geometry.
+views. This is a requirement of the MVS algorithm to reli-
+ably triangulate any 3D position. Photos should thus be taken
+with a good amount of overlap. Usually, unless the dataset
+becomes really large, more photos will not hurt quality, but
+there is a tradeoff between quality and performance. As a
+rule of thumb, taking twice as many photos as one might
+think is a good idea. In order for triangulation to work, paral-
+lax is required. The camera should be re-positioned for every
+photo. (This is exactly opposite to how panoramas are cap-
+tured, where parallax in the images must be avoided.) This is
+also important for SfM: Triangulating a feature track with in-
+sufficient parallax results in a small triangulation angle and a
+poorly conditioned 3D position. Figure 6 shows some input
+images of our exemplary dataset.
+
+Tirando fotos: Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
+
+\begin{ìtemize}
+\item{Para que o algoritmo do MVS consiga fazer uma triangulação com qualquer posição 3D, o conjunto de dados terá que ter, no mínimo, cinco fotos.}
+
+\end{itemize}
