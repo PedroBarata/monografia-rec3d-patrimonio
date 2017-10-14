@@ -63,24 +63,28 @@ A redundância excessiva nos mapas de profundidade pode ser pesado. Não com rel
 
 Tirando fotos: Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
 
-\begin{ìtemize}
+\begin{itemize}
+
 \item{Para que o algoritmo do MVS consiga fazer uma triangulação com qualquer posição 3D, o conjunto de dados terá que ter, no mínimo, cinco fotos.}
+
 \item{As fotos devem ser tiradas com uma boa quantidade de sobreposição. A menos que o conjunto de dados se torne muito grande, uma grande quantidade de fotos não prejudicará a qualidade. 
 Mas terá uma compensação do sistema, no que diz respeito à qualidade e desempenho.}
+
 \item{Para a triangulação funcionar, é necessário que tenha o efeito de paralaxe \ref{fig:parallax} (Aparente mudança na posição do objeto). Ou seja, é interessante que o conjunto de imagens seja duplicado.}
+
 \item{A câmera deverá ser reposicionada, de preferência.}
+
 \end{itemize}
 
-\begin{figure} [!h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figs/parallaxA.png}(a)
-	\includegraphics[width=0.45\linewidth]{figs/parallaxB.png}(b)
-	\includegraphics[width=0.45\linewidth]{figs/parallaxC.png}(c)
-	\caption{%
-	Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto.
-	}
-	}\label{fig:parallax}
-\end{figure}
+%\begin{figure} [!h]
+%	\centering
+%	\includegraphics[width=0.45\linewidth]{figs/parallaxA.png}(a)
+%	\includegraphics[width=0.45\linewidth]{figs/parallaxB.png}(b)
+%	\includegraphics[width=0.45\linewidth]{figs/parallaxC.png}(c)
+%	\caption{%
+%	Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto.
+%	}\label{fig:parallax}
+%\end{figure}
 
 % Creating a scene: A view is a container that contains per-
 % viewport data (such as images, depth maps and other data).
@@ -102,7 +106,7 @@ Tecnicamente, a cena é criada como um diretório no sistema de arquivos (com o 
 
 Criar uma nova cena, criará apenas o diretório ({\it views}) vazio. A importação de fotos criará arquivos .MVE para cada foto. Esse processo importará meta-dados provenienteas das imagens ({\it tags} EXIF), que é necessário para estimar a distância focal para cada foto. Caso estes meta-dados não estejam disponíveis, uma distância focal padrão é assumida pelo sistema, porém se essa distância adotada for uma péssima suposição, com relação ao conjunto de dados utilizado, pode vir a acontecer erros no SfM.
 
-//-----------------------------------------------------------FOTO UMVE AQUI-------------------------------------------------------------//
+%//-----------------------------------------------------------FOTO UMVE %AQUI-------------------------------------------------------------//
 
 % SfM reconstruction: The SfM reconstruction can be con-
 % figured and started using UMVE, or the command line tool
@@ -118,4 +122,37 @@ Criar uma nova cena, criará apenas o diretório ({\it views}) vazio. A importa�
 
 Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando ({\it sfmrecon}). A interface guia através da detecção de {\it features}, combinação emparelhada ({\it pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução.
 
-//---------------------------------------FOTO RECONSTRUÇÃO UMVE---------------------------------------------------------------------//
+%//---------------------------------------FOTO RECONSTRUÇÃO %UMVE---------------------------------------------------------------------//
+
+%
+%MVS reconstruction: Given images with camera parameters,
+%dense geometry is reconstructed using MVS. This can
+%be done with either UMVE or the command line tool dmrecon.
+%The most important parameter is the resolution level at
+%which depth maps are reconstructed. A level of 0, or L0, reconstructs
+%at the original image size, L1 corresponds to half
+%the size (quarter the number of pixels), and so one. Looking
+%at the resolution of recent digital cameras, a full-size L0
+%reconstruction is rarely useful as finding dense correspondences
+%gets more difficult, often leading to sparser depth
+%maps at much higher computational cost. Using smaller images
+%(we often use L2), the process is faster and depth maps
+%become more complete. See Figure 9 for a depth map computed
+%at L2.
+
+Múltiplas visões estéreo -- {\it Multi-View Stereo} (MVS): Usando as imagens junto com os parâmetros obtidos das câmeras, é possível reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a interface gráfica (UMVE) ou por linha de comando ({\it dmrecon}).
+
+O parâmetro mais importante é o nível de resolução em que os mapas de profundidade são reconstruídos: Caso seja nível 0 (ou L0), a reconstrução é feita usando o tamanho original das imagens. Se for nível 1 (ou L1), a reconstrução corresponde a metade do tamanho (um quarto dos números de pixels), e assim por diante.
+
+Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois geram mapas de profundidade mais dispersos com um custo computacional elevado, o que acarreta em dificuldades para encontrar as correspondências densas das imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando mapas de profundidades completos, já que utiliza imagens menores.
+
+%COLOCAR IMAGEM DE UMA L2 AQUI%
+
+Reconstrução de superfícies -- {Surface Reconstruction}: Utiliza-se a linha de comando {\it scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução da superfície FSSR. %COLOCAR REFERENCIA FSSR%  
+A seguir, as ferramentas FSSR calculam uma representação volumétrica de escala múltipla a partir dos pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma malha final é extraída. Esta malha pode parecer desordenada devido à regiões não confiáveis e à componentes isolados, oriundos de medidas imprecisas. Logo, a malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis da superfície. 
+
+%COLOCAR FOTO DENSE RECON%
+
+Experiência com o MVE: A utilização do {\it software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados {\it EXIF} de cada imagem, por exemplo.
+
+Porém, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras ({\it EXIF}) e das imagens e, como as imagens usadas são, tecnicamente, vídeos cortados em determinados {\it frames}, não é possível obter a informação das câmeras, logo o {\it software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas. 
