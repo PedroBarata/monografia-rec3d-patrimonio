@@ -3,21 +3,22 @@
 \BOOKMARK [2][-]{section*.7}{O Jardim do N\352go, Nova Friburgo}{section*.3}% 3
 \BOOKMARK [1][-]{section*.10}{Objetivos}{section*.2}% 4
 \BOOKMARK [1][-]{section*.11}{Organiza\347\343o deste manuscrito}{section*.2}% 5
-\BOOKMARK [0][-]{chapter.1}{Pontos de Interesse }{}% 6
-\BOOKMARK [1][-]{section*.12}{ SIFT \205 Scale Invariant Feature Transform}{chapter.1}% 7
-\BOOKMARK [2][-]{section*.13}{Detec\347\343o de espa\347o-escala extremos}{section*.12}% 8
-\BOOKMARK [2][-]{section*.16}{Localiza\347\343o de pontos-chaves}{section*.12}% 9
-\BOOKMARK [2][-]{section*.17}{Atribui\347\343o de orienta\347\343o}{section*.12}% 10
-\BOOKMARK [2][-]{section*.19}{Descritor de pontos-chaves}{section*.12}% 11
-\BOOKMARK [2][-]{section*.21}{Combina\347\343o de pontos-chaves}{section*.12}% 12
-\BOOKMARK [1][-]{section*.22}{Triangula\347\343o \205 Full pairwise image matching}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 14
-\BOOKMARK [1][-]{section*.25}{Introdu\347\343o}{chapter.2}% 15
-\BOOKMARK [1][-]{section*.26}{HPMVS}{chapter.2}% 16
-\BOOKMARK [2][-]{section*.27}{falar sobre o hpmvs...}{section*.26}% 17
-\BOOKMARK [1][-]{section*.28}{MVE}{chapter.2}% 18
-\BOOKMARK [2][-]{section*.30}{Guia de reconstru\347\343o com o MVE}{section*.28}% 19
-\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 20
-\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 21
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 22
-\BOOKMARK [0][-]{section*.44}{Conclus\343o }{}% 23
+\BOOKMARK [1][-]{section*.12}{Laser}{section*.2}% 6
+\BOOKMARK [0][-]{chapter.1}{Pontos de Interesse }{}% 7
+\BOOKMARK [1][-]{section*.15}{ SIFT \205 Scale Invariant Feature Transform}{chapter.1}% 8
+\BOOKMARK [2][-]{section*.16}{Detec\347\343o de espa\347o-escala extremos}{section*.15}% 9
+\BOOKMARK [2][-]{section*.19}{Localiza\347\343o de pontos-chaves}{section*.15}% 10
+\BOOKMARK [2][-]{section*.20}{Atribui\347\343o de orienta\347\343o}{section*.15}% 11
+\BOOKMARK [2][-]{section*.22}{Descritor de pontos-chaves}{section*.15}% 12
+\BOOKMARK [2][-]{section*.24}{Combina\347\343o de pontos-chaves}{section*.15}% 13
+\BOOKMARK [1][-]{section*.25}{Triangula\347\343o \205 Full pairwise image matching}{chapter.1}% 14
+\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 15
+\BOOKMARK [1][-]{section*.28}{Introdu\347\343o}{chapter.2}% 16
+\BOOKMARK [1][-]{section*.29}{HPMVS}{chapter.2}% 17
+\BOOKMARK [2][-]{section*.30}{falar sobre o hpmvs...}{section*.29}% 18
+\BOOKMARK [1][-]{section*.31}{MVE}{chapter.2}% 19
+\BOOKMARK [2][-]{section*.33}{Guia de reconstru\347\343o com o MVE}{section*.31}% 20
+\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 21
+\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 22
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 23
+\BOOKMARK [0][-]{section*.47}{Conclus\343o }{}% 24

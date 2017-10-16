@@ -93,77 +93,83 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 5 - }{\ignorespaces A reconstru\IeC {\c c}\IeC {\~a}o usando-se apenas imagens, sem controle de aquisi\IeC {\c c}\IeC {\~a}o, como em um v\IeC {\'\i }deo de um smartphone filmado em torno do objeto, fornece uma nuvem de pontos, que pode ser densificada~\cite  {Noah:Bundler,Noah:Steven:Bundler,Changchang:VisualSFM,Furukawa:Ponce:CVPR2007,Goesele:MVE:2014}, ou atribu\IeC {\'\i }da de curvas~\cite  {Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}, de forma a preservar a resolu\IeC {\c c}\IeC {\~a}o em \IeC {\'a}reas de alto conte\IeC {\'u}do informativo. Tais representa\IeC {\c c}\IeC {\~o}es est\IeC {\~a}o sendo atualmente unificadas na pesquisa da \IeC {\'a}rea. Este projeto prop\IeC {\~o}e explorar os limites da reconstru\IeC {\c c}\IeC {\~a}o 3D usando-se apenas imagens, no contexto de preserva\IeC {\c c}\IeC {\~a}o de patrim\IeC {\^o}nio.\relax }}{14}{figure.caption.9}}
 \@writefile{toc}{\contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries  {Objetivos}}{15}{section*.10}}
 \@writefile{toc}{\contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries  {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{16}{section*.11}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {1}}\penalty \@M {\bf  \uppercase {Pontos de Interesse}} }{17}{chapter.1}}
-\newlabel{sec:pontosdeinteresse}{{1}{17}{Pontos de Interesse}{chapter.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries  { SIFT -- {\it  Scale Invariant Feature Transform}}}{17}{section*.12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}\normalfont \normalsize \uline  {Detec\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o-escala extremos}}{17}{section*.13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 6 - }{\ignorespaces \IeC {\'E} aplicado um filtro gaussiano na imagem original (a), com $\sigma $ = 1, tendo como resultado a imagem (b). Um outro filtro gaussiano \IeC {\'e} usado, por\IeC {\'e}m, neste caso, o $\sigma $ = 2 (c). Ap\IeC {\'o}s isso, subtrai-se (b) de (c), obtendo o filtro DoG (d). \relax }}{18}{figure.caption.14}}
-\newlabel{fig:lenadog}{{6}{18}{É aplicado um filtro gaussiano na imagem original (a), com $\sigma $ = 1, tendo como resultado a imagem (b). Um outro filtro gaussiano é usado, porém, neste caso, o $\sigma $ = 2 (c). Após isso, subtrai-se (b) de (c), obtendo o filtro DoG (d). \relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 7 - }{\ignorespaces Exemplo de funcionamento de detecc\IeC {\~a}o de espa\IeC {\c c}o-escala extrema \relax }}{19}{figure.caption.15}}
-\newlabel{fig:extrema}{{7}{19}{Exemplo de funcionamento de deteccão de espaço-escala extrema \relax }{figure.caption.15}{}}
-\newlabel{eq:gaussiano}{{1}{19}{Detecção de espaço-escala extremos}{equation.1.1.1}{}}
-\newlabel{eq:gaussianScaleSpace}{{2}{19}{Detecção de espaço-escala extremos}{equation.1.1.2}{}}
-\newlabel{eq:LoG}{{3}{19}{Detecção de espaço-escala extremos}{equation.1.1.3}{}}
-\newlabel{eq:DoG}{{4}{19}{Detecção de espaço-escala extremos}{equation.1.1.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}\normalfont \normalsize \uline  {Localiza\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{19}{section*.16}}
-\newlabel{eq:hessianaDoG}{{5}{20}{Localização de pontos-chaves}{equation.1.1.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}\normalfont \normalsize \uline  {Atribui\IeC {\c c}\IeC {\~a}o de orienta\IeC {\c c}\IeC {\~a}o}}{20}{section*.17}}
-\newlabel{eq:magnitudeSIFT}{{6}{20}{Atribuição de orientação}{equation.1.1.6}{}}
-\newlabel{eq:direcaoSIFT}{{7}{21}{Atribuição de orientação}{equation.1.1.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 8 - }{\ignorespaces Exemplo do resultado obtido do histograma orientado \relax }}{21}{figure.caption.18}}
-\newlabel{fig:histogramaOrientado}{{8}{21}{Exemplo do resultado obtido do histograma orientado \relax }{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.4}\normalfont \normalsize \uline  {Descritor de pontos-chaves}}{21}{section*.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 9 - }{\ignorespaces Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma regi\IeC {\~a}o 8x8 \relax }}{21}{figure.caption.20}}
-\newlabel{fig:descritorKeypoint}{{9}{21}{Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma região 8x8 \relax }{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.5}\normalfont \normalsize \uline  {Combina\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{22}{section*.21}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}\normalfont \normalsize \bfseries  {Triangula\IeC {\c c}\IeC {\~a}o -- {\it  Full pairwise image matching}}}{22}{section*.22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 10 - }{\ignorespaces Uma triangula\IeC {\c c}\IeC {\~a}o utilizando um ponto qualquer, $X_j$. Onde cada c\IeC {\^a}mera $C_1, C_2, C_3$ possui um {\it  feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \relax }}{22}{figure.caption.23}}
-\newlabel{fig:triangulacao}{{10}{22}{Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um {\it feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 11 - }{\ignorespaces Erro proveniente da reproje\IeC {\c c}\IeC {\~a}o, onde os pontos $x$ e $x'$ est\IeC {\~a}o mais pr\IeC {\'o}ximos das medidas reais da imagem. \relax }}{23}{figure.caption.24}}
-\newlabel{fig:triangulacaoErro}{{11}{23}{Erro proveniente da reprojeção, onde os pontos $x$ e $x'$ estão mais próximos das medidas reais da imagem. \relax }{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {2}}\penalty \@M {\bf  \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{24}{chapter.2}}
-\newlabel{sec:denserecon}{{2}{24}{Reconstrução densa}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries  {Introdu\IeC {\c c}\IeC {\~a}o}}{24}{section*.25}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries  {HPMVS}}{24}{section*.26}}
-\newlabel{sec:hpmvs}{{2.2}{24}{HPMVS}{section*.26}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline  {falar sobre o hpmvs...}}{24}{section*.27}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries  {MVE}}{24}{section*.28}}
-\newlabel{sec:mve}{{2.3}{24}{MVE}{section*.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 12 - }{\ignorespaces Funcionamento do MVE. Come\IeC {\c c}ando com m\IeC {\'u}ltiplas imagens, t\IeC {\'e}cnicas SfM s\IeC {\~a}o empregadas para recontruir os par\IeC {\^a}metros das c\IeC {\^a}meras e os conjuntos de pontos esparsos. Mapas de profundidade s\IeC {\~a}o computados para cada imagem usando o MVS. Finalmente, uma malha colorida \IeC {\'e} extra\IeC {\'\i }da da uni\IeC {\~a}o de todos os mapas de profundidade usando um algoritmo de aproxima\IeC {\c c}\IeC {\~o}es de reconstru\IeC {\c c}\IeC {\~o}es de superf\IeC {\'\i }cies (FSSR).\relax }}{25}{figure.caption.29}}
-\newlabel{fig:mvepipeline}{{12}{25}{Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).\relax }{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline  {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{25}{section*.30}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 13 - }{\ignorespaces Interface gr\IeC {\'a}fica (UMVE)\relax }}{27}{figure.caption.31}}
-\newlabel{fig:mvesfm}{{13}{27}{Interface gráfica (UMVE)\relax }{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 14 - }{\ignorespaces Reconstru\IeC {\c c}\IeC {\~a}o baseada em nuvem de pontos gerada a partir da reconstru\IeC {\c c}\IeC {\~a}o SfM.\relax }}{27}{figure.caption.32}}
-\newlabel{fig:mvesfm}{{14}{27}{Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 15 - }{\ignorespaces Uma imagem de entrada (\IeC {\`a} esquerda) e sua correspond\IeC {\^e}ncia em mapas de profundidade (\IeC {\`a} direita), onde a parte roxa significa que n\IeC {\~a}o foi encontrada nenhum mapa naquela regi\IeC {\~a}o.\relax }}{28}{figure.caption.33}}
-\newlabel{fig:mvedepth}{{15}{28}{Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.\relax }{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 16 - }{\ignorespaces A figura (a) \IeC {\'e} um exemplo onde a imagem possui dados na extens\IeC {\~a}o {\it  EXIF} (destacado em azul). Ao passo que a figura (b) \IeC {\'e} um frame de um v\IeC {\'\i }deo, que n\IeC {\~a}o possui os dados das c\IeC {\^a}meras (destacado em azul). \relax }}{30}{figure.caption.34}}
-\newlabel{fig:mveexif}{{16}{30}{A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul). \relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 17 - }{\ignorespaces Final da reconstru\IeC {\c c}\IeC {\~a}o via UMVE, percebe-se que alguns pontos n\IeC {\~a}o foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }}{31}{figure.caption.35}}
-\newlabel{fig:UMVEdense}{{17}{31}{Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 18 - }{\ignorespaces Processos dentro do comando {\it  sfmrecon}, onde (a) est\IeC {\~a}o sendo detectadas as {\it  features} do conjunto de imagens. Em (b) est\IeC {\'a} computado o {\it  pairwise matching} e em (c) est\IeC {\'a} no processo do {\it  Bundle Adjustment}, usando condi\IeC {\c c}\IeC {\~o}es-padr\IeC {\~a}o para as c\IeC {\^a}meras. \relax }}{32}{figure.caption.36}}
-\newlabel{fig:passosMVE}{{18}{32}{Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras. \relax }{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 19 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }}{33}{figure.caption.37}}
-\newlabel{fig:MVESfM}{{19}{33}{Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 20 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }}{33}{figure.caption.38}}
-\newlabel{fig:MVEDenseRecon}{{20}{33}{Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 21 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos {\it  scene2pet}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{34}{figure.caption.39}}
-\newlabel{fig:MVEScene2Pet}{{21}{34}{Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3. \relax }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 22 - }{\ignorespaces Progress\IeC {\~a}o do comando {\it  fssrecon}, onde possui o ETA -- {\it  Estimated Time of Arrival}. \relax }}{34}{figure.caption.40}}
-\newlabel{fig:MVEFSSR}{{22}{34}{Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}. \relax }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 23 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando {\it  fssrecon}. \relax }}{35}{figure.caption.41}}
-\newlabel{fig:MVEFSSRMesh}{{23}{35}{Malha com ruídos proveniente do comando {\it fssrecon}. \relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 24 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{35}{figure.caption.42}}
-\newlabel{fig:MVEMeshClean}{{24}{35}{Resultado final, após a remoção dos ruídos da malha. \relax }{figure.caption.42}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {3}}\penalty \@M {\bf  \uppercase {Kinect}} }{36}{chapter.3}}
-\newlabel{sec:kinect}{{3}{36}{Kinect}{chapter.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {4}}\penalty \@M {\bf  \uppercase {VisualSfM}} }{37}{chapter.4}}
-\newlabel{sec:visualsfm}{{4}{37}{VisualSfM}{chapter.4}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {5}}\penalty \@M {\bf  \uppercase {Experimentos}} }{38}{chapter.5}}
-\newlabel{sec:experiments}{{5}{38}{Experimentos}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \numberline {}\penalty \@M {\bf  \uppercase {Conclus\IeC {\~a}o}} }{39}{section*.44}}
-\newlabel{LastPage}{{}{39}{}{page.39}{}}
-\xdef\lastpage@lastpage{39}
-\xdef\lastpage@lastpageHy{39}
+\@writefile{toc}{\contentsline {section}{\numberline {0.4}\normalfont \normalsize \bfseries  {Laser}}{16}{section*.12}}
+\newlabel{sec:laser}{{0.4}{16}{Laser}{section*.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 6 - }{\ignorespaces Exemplo de reconstru\IeC {\c c}\IeC {\~a}o \IeC {\`a} laser utilizando o m\IeC {\'e}todo baseado em volume. \relax }}{17}{figure.caption.13}}
+\newlabel{fig:laservolume}{{6}{17}{Exemplo de reconstrução à laser utilizando o método baseado em volume. \relax }{figure.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {Tabela\hfill 1 - }{\ignorespaces Algumas m\IeC {\'e}tricas do projeto\relax }}{18}{table.caption.14}}
+\newlabel{tab:metricasDavid}{{1}{18}{Algumas métricas do projeto\relax }{table.caption.14}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {1}}\penalty \@M {\bf  \uppercase {Pontos de Interesse}} }{19}{chapter.1}}
+\newlabel{sec:pontosdeinteresse}{{1}{19}{Pontos de Interesse}{chapter.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries  { SIFT -- {\it  Scale Invariant Feature Transform}}}{19}{section*.15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}\normalfont \normalsize \uline  {Detec\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o-escala extremos}}{19}{section*.16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 7 - }{\ignorespaces \IeC {\'E} aplicado um filtro gaussiano na imagem original (a), com $\sigma $ = 1, tendo como resultado a imagem (b). Um outro filtro gaussiano \IeC {\'e} usado, por\IeC {\'e}m, neste caso, o $\sigma $ = 2 (c). Ap\IeC {\'o}s isso, subtrai-se (b) de (c), obtendo o filtro DoG (d). \relax }}{20}{figure.caption.17}}
+\newlabel{fig:lenadog}{{7}{20}{É aplicado um filtro gaussiano na imagem original (a), com $\sigma $ = 1, tendo como resultado a imagem (b). Um outro filtro gaussiano é usado, porém, neste caso, o $\sigma $ = 2 (c). Após isso, subtrai-se (b) de (c), obtendo o filtro DoG (d). \relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 8 - }{\ignorespaces Exemplo de funcionamento de detecc\IeC {\~a}o de espa\IeC {\c c}o-escala extrema \relax }}{21}{figure.caption.18}}
+\newlabel{fig:extrema}{{8}{21}{Exemplo de funcionamento de deteccão de espaço-escala extrema \relax }{figure.caption.18}{}}
+\newlabel{eq:gaussiano}{{1}{21}{Detecção de espaço-escala extremos}{equation.1.1.1}{}}
+\newlabel{eq:gaussianScaleSpace}{{2}{21}{Detecção de espaço-escala extremos}{equation.1.1.2}{}}
+\newlabel{eq:LoG}{{3}{21}{Detecção de espaço-escala extremos}{equation.1.1.3}{}}
+\newlabel{eq:DoG}{{4}{21}{Detecção de espaço-escala extremos}{equation.1.1.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}\normalfont \normalsize \uline  {Localiza\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{21}{section*.19}}
+\newlabel{eq:hessianaDoG}{{5}{22}{Localização de pontos-chaves}{equation.1.1.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}\normalfont \normalsize \uline  {Atribui\IeC {\c c}\IeC {\~a}o de orienta\IeC {\c c}\IeC {\~a}o}}{22}{section*.20}}
+\newlabel{eq:magnitudeSIFT}{{6}{22}{Atribuição de orientação}{equation.1.1.6}{}}
+\newlabel{eq:direcaoSIFT}{{7}{23}{Atribuição de orientação}{equation.1.1.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 9 - }{\ignorespaces Exemplo do resultado obtido do histograma orientado \relax }}{23}{figure.caption.21}}
+\newlabel{fig:histogramaOrientado}{{9}{23}{Exemplo do resultado obtido do histograma orientado \relax }{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.4}\normalfont \normalsize \uline  {Descritor de pontos-chaves}}{23}{section*.22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 10 - }{\ignorespaces Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma regi\IeC {\~a}o 8x8 \relax }}{23}{figure.caption.23}}
+\newlabel{fig:descritorKeypoint}{{10}{23}{Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma região 8x8 \relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.5}\normalfont \normalsize \uline  {Combina\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{24}{section*.24}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}\normalfont \normalsize \bfseries  {Triangula\IeC {\c c}\IeC {\~a}o -- {\it  Full pairwise image matching}}}{24}{section*.25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 11 - }{\ignorespaces Uma triangula\IeC {\c c}\IeC {\~a}o utilizando um ponto qualquer, $X_j$. Onde cada c\IeC {\^a}mera $C_1, C_2, C_3$ possui um {\it  feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \relax }}{24}{figure.caption.26}}
+\newlabel{fig:triangulacao}{{11}{24}{Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um {\it feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 12 - }{\ignorespaces Erro proveniente da reproje\IeC {\c c}\IeC {\~a}o, onde os pontos $x$ e $x'$ est\IeC {\~a}o mais pr\IeC {\'o}ximos das medidas reais da imagem. \relax }}{25}{figure.caption.27}}
+\newlabel{fig:triangulacaoErro}{{12}{25}{Erro proveniente da reprojeção, onde os pontos $x$ e $x'$ estão mais próximos das medidas reais da imagem. \relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {2}}\penalty \@M {\bf  \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{26}{chapter.2}}
+\newlabel{sec:denserecon}{{2}{26}{Reconstrução densa}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries  {Introdu\IeC {\c c}\IeC {\~a}o}}{26}{section*.28}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries  {HPMVS}}{26}{section*.29}}
+\newlabel{sec:hpmvs}{{2.2}{26}{HPMVS}{section*.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline  {falar sobre o hpmvs...}}{26}{section*.30}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries  {MVE}}{26}{section*.31}}
+\newlabel{sec:mve}{{2.3}{26}{MVE}{section*.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 13 - }{\ignorespaces Funcionamento do MVE. Come\IeC {\c c}ando com m\IeC {\'u}ltiplas imagens, t\IeC {\'e}cnicas SfM s\IeC {\~a}o empregadas para recontruir os par\IeC {\^a}metros das c\IeC {\^a}meras e os conjuntos de pontos esparsos. Mapas de profundidade s\IeC {\~a}o computados para cada imagem usando o MVS. Finalmente, uma malha colorida \IeC {\'e} extra\IeC {\'\i }da da uni\IeC {\~a}o de todos os mapas de profundidade usando um algoritmo de aproxima\IeC {\c c}\IeC {\~o}es de reconstru\IeC {\c c}\IeC {\~o}es de superf\IeC {\'\i }cies (FSSR).\relax }}{27}{figure.caption.32}}
+\newlabel{fig:mvepipeline}{{13}{27}{Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).\relax }{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline  {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{27}{section*.33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 14 - }{\ignorespaces Interface gr\IeC {\'a}fica (UMVE)\relax }}{29}{figure.caption.34}}
+\newlabel{fig:mvesfm}{{14}{29}{Interface gráfica (UMVE)\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 15 - }{\ignorespaces Reconstru\IeC {\c c}\IeC {\~a}o baseada em nuvem de pontos gerada a partir da reconstru\IeC {\c c}\IeC {\~a}o SfM.\relax }}{29}{figure.caption.35}}
+\newlabel{fig:mvesfm}{{15}{29}{Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.\relax }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 16 - }{\ignorespaces Uma imagem de entrada (\IeC {\`a} esquerda) e sua correspond\IeC {\^e}ncia em mapas de profundidade (\IeC {\`a} direita), onde a parte roxa significa que n\IeC {\~a}o foi encontrada nenhum mapa naquela regi\IeC {\~a}o.\relax }}{30}{figure.caption.36}}
+\newlabel{fig:mvedepth}{{16}{30}{Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 17 - }{\ignorespaces A figura (a) \IeC {\'e} um exemplo onde a imagem possui dados na extens\IeC {\~a}o {\it  EXIF} (destacado em azul). Ao passo que a figura (b) \IeC {\'e} um frame de um v\IeC {\'\i }deo, que n\IeC {\~a}o possui os dados das c\IeC {\^a}meras (destacado em azul). \relax }}{32}{figure.caption.37}}
+\newlabel{fig:mveexif}{{17}{32}{A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul). \relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 18 - }{\ignorespaces Final da reconstru\IeC {\c c}\IeC {\~a}o via UMVE, percebe-se que alguns pontos n\IeC {\~a}o foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }}{33}{figure.caption.38}}
+\newlabel{fig:UMVEdense}{{18}{33}{Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 19 - }{\ignorespaces Processos dentro do comando {\it  sfmrecon}, onde (a) est\IeC {\~a}o sendo detectadas as {\it  features} do conjunto de imagens. Em (b) est\IeC {\'a} computado o {\it  pairwise matching} e em (c) est\IeC {\'a} no processo do {\it  Bundle Adjustment}, usando condi\IeC {\c c}\IeC {\~o}es-padr\IeC {\~a}o para as c\IeC {\^a}meras. \relax }}{34}{figure.caption.39}}
+\newlabel{fig:passosMVE}{{19}{34}{Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras. \relax }{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 20 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }}{35}{figure.caption.40}}
+\newlabel{fig:MVESfM}{{20}{35}{Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 21 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }}{35}{figure.caption.41}}
+\newlabel{fig:MVEDenseRecon}{{21}{35}{Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 22 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos {\it  scene2pet}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{36}{figure.caption.42}}
+\newlabel{fig:MVEScene2Pet}{{22}{36}{Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3. \relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 23 - }{\ignorespaces Progress\IeC {\~a}o do comando {\it  fssrecon}, onde possui o ETA -- {\it  Estimated Time of Arrival}. \relax }}{36}{figure.caption.43}}
+\newlabel{fig:MVEFSSR}{{23}{36}{Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}. \relax }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 24 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando {\it  fssrecon}. \relax }}{37}{figure.caption.44}}
+\newlabel{fig:MVEFSSRMesh}{{24}{37}{Malha com ruídos proveniente do comando {\it fssrecon}. \relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 25 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{37}{figure.caption.45}}
+\newlabel{fig:MVEMeshClean}{{25}{37}{Resultado final, após a remoção dos ruídos da malha. \relax }{figure.caption.45}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {3}}\penalty \@M {\bf  \uppercase {Kinect}} }{38}{chapter.3}}
+\newlabel{sec:kinect}{{3}{38}{Kinect}{chapter.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {4}}\penalty \@M {\bf  \uppercase {VisualSfM}} }{39}{chapter.4}}
+\newlabel{sec:visualsfm}{{4}{39}{VisualSfM}{chapter.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {5}}\penalty \@M {\bf  \uppercase {Experimentos}} }{40}{chapter.5}}
+\newlabel{sec:experiments}{{5}{40}{Experimentos}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \numberline {}\penalty \@M {\bf  \uppercase {Conclus\IeC {\~a}o}} }{41}{section*.47}}
+\newlabel{LastPage}{{}{41}{}{page.41}{}}
+\xdef\lastpage@lastpage{41}
+\xdef\lastpage@lastpageHy{41}
 \bibstyle{abntex2-alf}
