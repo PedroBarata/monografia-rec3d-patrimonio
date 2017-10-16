@@ -3,7 +3,7 @@
 %
 Um dos algoritmos utilizados para a técnica de reconstrução densa é o MVE -- {\it Multi-View  Environment}, feito por Simon Fuhrmann, Fabian Langguth e Michael Goesele. Este algoritmo utiliza fotos e produz uma malha triangular superficial como resultado. Diferente das reconstruções baseadas nas geometria das imagens, o MVE é focado na reconstrução multi-escala, um quesito importante na reconstrução de esculturas e acervo cultural. Portanto, com esta técnica é possível reconstruir grandes volumes de dados, contendo regiões detalhadas em alta resolução, em comparação com o resto da cena. O sistema ainda possui uma interface gráfica para o uma reconstrução baseada no SfM, amigável ao usuário (UMVE), onde permite a visualização e inspeção das imagens, mapas de profundidade e renderizar cenas e malhas 3D.
 
-Sua base de operação é basicamente:
+Sua base de operação é basicamente \ref{fig:mvepipeline}:
 
 \begin{enumerate}
 \item{Estrutura da formação -- {\it Structure-from-Motion} (SfM)}
@@ -29,6 +29,16 @@ Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais
 }
 \end{itemize}
 \end{enumerate}
+
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	\caption{%
+	Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:mvepipeline}
+\end{figure}
+
 
 Como não existem muitas opções para algoritmos de SfM, o MVE permite a utilização de {\it softwares} externos como o {\it Bundler} ou o prório {\it VisualSfM}.
 
@@ -106,8 +116,14 @@ Tecnicamente, a cena é criada como um diretório no sistema de arquivos (com o 
 
 Criar uma nova cena, criará apenas o diretório ({\it views}) vazio. A importação de fotos criará arquivos .MVE para cada foto. Esse processo importará meta-dados provenienteas das imagens ({\it tags} EXIF), que é necessário para estimar a distância focal para cada foto. Caso estes meta-dados não estejam disponíveis, uma distância focal padrão é assumida pelo sistema, porém se essa distância adotada for uma péssima suposição, com relação ao conjunto de dados utilizado, pode vir a acontecer erros no SfM.
 
-%//-----------------------------------------------------------FOTO UMVE %AQUI-------------------------------------------------------------//
-
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/umve1.png}
+	\caption{%
+	Interface gráfica (UMVE)%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:mvesfm}
+\end{figure}
 % SfM reconstruction: The SfM reconstruction can be con-
 % figured and started using UMVE, or the command line tool
 % sfmrecon. The UI guides through feature detection, pairwise
@@ -120,9 +136,17 @@ Criar uma nova cena, criará apenas o diretório ({\it views}) vazio. A importa�
 % the frusta are spaced around the object to achieve a good re-
 % construction.
 
-Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando ({\it sfmrecon}). A interface guia através da detecção de {\it features}, combinação emparelhada ({\it pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução.
+Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando ({\it sfmrecon}). A interface guia através da detecção de {\it features}, combinação emparelhada ({\it pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução \ref{fig:mvesfm}.
 
-%//---------------------------------------FOTO RECONSTRUÇÃO %UMVE---------------------------------------------------------------------//
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/umve5sfm.png}
+	\caption{%
+	Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:mvesfm}
+\end{figure}
+
 
 %
 %MVS reconstruction: Given images with camera parameters,
@@ -144,15 +168,124 @@ Múltiplas visões estéreo -- {\it Multi-View Stereo} (MVS): Usando as imagens 
 
 O parâmetro mais importante é o nível de resolução em que os mapas de profundidade são reconstruídos: Caso seja nível 0 (ou L0), a reconstrução é feita usando o tamanho original das imagens. Se for nível 1 (ou L1), a reconstrução corresponde a metade do tamanho (um quarto dos números de pixels), e assim por diante.
 
-Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois geram mapas de profundidade mais dispersos com um custo computacional elevado, o que acarreta em dificuldades para encontrar as correspondências densas das imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando mapas de profundidades completos, já que utiliza imagens menores.
+Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois geram mapas de profundidade mais dispersos com um custo computacional elevado, o que acarreta em dificuldades para encontrar as correspondências densas das imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando mapas de profundidades completos, já que utiliza imagens menores \ref{fig:mvedepth}.
 
-%COLOCAR IMAGEM DE UMA L2 AQUI%
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/mvedepth.png}
+	\caption{%
+	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:mvedepth}
+\end{figure}
+
 
 Reconstrução de superfícies -- {Surface Reconstruction}: Utiliza-se a linha de comando {\it scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução da superfície FSSR. %COLOCAR REFERENCIA FSSR%  
 A seguir, as ferramentas FSSR calculam uma representação volumétrica de escala múltipla a partir dos pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma malha final é extraída. Esta malha pode parecer desordenada devido à regiões não confiáveis e à componentes isolados, oriundos de medidas imprecisas. Logo, a malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis da superfície. 
 
-%COLOCAR FOTO DENSE RECON%
 
-Experiência com o MVE: A utilização do {\it software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados {\it EXIF} de cada imagem, por exemplo.
+Experiência com o MVE: A utilização do {\it software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados {\it EXIF} de cada imagem, dentre outras configurações.
 
-Porém, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras ({\it EXIF}) e das imagens e, como as imagens usadas são, tecnicamente, vídeos cortados em determinados {\it frames}, não é possível obter a informação das câmeras, logo o {\it software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas. 
+Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras ({\it EXIF}) e das imagens e, como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados {\it frames}, não é possível obter a informação das câmeras \ref{fig:mveexif}, logo o {\it software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/exifumve.png}(a)
+	\includegraphics[width=1\linewidth]{figs/exifsemumve.png}(b)
+	\caption{%
+	A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul).
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:mveexif}
+\end{figure} 
+
+Com isso em mente, foi gerada uma reconstrução de um vídeo gravado de uma escultura no Jardim do Nêgo. O  vídeo foi cortado em {\it frames} onde foram geradas 200 imagens base. 
+
+A partir disso, foi executado, todos os passos de uma reconstrução utilizando o MVE, de forma que, foram utilizadas as duas opções, tanto por linha de comando, quanto pela interface gráfica (UMVE).
+
+Pela interface gráfica, o processo todo de reconstrução foi rápido (cerca de 30 minutos) \ref{fig:UMVEdense}, ao passo que por linha de comando, levou cerca de 11 horas e 30 minutos. 
+
+O UMVE não sinaliza quando o processo em execução termina, então, a explicação para essa discrepância no tempo é devido à execução de outro comando, sobrepondo o que já estava sendo executado, sem deixar terminá-lo.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/umvedense.png}
+	\caption{%
+	Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:UMVEdense}
+\end{figure} 
+
+Na reconstrução por linha de comando também é possível visualizar em qual etapa da execução o algoritmo está \ref{fig:passosMVE}, configurar alguns parâmetros e inclusive mostrar a porcentagem de progresso do comando. Foram executados os comandos declarados nesta seção.  O {\it sfmrecon} demorou cerca de 1 minuto e meio \ref{fig:MVESfM}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/umve2sfm.png} (a)
+	\includegraphics[width=1\linewidth]{figs/umve3sfmfeature.png} (b)
+	\includegraphics[width=1\linewidth]{figs/umve4ba.png} (c)
+	\caption{%
+	Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:passosMVE}
+\end{figure} 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/sfmmve.png}
+	\caption{%
+	Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos).
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVESfM}
+\end{figure}
+
+O próximo comando, {\it dmrecon} demorou cerca de 4 horas, usando como configuração um nível L2, com 20 vizinhos \ref{fig:MVEDenseRecon}. Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi cancelado devido à demora na execução. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/umvetempo.png}
+	\caption{%
+	Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos).
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVEDenseRecon}
+\end{figure} 
+
+Usando o {\it scene2pet}, é necessário em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o {\it input} e o {\it output} é um arquivo de extensão configurável, neste caso {\it .ply} \ref{fig:MVEScene2Pet}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/mvemesh.png}
+	\caption{%
+	Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVEScene2Pet}
+\end{figure} 
+
+Para juntar todos os níveis do {\it scene2pet}, foi usado o {\it fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/mvemeshtempo2.png}
+	\caption{%
+	Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVEFSSR}
+\end{figure} 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/mvemeshout.png}
+	\caption{%
+	Malha com ruídos proveniente do comando {\it fssrecon}.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVEFSSRMesh}
+\end{figure} 
+
+Finalmente, basta limpar a malha atual com o comando {\it meshclean}, onde foi obtido o resultado \ref{MVEMeshClean}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
+	\caption{%
+	Resultado final, após a remoção dos ruídos da malha.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:MVEMeshClean}
+\end{figure} 
