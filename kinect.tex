@@ -2,6 +2,29 @@
 %======================================================================================
 Um componente criado pela Microsoft para fins recreativos (como no XBox, por exemplo), virou uma das mais conhecidas ferramentas de reconstrução 3D no cenário atual. Sua primeira versão (Kinect V1) utiliza uma técnica similar à empregada no projeto da Universidade de Stanford, com luz estruturada, porém, diferentemente dos escaners à laser, o Kinect tem um custo monetário baixo e é acessível a todo público em geral (desde entusiastas, amadores até profissionais da área). 
 
-O Kinect V2 utiliza uma projeção de fótons [...] e por isso ele já não é tão utilizado na área de reconstrução 3D como o V1.
+O Kinect V2 utiliza uma projeção de fótons [...] e por isso ele já não é tão utilizado na área de reconstrução 3D como o V1. 
+
+O V1 é composto por 2 câmeras: uma RGB e outra de profundidade e por um projetor IR ({\it infra-red}) de padrões. E funciona da seguinte maneira: o projetor IR de padrões lança uma matriz que é conhecida pelo Kinect, a partir disso, qualquer deformação deste padrão é captada pelas câmeras, o que identifica se um objeto está no alcance dos sensores ou não. A resposta, é composta por 3 {\it outputs}: uma imagem IR,  uma RGB e a profundidade (inversa) da imagem.
+
+%IMAGEM KINECT%
+
+Sua principal saída da imagem do Kinect é correspondente à profundidade da cena. Em vez de providenciar uma profundidade {\it Z}, ele retorna uma profundidade inversa, {\it D}.
+A profundidade da imagem é construída a partir da triangulação da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
+
+%IMAGEM PROFUNDIDADE KINECT%
+ 
+Foram realizados alguns experimentos associando fotogrametria com o Kinect V1. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
+
+\begin{equation}
+q(z) = 2.73 z^2 + 0.74 z − 0.58 [mm]
+\label{eq:kinectCalibracao}
+\end{equation}
+
+Onde "z" é a profundidade em metros, e "q" a quantização.
+
+O modelo geométrico do kinect foi criado com um sistema multi-view considerando o RGB, IR e a profundidade
+\begin{equation}
+\begin{bmatrix}u \\v \\ 1 \end{bmatrix} = K \begin{bmatrix}s \\t \\ 1 \end{bmatrix}
+\end{equation}
 
 Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi projetado para funcionar bem em espaços fechados, com detecção de formas humanas e movimentações. Ou seja, numa aplicação {\it in situ} ele já não funcionaria muito bem, pois além de não conseguir projetar os detalhes em alta definição de uma escultura, ele necessita de uma fonte de energia externa, o que dificulta a acessibilidade do mesmo e como gera uma reconstrução em tempo real (não tem uma forma de salvar em {\it cache} ou internamente), ele precisa estar ligado a um computador para fazer o escaneamento.
