@@ -1,24 +1,25 @@
 \select@language {brazil}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Introdu\IeC {\c c}\IeC {\~a}o}} }{10}{section*.2}
-\contentsline {section}{\numberline {0.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o e Justificativa}}{10}{section*.3}
-\contentsline {subsection}{\numberline {0.1.1}\normalfont \normalsize \uline {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{13}{section*.7}
-\contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries {Objetivos}}{14}{section*.10}
-\contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{15}{section*.11}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Pontos de Interesse}} }{16}{chapter.1}
-\contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries { SIFT -- {\it Scale Invariant Feature Transform}}}{16}{section*.12}
-\contentsline {subsection}{\numberline {1.1.1}\normalfont \normalsize \uline {Detec\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o-escala extremos}}{16}{section*.13}
-\contentsline {subsection}{\numberline {1.1.2}\normalfont \normalsize \uline {Localiza\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{18}{section*.16}
-\contentsline {subsection}{\numberline {1.1.3}\normalfont \normalsize \uline {Atribui\IeC {\c c}\IeC {\~a}o de orienta\IeC {\c c}\IeC {\~a}o}}{19}{section*.17}
-\contentsline {subsection}{\numberline {1.1.4}\normalfont \normalsize \uline {Descritor de pontos-chaves}}{20}{section*.19}
-\contentsline {subsection}{\numberline {1.1.5}\normalfont \normalsize \uline {Combina\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{21}{section*.21}
-\contentsline {section}{\numberline {1.2}\normalfont \normalsize \bfseries {Triangula\IeC {\c c}\IeC {\~a}o -- {\it Full pairwise image matching}}}{21}{section*.22}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{23}{chapter.2}
-\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{23}{section*.25}
-\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {HPMVS}}{23}{section*.26}
-\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{23}{section*.27}
-\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {MVE}}{23}{section*.28}
-\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {falar sobre o mve...}}{23}{section*.29}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{24}{chapter.3}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{25}{chapter.4}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{26}{chapter.5}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{27}{section*.31}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Introdu\IeC {\c c}\IeC {\~a}o}} }{11}{section*.2}
+\contentsline {section}{\numberline {0.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o e Justificativa}}{11}{section*.3}
+\contentsline {subsection}{\numberline {0.1.1}\normalfont \normalsize \uline {O Jardim do N\IeC {\^e}go, Nova Friburgo}}{14}{section*.7}
+\contentsline {section}{\numberline {0.2}\normalfont \normalsize \bfseries {Objetivos}}{15}{section*.10}
+\contentsline {section}{\numberline {0.3}\normalfont \normalsize \bfseries {Organiza\IeC {\c c}\IeC {\~a}o deste manuscrito}}{16}{section*.11}
+\contentsline {section}{\numberline {0.4}\normalfont \normalsize \bfseries {Laser}}{16}{section*.12}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Pontos de Interesse}} }{19}{chapter.1}
+\contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries { SIFT -- {\it Scale Invariant Feature Transform}}}{19}{section*.15}
+\contentsline {subsection}{\numberline {1.1.1}\normalfont \normalsize \uline {Detec\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o-escala extremos}}{19}{section*.16}
+\contentsline {subsection}{\numberline {1.1.2}\normalfont \normalsize \uline {Localiza\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{21}{section*.19}
+\contentsline {subsection}{\numberline {1.1.3}\normalfont \normalsize \uline {Atribui\IeC {\c c}\IeC {\~a}o de orienta\IeC {\c c}\IeC {\~a}o}}{22}{section*.20}
+\contentsline {subsection}{\numberline {1.1.4}\normalfont \normalsize \uline {Descritor de pontos-chaves}}{23}{section*.22}
+\contentsline {subsection}{\numberline {1.1.5}\normalfont \normalsize \uline {Combina\IeC {\c c}\IeC {\~a}o de pontos-chaves}}{24}{section*.24}
+\contentsline {section}{\numberline {1.2}\normalfont \normalsize \bfseries {Triangula\IeC {\c c}\IeC {\~a}o -- {\it Full pairwise image matching}}}{24}{section*.25}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o densa}} }{26}{chapter.2}
+\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Introdu\IeC {\c c}\IeC {\~a}o}}{26}{section*.28}
+\contentsline {section}{\numberline {2.2}\normalfont \normalsize \bfseries {HPMVS}}{26}{section*.29}
+\contentsline {subsection}{\numberline {2.2.1}\normalfont \normalsize \uline {falar sobre o hpmvs...}}{26}{section*.30}
+\contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {MVE}}{26}{section*.31}
+\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{27}{section*.33}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{38}{chapter.3}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{39}{chapter.4}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{40}{chapter.5}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{41}{section*.47}
