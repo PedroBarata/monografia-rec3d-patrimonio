@@ -23,8 +23,138 @@ q(z) = 2.73 z^2 + 0.74 z − 0.58 [mm]
 Onde "z" é a profundidade em metros, e "q" a quantização.
 
 O modelo geométrico do kinect foi criado com um sistema multi-view considerando o RGB, IR e a profundidade
+\begin{gather} 
+\begin{bmatrix}
+u\\
+v\\
+1
+\end{bmatrix} 
+= K 
+
+\begin{bmatrix}
+s\\
+t\\
+1
+\end{bmatrix}
+\label{eq:matrix}
+\end{gather}
+
+\begin{gather} 
+\begin{bmatrix}
+s\\
+t\\
+1
+\end{bmatrix} 
+= 
+\underbrace{(1 + k_1r^2 + k_2r^4 + k_5r^6) 
+\begin{bmatrix}
+p\\
+q\\
+0
+\end{bmatrix} }_{\text{distorção radial}} 
++
+\underbrace{
+\begin{bmatrix}
+2k_3pq+k_4(r^2+2p^2)\\
+2k_4pq+k_3(r^2+2q^2)\\
+1
+\end{bmatrix} }_{\text{distorção tangencial}}
+\label{eq:distorcaoKinect}
+\end{gather}
+
+\begin{gather}
+r^2 = p^2+q^2, 
+\begin{bmatrix}
+pz\\ 
+qz\\ 
+z
+\end{bmatrix} = R(X-C)
+\label{eq:relacaoKinect}
+\end{gather}
+
+
+
+Onde $k_n$ é o parâmetro de distorção, calibração $K$, rotação $R$ e centro $C$.
+
+A profundidade é associada à geometria da câmera IR. que retorna a profundidade inversa ao longo do eixo z.
+
+Os valores de $u$ e de $v$ são dados pela equação \ref{eq:distorcaoKinect} %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
+
+\begin{gather} 
+X_{IR} = \frac{1}{c_1 d + c_0}dis^{-1}\left ( K^{-1}_{IR}
+\begin{bmatrix}
+x+u_0\\ 
+y+v_0\\ 
+1
+\end{bmatrix},k_{IR} 
+\right )
+\label{eq:distKinect}
+\end{gather}
+
 \begin{equation}
-\begin{bmatrix}u \\v \\ 1 \end{bmatrix} = K \begin{bmatrix}s \\t \\ 1 \end{bmatrix}
+\label{eq:finalKinect}
+u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB})
 \end{equation}
+
+Associamos o sistema de coordenadas do Kinect com a câmera IR e consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$. 
+O ponto 3D $X_{IR}$ é construído a partir da medição de [x,y,d] de \ref{eq:distKinect} e produz uma imagem RGB de \ref{eq:finalKinect}.
+
+Em \ref{eq:distKinect}, $dis$ é a distorção de \ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção relacionada à IR e à RGB. 
+$K{IR}$ é a calibração de IR, $K_{RGB}$ é a matriz de calibraçao. $R_{RGB}$ e $C_{RGB}$ são, a matriz de rotação e de centro da câmera RGB, respectivamente.
+
+A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D, e consequentemente, a posição relativa das câmeras.
+O sistema de coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$, $C_{RGB}$.
+Foi observado que existe um deslocamento entre imagem IR e a imagem da profundidade criada pelo Kinect. Para contornar este problema, uma série de experimentos foram executados, gerando \ref{tab:deslocamentoKinect}
+
+\begin{table}[]
+\centering
+\caption{Valores de deslocamentos e sua média}
+\label{tab:deslocamentoKinect}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Imagem & 1   & 2   & 3   & 4   & Média \\ \hline
+$u_0$  & 2,8 & 2,9 & 3,0 & 3,4 & 3,0   \\ \hline
+$v_0$  & 3,0 & 2,7 & 2,8 & 3,1 & 2,9   \\ \hline
+\end{tabular}
+\end{table}
+
+%COLOCAR IMAGEM DESLOCAMENTO%
+
+Foi observado que após a calibração, o Kinect gerava erros residuais complexos, que para compensar esse erro residual, foi criada uma correção em $z$, onde é subtraído da coordenada $Z_{IR}$ de \ref{eq:distKinect}.
+Para validar essa correção, a correção-z das imagens foram construídas a partir dos resíduos das imagens ímpares e aplicadas nas pares, e o vice-versa. Depois da aplicação da correção-z , a media dos erros diminuiu aproximadamente 0,25mm.
+Como parâmetro de comparação, foram dispostas 2 câmeras diferentes, no mesmo ambiente do Kinect.
+
+%IMAGEM DO AMBIENTE%
+
+\begin{table}[htbp]
+\begin{center}
+\caption{Resultados dos testes executados no ambiente descrito anteriormente}
+\label{tab:resultadosKinect}
+\begin{tabular}[htp]{|l|l|l|l|}
+\hline
+Método & Erro geométrico $e$ [mm] \\
+\cline {3-4}
+ & \mi ($e$) & \sigma($e$) & max($e$)
+
+\hline \hline
+SLR Stereo & 1,57 & 1,15 & 7,38 \\
+Kinect & 2,39 & 1,67 & 8,64 \\
+SR-4000 & 27,62 & 18,20 & 133,85 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{document}
+
+Kinect com SfM:
+
+A figura a seguir compara a superfície 3D de nuvem de pontos com uma com kinect. O resultado é tão bom quanto ao mais acurado multi-view stereo.
+
+O kinect tem a capacidade e, com o procedimento de calibração, é possível combiná-lo com SfM e multi-view stereo, o que abre uma nova área de aplicação.
+
+Quanto a qualidade da reconstrução de multi-view, o kinect ficou melhor que o SR-4000 e perto do 3.5M SLR Stereo \ref{tab:resultadosKinect}.
+
+%COLOCAR IMAGEM COMPARATIVA AQUI%
+Existem alguns {\it softwares} para utilizar o Kinect como uma ferramenta de reconstrução 3D e a maioria deles são bem acessíveis. Uma delas é o {\it Skanect} que tem a versão gratuita onde é possĩvel fazer escaneamentos básicos e a versão paga, que possibilita uma configuração maior, como por exemplo, a delimitação do objeto que será reconstruído, exportar o arquivo em diferentes formatos ({\it .PLY}; {.\it OBJ}: formato para exportação para programas que melhoram o modelo gerado (blender ou sculptris, por exemplo). E escolher o numero de faces a ser exportado; {\it STL}: próprio para a impressora 3D (software cura);{\it VRML}: salva também as cores do modelo.)
 
 Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi projetado para funcionar bem em espaços fechados, com detecção de formas humanas e movimentações. Ou seja, numa aplicação {\it in situ} ele já não funcionaria muito bem, pois além de não conseguir projetar os detalhes em alta definição de uma escultura, ele necessita de uma fonte de energia externa, o que dificulta a acessibilidade do mesmo e como gera uma reconstrução em tempo real (não tem uma forma de salvar em {\it cache} ou internamente), ele precisa estar ligado a um computador para fazer o escaneamento.
