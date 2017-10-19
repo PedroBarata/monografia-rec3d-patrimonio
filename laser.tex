@@ -22,13 +22,65 @@ O principal componente de {\it hardware} do sistema é um escaner de triangulaç
 Para isso foram testadas diversas resoluções, na qual foi decidido um espaçamento Y (ao longo da faixa do laser) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas vezes este valor. O que resultou em uma visualização de 14 cm de largura (ao longo da faixa do laser) por 14 cm de profundidade. Caso esta resolução fosse menor, as marcas de cinzelão ficariam borradas e se fosse maior, o conjunto de dados produzido seria gigantesco.
 Felizmente, a maioria das estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em Carrara Statuario, uma pedra altamente uniforme, não direcional e constituída de grãos finos. Além disso, com exceção da "Noite", as esculturas não são polidas e cobertas por terra, o que aumenta a dispersão superficial e reduz a abaixo da superfície.
 Neste contexto, a dispersão abaixo da superfície causa alguns problemas: não se pode assumir que a superfície é Lambertiana ideal (%CITAR LAMBERTIANO AQUI%
-), mudou a forma com que a renderização dos modelos seriam feitos e diminuiu a qualidade de disposição de dados 
+), mudou a forma com que a renderização dos modelos seriam feitos e diminuiu a qualidade de disposição de dados.
+Calibração:
+O objetivo de calibrar o aparato era encontrar um mapeamento de coordenadas 2D no seu alcance e cores para coordenadas 3D em um quadro de referência global. Idealmente, este quadro deve ser a estátua (estacionária). Porém não foi rastreado o aparato, ele tornou-se a própria referência. O mapeamento final foi realizado alinhando novas varreduras, com varreduras previamente existentes.
+Para calibrar qualquer sistema, primeiramente escolhe-se um modelo matemático que se aproxime do comportamento do sistema, então estima-se parâmetros desse modelo medindo o comportamento do sistema. No caso do projeto de David, o modelo matemático natural era um modelo geométrico 3D parametrizado da cabeça digitalizada e do aparato. Se os componentes do sistema forem suficientemente independentes, a calibração pode ser dividida em estágios, correspondente a cada componente do sistema. Por isso o aparato foi construído pensando na rigidez (independência), pois particionar a calibração em etapas reduz o grau de liberdade em cada etapa, e com isso, o número de medidas necessárias para calibrar este estágio.
+Em um sistema mecânico, também é reduzido o volume físico total na qual essas medidas de calibração devem ser tomadas. Além disso, uma calibração em etapas é menos suscetível a propagação de erros, pois caso uma calibração falhasse, seria apenas uma parte da calibração e não o sistema como um todo. No projeto de David, a calibração foi divida em seis etapas distintas:
 
+\begin{enumerate}
+\item{Um mapeamento 2D a partir de coordenadas de {\it pixels} das imagens da câmera para locais físicos na camada de laser}
+\item{Transformação rígida 2D/3D do sistema de coordenadas da camada do laser para esferas de aço anexadas ao escaner da cabeça}
+\item{Transformação rígida 3D para acomodar o rolamento do escaner da cabeça em 90° (ao remontá-lo) em relação ao conjunto de inclinação}
+\item{A localização do eixo de rotação de inclinação e o mapeamento não-linear de movimento comandos para ângulos de rotação físicas}
+\item{A localização do eixo de rotação panorâmico e o mapeamento de seus comandos de movimento para ângulos de rotação física}
+\item{A localização do eixo de translação, que também depende de como o conjunto inclinação-panorâmico está montado no braço horizontal}
+\end{enumerate}
 
+O resultado da calibração pode ser descrito como uma concatenação de seis matrizes 4x4:
+
+\left\[ translação horizontal \right\] \left\[ rotação panorâmica \right\] \left\[ rotação de inclinação \right\] \left\[ rotação de rolamento \right\] \left\[ laser para o escaner da cabeça \right\] \left\[ imagem para o laser \right\]
+
+Calibração do sistema de cores:
+Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de {\it features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
+
+Para obter um mapeamento da câmera colorida para o escaner da cabeça, o alvo foi escaneado usando o laser e a câmera de alcance. Uma vez que o escaner retornou a intensidade refletida pelo laser, bem como a profundidade, pode-se calcular as coordenadas 3D de cada ponto da {\it feature}.
+
+Para corrigir os efeitos radiométricos espaciais, incluindo o aspecto de vinheta das lentes, a não uniformidade angular, o declínio da lei quadrada inversa dos holofotes e a não uniformidade espacial na resposta do sensor, foi fotografado um cartão branco sob o holofote e construída uma tabela de correção de intensidade por pixel.
 % Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa laser) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a laser ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
 
 %FIGURA DAS FERRAMENTAS AQUI%
 
+Procedimento de digitalização:
+Passos para digitalização: Um operador move, interativamente o escaner da cabeça através de uma sequencia de movimentos, definindo os limites de volume a ser escaneado. O volume que pode ser coberto em uma única varredura, foi delimitado por conta de quatro fatores:
+\begin{itemize}
+\item{O campo de visão e os limites de movimento do escaner}
+\item{}
+\item{}
+\item{}
+\end{itemize}
+• o campo de visão e os limites de movimento do scanner
+• a queda na qualidade da varredura com o aumento da oblicência do laser
+• oclusões do laser ou da linha de visão para a câmera
+• obstruções físicas, como paredes, estátua ou pórtico
+Uma vez planejada uma verificação, um script de digitalização foi executado automaticamente, levando
+
+
+% Figure 6 shows our typical working environment in a museum.
+% The basic unit of work was a "scan"; an efficient team could complete
+% 10-15 scans in an 8-hour shift. Here are the steps in a typical
+% scan:
+% Scan initiation. An operator interactively moved the scan head
+% through a sequence of motions, setting the limits of the volume to be
+% scanned. The volume that could be covered in a single scan was
+% constrained by four factors:
+% • the field of view and limits of motion of the scanner
+% • the falloff in scan quality with increasing laser obliquity
+% • occlusions of either the laser or the line of sight to the camera
+% • physical obstructions such as walls, the statue, or the gantry
+% Once a scan was planned, a scanning script ran automatically, taking
+% from a few minutes to an hour or more to complete, depending on
+% how large an area was to be covered
 
 % The main hardware component of our system was a laser triangulation
 % scanner and motorized gantry customized for digitizing
