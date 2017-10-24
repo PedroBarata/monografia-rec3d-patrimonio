@@ -55,42 +55,29 @@ Procedimento de digitalização:
 Passos para digitalização: Um operador move, interativamente o escaner da cabeça através de uma sequencia de movimentos, definindo os limites de volume a ser escaneado. O volume que pode ser coberto em uma única varredura, foi delimitado por conta de quatro fatores:
 \begin{itemize}
 \item{O campo de visão e os limites de movimento do escaner}
-\item{}
-\item{}
-\item{}
+\item{A  queda na qualidade da varredura com o aumento da obliquidade do laser}
+\item{Oclusões, tanto do laser quanto da linha de visão da câmera}
+\item{Obstruções físicas, como paredes, estátuas ou o próprio equipamento}
 \end{itemize}
-• o campo de visão e os limites de movimento do scanner
-• a queda na qualidade da varredura com o aumento da oblicência do laser
-• oclusões do laser ou da linha de visão para a câmera
-• obstruções físicas, como paredes, estátua ou pórtico
-Uma vez planejada uma verificação, um script de digitalização foi executado automaticamente, levando
+
+Uma vez planejada a varredura, um script de digitalização é executado automaticamente, levando desde alguns minutos, até horas para terminar, dependendo da largura da área a ser coberta.
 
 
-% Figure 6 shows our typical working environment in a museum.
-% The basic unit of work was a "scan"; an efficient team could complete
-% 10-15 scans in an 8-hour shift. Here are the steps in a typical
-% scan:
-% Scan initiation. An operator interactively moved the scan head
-% through a sequence of motions, setting the limits of the volume to be
-% scanned. The volume that could be covered in a single scan was
-% constrained by four factors:
-% • the field of view and limits of motion of the scanner
-% • the falloff in scan quality with increasing laser obliquity
-% • occlusions of either the laser or the line of sight to the camera
-% • physical obstructions such as walls, the statue, or the gantry
-% Once a scan was planned, a scanning script ran automatically, taking
-% from a few minutes to an hour or more to complete, depending on
-% how large an area was to be covered
+% Range scanning. A typical range scan consisted of several con-
+% centric curved shells separated by translational motion of the scan
+% head along the horizontal table. Each shell in turn consisted of sev-
+% eral horizontally adjacent vertical sweeps of the laser, as shown in
+% figure 5. If the laser line was turned vertically, then the sweeps were
+% horizontal instead. We decided to overlap adjacent sweeps and
+% shells by 40% and 15%, respectively - enough to align them in soft-
+% ware in the absence of precisely calibrated motion. Since scanning
+% was slow (1 cm per second), we preceded each sweep with a high-
+% speed (10 cm per second), low-resolution pre-scan that conserva-
+% tively determined which part of the sweep actually contained data.
 
-% The main hardware component of our system was a laser triangulation
-% scanner and motorized gantry customized for digitizing
-% large statues. Our requirements for this scanner were demanding;
-% we wanted to capture chisel marks smaller than a millimeter, we
-% wanted to capture them from a safe distance, and we wanted to
-% reach the top of Michelangelo’s David, which is 23 feet tall on its
-% pedestal. In the sections that follow, we describe the range and
-% color acquisition systems of this scanner, its supporting mechanical
-% gantry, and our procedure for calibrating it.
+%Alcance da varredura
+Alcance da varredura
+% Escala de varredura. Uma varredura de varredura típica consistiu em vários reservatórios curvos concêntricos separados pelo movimento de translação da cabeça de varredura ao longo da mesa horizontal. Cada casca, por sua vez, consistiu em vários varredões verticais horizontais adjacentes do laser, como mostrado na figura 5. Se a linha do laser foi girada verticalmente, então os varreduras estavam em vez da horizontal. Decidimos sobrepor as varreduras e os reservatórios adjacentes em 40% e 15%, respectivamente - o suficiente para alinhá-los no software na ausência de movimento calibrado com precisão. Uma vez que a varredura foi lenta (1 cm por segundo), precedemos cada varredura com uma pré-digitalização de alta velocidade (10 cm por segundo) e de baixa resolução que determinou de forma conservadora qual parte da varredura realmente continha dados.
 
 % O principal componente de hardware do nosso sistema foi um scanner de triangulação a laser e um pórtico motorizado personalizado para digitalizar grandes estátuas. Nossos requisitos para este scanner eram exigentes; queríamos capturar marcas de cinzelão menores do que um milímetro, queríamos capturá-las a uma distância segura, e queríamos chegar ao topo do David de Michelangelo, que tem 23 pés de altura no pedestal. Nas seções que se seguem, descrevemos os sistemas de aquisição de alcance e cor deste scanner, seu pórtico mecânico de suporte e nosso procedimento para calibrá-lo.
 
