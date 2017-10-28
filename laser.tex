@@ -31,7 +31,7 @@ Em um sistema mecânico, também é reduzido o volume físico total na qual essa
 \begin{enumerate}
 \item{Um mapeamento 2D a partir de coordenadas de {\it pixels} das imagens da câmera para locais físicos na camada de laser}
 \item{Transformação rígida 2D/3D do sistema de coordenadas da camada do laser para esferas de aço anexadas ao escaner da cabeça}
-\item{Transformação rígida 3D para acomodar o rolamento do escaner da cabeça em 90° (ao remontá-lo) em relação ao conjunto de inclinação}
+\item{Transformação rígida 3D para acomodar o rolamento do escaner da cabeça em 90 $^{circ}$ (ao remontá-lo) em relação ao conjunto de inclinação}
 \item{A localização do eixo de rotação de inclinação e o mapeamento não-linear de movimento comandos para ângulos de rotação físicas}
 \item{A localização do eixo de rotação panorâmico e o mapeamento de seus comandos de movimento para ângulos de rotação física}
 \item{A localização do eixo de translação, que também depende de como o conjunto inclinação-panorâmico está montado no braço horizontal}
@@ -39,7 +39,11 @@ Em um sistema mecânico, também é reduzido o volume físico total na qual essa
 
 O resultado da calibração pode ser descrito como uma concatenação de seis matrizes 4x4:
 
-\left\[ translação horizontal \right\] \left\[ rotação panorâmica \right\] \left\[ rotação de inclinação \right\] \left\[ rotação de rolamento \right\] \left\[ laser para o escaner da cabeça \right\] \left\[ imagem para o laser \right\]
+%\left\[ translação horizontal \right\] \left\[ rotação panorâmica \right\] \left\[ rotação de inclinação \right\] \left\[ rotação de rolamento \right\] \left\[ %laser para o escaner da cabeça \right\] \left\[ imagem para o laser \right\]
+\begin{align*}
+\textnormal{translação horizontal}
+\end{align*}
+
 
 Calibração do sistema de cores:
 Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de {\it features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
@@ -101,12 +105,11 @@ Após isso, ocorre o escaneamento e processamento das cores da escultura:
 \end{itemize}
 
 Limitações:
-\begin{ìtemize}
+\begin{itemize}
 \item{Inter-reflexões são ignoradas}
 \item{Dispersões subterrâneas são ignoradas}
 \item{Tratamento difuso com Lambertiano} %CITAR TREATED DIFFUSED AS LAMBERTIAN%
 \item{Usa superfícies normais agregadas}
-
 \end{itemize}
 
 O projeto não teve mais nenhum avanço desde o verão de 2004, por falta de financiamento. Como resultado, modelos de alta qualidade só existem do David na resolução de 1,0 mm (56 milhões de triângulos) e São Mateus a 0,25 mm (372 milhões de triângulos). Um modelo também existe para o Atlas em 0,25 mm (aproximadamente 500 milhões de triângulos), mas contém erros de alinhamento. Após 6 anos de trabalho estudantil remunerado e voluntário, existem modelos para cada um dos 1.186 fragmentos. Esses modelos, que totalizam quase 8 bilhões de polígonos, se encontram no próprio site da Universidade de Stanford %CITAR AQUI$. 

@@ -16,27 +16,26 @@ A profundidade da imagem é construída a partir da triangulação da imagem IR 
 Foram realizados alguns experimentos associando fotogrametria com o Kinect V1. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
 
 \begin{equation}
-q(z) = 2.73 z^2 + 0.74 z − 0.58 [mm]
 \label{eq:kinectCalibracao}
+q(z)=2.73z^{2}+0.74z 0.58
 \end{equation}
 
 Onde "z" é a profundidade em metros, e "q" a quantização.
 
 O modelo geométrico do kinect foi criado com um sistema multi-view considerando o RGB, IR e a profundidade
 \begin{gather} 
+\label{eq:matrix}
 \begin{bmatrix}
 u\\
 v\\
 1
 \end{bmatrix} 
-= K 
-
+= K
 \begin{bmatrix}
 s\\
 t\\
 1
 \end{bmatrix}
-\label{eq:matrix}
 \end{gather}
 
 \begin{gather} 
@@ -126,25 +125,43 @@ Como parâmetro de comparação, foram dispostas 2 câmeras diferentes, no mesmo
 
 %IMAGEM DO AMBIENTE%
 
+%\begin{table}[htbp]
+%\begin{center}
+%\caption{Resultados dos testes executados no ambiente descrito anteriormente}
+%\label{tab:resultadosKinect}
+%\begin{tabular}[htp]{|l|l|l|l|}
+%\hline
+%Método & Erro geométrico $e$ [mm] \\
+%\cline {3-4}
+%%\hline
+% & $\mi$($e$) & $\sigma$($e$) & max($e$)
+%
+%\hline \hline
+%SLR Stereo & 1,57 & 1,15 & 7,38 \\
+%Kinect & 2,39 & 1,67 & 8,64 \\
+%SR-4000 & 27,62 & 18,20 & 133,85 \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+
 \begin{table}[htbp]
-\begin{center}
 \caption{Resultados dos testes executados no ambiente descrito anteriormente}
 \label{tab:resultadosKinect}
-\begin{tabular}[htp]{|l|l|l|l|}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
 \hline
-Método & Erro geométrico $e$ [mm] \\
-\cline {3-4}
- & \mi ($e$) & \sigma($e$) & max($e$)
-
-\hline \hline
-SLR Stereo & 1,57 & 1,15 & 7,38 \\
-Kinect & 2,39 & 1,67 & 8,64 \\
-SR-4000 & 27,62 & 18,20 & 133,85 \\
+\multirow{2}{1.5cm}{Método}& \multicolumn{3}{p{5cm}|}{Erro geométrico $e$ [mm]} \bigstrut \\
+\cline{2-4} & \multicolumn{1}{c|}{$\mu$($e$)} & \multicolumn{1}{c|}{$\sigma$($e$)} & \multicolumn{1}{c|}{max($e$)} \bigstrut \\ \hline
+SLR Stereo & 1,57 & 1,15 & 7,38 \bigstrut \\ \hline
+Kinect & 2,39 & 1,67 & 8,64 \bigstrut \\ \hline
+SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\ 
 \hline
 \end{tabular}
 \end{center}
 \end{table}
-\end{document}
+
+
 
 Kinect com SfM:
 
