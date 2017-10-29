@@ -6,12 +6,28 @@ O Kinect V2 utiliza uma projeção de fótons [...] e por isso ele já não é t
 
 O V1 é composto por 2 câmeras: uma RGB e outra de profundidade e por um projetor IR ({\it infra-red}) de padrões. E funciona da seguinte maneira: o projetor IR de padrões lança uma matriz que é conhecida pelo Kinect, a partir disso, qualquer deformação deste padrão é captada pelas câmeras, o que identifica se um objeto está no alcance dos sensores ou não. A resposta, é composta por 3 {\it outputs}: uma imagem IR,  uma RGB e a profundidade (inversa) da imagem.
 
-%IMAGEM KINECT%
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
+	\caption{%
+	Imagem de um kinect V1 aberto, constituído de uma câmera infra-vermelho (IR), uma câmera RGB e um projetor IR.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:kinect}
+\end{figure}
 
 Sua principal saída da imagem do Kinect é correspondente à profundidade da cena. Em vez de providenciar uma profundidade {\it Z}, ele retorna uma profundidade inversa, {\it D}.
 A profundidade da imagem é construída a partir da triangulação da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
 
-%IMAGEM PROFUNDIDADE KINECT%
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
+	\caption{%
+	Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde à profundidade ou distância da cena para o Kinect.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:profKinect}
+\end{figure}
  
 Foram realizados alguns experimentos associando fotogrametria com o Kinect V1. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
 
@@ -22,7 +38,8 @@ q(z)=2.73z^{2}+0.74z 0.58
 
 Onde "z" é a profundidade em metros, e "q" a quantização.
 
-O modelo geométrico do kinect foi criado com um sistema multi-view considerando o RGB, IR e a profundidade
+O modelo geométrico do Kinect foi criado com um sistema multi-view considerando o RGB, IR e a profundidade.
+
 \begin{gather} 
 \label{eq:matrix}
 \begin{bmatrix}
@@ -103,9 +120,9 @@ $K{IR}$ é a calibração de IR, $K_{RGB}$ é a matriz de calibraçao. $R_{RGB}$
 
 A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D, e consequentemente, a posição relativa das câmeras.
 O sistema de coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$, $C_{RGB}$.
-Foi observado que existe um deslocamento entre imagem IR e a imagem da profundidade criada pelo Kinect. Para contornar este problema, uma série de experimentos foram executados, gerando \ref{tab:deslocamentoKinect}
+Foi observado que existe um deslocamento entre imagem IR e a imagem da profundidade criada pelo Kinect. Para contornar este problema, uma série de experimentos foram executados, gerando \ref{tab:deslocamentoKinect}.
 
-\begin{table}[]
+\begin{table}[!h]
 \centering
 \caption{Valores de deslocamentos e sua média}
 \label{tab:deslocamentoKinect}
@@ -117,33 +134,29 @@ $v_0$  & 3,0 & 2,7 & 2,8 & 3,1 & 2,9   \\ \hline
 \end{tabular}
 \end{table}
 
-%COLOCAR IMAGEM DESLOCAMENTO%
+\begin{figure}[!h]
+	\centering
+	\subfloat[Sem o alinhamento]{\label{fig:deslocamentokinectA}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectA.png}}
+	\subfloat[Com o alinhamento]{\label{fig:deslocamentokinectB}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectb.png}}
+	\caption{%
+	Representação visual do acerto do deslocamento. A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo.
+	}\label{fig:deslocKinect}
+\end{figure}
 
 Foi observado que após a calibração, o Kinect gerava erros residuais complexos, que para compensar esse erro residual, foi criada uma correção em $z$, onde é subtraído da coordenada $Z_{IR}$ de \ref{eq:distKinect}.
 Para validar essa correção, a correção-z das imagens foram construídas a partir dos resíduos das imagens ímpares e aplicadas nas pares, e o vice-versa. Depois da aplicação da correção-z , a media dos erros diminuiu aproximadamente 0,25mm.
 Como parâmetro de comparação, foram dispostas 2 câmeras diferentes, no mesmo ambiente do Kinect.
 
-%IMAGEM DO AMBIENTE%
 
-%\begin{table}[htbp]
-%\begin{center}
-%\caption{Resultados dos testes executados no ambiente descrito anteriormente}
-%\label{tab:resultadosKinect}
-%\begin{tabular}[htp]{|l|l|l|l|}
-%\hline
-%Método & Erro geométrico $e$ [mm] \\
-%\cline {3-4}
-%%\hline
-% & $\mi$($e$) & $\sigma$($e$) & max($e$)
-%
-%\hline \hline
-%SLR Stereo & 1,57 & 1,15 & 7,38 \\
-%Kinect & 2,39 & 1,67 & 8,64 \\
-%SR-4000 & 27,62 & 18,20 & 133,85 \\
-%\hline
-%\end{tabular}
-%\end{center}
-%\end{table}
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/ambientekinect.png}
+	\caption{%
+	Posição e orientação do Kinect (com as câmeras IR e RGB) e o par estéreo SLR ({\it Left}, {\it Right}) em conjunto com pontos de calibração 3D reconstruídos em alvos de calibração planar.
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:ambienteKinect}
+\end{figure}
 
 \begin{table}[htbp]
 \caption{Resultados dos testes executados no ambiente descrito anteriormente}

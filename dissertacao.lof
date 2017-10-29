@@ -28,3 +28,10 @@
 \contentsline {figure}{\numberline {Figura\hfill 23 - }{\ignorespaces Progress\IeC {\~a}o do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}. \relax }}{38}{figure.caption.43}
 \contentsline {figure}{\numberline {Figura\hfill 24 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando {\it fssrecon}. \relax }}{39}{figure.caption.44}
 \contentsline {figure}{\numberline {Figura\hfill 25 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{39}{figure.caption.45}
+\contentsline {figure}{\numberline {Figura\hfill 26 - }{\ignorespaces Imagem de um kinect V1 aberto, constitu\IeC {\'\i }do de uma c\IeC {\^a}mera infra-vermelho (IR), uma c\IeC {\^a}mera RGB e um projetor IR. \relax }}{40}{figure.caption.46}
+\contentsline {figure}{\numberline {Figura\hfill 27 - }{\ignorespaces Exemplo de como \IeC {\'e} a sa\IeC {\'\i }da de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde \IeC {\`a} profundidade ou dist\IeC {\^a}ncia da cena para o Kinect. \relax }}{41}{figure.caption.47}
+\contentsline {figure}{\numberline {Figura\hfill 28 - }{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o visual do acerto do deslocamento. A parte em preto \IeC {\'e} a imagem IR e o contorno em branco \IeC {\'e} a imagem de profundidade do alvo. \relax }}{42}{figure.caption.49}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sem o alinhamento}}}{42}{subfigure.27.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Com o alinhamento}}}{42}{subfigure.27.2}
+\contentsline {figure}{\numberline {Figura\hfill 29 - }{\ignorespaces Posi\IeC {\c c}\IeC {\~a}o e orienta\IeC {\c c}\IeC {\~a}o do Kinect (com as c\IeC {\^a}meras IR e RGB) e o par est\IeC {\'e}reo SLR ({\it Left}, {\it Right}) em conjunto com pontos de calibra\IeC {\c c}\IeC {\~a}o 3D reconstru\IeC {\'\i }dos em alvos de calibra\IeC {\c c}\IeC {\~a}o planar. \relax }}{43}{figure.caption.50}
+\contentsline {figure}{\numberline {Figura\hfill 30 - }{\ignorespaces Exemplo de como foi realizada a varredura da escultura \relax }}{46}{figure.caption.53}

@@ -38,12 +38,38 @@ Em um sistema mecânico, também é reduzido o volume físico total na qual essa
 \end{enumerate}
 
 O resultado da calibração pode ser descrito como uma concatenação de seis matrizes 4x4:
-
-%\left\[ translação horizontal \right\] \left\[ rotação panorâmica \right\] \left\[ rotação de inclinação \right\] \left\[ rotação de rolamento \right\] \left\[ %laser para o escaner da cabeça \right\] \left\[ imagem para o laser \right\]
-\begin{align*}
-\textnormal{translação horizontal}
-\end{align*}
-
+\[
+\begin{bmatrix}
+\text{translação} \\ 
+\text{horizontal}
+\end{bmatrix}
+\begin{bmatrix}
+\text{rotação} \\ 
+\text{panorâmica}
+\end{bmatrix}
+\begin{bmatrix}
+\text{rotação} \\
+\text{de} \\
+\text{inclinação}
+\end{bmatrix}
+\begin{bmatrix}
+\text{rotação} \\
+\text{de} \\
+\text{rolamento}
+\end{bmatrix}
+\begin{bmatrix}
+\text{laser para o} \\
+\text{escaner }
+\text{da cabeça}
+\end{bmatrix}
+\begin{bmatrix}
+\text{imagem} \\
+\text{para o} \\
+\text{laser}
+\end{bmatrix}
+\]
+%  \] \[  \] \[  \] \[ \text{rotação de rolamento} \] \[ \text{laser para o escaner da cabeça} \] \[ \text{imagem para o laser} 
+%\end{gather*}
 
 Calibração do sistema de cores:
 Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de {\it features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
@@ -119,7 +145,7 @@ Também foram disponibilizadas algumas métricas sobre este projeto \ref{tab:met
 \begin{table}
 \caption{Algumas métricas do projeto}
 \label{tab:metricasDavid}
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{4.7cm}|}
 \hline
 Números de objetos escaneados          & 10 estátuas + 2 edificações + 1,163 fragmentos de mapa  \\ \hline
 Menor e maior objetos escaneados       & 1 polegada (fragmentos de mapa) e 23 pés (David)         \\ \hline

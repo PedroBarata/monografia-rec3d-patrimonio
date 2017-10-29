@@ -1,12 +1,23 @@
 \chapter{Experimentos}\label{sec:experiments}
 %======================================================================================
+No presente trabalho, nos concentramos no objetivo proposto descrito na Seção~\ref{sec:objetivo}.
 
-%No presente trabalho, nos concentramos na configuração do tanque de onda
-%oceânica descrita na Seção~\ref{sec:setup}, composta por quatro vídeos
-%\emph{Full HD} tirados de diferentes pontos de vista em widebaseline. Cada vídeo tem cerca de 300 MB de
-%resolução 1920x1080 e 30 fps.
-%
-%\section {Arquitetura de Implementação}
+\section {Procedimento}
+Primeiramente, filmamos algumas esculturas utilizando a câmera de um {\it smartphone} convencional na resolução de 1920x1080 pixels. Esta filmagem foi realizada varrendo toda (ou a maioria) da superfície da escultura em 360 $^{circ}$ com o intuito de ter toda a escultura reconstruída \ref{fig:procedimentoscan}.
+Após isso, fizemos mais alguns vídeos, pegando alguns pontos que possuíam mais detalhes e que, com uma única varredura, não era capaz de reproduzir uma boa reconstrução.
+
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=0.5\linewidth]{figs/procedimentoscan.png}
+	\caption{%
+	Exemplo de como foi realizada a varredura da escultura
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}\label{fig:procedimentoscan}
+\end{figure}
+Com este material, foram feitos "cortes" em determinados {\it frames} do vídeo, com atenção para não pegar {\it frames} muito juntos, pois aumenaria o número de correspondências ambíguas entre as imagens e com isso, o processamento da reconstrução demoraria mais. E não pegar {\it frames} muito distantes, o que ocorreria o inverso, com menos correspondências, ficariam buracos na reconstrução. Como descrito na Seção \ref{sec:mve}.
+Com isso em mente, foram reconstruídas duas esculturas: uma com um único vídeo, usando o VisualSfM, totalizando 200 imagens e outra com dois vídeos, com o MVE, com dois vídeos, que, ao cortá-los, totalizou cerca de 280 imagens.
+
 %
 %Nosso sistema prático foi projetado para C++ usando as bibliotecas de visão 
 %computacional VXL e VXD~\cite{vxl,vxd}. A linguagem C++ é rápida e escalável, e muitas

@@ -20,6 +20,7 @@
 \contentsline {section}{\numberline {2.3}\normalfont \normalsize \bfseries {MVE}}{28}{section*.31}
 \contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{29}{section*.33}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{40}{chapter.3}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{43}{chapter.4}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{44}{chapter.5}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{45}{section*.49}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{45}{chapter.4}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{46}{chapter.5}
+\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries {Procedimento}}{46}{section*.52}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{47}{section*.55}
