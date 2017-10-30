@@ -25,15 +25,15 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 
 \item \textbf{2 - Correspondência de imagens.} Agora, o {\it software} roda o algoritmo SIFT, realizando todas as correspondências entre os {\it features}.
 
-\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução %LEMBRAR QUAL É O ALGORITMO!!% 
+\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
 
 esparsa em todos os {\it features} descobertos no passo passado.
 
 \item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo CMVS/PMVS-2 embutido no próprio VisualSfM de reconstrução densa.
 \end{itemize}
 
-%FALAR SOBRE O ALGORTITMO DE RECONSTRUCAO ESPARSA%
+%FALAR SOBRE O ALGORTITMO DE RECONSTRUCAO ESPARSA == PBA%
 
-%FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA%
+%FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
 
 Além disso, o VisualSfM é capaz de mostrar a matriz de correspondência de {\it features}, número de {\it features}, rodar um {\it Bundle Adjustment}, usar um Level 0 no PVMS, alterar a memória de GPU usada na reconstrução, deletar uma reconstrução indesejável, alterar parâmetros e rodar novamente o passo a passo acima.
