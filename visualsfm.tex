@@ -92,6 +92,37 @@ Muitos algoritmos Multi-view Stereo (MVS) não escalam tão bem com um grande n�
 
 
 
+A superfície do objeto é aproximada por um pequeno retângulo (o {\it patch}).
+O {\it patch}(p) é um retângulo modelado pela posição central c(p), pelo vetor normal n(p), pelos eixos x e y e pela imagem de referência R(p), onde a imagem é a que melhor representa a visibilidade do {\it patch}. Seu tamanho é determinado por sua projeção na imagem de referência R(p).
+
+A imagem é divida em células (grid), de $\Beta$ x $\Beta$ pixels (usualmente 2x2). O ideal é reconstruir um patch por célula. Quanto menor a célula, maior será a densidade na nuvem de pontos final.
+
+O PMVS pode ser dividido em algumas etapas:
+
+\begin{itemize}
+\item{Inicalização}
+	\subitem{Detecção de {\it features}}
+	\subitem{Correspondência guiada}
+\item{Expansão}
+\item{Filtragem}
+\end{itemize}
+
+\subsection{Detecção de {\it features}}
+O PMVS padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris, onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são considerados consistentes para a reconstrução. 
+Após isso cria-se o {\it patch} onde o c(p) é calculado pela triangulação dos {\it features} detectados das imagens. A normal n(p) é o cálculo da relação do vetor c(p), multiplicado pela centro óptico da imagem, pelo módulo do numerador. E R(p) é a imagem de referência propriamente dita. São otimizadas as orientações e posições de todos os {\it patches}.
+Com a inicialização finalizada, temos como resultado a reconstrução esparsa da escultura. No caso do VisualSfM, como a reconstrução esparsa já é feita em passos anteriores (com o PBA), na realidade o PMVS-2 só é empregado para a reconstrução densa, ou seja, a inicialização não é feita pelo PMVS-2 no VisualSfM.
+
+\subsection{Expansão}
+Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de expansão (aumento da região). Um {\it patch} utilizado como semente é expandido da seguinte forma:
+
+Um novo {\it patch} é projetado em uma célula vizinha;
+A posição é definida para a interseção do raio projetado para trás e no plano de seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma imagem de referência.
+Novamente, são otimizadas as orientações e posições, porém, do novo {\it patch}.	
+
+\subsection{Filtragem}
+É aplicada uma consistência de visibilidade global, onde os {\it patches} que não são visíveis pelos centros ópticos das imagens, são descartados (estão dentro da superfície)
+
+
 % =================================================================
 
 Além disso, o VisualSfM é capaz de mostrar a matriz de correspondência de {\it features}, número de {\it features}, rodar um {\it Bundle Adjustment}, usar um Level 0 no PVMS, alterar a memória de GPU usada na reconstrução, deletar uma reconstrução indesejável, alterar parâmetros e rodar novamente o passo a passo acima.
