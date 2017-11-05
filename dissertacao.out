@@ -20,9 +20,16 @@
 \BOOKMARK [2][-]{section*.33}{Guia de reconstru\347\343o com o MVE}{section*.31}% 20
 \BOOKMARK [0][-]{chapter.3}{Kinect }{}% 21
 \BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 22
-\BOOKMARK [1][-]{section*.55}{Detec\347\343o de features}{chapter.4}% 23
-\BOOKMARK [2][-]{section*.56}{Expans\343o}{section*.55}% 24
-\BOOKMARK [2][-]{section*.57}{Filtragem}{section*.55}% 25
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 26
-\BOOKMARK [1][-]{section*.58}{Procedimento}{chapter.5}% 27
-\BOOKMARK [0][-]{section*.61}{Conclus\343o }{}% 28
+\BOOKMARK [1][-]{section*.55}{Filtro SFM}{chapter.4}% 23
+\BOOKMARK [2][-]{section*.56}{Sele\347\343o de imagens}{section*.55}% 24
+\BOOKMARK [2][-]{section*.57}{Divis\343o de cluster}{section*.55}% 25
+\BOOKMARK [2][-]{section*.58}{Adi\347\343o de imagens}{section*.55}% 26
+\BOOKMARK [2][-]{section*.59}{PMVS-2}{section*.55}% 27
+\BOOKMARK [2][-]{section*.60}{Detec\347\343o de features}{section*.55}% 28
+\BOOKMARK [2][-]{section*.61}{Expans\343o}{section*.55}% 29
+\BOOKMARK [2][-]{section*.62}{Filtragem}{section*.55}% 30
+\BOOKMARK [3][-]{section*.63}{Filtro de Qualidade}{section*.62}% 31
+\BOOKMARK [3][-]{section*.64}{Filtro de Visibilidade}{section*.62}% 32
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 33
+\BOOKMARK [1][-]{section*.65}{Procedimento}{chapter.5}% 34
+\BOOKMARK [0][-]{section*.68}{Conclus\343o }{}% 35

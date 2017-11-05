@@ -21,9 +21,16 @@
 \contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{29}{section*.33}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Kinect}} }{40}{chapter.3}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {VisualSfM}} }{45}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}\normalfont \normalsize \uline {Detec\IeC {\c c}\IeC {\~a}o de {\it features}}}{47}{section*.55}
-\contentsline {subsection}{\numberline {4.0.2}\normalfont \normalsize \uline {Expans\IeC {\~a}o}}{48}{section*.56}
-\contentsline {subsection}{\numberline {4.0.3}\normalfont \normalsize \uline {Filtragem}}{48}{section*.57}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries {Procedimento}}{49}{section*.58}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{50}{section*.61}
+\contentsline {subsection}{\numberline {4.0.1}\normalfont \normalsize \uline {Filtro SFM}}{47}{section*.55}
+\contentsline {subsection}{\numberline {4.0.2}\normalfont \normalsize \uline {Sele\IeC {\c c}\IeC {\~a}o de imagens}}{47}{section*.56}
+\contentsline {subsection}{\numberline {4.0.3}\normalfont \normalsize \uline {Divis\IeC {\~a}o de {\it cluster}}}{48}{section*.57}
+\contentsline {subsection}{\numberline {4.0.4}\normalfont \normalsize \uline {Adi\IeC {\c c}\IeC {\~a}o de imagens}}{48}{section*.58}
+\contentsline {subsection}{\numberline {4.0.5}\normalfont \normalsize \uline {PMVS-2}}{49}{section*.59}
+\contentsline {subsection}{\numberline {4.0.6}\normalfont \normalsize \uline {Detec\IeC {\c c}\IeC {\~a}o de {\it features}}}{50}{section*.60}
+\contentsline {subsection}{\numberline {4.0.7}\normalfont \normalsize \uline {Expans\IeC {\~a}o}}{50}{section*.61}
+\contentsline {subsection}{\numberline {4.0.8}\normalfont \normalsize \uline {Filtragem}}{51}{section*.62}
+\contentsline {subsubsection}{\numberline {4.0.8.1}\normalfont \normalsize {Filtro de Qualidade}}{51}{section*.63}
+\contentsline {subsubsection}{\numberline {4.0.8.2}\normalfont \normalsize {Filtro de Visibilidade}}{51}{section*.64}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{52}{chapter.5}
+\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries {Procedimento}}{52}{section*.65}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{53}{section*.68}

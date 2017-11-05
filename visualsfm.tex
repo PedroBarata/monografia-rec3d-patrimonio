@@ -25,12 +25,8 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 
 \item \textbf{2 - Correspondência de imagens.} Agora, o {\it software} roda o algoritmo SIFT, realizando todas as correspondências entre os {\it features}.
 
-\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
+\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa em todos os {\it features} descobertos no passo passado. (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
 
-esparsa em todos os {\it features} descobertos no passo passado.
-
-\item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo CMVS/PMVS-2 embutido no próprio VisualSfM de reconstrução densa.
-\end{itemize}
 
 PBA -- {\it Parallel Banding Algorithm}
 
@@ -76,17 +72,15 @@ O PBA é um algoritmo implementado em GPU (Graphic Processor Unit) para computar
 
 % Hierarchical Merging
 
-
-
+\item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa CMVS/PMVS-2 embutido no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
-
-Algoritmo de reconstrução densa - CMVS/PMVS-2 (Clustering Views for Multi-view Stereo)
+CMVS/PMVS-2 ({\it Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo})
 
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
 %Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste {\it software} é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do {\it software} é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
-%
-Muitos algoritmos Multi-view Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
+
+Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
 O CMVS usa a saída do Structure from Motion -- SfM (mais especificamente a saída do passo anterior, do PBA) e utiliza como entrada. Após isso, decompõe as imagens de entrada como um conjunto de {\it clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para processar cada {\it cluster} de forma independente e em paralelo, onde a união das reconstruções de todos os {\it clusters} não deve perder detalhes que poderiam ser obtidos através do conjunto de imagens.
 
 A formulação dos {\it clusters} é projetada para satisfazer três restrições: (1) as imagens redundantes são excluídas dos {\it clusters} (compacidade), (2) cada {\it cluster} é pequeno o suficiente para uma reconstrução MVS (restrição de tamanho) e (3) as reconstruções MVS destes {\it clusters} resultam em uma perda mínima de conteúdo e detalhes em comparação com o que pode ser obtido através do processamento do conjunto completo de imagens (cobertura).
@@ -97,12 +91,10 @@ Em outras palavras, a sobreposição de {\it clusters} é definida por:
 \begin{itemize}
 \item Minimizar $\sum_{k} |C_k|$ (compacidade)
 \item $\forall k |C_k| \le \alpha$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho)
-\item $\forall i \frac{{# pontos cobertos em I_i}}{{# pontos em I_i}} \ge \delta$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura)
+\item $\forall i \frac{\text{ \# pontos cobertos em } I_i}{\text{ \# pontos em } I_i} \ge \delta$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura)
 \end{itemize}
 
-
-
-Este algoritmo, pode ser separado da seguinte forma:
+O CMVS algoritmo, pode ser resumido em quatro passos:
 
 \begin{itemize}
 \item Filtro SFM -- agrupamento de pontos SFM
@@ -111,84 +103,76 @@ Este algoritmo, pode ser separado da seguinte forma:
 \item Adição de imagens -- reforça a cobertura
 \end{itemize}
 
-
 \subsection{Filtro SFM}
-
-A obtenção de medidas precisas de visibilidade de pontos é fundamental para o sucesso do nosso procedimento de visualização baseado em {\it clusters}. Os recursos da imagem não detectados ou incomparáveis ​​levam a erros nas estimativas de visibilidade do ponto $V_j$ (geralmente na forma de imagens que estão faltando). Obtemos estimativas de visibilidade mais confiáveis ​​ao agregar dados da visibilidade em uma vizinhança local, e mesclando pontos nessa vizinhança. A posição do ponto mesclado é a média de seus vizinhos, enquanto a visibilidade se torna a união. Este passo também reduz significativamente o número de pontos SFM e melhora o tempo de execução das três etapas restantes. Especificamente, a partir de um conjunto de pontos SFM, selecionamos aleatoriamente um ponto, combinamos com seus vizinhos, emitimos o ponto mesclado e removemos o ponto e seus vizinhos do conjunto de entrada. Repetimos o procedimento até o conjunto de entrada estar vazio. O conjunto de pontos mesclados torna-se o novo conjunto de pontos, que, com algum abuso de notação, também é denotado como ${P_j}^2$. %Figura 4%
-
+A obtenção de medidas precisas de visibilidade de pontos é fundamental para o sucesso do procedimento de visualização baseado em {\it clusters}. Os recursos da imagem não detectados ou incomparáveis levam a erros nas estimativas de visibilidade do ponto $V_j$ (geralmente na forma de imagens que estão faltando). Obtemos estimativas de visibilidade mais confiáveis ao agregar dados da visibilidade em uma vizinhança local, e mesclando os pontos nessa vizinhança. A posição do ponto mesclado é a média de seus vizinhos, enquanto a visibilidade se torna a união. Este passo também reduz significativamente o número de pontos SFM e melhora o tempo de execução das tres etapas restantes. Especificamente, a partir de um conjunto de pontos SFM, um ponto é selecionado, combinado com seus vizinhos (mesclado) e, este ponto mesclado é emitido, após isso, o ponto original e seus vizinhos são removidos do conjunto de entrada. Esse procedimento é repetido até o conjunto de entrada estar vazio. O conjunto de pontos mesclados torna-se o novo conjunto de pontos, que, pode ser denotado por ${P_j}^2$. %figura 4%
 
 \subsection{Seleção de imagens}
-
-Começando com o conjunto completo de imagens, cada imagem é testada e removida se a restrição de cobertura ainda for realizada após a remoção. O teste de remoção é realizado para todas as imagens enumeradas em ordem crescente de resolução de imagem (# de pixels), de modo que as imagens de baixa resolução sejam removidas primeiro. Observe que as imagens são descartadas permanentemente nesta etapa para acelerar as seguintes etapas principais de otimização.
+Começando com o conjunto completo de imagens, cada imagem é testada e removida se a restrição de cobertura ainda for realizada após a remoção. O teste de remoção é realizado para todas as imagens enumeradas em ordem crescente de resolução de imagem (\# de pixels), de modo que as imagens de baixa resolução sejam removidas primeiro. Observe que as imagens são descartadas permanentemente nesta etapa para acelerar as seguintes etapas principais de otimização.
 
 \subsection{Divisão de {\it cluster}}
-
 Em seguida, é aplicada a restrição de tamanho dividindo os {\it clusters}, ignorando a cobertura. Mais especificamente, um {\it cluster} de imagens é dividido em componentes menores caso viole a restrição de tamanho. A divisão de um {\it cluster} é realizada pelo algoritmo {\it Normalized-Cuts} %CITAR#
 [23] em um gráfico de visibilidade, onde os nós são imagens. O peso dA borda entre um par de imagens ($I_l, I_m$) mede o quanto a $I_l$ e $I_m$ contribuem, juntos,  para a reconstrução MVS em pontos SFM relevantes: 
 
-$e_{lm} = \sum_{P_j \in \Theta ^{lm} \frac{f(Pj,{Il, Im})}{f(Pj, Vj )}$, onde $\Theta ^{lm}$ denota um conjunto de pontos SFM visíveis em $L_l$ e $I_m$. Intuitivamente, as imagens com alta contribuição no MVS têm pesos altos entre eles e são menos propensos a serem cortados. A divisão de um {\it cluster} se repete até que a restrição de tamanho seja satisfeita para todos os {\it clusters}.
+$e_{lm} = \sum_{P_j \in \Theta ^{lm}} \frac{f(Pj,{Il, Im})}{f(Pj, Vj )}$, onde $\Theta ^{lm}$ denota um conjunto de pontos SFM visíveis em $L_l$ e $I_m$. Intuitivamente, as imagens com alta contribuição no MVS têm pesos altos entre eles e são menos propensos a serem cortados. A divisão de um {\it cluster} se repete até que a restrição de tamanho seja satisfeita para todos os {\it clusters}.
 
 \subsection{Adição de imagens}
-
 A restrição de cobertura pode ter sido violada na etapa anterior, e agora são adicionadas imagens a cada {\it cluster} para cobrir mais pontos SFM e restabelecer a cobertura. Nesta etapa, primeiro é construída uma lista de ações possíveis, onde cada ação mede a eficácia de adicionar uma imagem a um {\it cluster} para aumentar a cobertura. Para cada ponto SFM que está descoberto, $P_j$, deixe $C_k = argmax_{Cl} f(Pj, Cl)$ ser o {\it cluster} com a máxima precisão de reconstrução. 
 Então, para $P_j$, é criada uma ação ${(I \rightarrow C_k), g}$ que adiciona a imagem $I (\in V_j, \not\in C_k)$ a $C_k$, onde $g$ mede a eficácia. Só são consideradas ações que adicionam imagens ao $C_k$ em vez de cada {\it cluster} que poderia cobrir $P_j$, para eficiência computacional. Uma vez que as ações com a mesma imagem e com o mesmo {\it cluster} são geradas a partir de vários pontos SFM, ocorre uma mescla dessas ações ao resumir a eficácia medida $g$. As ações na lista são classificadas em uma ordem decrescente de sua eficácia. Tendo construído uma lista de ações, uma abordagem seria tomar a ação com a pontuação mais alta, então refazer a lista novamente, o que é computacionalmente muito caro. 
-
-Em vez disso, consideramos ações cujas pontuações são mais de $0,7$ vezes a pontuação mais alta na lista, em seguida, repete-se a ação a partir do topo da lista. Como uma ação pode alterar a eficácia de outras ações semelhantes, depois de tomar uma ação, remove-se quaisquer conflito da lista, onde duas ações ${(I \rightarrow C), g}, {(I' \rightarrow C'), g' }$ estão em conflito se $I'$ e $I$ são vizinhos. A construção da lista e a adição da imagem são repetidas até que a restrição de cobertura seja satisfeita.
-
-
-Após a adição da imagem, a restrição de tamanho pode ser violada e, nteste caso, as duas últimas etapas são repetidas até que ambas as restrições sejam satisfeitas.
-
-%O PMVS também utiliza a técnica de DoG + Harris. O DoG é utilizado para detecção de bordas, subtraindo o resultado de dois Gaussianos com escalas diferentes (Secao TAL). O operador de Harris emprega uma auto-correlação local para melhorar a consistência da borda, extraindo a borda e os cantos dos {\it features} das imagens. A resposta de Harris é positiva em regiões com cantos, negativas em bordas e pequenas em regiões planas. Além disso, no PMVS, usando pontos de amostras das imagens como sementes, as linhas epipolares são usadas para decidir a região correspondente (dentro de uma área 2x2 pixels) em outra imagem, gerando {\it patches} (cada uma definida com seu centro, normal e visibilidade) para atender às restrições na visibilidade, e levando à uma correspondência baseada em {\it patches} entre imagens. A correspondência Multi-view no PMVS é baseada em {\it patches} e depende da consistência fotográfica média de todos os pares visíveis. Um {\it patch} é reconstruído usando maximizando o valor médioda consistência da foto e, em seguida, aceitando somente se o número de imagens visíveis for maior ou igual a três.
-
-...  
-
-
 
 %O objetivo é minimizar o número total de imagens $\Sigma_k |C_k|$ nos {\it clusters} de saída, sujeito às restrições: um limite superior no tamanho de cada {\it cluster} para que um algoritmo MVS possa ser usado para cada {\it cluster}, independentemente: $\forall k, |C_k| ≤ \alpha$. $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. 
 %O segundo aborda a cobertura das reconstruções MVS finais. Dizemos que um ponto SFM $P_j$ é coberto se for suficientemente reconstruído pelas câmeras em pelo menos um {\it cluster} $C_k$. Para quantificar esta noção de "bem-construído", apresentamos uma função $f(P, C)$ que mede a precisão de reconstrução esperada alcançada em uma localização 3D $P$ por um conjunto de imagens $C$. Esta função depende dos parâmetros da câmera e das taxas de amostragem de pixels, esta função é abordada em %CITAR CMVS%. 
 %Dizemos que $P_j$ está coberto se a precisão da reconstrução em pelo menos um dos {\it clusters} $C_k$ é pelo menos $\lambda$ vezes $f (Pj, Vj)$, o que é a precisão esperada obtida ao usar todas as imagens visíveis de $P_j$ ($V_j$): 
 %$P_j$ está coberto se $\underset{k}{max} f(P_j, C_k \cap V_j) \ge \lambda f(Pj, Vj)$, onde $\lambda = 0,7$ nos testes apresentados \cite{CMVS}. A restrição de cobertura é que, para cada conjunto de pontos SFM visíveis em uma imagem, a proporção de pontos cobertos deve ser pelo menos $\delta$ (também definida em 0,7). Note-se que aplicamos essa relação de cobertura em cada imagem, em vez de toda a reconstrução, para incentivar uma boa cobertura espacial e uniformidade.
 
+Em vez disso, consideramos ações cujas pontuações são mais de $0,7$ vezes a pontuação mais alta na lista, em seguida, repete-se a ação a partir do topo da lista. Como uma ação pode alterar a eficácia de outras ações semelhantes, depois de tomar uma ação, remove-se quaisquer conflito da lista, onde duas ações ${(I \rightarrow C), g}, {(I' \rightarrow C'), g' }$ estão em conflito se $I'$ e $I$ são vizinhos. A construção da lista e a adição da imagem são repetidas até que a restrição de cobertura seja satisfeita.
+
+Após a adição da imagem, a restrição de tamanho pode ser violada e, neste caso, as duas últimas etapas são repetidas até que ambas as restrições sejam satisfeitas.
+
+O passo seguinte, depois de obtido o {\it cluster} das imagens, é empregado algum algoritmo de reconstrução MVS, neste caso, o PMVS-2 (Patch-based Multiview Stereo Version 2).
+
+\subsection{PMVS-2}
+
+O PMVS utiliza a técnica de DoG e cantos de Harris. O DoG é utilizado para detecção de bordas, subtraindo o resultado de dois Gaussianos com escalas diferentes (Secao TAL). O operador de Harris emprega uma auto-correlação local para melhorar a consistência da borda, extraindo a borda e os cantos dos {\it features} das imagens. A resposta de Harris é positiva em regiões com cantos, negativas em bordas e pequenas em regiões planas. Além disso, no PMVS, usando pontos de amostras das imagens como sementes, as linhas epipolares são usadas para decidir a região correspondente (dentro de uma área 2x2 pixels) em outra imagem, gerando {\it patches} (cada uma definida com seu centro, normal e visibilidade) para atender às restrições na visibilidade, e levando à uma correspondência baseada em {\it patches} entre imagens. A correspondência Multi-view no PMVS é baseada em {\it patches} e depende da consistência fotográfica média de todos os pares visíveis. Um {\it patch} é reconstruído usando maximizando o valor médioda consistência da foto e, em seguida, aceitando somente se o número de imagens visíveis for maior ou igual a três.  
 
 
 
+A superfície do objeto é aproximada por um pequeno retângulo (o {\it patch}).
+O {\it patch}(p) é um retângulo modelado pela posição central c(p), pelo vetor normal n(p), pelos eixos x e y e pela imagem de referência R(p), onde a imagem é a que melhor representa a visibilidade do {\it patch}. Seu tamanho é determinado por sua projeção na imagem de referência R(p).
 
+A imagem é divida em células (grid), de $\beta$ x $\beta$ pixels (usualmente 2x2). O ideal é reconstruir um patch por célula. Quanto menor a célula, maior será a densidade na nuvem de pontos final.
 
+O PMVS pode ser dividido em algumas etapas:
 
+\begin{itemize}
+\item{Inicalização}
+	\subitem{Detecção de {\it features}}
+	\subitem{Correspondência guiada}
+\item{Expansão}
+\item{Filtragem}
+\end{itemize}
 
+\subsection{Detecção de {\it features}}
+O PMVS padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris, onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são considerados consistentes para a reconstrução. 
+Após isso cria-se o {\it patch} onde o c(p) é calculado pela triangulação dos {\it features} detectados das imagens. A normal n(p) é o cálculo da relação do vetor c(p), multiplicado pela centro óptico da imagem, pelo módulo do numerador. E R(p) é a imagem de referência propriamente dita. São otimizadas as orientações e posições de todos os {\it patches}.
+Com a inicialização finalizada, temos como resultado a reconstrução esparsa da escultura. No caso do VisualSfM, como a reconstrução esparsa já é feita em passos anteriores (com o PBA), na realidade o PMVS-2 só é empregado para a reconstrução densa, ou seja, a inicialização não é feita pelo PMVS-2 no VisualSfM.
 
+\subsection{Expansão}
+Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de expansão (aumento da região). Um {\it patch} utilizado como semente é expandido da seguinte forma:
 
-%A superfície do objeto é aproximada por um pequeno retângulo (o {\it patch}).
-%O {\it patch}(p) é um retângulo modelado pela posição central c(p), pelo vetor normal n(p), pelos eixos x e y e pela imagem de referência R(p), onde a imagem é a que melhor representa a visibilidade do {\it patch}. Seu tamanho é determinado por sua projeção na imagem de referência R(p).
-%
-%A imagem é divida em células (grid), de $\beta$ x $\beta$ pixels (usualmente 2x2). O ideal é reconstruir um patch por célula. Quanto menor a célula, maior será a densidade na nuvem de pontos final.
-%
-%O PMVS pode ser dividido em algumas etapas:
-%
-%\begin{itemize}
-%\item{Inicalização}
-%	\subitem{Detecção de {\it features}}
-%	\subitem{Correspondência guiada}
-%\item{Expansão}
-%\item{Filtragem}
-%\end{itemize}
-%
-%\subsection{Detecção de {\it features}}
-%O PMVS padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris, onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são considerados consistentes para a reconstrução. 
-%Após isso cria-se o {\it patch} onde o c(p) é calculado pela triangulação dos {\it features} detectados das imagens. A normal n(p) é o cálculo da relação do vetor c(p), multiplicado pela centro óptico da imagem, pelo módulo do numerador. E R(p) é a imagem de referência propriamente dita. São otimizadas as orientações e posições de todos os {\it patches}.
-%Com a inicialização finalizada, temos como resultado a reconstrução esparsa da escultura. No caso do VisualSfM, como a reconstrução esparsa já é feita em passos anteriores (com o PBA), na realidade o PMVS-2 só é empregado para a reconstrução densa, ou seja, a inicialização não é feita pelo PMVS-2 no VisualSfM.
-%
-%\subsection{Expansão}
-%Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de expansão (aumento da região). Um {\it patch} utilizado como semente é expandido da seguinte forma:
-%
-%Um novo {\it patch} é projetado em uma célula vizinha;
-%A posição é definida para a interseção do raio projetado para trás e no plano de seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma imagem de referência.
-%Novamente, são otimizadas as orientações e posições, porém, do novo {\it patch}.	
-%
-%\subsection{Filtragem}
-%É aplicada uma consistência de visibilidade global, onde os {\it patches} que não são visíveis pelos centros ópticos das imagens, são descartados (estão dentro da superfície)
+Um novo {\it patch} é projetado em uma célula vizinha;
+A posição é definida para a interseção do raio projetado para trás e no plano de seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma imagem de referência.
+Novamente, são otimizadas as orientações e posições, porém, do novo {\it patch}.	
 
+\subsection{Filtragem}
+É aplicada uma consistência de visibilidade global, onde os {\it patches} que não são visíveis pelos centros ópticos das imagens, são descartados (estão dentro da superfície). Para isso, são utilizados dois filtros: filtro de qualidade e filtro de visibilidade.
 
+\subsubsection{Filtro de Qualidade}
+
+A mesma região de superfície pode ser reconstruída em múltiplos clusters com qualidade de reconstrução variável: grupos próximos produzem pontos densos e precisos, enquanto cachos distantes produzem pontos escassos e ruidosos. Queremos filtrar o último, que é realizado pelo seguinte filtro de qualidade. Deixe Pj e Vj denotarem um ponto MVS e suas informações de visibilidade estimadas pelo algoritmo MVS, respectivamente.
+
+\subsubsection{Filtro de Visibilidade}
+
+\end{itemize}
 % =================================================================
 
 Além disso, o VisualSfM é capaz de mostrar a matriz de correspondência de {\it features}, número de {\it features}, rodar um {\it Bundle Adjustment}, usar um Level 0 no PVMS, alterar a memória de GPU usada na reconstrução, deletar uma reconstrução indesejável, alterar parâmetros e rodar novamente o passo a passo acima.
