@@ -50,28 +50,7 @@ A redundância excessiva nos mapas de profundidade pode ser pesado. Não com rel
 
 \subsection{Guia de reconstrução com o MVE}
 
-% Capturing photos: A dataset reconstructs best if a few sim-
-% ple rules are observed. First, in order to successfully recon-
-% struct a surface region, it must be seen from at least five
-% Figure 5: The final surface reconstruction with color (left)
-% and shaded (right). Notice how even the engraved text is vis-
-% ible in the geometry.
-% views. This is a requirement of the MVS algorithm to reli-
-% ably triangulate any 3D position. Photos should thus be taken
-% with a good amount of overlap. Usually, unless the dataset
-% becomes really large, more photos will not hurt quality, but
-% there is a tradeoff between quality and performance. As a
-% rule of thumb, taking twice as many photos as one might
-% think is a good idea. In order for triangulation to work, paral-
-% lax is required. The camera should be re-positioned for every
-% photo. (This is exactly opposite to how panoramas are cap-
-% tured, where parallax in the images must be avoided.) This is
-% also important for SfM: Triangulating a feature track with in-
-% sufficient parallax results in a small triangulation angle and a
-% poorly conditioned 3D position. Figure 6 shows some input
-% images of our exemplary dataset.
-
-Tirando fotos: Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
+Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
 
 \begin{itemize}
 
@@ -86,15 +65,15 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 
 \end{itemize}
 
-%\begin{figure} [!h]
-%	\centering
-%	\includegraphics[width=0.45\linewidth]{figs/parallaxA.png}(a)
-%	\includegraphics[width=0.45\linewidth]{figs/parallaxB.png}(b)
-%	\includegraphics[width=0.45\linewidth]{figs/parallaxC.png}(c)
-%	\caption{%
-%	Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto.
-%	}\label{fig:parallax}
-%\end{figure}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[width=0.2\linewidth]{figs/parallaxA.png}(a)
+	\includegraphics[width=0.2\linewidth]{figs/parallaxB.png}(b)
+	\includegraphics[width=0.2\linewidth]{figs/parallaxC.png}(c)
+	\caption{%
+	Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto.
+	}\label{fig:parallax}
+\end{figure}
 
 % Creating a scene: A view is a container that contains per-
 % viewport data (such as images, depth maps and other data).

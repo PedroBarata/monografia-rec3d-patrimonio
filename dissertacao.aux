@@ -138,76 +138,78 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 13 - }{\ignorespaces Funcionamento do MVE. Come\IeC {\c c}ando com m\IeC {\'u}ltiplas imagens, t\IeC {\'e}cnicas SfM s\IeC {\~a}o empregadas para recontruir os par\IeC {\^a}metros das c\IeC {\^a}meras e os conjuntos de pontos esparsos. Mapas de profundidade s\IeC {\~a}o computados para cada imagem usando o MVS. Finalmente, uma malha colorida \IeC {\'e} extra\IeC {\'\i }da da uni\IeC {\~a}o de todos os mapas de profundidade usando um algoritmo de aproxima\IeC {\c c}\IeC {\~o}es de reconstru\IeC {\c c}\IeC {\~o}es de superf\IeC {\'\i }cies (FSSR).\relax }}{29}{figure.caption.32}}
 \newlabel{fig:mvepipeline}{{13}{29}{Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).\relax }{figure.caption.32}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}\normalfont \normalsize \uline  {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE}}{29}{section*.33}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 14 - }{\ignorespaces Interface gr\IeC {\'a}fica (UMVE)\relax }}{31}{figure.caption.34}}
-\newlabel{fig:mvesfm}{{14}{31}{Interface gráfica (UMVE)\relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 15 - }{\ignorespaces Reconstru\IeC {\c c}\IeC {\~a}o baseada em nuvem de pontos gerada a partir da reconstru\IeC {\c c}\IeC {\~a}o SfM.\relax }}{31}{figure.caption.35}}
-\newlabel{fig:mvesfm}{{15}{31}{Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.\relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 16 - }{\ignorespaces Uma imagem de entrada (\IeC {\`a} esquerda) e sua correspond\IeC {\^e}ncia em mapas de profundidade (\IeC {\`a} direita), onde a parte roxa significa que n\IeC {\~a}o foi encontrada nenhum mapa naquela regi\IeC {\~a}o.\relax }}{32}{figure.caption.36}}
-\newlabel{fig:mvedepth}{{16}{32}{Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.\relax }{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 17 - }{\ignorespaces A figura (a) \IeC {\'e} um exemplo onde a imagem possui dados na extens\IeC {\~a}o {\it  EXIF} (destacado em azul). Ao passo que a figura (b) \IeC {\'e} um frame de um v\IeC {\'\i }deo, que n\IeC {\~a}o possui os dados das c\IeC {\^a}meras (destacado em azul). \relax }}{34}{figure.caption.37}}
-\newlabel{fig:mveexif}{{17}{34}{A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul). \relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 18 - }{\ignorespaces Final da reconstru\IeC {\c c}\IeC {\~a}o via UMVE, percebe-se que alguns pontos n\IeC {\~a}o foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }}{35}{figure.caption.38}}
-\newlabel{fig:UMVEdense}{{18}{35}{Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 19 - }{\ignorespaces Processos dentro do comando {\it  sfmrecon}, onde (a) est\IeC {\~a}o sendo detectadas as {\it  features} do conjunto de imagens. Em (b) est\IeC {\'a} computado o {\it  pairwise matching} e em (c) est\IeC {\'a} no processo do {\it  Bundle Adjustment}, usando condi\IeC {\c c}\IeC {\~o}es-padr\IeC {\~a}o para as c\IeC {\^a}meras. \relax }}{36}{figure.caption.39}}
-\newlabel{fig:passosMVE}{{19}{36}{Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras. \relax }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 20 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }}{37}{figure.caption.40}}
-\newlabel{fig:MVESfM}{{20}{37}{Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 21 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }}{37}{figure.caption.41}}
-\newlabel{fig:MVEDenseRecon}{{21}{37}{Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 22 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos {\it  scene2pet}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{38}{figure.caption.42}}
-\newlabel{fig:MVEScene2Pet}{{22}{38}{Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3. \relax }{figure.caption.42}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 23 - }{\ignorespaces Progress\IeC {\~a}o do comando {\it  fssrecon}, onde possui o ETA -- {\it  Estimated Time of Arrival}. \relax }}{38}{figure.caption.43}}
-\newlabel{fig:MVEFSSR}{{23}{38}{Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}. \relax }{figure.caption.43}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 24 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando {\it  fssrecon}. \relax }}{39}{figure.caption.44}}
-\newlabel{fig:MVEFSSRMesh}{{24}{39}{Malha com ruídos proveniente do comando {\it fssrecon}. \relax }{figure.caption.44}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 25 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{39}{figure.caption.45}}
-\newlabel{fig:MVEMeshClean}{{25}{39}{Resultado final, após a remoção dos ruídos da malha. \relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 14 - }{\ignorespaces Caso o espa\IeC {\c c}amento entre as c\IeC {\^a}meras seja grande, a informa\IeC {\c c}\IeC {\~a}o extra\IeC {\'\i }da das imagens em comum ser\IeC {\'a} menor (a). Se a angula\IeC {\c c}\IeC {\~a}o do efeito de paralaxe seja baixa, ter\IeC {\'a} a mesma informa\IeC {\c c}\IeC {\~a}o sobre um ponto em quest\IeC {\~a}o (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstru\IeC {\c c}\IeC {\~a}o fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das c\IeC {\^a}meras, \IeC {\'e} necess\IeC {\'a}rio que as c\IeC {\^a}meras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informa\IeC {\c c}\IeC {\~o}es do ponto. \relax }}{30}{figure.caption.34}}
+\newlabel{fig:parallax}{{14}{30}{Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto. \relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 15 - }{\ignorespaces Interface gr\IeC {\'a}fica (UMVE)\relax }}{31}{figure.caption.35}}
+\newlabel{fig:mvesfm}{{15}{31}{Interface gráfica (UMVE)\relax }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 16 - }{\ignorespaces Reconstru\IeC {\c c}\IeC {\~a}o baseada em nuvem de pontos gerada a partir da reconstru\IeC {\c c}\IeC {\~a}o SfM.\relax }}{31}{figure.caption.36}}
+\newlabel{fig:mvesfm}{{16}{31}{Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 17 - }{\ignorespaces Uma imagem de entrada (\IeC {\`a} esquerda) e sua correspond\IeC {\^e}ncia em mapas de profundidade (\IeC {\`a} direita), onde a parte roxa significa que n\IeC {\~a}o foi encontrada nenhum mapa naquela regi\IeC {\~a}o.\relax }}{32}{figure.caption.37}}
+\newlabel{fig:mvedepth}{{17}{32}{Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 18 - }{\ignorespaces A figura (a) \IeC {\'e} um exemplo onde a imagem possui dados na extens\IeC {\~a}o {\it  EXIF} (destacado em azul). Ao passo que a figura (b) \IeC {\'e} um frame de um v\IeC {\'\i }deo, que n\IeC {\~a}o possui os dados das c\IeC {\^a}meras (destacado em azul). \relax }}{34}{figure.caption.38}}
+\newlabel{fig:mveexif}{{18}{34}{A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul). \relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 19 - }{\ignorespaces Final da reconstru\IeC {\c c}\IeC {\~a}o via UMVE, percebe-se que alguns pontos n\IeC {\~a}o foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }}{35}{figure.caption.39}}
+\newlabel{fig:UMVEdense}{{19}{35}{Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente. \relax }{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 20 - }{\ignorespaces Processos dentro do comando {\it  sfmrecon}, onde (a) est\IeC {\~a}o sendo detectadas as {\it  features} do conjunto de imagens. Em (b) est\IeC {\'a} computado o {\it  pairwise matching} e em (c) est\IeC {\'a} no processo do {\it  Bundle Adjustment}, usando condi\IeC {\c c}\IeC {\~o}es-padr\IeC {\~a}o para as c\IeC {\^a}meras. \relax }}{36}{figure.caption.40}}
+\newlabel{fig:passosMVE}{{20}{36}{Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras. \relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 21 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }}{37}{figure.caption.41}}
+\newlabel{fig:MVESfM}{{21}{37}{Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 22 - }{\ignorespaces T\IeC {\'e}rmino do comando {\it  dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }}{37}{figure.caption.42}}
+\newlabel{fig:MVEDenseRecon}{{22}{37}{Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 23 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos {\it  scene2pet}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{38}{figure.caption.43}}
+\newlabel{fig:MVEScene2Pet}{{23}{38}{Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3. \relax }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 24 - }{\ignorespaces Progress\IeC {\~a}o do comando {\it  fssrecon}, onde possui o ETA -- {\it  Estimated Time of Arrival}. \relax }}{38}{figure.caption.44}}
+\newlabel{fig:MVEFSSR}{{24}{38}{Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}. \relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 25 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando {\it  fssrecon}. \relax }}{39}{figure.caption.45}}
+\newlabel{fig:MVEFSSRMesh}{{25}{39}{Malha com ruídos proveniente do comando {\it fssrecon}. \relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 26 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{39}{figure.caption.46}}
+\newlabel{fig:MVEMeshClean}{{26}{39}{Resultado final, após a remoção dos ruídos da malha. \relax }{figure.caption.46}{}}
 \@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {3}}\penalty \@M {\bf  \uppercase {Kinect}} }{40}{chapter.3}}
 \newlabel{sec:kinect}{{3}{40}{Kinect}{chapter.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 26 - }{\ignorespaces Imagem de um kinect V1 aberto, constitu\IeC {\'\i }do de uma c\IeC {\^a}mera infra-vermelho (IR), uma c\IeC {\^a}mera RGB e um projetor IR. \relax }}{40}{figure.caption.46}}
-\newlabel{fig:kinect}{{26}{40}{Imagem de um kinect V1 aberto, constituído de uma câmera infra-vermelho (IR), uma câmera RGB e um projetor IR. \relax }{figure.caption.46}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 27 - }{\ignorespaces Exemplo de como \IeC {\'e} a sa\IeC {\'\i }da de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde \IeC {\`a} profundidade ou dist\IeC {\^a}ncia da cena para o Kinect. \relax }}{41}{figure.caption.47}}
-\newlabel{fig:profKinect}{{27}{41}{Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde à profundidade ou distância da cena para o Kinect. \relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 27 - }{\ignorespaces Imagem de um kinect V1 aberto, constitu\IeC {\'\i }do de uma c\IeC {\^a}mera infra-vermelho (IR), uma c\IeC {\^a}mera RGB e um projetor IR. \relax }}{40}{figure.caption.47}}
+\newlabel{fig:kinect}{{27}{40}{Imagem de um kinect V1 aberto, constituído de uma câmera infra-vermelho (IR), uma câmera RGB e um projetor IR. \relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 28 - }{\ignorespaces Exemplo de como \IeC {\'e} a sa\IeC {\'\i }da de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde \IeC {\`a} profundidade ou dist\IeC {\^a}ncia da cena para o Kinect. \relax }}{41}{figure.caption.48}}
+\newlabel{fig:profKinect}{{28}{41}{Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde à profundidade ou distância da cena para o Kinect. \relax }{figure.caption.48}{}}
 \newlabel{eq:kinectCalibracao}{{8}{41}{Kinect}{equation.3.0.8}{}}
 \newlabel{eq:matrix}{{9}{41}{Kinect}{equation.3.0.9}{}}
 \newlabel{eq:distorcaoKinect}{{10}{41}{Kinect}{equation.3.0.10}{}}
 \newlabel{eq:relacaoKinect}{{11}{41}{Kinect}{equation.3.0.11}{}}
 \newlabel{eq:distKinect}{{12}{42}{Kinect}{equation.3.0.12}{}}
 \newlabel{eq:finalKinect}{{13}{42}{Kinect}{equation.3.0.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {Tabela\hfill 2 - }{\ignorespaces Valores de deslocamentos e sua m\IeC {\'e}dia\relax }}{42}{table.caption.48}}
-\newlabel{tab:deslocamentoKinect}{{2}{42}{Valores de deslocamentos e sua média\relax }{table.caption.48}{}}
-\newlabel{fig:deslocamentokinectA}{{27a}{43}{Subfigure 3 27a}{subfigure.27.1}{}}
-\newlabel{sub@fig:deslocamentokinectA}{{(a)}{a}{Subfigure 3 27a\relax }{subfigure.27.1}{}}
-\newlabel{fig:deslocamentokinectB}{{27b}{43}{Subfigure 3 27b}{subfigure.27.2}{}}
-\newlabel{sub@fig:deslocamentokinectB}{{(b)}{b}{Subfigure 3 27b\relax }{subfigure.27.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 28 - }{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o visual do acerto do deslocamento. A parte em preto \IeC {\'e} a imagem IR e o contorno em branco \IeC {\'e} a imagem de profundidade do alvo. \relax }}{43}{figure.caption.49}}
-\newlabel{fig:deslocKinect}{{28}{43}{Representação visual do acerto do deslocamento. A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo. \relax }{figure.caption.49}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Sem o alinhamento}}}{43}{subfigure.27.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Com o alinhamento}}}{43}{subfigure.27.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 29 - }{\ignorespaces Posi\IeC {\c c}\IeC {\~a}o e orienta\IeC {\c c}\IeC {\~a}o do Kinect (com as c\IeC {\^a}meras IR e RGB) e o par est\IeC {\'e}reo SLR ({\it  Left}, {\it  Right}) em conjunto com pontos de calibra\IeC {\c c}\IeC {\~a}o 3D reconstru\IeC {\'\i }dos em alvos de calibra\IeC {\c c}\IeC {\~a}o planar. \relax }}{43}{figure.caption.50}}
-\newlabel{fig:ambienteKinect}{{29}{43}{Posição e orientação do Kinect (com as câmeras IR e RGB) e o par estéreo SLR ({\it Left}, {\it Right}) em conjunto com pontos de calibração 3D reconstruídos em alvos de calibração planar. \relax }{figure.caption.50}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {Tabela\hfill 3 - }{\ignorespaces Resultados dos testes executados no ambiente descrito anteriormente\relax }}{44}{table.caption.51}}
-\newlabel{tab:resultadosKinect}{{3}{44}{Resultados dos testes executados no ambiente descrito anteriormente\relax }{table.caption.51}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {Tabela\hfill 2 - }{\ignorespaces Valores de deslocamentos e sua m\IeC {\'e}dia\relax }}{42}{table.caption.49}}
+\newlabel{tab:deslocamentoKinect}{{2}{42}{Valores de deslocamentos e sua média\relax }{table.caption.49}{}}
+\newlabel{fig:deslocamentokinectA}{{28a}{43}{Subfigure 3 28a}{subfigure.28.1}{}}
+\newlabel{sub@fig:deslocamentokinectA}{{(a)}{a}{Subfigure 3 28a\relax }{subfigure.28.1}{}}
+\newlabel{fig:deslocamentokinectB}{{28b}{43}{Subfigure 3 28b}{subfigure.28.2}{}}
+\newlabel{sub@fig:deslocamentokinectB}{{(b)}{b}{Subfigure 3 28b\relax }{subfigure.28.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 29 - }{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o visual do acerto do deslocamento. A parte em preto \IeC {\'e} a imagem IR e o contorno em branco \IeC {\'e} a imagem de profundidade do alvo. \relax }}{43}{figure.caption.50}}
+\newlabel{fig:deslocKinect}{{29}{43}{Representação visual do acerto do deslocamento. A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo. \relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Sem o alinhamento}}}{43}{subfigure.28.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Com o alinhamento}}}{43}{subfigure.28.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 30 - }{\ignorespaces Posi\IeC {\c c}\IeC {\~a}o e orienta\IeC {\c c}\IeC {\~a}o do Kinect (com as c\IeC {\^a}meras IR e RGB) e o par est\IeC {\'e}reo SLR ({\it  Left}, {\it  Right}) em conjunto com pontos de calibra\IeC {\c c}\IeC {\~a}o 3D reconstru\IeC {\'\i }dos em alvos de calibra\IeC {\c c}\IeC {\~a}o planar. \relax }}{43}{figure.caption.51}}
+\newlabel{fig:ambienteKinect}{{30}{43}{Posição e orientação do Kinect (com as câmeras IR e RGB) e o par estéreo SLR ({\it Left}, {\it Right}) em conjunto com pontos de calibração 3D reconstruídos em alvos de calibração planar. \relax }{figure.caption.51}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {Tabela\hfill 3 - }{\ignorespaces Resultados dos testes executados no ambiente descrito anteriormente\relax }}{44}{table.caption.52}}
+\newlabel{tab:resultadosKinect}{{3}{44}{Resultados dos testes executados no ambiente descrito anteriormente\relax }{table.caption.52}{}}
 \@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {4}}\penalty \@M {\bf  \uppercase {VisualSfM}} }{45}{chapter.4}}
 \newlabel{sec:visualsfm}{{4}{45}{VisualSfM}{chapter.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 30 - }{\ignorespaces Bot\IeC {\~o}es na parte superior da interface gr\IeC {\'a}fica, este seria o {\it  pipeline} padr\IeC {\~a}o de funcionamento do {\it  software}. \relax }}{45}{figure.caption.54}}
-\newlabel{fig:pipelineVisualSfM}{{30}{45}{Botões na parte superior da interface gráfica, este seria o {\it pipeline} padrão de funcionamento do {\it software}. \relax }{figure.caption.54}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}\normalfont \normalsize \uline  {Filtro SFM}}{47}{section*.55}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}\normalfont \normalsize \uline  {Sele\IeC {\c c}\IeC {\~a}o de imagens}}{47}{section*.56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}\normalfont \normalsize \uline  {Divis\IeC {\~a}o de {\it  cluster}}}{48}{section*.57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.4}\normalfont \normalsize \uline  {Adi\IeC {\c c}\IeC {\~a}o de imagens}}{48}{section*.58}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.5}\normalfont \normalsize \uline  {PMVS-2}}{49}{section*.59}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.6}\normalfont \normalsize \uline  {Detec\IeC {\c c}\IeC {\~a}o de {\it  features}}}{50}{section*.60}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.7}\normalfont \normalsize \uline  {Expans\IeC {\~a}o}}{50}{section*.61}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.8}\normalfont \normalsize \uline  {Filtragem}}{51}{section*.62}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.8.1}\normalfont \normalsize {Filtro de Qualidade}}{51}{section*.63}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.8.2}\normalfont \normalsize {Filtro de Visibilidade}}{51}{section*.64}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 31 - }{\ignorespaces Bot\IeC {\~o}es na parte superior da interface gr\IeC {\'a}fica, este seria o {\it  pipeline} padr\IeC {\~a}o de funcionamento do {\it  software}. \relax }}{45}{figure.caption.55}}
+\newlabel{fig:pipelineVisualSfM}{{31}{45}{Botões na parte superior da interface gráfica, este seria o {\it pipeline} padrão de funcionamento do {\it software}. \relax }{figure.caption.55}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}\normalfont \normalsize \uline  {Filtro SFM}}{47}{section*.56}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}\normalfont \normalsize \uline  {Sele\IeC {\c c}\IeC {\~a}o de imagens}}{47}{section*.57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}\normalfont \normalsize \uline  {Divis\IeC {\~a}o de {\it  cluster}}}{48}{section*.58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.4}\normalfont \normalsize \uline  {Adi\IeC {\c c}\IeC {\~a}o de imagens}}{48}{section*.59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.5}\normalfont \normalsize \uline  {PMVS-2}}{49}{section*.60}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.6}\normalfont \normalsize \uline  {Detec\IeC {\c c}\IeC {\~a}o de {\it  features}}}{50}{section*.61}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.7}\normalfont \normalsize \uline  {Expans\IeC {\~a}o}}{50}{section*.62}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.8}\normalfont \normalsize \uline  {Filtragem}}{51}{section*.63}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.8.1}\normalfont \normalsize {Filtro de Qualidade}}{51}{section*.64}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.8.2}\normalfont \normalsize {Filtro de Visibilidade}}{51}{section*.65}}
 \@writefile{toc}{\contentsline {chapter}{\normalfont  \penalty \@M {\numberline {5}}\penalty \@M {\bf  \uppercase {Experimentos}} }{52}{chapter.5}}
 \newlabel{sec:experiments}{{5}{52}{Experimentos}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries  {Procedimento}}{52}{section*.65}}
-\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 31 - }{\ignorespaces Exemplo de como foi realizada a varredura da escultura \relax }}{52}{figure.caption.66}}
-\newlabel{fig:procedimentoscan}{{31}{52}{Exemplo de como foi realizada a varredura da escultura \relax }{figure.caption.66}{}}
-\@writefile{toc}{\contentsline {chapter}{\normalfont  \numberline {}\penalty \@M {\bf  \uppercase {Conclus\IeC {\~a}o}} }{53}{section*.68}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries  {Procedimento}}{52}{section*.66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {Figura\hfill 32 - }{\ignorespaces Exemplo de como foi realizada a varredura da escultura \relax }}{52}{figure.caption.67}}
+\newlabel{fig:procedimentoscan}{{32}{52}{Exemplo de como foi realizada a varredura da escultura \relax }{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {chapter}{\normalfont  \numberline {}\penalty \@M {\bf  \uppercase {Conclus\IeC {\~a}o}} }{53}{section*.69}}
 \newlabel{LastPage}{{}{53}{}{page.53}{}}
 \xdef\lastpage@lastpage{53}
 \xdef\lastpage@lastpageHy{53}
