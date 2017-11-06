@@ -293,19 +293,18 @@
 %que desenvolvemos para este projeto. Construímos um modelo recente de aprendizado de baixo nível, explorando desafios na 
 %interface de aprendizagem de máquina e geometria.
 
-A partir dos anos 2000, a área de reconstrução 3D vem sido amplamente explorada. No início, sensores de alcance, tanto aéreos quanto terrestres, eram empregados em diferentes aplicações, devido à facilidade de manuseio e ao baixo custo. Porém, constantes melhorias na tecnologia, sobretudo, nos {\it hardwares} e {\it softwares} no âmbito da reconstrução, fizeram com que hoje, quase duas décadas depois, novas técnicas surgissem.
+A partir dos anos 2000, a área de reconstrução 3D vem sido amplamente explorada. No início, sensores de alcance, tanto aéreos quanto terrestres, eram empregados em diferentes aplicações. Porém, constantes melhorias na tecnologia, sobretudo, nos {\it hardwares} e {\it softwares} no âmbito da reconstrução, fizeram com que hoje, quase duas décadas depois, novas técnicas surgissem.
 
 Muitos cientistas que utilizavam a fotogrametria converteram seus esforços na área dos sensores à laser. Pois além de executarem uma reconstrução mais rápida, possuem uma altíssima acurácia, compensando seu alto custo inicial. Isto dificultou e desacelerou o processo de descoberta de novos algoritmos e métodos na área da fotogrametria. 
 
-Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o  {\it Structure of Motion} ({\it SfM}), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
+Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o {\it Structure from Motion} (SfM), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
 
- ABORDAR O SFM, SIFT E CMVS (POUCO) <<< ?????
+Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS ({\it Multi-View Stereo}), utilizando {\it softwares} como o MVE (CITAR GOESELE) e o VisualSfM (CITAR CHANGCHANGWU), é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
 
-Com uma combinação de algoritmos, com o {\it SfM}, junto com o SIFT ({\it }) e o CMVS ({\it }), é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}.
 
 O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
 
-ABORDAR OS "TODO'S" DO HANGOUTS
+% ABORDAR OS "TODO'S" DO HANGOUTS
 
 
 \imprimirchaves
@@ -385,9 +384,9 @@ ABORDAR OS "TODO'S" DO HANGOUTS
 
 \input{intro}
 \input{laser}
+\input{kinect}
 \input{pontosdeinteresse}
 \input{denserecon}
-\input{kinect}
 \input{visualsfm}
 \input{experiments}
 \input{conclusion}
