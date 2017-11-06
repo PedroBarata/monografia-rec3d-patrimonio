@@ -98,7 +98,7 @@ Criar uma nova cena, criará apenas o diretório ({\it views}) vazio. A importa�
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/umve1.png}
+	\includegraphics[width=0.5\linewidth]{figs/umve1.png}
 	\caption{%
 	Interface gráfica (UMVE)%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mvesfm}
@@ -120,7 +120,7 @@ Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/umve5sfm.png}
+	\includegraphics[width=0.5\linewidth]{figs/umve5sfm.png}
 	\caption{%
 	Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mvesfm}
@@ -152,7 +152,7 @@ Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada,
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/mvedepth.png}
+	\includegraphics[width=0.5\linewidth]{figs/mvedepth.png}
 	\caption{%
 	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região.%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mvedepth}
@@ -169,8 +169,8 @@ Entretanto, para a aplicação proposta neste projeto, não é muito interessant
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/exifumve.png}(a)
-	\includegraphics[width=1\linewidth]{figs/exifsemumve.png}(b)
+	\includegraphics[width=0.5\linewidth]{figs/exifumve.png}(a)
+	\includegraphics[width=0.5\linewidth]{figs/exifsemumve.png}(b)
 	\caption{%
 	A figura (a) é um exemplo onde a imagem possui dados na extensão {\it EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -187,7 +187,7 @@ O UMVE não sinaliza quando o processo em execução termina, então, a explica�
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/umvedense.png}
+	\includegraphics[width=0.5\linewidth]{figs/umvedense.png}
 	\caption{%
 	Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -198,9 +198,9 @@ Na reconstrução por linha de comando também é possível visualizar em qual e
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/umve2sfm.png} (a)
-	\includegraphics[width=1\linewidth]{figs/umve3sfmfeature.png} (b)
-	\includegraphics[width=1\linewidth]{figs/umve4ba.png} (c)
+	\includegraphics[width=0.5\linewidth]{figs/umve2sfm.png} (a)
+	\includegraphics[width=0.5\linewidth]{figs/umve3sfmfeature.png} (b)
+	\includegraphics[width=0.5\linewidth]{figs/umve4ba.png} (c)
 	\caption{%
 	Processos dentro do comando {\it sfmrecon}, onde (a) estão sendo detectadas as {\it features} do conjunto de imagens. Em (b) está computado o {\it pairwise matching} e em (c) está no processo do {\it Bundle Adjustment}, usando condições-padrão para as câmeras.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -209,7 +209,7 @@ Na reconstrução por linha de comando também é possível visualizar em qual e
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/sfmmve.png}
+	\includegraphics[width=0.8\linewidth]{figs/sfmmve.png}
 	\caption{%
 	Término do comando {\it sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -220,7 +220,7 @@ O próximo comando, {\it dmrecon} demorou cerca de 4 horas, usando como configur
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/umvetempo.png}
+	\includegraphics[width=0.8\linewidth]{figs/umvetempo.png}
 	\caption{%
 	Término do comando {\it dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -231,7 +231,7 @@ Usando o {\it scene2pet}, é necessário em qual nível estamos reconstruindo e 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemesh.png}
+	\includegraphics[width=0.8\linewidth]{figs/mvemesh.png}
 	\caption{%
 	Execução dos comandos {\it scene2pet}, nos níveis -F0, -F1, -F2 e -F3.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -242,7 +242,7 @@ Para juntar todos os níveis do {\it scene2pet}, foi usado o {\it fssrecon}, que
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemeshtempo2.png}
+	\includegraphics[width=0.8\linewidth]{figs/mvemeshtempo2.png}
 	\caption{%
 	Progressão do comando {\it fssrecon}, onde possui o ETA -- {\it Estimated Time of Arrival}.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
