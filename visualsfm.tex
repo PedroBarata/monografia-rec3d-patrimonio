@@ -28,9 +28,11 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 \item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa em todos os {\it features} descobertos no passo passado. (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
 
 
-PBA -- {\it Parallel Banding Algorithm}
+PBA -- {\it Parallel Bundle Algorithm}
 
-O PBA é um algoritmo implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas para processar e posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
+"{\it Bundle}" refere-se aos feixes de luz que refletem em cada {\it feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o {\it Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras) juntamente com as estruturas 3D.
+
+O PBA é um algoritmo utilizado para minimizar o erro geométrico proveniente da reprojeção de cada {\it feature} da etapa de triangulação. Implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas, para serem processadas e, posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
 
 
 % O PBA é divido em 3 fases:
