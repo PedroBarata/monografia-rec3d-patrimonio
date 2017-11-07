@@ -4,34 +4,32 @@
 \BOOKMARK [1][-]{section*.10}{Objetivos}{section*.2}% 4
 \BOOKMARK [1][-]{section*.11}{Organiza\347\343o deste manuscrito}{section*.2}% 5
 \BOOKMARK [1][-]{section*.12}{Laser}{section*.2}% 6
-\BOOKMARK [0][-]{chapter.1}{Pontos de Interesse }{}% 7
-\BOOKMARK [1][-]{section*.15}{ SIFT \205 Scale Invariant Feature Transform}{chapter.1}% 8
-\BOOKMARK [2][-]{section*.16}{Detec\347\343o de espa\347o-escala extremos}{section*.15}% 9
-\BOOKMARK [2][-]{section*.19}{Localiza\347\343o de pontos-chaves}{section*.15}% 10
-\BOOKMARK [2][-]{section*.20}{Atribui\347\343o de orienta\347\343o}{section*.15}% 11
-\BOOKMARK [2][-]{section*.22}{Descritor de pontos-chaves}{section*.15}% 12
-\BOOKMARK [2][-]{section*.24}{Combina\347\343o de pontos-chaves}{section*.15}% 13
-\BOOKMARK [1][-]{section*.25}{Triangula\347\343o \205 Full pairwise image matching}{chapter.1}% 14
-\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o densa }{}% 15
-\BOOKMARK [1][-]{section*.28}{Introdu\347\343o}{chapter.2}% 16
-\BOOKMARK [1][-]{section*.29}{HPMVS}{chapter.2}% 17
-\BOOKMARK [2][-]{section*.30}{falar sobre o hpmvs...}{section*.29}% 18
-\BOOKMARK [1][-]{section*.31}{MVE}{chapter.2}% 19
-\BOOKMARK [2][-]{section*.33}{Guia de reconstru\347\343o com o MVE}{section*.31}% 20
-\BOOKMARK [0][-]{chapter.3}{Kinect }{}% 21
-\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 22
-\BOOKMARK [1][-]{section*.56}{Filtro SFM}{chapter.4}% 23
-\BOOKMARK [2][-]{section*.57}{Sele\347\343o de imagens}{section*.56}% 24
-\BOOKMARK [2][-]{section*.58}{Divis\343o de cluster}{section*.56}% 25
-\BOOKMARK [2][-]{section*.59}{Adi\347\343o de imagens}{section*.56}% 26
-\BOOKMARK [2][-]{section*.60}{PMVS-2}{section*.56}% 27
-\BOOKMARK [2][-]{section*.61}{Detec\347\343o de features}{section*.56}% 28
-\BOOKMARK [2][-]{section*.62}{Expans\343o}{section*.56}% 29
-\BOOKMARK [2][-]{section*.63}{Filtragem}{section*.56}% 30
-\BOOKMARK [3][-]{section*.64}{Filtro de Qualidade}{section*.63}% 31
-\BOOKMARK [3][-]{section*.65}{Filtro de Visibilidade}{section*.63}% 32
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 33
-\BOOKMARK [1][-]{section*.66}{Procedimento}{chapter.5}% 34
-\BOOKMARK [2][-]{section*.68}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.66}% 35
-\BOOKMARK [2][-]{section*.77}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.66}% 36
-\BOOKMARK [0][-]{section*.86}{Conclus\343o }{}% 37
+\BOOKMARK [0][-]{chapter.1}{Kinect }{}% 7
+\BOOKMARK [0][-]{chapter.2}{Pontos de Interesse }{}% 8
+\BOOKMARK [1][-]{section*.21}{ SIFT \205 Scale Invariant Feature Transform}{chapter.2}% 9
+\BOOKMARK [2][-]{section*.22}{Detec\347\343o de espa\347o-escala extremos}{section*.21}% 10
+\BOOKMARK [2][-]{section*.25}{Localiza\347\343o de pontos-chaves}{section*.21}% 11
+\BOOKMARK [2][-]{section*.26}{Atribui\347\343o de orienta\347\343o}{section*.21}% 12
+\BOOKMARK [2][-]{section*.28}{Descritor de pontos-chaves}{section*.21}% 13
+\BOOKMARK [2][-]{section*.30}{Combina\347\343o de pontos-chaves}{section*.21}% 14
+\BOOKMARK [1][-]{section*.31}{Triangula\347\343o \205 Full pairwise image matching}{chapter.2}% 15
+\BOOKMARK [0][-]{chapter.3}{Reconstru\347\343o densa }{}% 16
+\BOOKMARK [1][-]{section*.34}{Introdu\347\343o}{chapter.3}% 17
+\BOOKMARK [1][-]{section*.35}{MVE}{chapter.3}% 18
+\BOOKMARK [2][-]{section*.37}{Guia de reconstru\347\343o com o MVE}{section*.35}% 19
+\BOOKMARK [0][-]{chapter.4}{VisualSfM }{}% 20
+\BOOKMARK [1][-]{section*.54}{Filtro SFM}{chapter.4}% 21
+\BOOKMARK [2][-]{section*.55}{Sele\347\343o de imagens}{section*.54}% 22
+\BOOKMARK [2][-]{section*.56}{Divis\343o de cluster}{section*.54}% 23
+\BOOKMARK [2][-]{section*.57}{Adi\347\343o de imagens}{section*.54}% 24
+\BOOKMARK [2][-]{section*.58}{PMVS-2}{section*.54}% 25
+\BOOKMARK [2][-]{section*.59}{Detec\347\343o de features}{section*.54}% 26
+\BOOKMARK [2][-]{section*.60}{Expans\343o}{section*.54}% 27
+\BOOKMARK [2][-]{section*.61}{Filtragem}{section*.54}% 28
+\BOOKMARK [3][-]{section*.62}{Filtro de Qualidade}{section*.61}% 29
+\BOOKMARK [3][-]{section*.63}{Filtro de Visibilidade}{section*.61}% 30
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 31
+\BOOKMARK [1][-]{section*.64}{Procedimento}{chapter.5}% 32
+\BOOKMARK [2][-]{section*.66}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.64}% 33
+\BOOKMARK [2][-]{section*.75}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.64}% 34
+\BOOKMARK [0][-]{section*.84}{Conclus\343o }{}% 35
