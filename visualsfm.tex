@@ -28,11 +28,128 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 \item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa em todos os {\it features} descobertos no passo passado. (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
 
 
-PBA -- {\it Parallel Bundle Algorithm}
+PBA/MCBA -- {\it Multi-Core Bundle Adjustment}
 
-"{\it Bundle}" refere-se aos feixes de luz que refletem em cada {\it feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o {\it Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras) juntamente com as estruturas 3D.
+"\textit{Bundle}" refere-se aos feixes de luz que refletem em cada {\it feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o {\it Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
 
-O PBA é um algoritmo utilizado para minimizar o erro geométrico proveniente da reprojeção de cada {\it feature} da etapa de triangulação. Implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas, para serem processadas e, posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
+O PBA/MCBA é um algoritmo que utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais rápido, em CPU e 30 vezes, em GPU, que o utilizado na conferência ECCV de 2010. É o primeiro sistema baseado em GPU escala com maiores problemas de Bundle Adjustments publicado e abre a porta para resolver problemas ainda maiores. Isso é feito observando o passo inexato de resolução não-linear usando Levenberg Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (Hessiana, complemento de Schur ou Jacobiana) na memória. Para sistemas de núcleo único isso se traduzia em memória de troca por tempo, mas em GPUs, isso leva a uma vitória surpreendente no espaço e no tempo. Outra surpresa é que a aritmética de precisão única, quando combinada com técnicas de normalização adequadas, dá resultados comparáveis aos obtidos por um solver usando aritmética de dupla precisão. Isso resulta em mais espaço e economia de tempo.
+
+Dado um conjunto de localizações e correspondências de \textit{features} de imagens, o objetivo do \textit{Bundle Adjustment} é encontrar posições de 3 pontos e parâmetros de câmera que minimizem o erro de reprojeção. Esse problema de otimização geralmente é formulado como um problema de mínimos quadrados não-linear, onde o erro é a norma L2 quadrada da diferença entre a localização da característica observada e a projeção do ponto 3D correspondente no plano da imagem da câmera.
+
+Assumindo que $x$ é um vetor de parâmetros e $f(x) = [f1(x), \dots, f_k(x)]$ é o vetor de erros de projeção de uma reconstrução 3D. O problema de otimização pode ser  formulado como um problema de mínimos quadrados não-linear:
+
+\begin{equation}
+x^* = \text{argmin_x \sum_{i=1}^k || f_i(x)||^2}
+
+\end{equation}
+
+O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de problemas de mínimos quadrados não-lineares. O LM funciona resolvendo uma série de aproximações lineares regularizadas ao problema não-linear original. Seja $J(x)$ a Jacobiana de $f(x)$, então em cada iteração LM resolve um problema linear de mínimos quadrados da forma:
+
+\begin{equation}
+\label{eq:LM}
+\delta* = \text{argmin_\delta} || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
+\end{equation}
+e, atualiza $x$, da forma:
+
+\begin{algorithmic}[1]
+caso($||f(x + \delta^*)|| \le || f(x) ||$)
+	$x = x + \delta^*$
+\end{algorithmic}
+
+Aqui, $D(x)$ é uma matriz diagonal não-negativa, tipicamente a raíz quadrada da diagonal da matriz $J(x)^T J(x)$ e $\lambda$ são parâmetros não-negativos que controlam a limite da regularização, que, por sua vez, é necessária para garantir um algoritmo convergente. O LM atualiza o valor de $\lambda$ a cada passo, baseado no quanto a Jacobiana ($J(x)$) está próxima da função original ($f(x)$).
+Resolver \ref{eq:LM} é equivalente à resolver as equacões normais
+\begin{equation}
+\label{eq:LMNormal}
+(J^T J + \lambda D^T D)\delta = -J^T f
+\end{equation}
+onde retiramos a dependência de $x$. A matriz $H_\lambda = J^T J + \lambda D^T D$ é conhecida como a matriz Hessiana aumentada. 
+
+No \textit{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como $x = [x_c;x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto, respectivamente. 
+Seja $U = J_c^T J_c$, $V = J_p^T J_p$, $U_lambda = U + \lambda D_c^T D_c$, $V_\lambda = V + \lambda D_p^T D_p$ e $W = J_c^T J_p$, então \ref{eq:LMNormal} pode ser re-escrita como um bloco de sistema linear estruturado
+
+\begin{bmatrix}
+U_\lambda & W \\
+W^T & V_\lambda 
+\end{bmatrix}
+\begin{bmatrix}
+\delta_c\\ 
+\delta_p
+\end{bmatrix} =
+-\begin{bmatrix}
+J_c^T f\\ 
+J_p^T f
+\end{bmatrix}
+
+Vale ressaltar que, para a maioria dos problemas de \textit{Bundle Adjustment}, $U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está no fundamento do truque do complemento de Schur usado para resolver esse sistema linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros da câmera:
+
+\begin{equation}
+\label{eq:SchurComplementar}
+(U_\lambda - W V_\lambda^-1 W^T)\delta_c = -J_c^T f + WV_\lambda^-1 J_p^T f
+
+\end{equation}
+
+Onde $S = U_\lambda - W V_\lambda^-1 W^T$ é o complemento de Schur ou a matriz reduzida da câmera. Com a solução para \ref{eq:SchurComplementar}, conseguimos obter os parâmetros do ponto com substituição regressiva:
+
+\begin{equation}
+\delta_p = -V_\lambda^-1(J_p^T f + W^T \delta_c)
+\end{equation}
+
+Caso S for simétrica positiva-definida, a fatorização de Cholesky é indicado para a resolução de \ref{eq:SchurComplementar}. 
+
+No caso do MCBA, ele combina o uso de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
+
+combinando um algoritmo Inexact Step LM e gradientes de conjugado pré-condicionado com alguns pré-condicionadores simples e computacionalmente baratos. O
+
+O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos da GPU e a combinação  de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
+
+
+
+Usos [editar]
+O ajuste do pacote é quase sempre usado como o último passo de cada algoritmo de reconstrução 3D baseado em recursos. Isso equivale a um problema de otimização na estrutura 3D e nos parâmetros de visualização (ou seja, a pose da câmera e, possivelmente, a calibração intrínseca e a distorção radial), para obter uma reconstrução otimizada em certos pressupostos quanto ao ruído pertencente às características de imagem observadas [1]: Se o erro de imagem for Gaussiano de média zero, o ajuste do pacote é o Estimador de máxima probabilidade. [2]: 2 O nome refere-se aos feixes de raios de luz originários de cada recurso 3D e a convergência no centro óptico de cada câmera, que são ajustados otimamente com respeito tanto à estrutura quanto aos parâmetros de visualização (a semelhança de significado com um feixe categórico parece ser uma pura coincidência). O ajuste do pacote foi originalmente concebido no campo da fotogrametria durante a década de 1950 e foi cada vez mais usado por pesquisadores de visão por computador nos últimos anos. [2]: 2
+
+Abordagem geral [editar]
+O ajuste do pacote resume-se a minimizar o erro de reprojecção entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é conseguida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do ajuste do feixe, as equações normais têm uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. [2]: 3
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------------%
+
+Nos últimos anos, a paralelização baseada em GPU atraiu muita atenção para a pesquisa. Isso inclui o propósito geral
+bibliotecas como nVidia's Sparse Matrix-Vector Multiplication
+[3] e o trabalho de Li e Saad em várias GPUs baseadas em GPU
+algoritmos e técnicas de pré-condicionamento [10]. Embora seja
+Você pode criar um sistema de ajuste de pacotes usando estes
+bibliotecas de propósito geral, melhor desempenho é alcançado por
+construindo um sistema que explora a estrutura do problema
+tanto quanto possível.
+No campo da visão computacional, muitos algoritmos têm
+foi portado para a GPU com ganhos de velocidade significativos. Este
+inclui detecção de recursos, combinação de recursos e reconstrução estéreo,
+etc. Uma demonstração impressionante é o multiGPU
+sistema descrito em [6]. Vale a pena
+observando, no entanto, que o passo de ajuste do feixe neste sistema
+ainda foi realizada usando CPUs de um único segmento.
+Dado os constrangimentos do modelo de programação GPU,
+não é trivial obter algoritmos de ajuste de pacote para executar
+em GPUs. Recentemente, Gupta et al [8] tomaram uma abordagem híbrida
+para executar cálculos de sobreposição em GPU e CPU,
+onde as matrizes de Hessian e complementos de Schur são
+construído em GPU. Isso não é prático para grandes problemas
+(milhares de imagens ou mais), especialmente para a comunidade
+Coleções de fotos com complementos densos de Schur.
+Mesmo as GPUs de estação de trabalho da próxima geração têm uma pequena quantidade
+para armazenar os complementos Schur (mesmo o Hessian
+matronas ou jacobios), pode não ser viável. Até
+com memória suficiente, a construção de complementos de Schur
+ainda seria muito caro para grandes problemas.
+% O PBA é um algoritmo utilizado para minimizar o erro geométrico proveniente da reprojeção de cada {\it feature} da etapa de triangulação. Implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas, para serem processadas e, posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
 
 
 % O PBA é divido em 3 fases:
