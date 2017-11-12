@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  11 NOV 2017 23:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  12 NOV 2017 00:45
 entering extended mode
 **./dissertacao.tex
 (dissertacao.tex
@@ -1452,32 +1452,37 @@ Package babel Info: Redefining portuges shorthand "|
 [2
 
 ]
+Overfull \hbox (1.2244pt too wide) in paragraph at lines 255--256
+[]\OT1/cmr/m/n/12 Ao meu ori-en-ta-dor, pelo su-porte no pouco tempo que lhe co
+ube, pe-las suas correc~oes
+ []
+
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 261.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 258.
- [3
+(babel)             in language  on input line 261.
+[3
 
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
  [4
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 317.
+(babel)             in language  on input line 318.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 317.
+(babel)             in language  on input line 318.
  [5
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 348.
+(babel)             in language  on input line 349.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 348.
+(babel)             in language  on input line 349.
  [6
 
 ] (dissertacao.lof
@@ -1555,9 +1560,9 @@ Package babel Info: Redefining portuges shorthand "|
 \openout6 = `dissertacao.lof'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 378.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 378.
  [10] (dissertacao.toc
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 39.
@@ -1570,9 +1575,9 @@ Package babel Info: Redefining portuges shorthand "|
 \openout7 = `dissertacao.toc'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 378.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 378.
  [12] (intro.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
@@ -1663,7 +1668,7 @@ Package babel Info: Redefining portuges shorthand "|
 [13
 
 
-] <figs/Xbox-360-Kinect-Standalone.png, id=456, 2569.6pt x 888.31876pt>
+] <figs/Xbox-360-Kinect-Standalone.png, id=457, 2569.6pt x 888.31876pt>
 File: figs/Xbox-360-Kinect-Standalone.png Graphic file (type png)
 
 <use figs/Xbox-360-Kinect-Standalone.png>
@@ -1671,21 +1676,21 @@ Package pdftex.def Info: figs/Xbox-360-Kinect-Standalone.png used on input line
  59.
 (pdftex.def)             Requested size: 204.85846pt x 70.8094pt.
 
-<figs/kinect-internals.pdf, id=457, 598.235pt x 284.06125pt>
+<figs/kinect-internals.pdf, id=458, 598.235pt x 284.06125pt>
 File: figs/kinect-internals.pdf Graphic file (type pdf)
 
 <use figs/kinect-internals.pdf>
 Package pdftex.def Info: figs/kinect-internals.pdf used on input line 60.
 (pdftex.def)             Requested size: 204.85846pt x 97.27304pt.
 
-<figs/Xbox-One-Kinect.jpg, id=458, 1535.7375pt x 939.51pt>
+<figs/Xbox-One-Kinect.jpg, id=459, 1535.7375pt x 939.51pt>
 File: figs/Xbox-One-Kinect.jpg Graphic file (type jpg)
 
 <use figs/Xbox-One-Kinect.jpg>
 Package pdftex.def Info: figs/Xbox-One-Kinect.jpg used on input line 61.
 (pdftex.def)             Requested size: 204.85846pt x 125.32312pt.
 
-<figs/kinect-handheld1.png, id=459, 2007.5pt x 1005.7575pt>
+<figs/kinect-handheld1.png, id=460, 2007.5pt x 1005.7575pt>
 File: figs/kinect-handheld1.png Graphic file (type png)
 
 <use figs/kinect-handheld1.png>
@@ -1697,7 +1702,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 90.
  [14 <./figs/Xbox-360-Kinect-Standalone.png> <./figs/kinect-internals.pdf> <./f
 igs/Xbox-One-Kinect.jpg> <./figs/kinect-handheld1.png>] <figs/kinect-vs-usual.p
-ng, id=546, 1236.62pt x 358.33875pt>
+ng, id=547, 1236.62pt x 358.33875pt>
 File: figs/kinect-vs-usual.png Graphic file (type png)
 
 <use figs/kinect-vs-usual.png>
@@ -1712,7 +1717,7 @@ put line 102.
 LaTeX Warning: Citation `Pajdla:etal:ICCV2011' on page 15 undefined on input li
 ne 102.
 
-<figs/Proto+Inka+Egypt_light-s.jpg, id=547, 583.17876pt x 602.25pt>
+<figs/Proto+Inka+Egypt_light-s.jpg, id=548, 583.17876pt x 602.25pt>
 File: figs/Proto+Inka+Egypt_light-s.jpg Graphic file (type jpg)
 
 <use figs/Proto+Inka+Egypt_light-s.jpg>
@@ -1720,14 +1725,14 @@ Package pdftex.def Info: figs/Proto+Inka+Egypt_light-s.jpg used on input line 1
 09.
 (pdftex.def)             Requested size: 81.9406pt x 84.61768pt.
 
-<figs/gantry-with-david-s.jpg, id=548, 401.5pt x 602.25pt>
+<figs/gantry-with-david-s.jpg, id=549, 401.5pt x 602.25pt>
 File: figs/gantry-with-david-s.jpg Graphic file (type jpg)
 
 <use figs/gantry-with-david-s.jpg>
 Package pdftex.def Info: figs/gantry-with-david-s.jpg used on input line 111.
 (pdftex.def)             Requested size: 81.9406pt x 122.91066pt.
 
-<figs/scanner-head-and-david-head-s.jpg, id=549, 185.0112pt x 115.632pt>
+<figs/scanner-head-and-david-head-s.jpg, id=550, 185.0112pt x 115.632pt>
 File: figs/scanner-head-and-david-head-s.jpg Graphic file (type jpg)
 
 <use figs/scanner-head-and-david-head-s.jpg>
@@ -1735,7 +1740,7 @@ Package pdftex.def Info: figs/scanner-head-and-david-head-s.jpg used on input l
 ine 112.
 (pdftex.def)             Requested size: 81.9406pt x 51.21347pt.
 
-<figs/david-classic-leftlight-s.jpg, id=550, 38.544pt x 42.1575pt>
+<figs/david-classic-leftlight-s.jpg, id=551, 38.544pt x 42.1575pt>
 File: figs/david-classic-leftlight-s.jpg Graphic file (type jpg)
 
 <use figs/david-classic-leftlight-s.jpg>
@@ -1760,28 +1765,28 @@ Package babel Info: Redefining portuges shorthand "|
 [15 <./figs/kinect-vs-usual.png> <./figs/Proto+Inka+Egypt_light-s.jpg> <./figs/
 gantry-with-david-s.jpg> <./figs/scanner-head-and-david-head-s.jpg> <./figs/dav
 id-classic-leftlight-s.jpg>]
-<figs/jardim-do-nego.jpg, id=561, 552.0625pt x 414.54875pt>
+<figs/jardim-do-nego.jpg, id=562, 552.0625pt x 414.54875pt>
 File: figs/jardim-do-nego.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego.jpg>
 Package pdftex.def Info: figs/jardim-do-nego.jpg used on input line 137.
 (pdftex.def)             Requested size: 136.57462pt x 102.55527pt.
 
-<figs/jardim-do-nego22.jpg, id=562, 552.0625pt x 413.545pt>
+<figs/jardim-do-nego22.jpg, id=563, 552.0625pt x 413.545pt>
 File: figs/jardim-do-nego22.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego22.jpg>
 Package pdftex.def Info: figs/jardim-do-nego22.jpg used on input line 138.
 (pdftex.def)             Requested size: 136.57462pt x 102.30695pt.
 
-<figs/jardim-do-nego32.jpg, id=563, 552.0625pt x 310.15875pt>
+<figs/jardim-do-nego32.jpg, id=564, 552.0625pt x 310.15875pt>
 File: figs/jardim-do-nego32.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego32.jpg>
 Package pdftex.def Info: figs/jardim-do-nego32.jpg used on input line 139.
 (pdftex.def)             Requested size: 159.33821pt x 89.51779pt.
 
-<figs/rec3d.jpg, id=564, 973.6375pt x 572.1375pt>
+<figs/rec3d.jpg, id=565, 973.6375pt x 572.1375pt>
 File: figs/rec3d.jpg Graphic file (type jpg)
  <use figs/rec3d.jpg>
 Package pdftex.def Info: figs/rec3d.jpg used on input line 148.
@@ -1856,7 +1861,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 3.
-<figs/tomografia.png, id=584, 337.26pt x 232.61906pt>
+<figs/tomografia.png, id=585, 337.26pt x 232.61906pt>
 File: figs/tomografia.png Graphic file (type png)
 
 <use figs/tomografia.png>
@@ -1929,7 +1934,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uline' on input line 8.
 
-<figs/kinect.png, id=620, 817.55438pt x 368.87813pt>
+<figs/kinect.png, id=621, 817.55438pt x 368.87813pt>
 File: figs/kinect.png Graphic file (type png)
  <use figs/kinect.png>
 Package pdftex.def Info: figs/kinect.png used on input line 19.
@@ -1938,7 +1943,7 @@ Package pdftex.def Info: figs/kinect.png used on input line 19.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/profundidadekinect.png, id=621, 400.49625pt x 149.8097pt>
+<figs/profundidadekinect.png, id=622, 400.49625pt x 149.8097pt>
 File: figs/profundidadekinect.png Graphic file (type png)
 
 <use figs/profundidadekinect.png>
@@ -1958,14 +1963,14 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 86.
  [25 <./figs/kinect.png> <./figs/profundidadekinect.png>]
-<figs/deslocamentokinectA.png, id=643, 392.21532pt x 341.77687pt>
+<figs/deslocamentokinectA.png, id=644, 392.21532pt x 341.77687pt>
 File: figs/deslocamentokinectA.png Graphic file (type png)
 
 <use figs/deslocamentokinectA.png>
 Package pdftex.def Info: figs/deslocamentokinectA.png used on input line 146.
 (pdftex.def)             Requested size: 136.57462pt x 119.01352pt.
 
-<figs/deslocamentokinectB.png, id=644, 386.19281pt x 341.77687pt>
+<figs/deslocamentokinectB.png, id=645, 386.19281pt x 341.77687pt>
 File: figs/deslocamentokinectB.png Graphic file (type png)
 
 <use figs/deslocamentokinectB.png>
@@ -1976,7 +1981,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 151.
  [26]
-<figs/ambientekinect.png, id=655, 572.1375pt x 453.19313pt>
+<figs/ambientekinect.png, id=656, 572.1375pt x 453.19313pt>
 File: figs/ambientekinect.png Graphic file (type png)
 
 <use figs/ambientekinect.png>
@@ -2020,33 +2025,33 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 36.
 [29
 
-] <figs/lena.jpg, id=676, 260.47313pt x 260.47313pt>
+] <figs/lena.jpg, id=677, 260.47313pt x 260.47313pt>
 File: figs/lena.jpg Graphic file (type jpg)
  <use figs/lena.jpg>
 Package pdftex.def Info: figs/lena.jpg used on input line 41.
 (pdftex.def)             Requested size: 204.85846pt x 204.86134pt.
 
-<figs/lenaSigma1.png, id=677, 174.6525pt x 174.6525pt>
+<figs/lenaSigma1.png, id=678, 174.6525pt x 174.6525pt>
 File: figs/lenaSigma1.png Graphic file (type png)
 
 <use figs/lenaSigma1.png>
 Package pdftex.def Info: figs/lenaSigma1.png used on input line 42.
 (pdftex.def)             Requested size: 204.85846pt x 204.87025pt.
 
-<figs/lenaSigma2.png, id=678, 174.6525pt x 174.6525pt>
+<figs/lenaSigma2.png, id=679, 174.6525pt x 174.6525pt>
 File: figs/lenaSigma2.png Graphic file (type png)
 
 <use figs/lenaSigma2.png>
 Package pdftex.def Info: figs/lenaSigma2.png used on input line 43.
 (pdftex.def)             Requested size: 204.85846pt x 204.87025pt.
- <figs/lenaDoG.png, id=679, 174.6525pt x 174.6525pt>
+ <figs/lenaDoG.png, id=680, 174.6525pt x 174.6525pt>
 File: figs/lenaDoG.png Graphic file (type png)
 
 <use figs/lenaDoG.png>
 Package pdftex.def Info: figs/lenaDoG.png used on input line 44.
 (pdftex.def)             Requested size: 204.85846pt x 204.87025pt.
 
-<figs/sift_local_extrema.jpg, id=681, 290.08376pt x 234.8775pt>
+<figs/sift_local_extrema.jpg, id=682, 290.08376pt x 234.8775pt>
 File: figs/sift_local_extrema.jpg Graphic file (type jpg)
 
 <use figs/sift_local_extrema.jpg>
@@ -2081,7 +2086,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 129.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 129.
-[32] <figs/histogramaOrientado.png, id=717, 526.96875pt x 198.7425pt>
+[32] <figs/histogramaOrientado.png, id=718, 526.96875pt x 198.7425pt>
 File: figs/histogramaOrientado.png Graphic file (type png)
 
 <use figs/histogramaOrientado.png>
@@ -2100,7 +2105,7 @@ Overfull \hbox (8.07849pt too wide) in paragraph at lines 150--151
 o des-cri-tor mais ro-busto,como,
  []
 
-<figs/descritorKeypoint.png, id=719, 611.28375pt x 266.49562pt>
+<figs/descritorKeypoint.png, id=720, 611.28375pt x 266.49562pt>
 File: figs/descritorKeypoint.png Graphic file (type png)
 
 <use figs/descritorKeypoint.png>
@@ -2121,7 +2126,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 167.
 
-<figs/triangulacao.png, id=726, 392.96812pt x 316.93407pt>
+<figs/triangulacao.png, id=727, 392.96812pt x 316.93407pt>
 File: figs/triangulacao.png Graphic file (type png)
 
 <use figs/triangulacao.png>
@@ -2132,7 +2137,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
  [34 <./figs/triangulacao.png>]
-<figs/triangulacaoErro.png, id=735, 564.60938pt x 362.10281pt>
+<figs/triangulacaoErro.png, id=736, 564.60938pt x 362.10281pt>
 File: figs/triangulacaoErro.png Graphic file (type png)
 
 <use figs/triangulacaoErro.png>
@@ -2153,7 +2158,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 25.
 [35 <./figs/triangulacaoErro.png>]
-<figs/mvepipe.png, id=745, 794.97pt x 210.7875pt>
+<figs/mvepipe.png, id=746, 794.97pt x 210.7875pt>
 File: figs/mvepipe.png Graphic file (type png)
  <use figs/mvepipe.png>
 Package pdftex.def Info: figs/mvepipe.png used on input line 37.
@@ -2169,19 +2174,19 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
-[36 <./figs/mvepipe.png>] <figs/parallaxA.png, id=753, 101.178pt x 110.814pt>
+[36 <./figs/mvepipe.png>] <figs/parallaxA.png, id=754, 101.178pt x 110.814pt>
 File: figs/parallaxA.png Graphic file (type png)
 
 <use figs/parallaxA.png>
 Package pdftex.def Info: figs/parallaxA.png used on input line 71.
 (pdftex.def)             Requested size: 91.04742pt x 99.72319pt.
- <figs/parallaxB.png, id=754, 101.178pt x 110.814pt>
+ <figs/parallaxB.png, id=755, 101.178pt x 110.814pt>
 File: figs/parallaxB.png Graphic file (type png)
 
 <use figs/parallaxB.png>
 Package pdftex.def Info: figs/parallaxB.png used on input line 72.
 (pdftex.def)             Requested size: 91.04742pt x 99.72319pt.
- <figs/parallaxC.png, id=755, 101.178pt x 110.814pt>
+ <figs/parallaxC.png, id=756, 101.178pt x 110.814pt>
 File: figs/parallaxC.png Graphic file (type png)
 
 <use figs/parallaxC.png>
@@ -2193,13 +2198,13 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 98.
  [37 <./figs/parallaxA.png (PNG copy)> <./figs/parallaxB.png (PNG copy)> <./fig
 s/parallaxC.png (PNG copy)>]
-<figs/umve1.png, id=761, 1084.05pt x 645.16031pt>
+<figs/umve1.png, id=762, 1084.05pt x 645.16031pt>
 File: figs/umve1.png Graphic file (type png)
  <use figs/umve1.png>
 Package pdftex.def Info: figs/umve1.png used on input line 102.
 (pdftex.def)             Requested size: 227.62206pt x 135.45813pt.
 
-<figs/umve5sfm.png, id=763, 1084.05pt x 647.41875pt>
+<figs/umve5sfm.png, id=764, 1084.05pt x 647.41875pt>
 File: figs/umve5sfm.png Graphic file (type png)
  <use figs/umve5sfm.png>
 Package pdftex.def Info: figs/umve5sfm.png used on input line 124.
@@ -2210,19 +2215,19 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 152.
 
 [38 <./figs/umve1.png> <./figs/umve5sfm.png>]
-<figs/mvedepth.png, id=769, 417.05812pt x 277.78781pt>
+<figs/mvedepth.png, id=770, 417.05812pt x 277.78781pt>
 File: figs/mvedepth.png Graphic file (type png)
  <use figs/mvedepth.png>
 Package pdftex.def Info: figs/mvedepth.png used on input line 156.
 (pdftex.def)             Requested size: 227.62206pt x 151.61388pt.
 
-<figs/exifumve.png, id=771, 1084.05pt x 647.41875pt>
+<figs/exifumve.png, id=772, 1084.05pt x 647.41875pt>
 File: figs/exifumve.png Graphic file (type png)
  <use figs/exifumve.png>
 Package pdftex.def Info: figs/exifumve.png used on input line 173.
 (pdftex.def)             Requested size: 227.62206pt x 135.93231pt.
 
-<figs/exifsemumve.png, id=772, 1084.05pt x 646.66594pt>
+<figs/exifsemumve.png, id=773, 1084.05pt x 646.66594pt>
 File: figs/exifsemumve.png Graphic file (type png)
 
 <use figs/exifsemumve.png>
@@ -2237,7 +2242,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 182.
 [39 <./figs/mvedepth.png>]
-<figs/umvedense.png, id=778, 753.5653pt x 522.45187pt>
+<figs/umvedense.png, id=779, 753.5653pt x 522.45187pt>
 File: figs/umvedense.png Graphic file (type png)
 
 <use figs/umvedense.png>
@@ -2247,20 +2252,20 @@ Package pdftex.def Info: figs/umvedense.png used on input line 191.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/umve2sfm.png, id=781, 1084.05pt x 647.41875pt>
+<figs/umve2sfm.png, id=782, 1084.05pt x 647.41875pt>
 File: figs/umve2sfm.png Graphic file (type png)
  <use figs/umve2sfm.png>
 Package pdftex.def Info: figs/umve2sfm.png used on input line 202.
 (pdftex.def)             Requested size: 227.62206pt x 135.93231pt.
 
-<figs/umve3sfmfeature.png, id=782, 1084.05pt x 647.41875pt>
+<figs/umve3sfmfeature.png, id=783, 1084.05pt x 647.41875pt>
 File: figs/umve3sfmfeature.png Graphic file (type png)
 
 <use figs/umve3sfmfeature.png>
 Package pdftex.def Info: figs/umve3sfmfeature.png used on input line 203.
 (pdftex.def)             Requested size: 227.62206pt x 135.93231pt.
 
-<figs/umve4ba.png, id=783, 1084.05pt x 647.41875pt>
+<figs/umve4ba.png, id=784, 1084.05pt x 647.41875pt>
 File: figs/umve4ba.png Graphic file (type png)
  <use figs/umve4ba.png>
 Package pdftex.def Info: figs/umve4ba.png used on input line 204.
@@ -2269,7 +2274,7 @@ Package pdftex.def Info: figs/umve4ba.png used on input line 204.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/sfmmve.png, id=784, 737.75626pt x 386.19281pt>
+<figs/sfmmve.png, id=785, 737.75626pt x 386.19281pt>
 File: figs/sfmmve.png Graphic file (type png)
  <use figs/sfmmve.png>
 Package pdftex.def Info: figs/sfmmve.png used on input line 213.
@@ -2278,7 +2283,7 @@ Package pdftex.def Info: figs/sfmmve.png used on input line 213.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/umvetempo.png, id=786, 740.0147pt x 386.19281pt>
+<figs/umvetempo.png, id=787, 740.0147pt x 386.19281pt>
 File: figs/umvetempo.png Graphic file (type png)
 
 <use figs/umvetempo.png>
@@ -2293,7 +2298,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 232.
 [40 <./figs/exifumve.png> <./figs/exifsemumve.png>]
-<figs/mvemesh.png, id=792, 737.75626pt x 386.19281pt>
+<figs/mvemesh.png, id=793, 737.75626pt x 386.19281pt>
 File: figs/mvemesh.png Graphic file (type png)
  <use figs/mvemesh.png>
 Package pdftex.def Info: figs/mvemesh.png used on input line 235.
@@ -2302,7 +2307,7 @@ Package pdftex.def Info: figs/mvemesh.png used on input line 235.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/mvemeshtempo2.png, id=795, 737.75626pt x 387.69844pt>
+<figs/mvemeshtempo2.png, id=796, 737.75626pt x 387.69844pt>
 File: figs/mvemeshtempo2.png Graphic file (type png)
 
 <use figs/mvemeshtempo2.png>
@@ -2312,7 +2317,7 @@ Package pdftex.def Info: figs/mvemeshtempo2.png used on input line 246.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/mvemeshout.png, id=796, 1084.05pt x 647.41875pt>
+<figs/mvemeshout.png, id=797, 1084.05pt x 647.41875pt>
 File: figs/mvemeshout.png Graphic file (type png)
 
 <use figs/mvemeshout.png>
@@ -2326,7 +2331,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Reference `MVEMeshClean' on page 41 undefined on input line 262.
 
 
-<figs/mvemeshclean.png, id=797, 1084.05pt x 647.41875pt>
+<figs/mvemeshclean.png, id=798, 1084.05pt x 647.41875pt>
 File: figs/mvemeshclean.png Graphic file (type png)
 
 <use figs/mvemeshclean.png>
@@ -2357,7 +2362,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 11.
 [41 <./figs/umvedense.png (PNG copy)>]
-<figs/pipelinevisualsfm.png, id=806, 548.80031pt x 123.46124pt>
+<figs/pipelinevisualsfm.png, id=807, 548.80031pt x 123.46124pt>
 File: figs/pipelinevisualsfm.png Graphic file (type png)
 
 <use figs/pipelinevisualsfm.png>
@@ -2548,7 +2553,7 @@ Overfull \hbox (2.21722pt too wide) in paragraph at lines 6--8
 o a c^amera de um \OT1/cmr/m/it/12 smartphone
  []
 
-<figs/procedimentoscan.png, id=890, 451.6875pt x 383.93437pt>
+<figs/procedimentoscan.png, id=891, 451.6875pt x 383.93437pt>
 File: figs/procedimentoscan.png Graphic file (type png)
 
 <use figs/procedimentoscan.png>
@@ -2568,14 +2573,14 @@ Package babel Info: Redefining portuges shorthand "|
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uline' on input line 28.
 
-<figs/galinhasparsa.jpg, id=901, 648.4225pt x 432.61626pt>
+<figs/galinhasparsa.jpg, id=902, 648.4225pt x 432.61626pt>
 File: figs/galinhasparsa.jpg Graphic file (type jpg)
 
 <use figs/galinhasparsa.jpg>
 Package pdftex.def Info: figs/galinhasparsa.jpg used on input line 49.
 (pdftex.def)             Requested size: 227.62206pt x 151.86684pt.
 
-<figs/galinhadense.jpg, id=902, 648.4225pt x 432.61626pt>
+<figs/galinhadense.jpg, id=903, 648.4225pt x 432.61626pt>
 File: figs/galinhadense.jpg Graphic file (type jpg)
 
 <use figs/galinhadense.jpg>
@@ -2590,14 +2595,14 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 82.
 [57 <./figs/galinhasparsa.jpg>]
-<figs/perto_longe_esparsa.jpg, id=912, 1443.3925pt x 765.86125pt>
+<figs/perto_longe_esparsa.jpg, id=913, 1443.3925pt x 765.86125pt>
 File: figs/perto_longe_esparsa.jpg Graphic file (type jpg)
 
 <use figs/perto_longe_esparsa.jpg>
 Package pdftex.def Info: figs/perto_longe_esparsa.jpg used on input line 86.
 (pdftex.def)             Requested size: 227.62206pt x 120.7757pt.
 
-<figs/perto_longe_esparsa_2.jpg, id=913, 733.74126pt x 470.75874pt>
+<figs/perto_longe_esparsa_2.jpg, id=914, 733.74126pt x 470.75874pt>
 File: figs/perto_longe_esparsa_2.jpg Graphic file (type jpg)
 
 <use figs/perto_longe_esparsa_2.jpg>
@@ -2607,7 +2612,7 @@ Package pdftex.def Info: figs/perto_longe_esparsa_2.jpg used on input line 96.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/galinhadense224.jpg, id=914, 1293.83376pt x 721.69624pt>
+<figs/galinhadense224.jpg, id=915, 1293.83376pt x 721.69624pt>
 File: figs/galinhadense224.jpg Graphic file (type jpg)
 
 <use figs/galinhadense224.jpg>
@@ -2617,7 +2622,7 @@ Package pdftex.def Info: figs/galinhadense224.jpg used on input line 106.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/galinhavisualsfm224.jpg, id=915, 358.33875pt x 144.54pt>
+<figs/galinhavisualsfm224.jpg, id=916, 358.33875pt x 144.54pt>
 File: figs/galinhavisualsfm224.jpg Graphic file (type jpg)
 
 <use figs/galinhavisualsfm224.jpg>
@@ -2633,7 +2638,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uline' on input line 123.
 
-<figs/galinhalongesfmreconmve.png, id=916, 1084.05pt x 645.16031pt>
+<figs/galinhalongesfmreconmve.png, id=917, 1084.05pt x 645.16031pt>
 File: figs/galinhalongesfmreconmve.png Graphic file (type png)
 
 <use figs/galinhalongesfmreconmve.png>
@@ -2644,7 +2649,7 @@ Package pdftex.def Info: figs/galinhalongesfmreconmve.png used on input line 12
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/galinhadmreconmve.png, id=917, 1084.05pt x 644.4075pt>
+<figs/galinhadmreconmve.png, id=918, 1084.05pt x 644.4075pt>
 File: figs/galinhadmreconmve.png Graphic file (type png)
 
 <use figs/galinhadmreconmve.png>
@@ -2654,7 +2659,7 @@ Package pdftex.def Info: figs/galinhadmreconmve.png used on input line 137.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/mvefssrecongalinha.png, id=918, 1084.05pt x 641.39626pt>
+<figs/mvefssrecongalinha.png, id=919, 1084.05pt x 641.39626pt>
 File: figs/mvefssrecongalinha.png Graphic file (type png)
 
 <use figs/mvefssrecongalinha.png>
@@ -2664,7 +2669,7 @@ Package pdftex.def Info: figs/mvefssrecongalinha.png used on input line 146.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/galinhadmr.png, id=919, 440.39531pt x 470.50781pt>
+<figs/galinhadmr.png, id=920, 440.39531pt x 470.50781pt>
 File: figs/galinhadmr.png Graphic file (type png)
 
 <use figs/galinhadmr.png>
@@ -2674,7 +2679,7 @@ Package pdftex.def Info: figs/galinhadmr.png used on input line 155.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/galinhameshclean.png, id=920, 440.39531pt x 470.50781pt>
+<figs/galinhameshclean.png, id=921, 440.39531pt x 470.50781pt>
 File: figs/galinhameshclean.png Graphic file (type png)
 
 <use figs/galinhameshclean.png>
@@ -2703,7 +2708,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 173.
  [60 <./figs/galinhadmreconmve.png> <./figs/mvefssrecongalinha.png> <./figs/gal
-inhadmr.png (PNG copy)>] <figs/mvesfmrecongalinhapertolonge.png, id=941, 1084.0
+inhadmr.png (PNG copy)>] <figs/mvesfmrecongalinhapertolonge.png, id=942, 1084.0
 5pt x 643.6547pt>
 File: figs/mvesfmrecongalinhapertolonge.png Graphic file (type png)
 
@@ -2712,7 +2717,7 @@ Package pdftex.def Info: figs/mvesfmrecongalinhapertolonge.png used on input li
 ne 177.
 (pdftex.def)             Requested size: 227.62206pt x 135.142pt.
 
-<figs/mvedmrecongalinhapertolonge.png, id=942, 1084.05pt x 627.09282pt>
+<figs/mvedmrecongalinhapertolonge.png, id=943, 1084.05pt x 627.09282pt>
 File: figs/mvedmrecongalinhapertolonge.png Graphic file (type png)
 
 <use figs/mvedmrecongalinhapertolonge.png>
@@ -2745,42 +2750,36 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ) (dissertacao.ind) 
 AED: lastpage setting LastPage
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 453.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 453.
 [63
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 452.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
+(babel)             in language  on input line 453.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
  (dissertacao.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 452.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
+Package rerunfilecheck Info: File `dissertacao.out' has not changed.
+(rerunfilecheck)             Checksum: C5B4731165CBE2321599C5C9196D8F3E;3058.
 
-
-Package rerunfilecheck Warning: File `dissertacao.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `dissertacao.out':
-(rerunfilecheck)             Before: 04591E6B57F0F00E59103FB5755A44A8;3015
-(rerunfilecheck)             After:  C5B4731165CBE2321599C5C9196D8F3E;3058.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 452.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
  ) 
 Here is how much of TeX's memory you used:
- 21731 strings out of 493323
- 387040 string characters out of 3139061
- 488619 words of memory out of 3000000
- 24515 multiletter control sequences out of 15000+200000
- 11701 words of font info for 43 fonts, out of 3000000 for 9000
+ 21733 strings out of 493323
+ 387061 string characters out of 3139061
+ 488661 words of memory out of 3000000
+ 24516 multiletter control sequences out of 15000+200000
+ 12053 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,21n,54p,1369b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
@@ -2793,13 +2792,14 @@ lic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/symbols/msam10.pfb>
-Output written on dissertacao.pdf (64 pages, 22447193 bytes).
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb>
+Output written on dissertacao.pdf (64 pages, 22458522 bytes).
 PDF statistics:
- 1056 PDF objects out of 1200 (max. 8388607)
+ 1060 PDF objects out of 1200 (max. 8388607)
  231 named destinations out of 1000 (max. 500000)
  661 words of extra memory for PDF output out of 10000 (max. 10000000)
 
