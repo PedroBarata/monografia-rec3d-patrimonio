@@ -1,11 +1,11 @@
-\chapter{VisualSfM}\label{sec:visualsfm}
+\section{VisualSfM}\label{sec:visualsfm}
 %======================================================================================
 %
-\section*{Introdução}
+\subsection{Introdução}
 
 VisualSfM é um {\it software} baseado em fotogrametria que faz todo o processo de reconstrução 3D de um objeto e que pode usá-lo por linha de comando ou então pela interface gráfica, que é ótima, por sinal. É altamente customizável, podendo utilizar o CUDA da NVIDIA ou OpenGL, especificar a lista de pares para correspondência de imagens, usar detectores de {\it features} próprios, velocidade da detecção de {\it features}, da reconstrução densa, dentre outros parâmetros. Ou seja, é um {\it software} robusto, que pode ser usado em Linux, Windows ou até mesmo Mac.
 
-\section*{Procedimento}
+\subsection{Procedimento}
 
 Sua linha de reconstrução é parecida com o MVE \ref{sec:mve}, porém é mais intuitiva. Em sua interface, possui um Log de mensagens e erros que por ventura venham a acontecer e na parte de cima, alguns botões \ref{fig:pipelineVisualSfM}
 
@@ -39,22 +39,32 @@ Dado um conjunto de localizações e correspondências de \textit{features} de i
 Assumindo que $x$ é um vetor de parâmetros e $f(x) = [f1(x), \dots, f_k(x)]$ é o vetor de erros de projeção de uma reconstrução 3D. O problema de otimização pode ser  formulado como um problema de mínimos quadrados não-linear:
 
 \begin{equation}
-x^* = \text{argmin_x \sum_{i=1}^k || f_i(x)||^2}
-
+x^* = \text{argmin}_x \sum_{i=1}^k || f_i(x)||^2
 \end{equation}
 
 O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de problemas de mínimos quadrados não-lineares. O LM funciona resolvendo uma série de aproximações lineares regularizadas ao problema não-linear original. Seja $J(x)$ a Jacobiana de $f(x)$, então em cada iteração LM resolve um problema linear de mínimos quadrados da forma:
 
 \begin{equation}
 \label{eq:LM}
-\delta* = \text{argmin_\delta} || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
+\delta* = \text{argmin}_\delta || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
 \end{equation}
 e, atualiza $x$, da forma:
 
+\begin{algorithm}
+\label{euclid}
 \begin{algorithmic}[1]
-caso($||f(x + \delta^*)|| \le || f(x) ||$)
-	$x = x + \delta^*$
+\Procedure {blabla}{$n$}
+\State $\text{caso} (||f(x + \delta^*)|| \le || f(x) ||)$
+\State $i \gets \textit{patlen}$
+\State	$x = x + \delta^*$
+\EndProcedure
 \end{algorithmic}
+\end{algorithm}
+
+%\begin{algorithmic}[1]
+%\BState $\text{caso} (||f(x + \delta^*)|| \le || f(x) ||)$
+%\State	$x = x + \delta^*$
+%\end{algorithmic}
 
 Aqui, $D(x)$ é uma matriz diagonal não-negativa, tipicamente a raíz quadrada da diagonal da matriz $J(x)^T J(x)$ e $\lambda$ são parâmetros não-negativos que controlam a limite da regularização, que, por sua vez, é necessária para garantir um algoritmo convergente. O LM atualiza o valor de $\lambda$ a cada passo, baseado no quanto a Jacobiana ($J(x)$) está próxima da função original ($f(x)$).
 Resolver \ref{eq:LM} é equivalente à resolver as equacões normais
@@ -67,6 +77,7 @@ onde retiramos a dependência de $x$. A matriz $H_\lambda = J^T J + \lambda D^T 
 No \textit{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como $x = [x_c;x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto, respectivamente. 
 Seja $U = J_c^T J_c$, $V = J_p^T J_p$, $U_lambda = U + \lambda D_c^T D_c$, $V_\lambda = V + \lambda D_p^T D_p$ e $W = J_c^T J_p$, então \ref{eq:LMNormal} pode ser re-escrita como um bloco de sistema linear estruturado
 
+\[
 \begin{bmatrix}
 U_\lambda & W \\
 W^T & V_\lambda 
@@ -79,13 +90,13 @@ W^T & V_\lambda
 J_c^T f\\ 
 J_p^T f
 \end{bmatrix}
+\]
 
 Vale ressaltar que, para a maioria dos problemas de \textit{Bundle Adjustment}, $U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está no fundamento do truque do complemento de Schur usado para resolver esse sistema linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros da câmera:
 
 \begin{equation}
 \label{eq:SchurComplementar}
 (U_\lambda - W V_\lambda^-1 W^T)\delta_c = -J_c^T f + WV_\lambda^-1 J_p^T f
-
 \end{equation}
 
 Onde $S = U_\lambda - W V_\lambda^-1 W^T$ é o complemento de Schur ou a matriz reduzida da câmera. Com a solução para \ref{eq:SchurComplementar}, conseguimos obter os parâmetros do ponto com substituição regressiva:
@@ -222,10 +233,10 @@ O CMVS algoritmo, pode ser resumido em quatro passos:
 \item Adição de imagens -- reforça a cobertura
 \end{itemize}
 
-\subsection{Filtro SFM}
+\subsubsection{Filtro SFM}
 A obtenção de medidas precisas de visibilidade de pontos é fundamental para o sucesso do procedimento de visualização baseado em {\it clusters}. Os recursos da imagem não detectados ou incomparáveis levam a erros nas estimativas de visibilidade do ponto $V_j$ (geralmente na forma de imagens que estão faltando). Obtemos estimativas de visibilidade mais confiáveis ao agregar dados da visibilidade em uma vizinhança local, e mesclando os pontos nessa vizinhança. A posição do ponto mesclado é a média de seus vizinhos, enquanto a visibilidade se torna a união. Este passo também reduz significativamente o número de pontos SFM e melhora o tempo de execução das tres etapas restantes. Especificamente, a partir de um conjunto de pontos SFM, um ponto é selecionado, combinado com seus vizinhos (mesclado) e, este ponto mesclado é emitido, após isso, o ponto original e seus vizinhos são removidos do conjunto de entrada. Esse procedimento é repetido até o conjunto de entrada estar vazio. O conjunto de pontos mesclados torna-se o novo conjunto de pontos, que, pode ser denotado por ${P_j}^2$. %figura 4%
 
-\subsection{Seleção de imagens}
+\subsubsection{Seleção de imagens}
 Começando com o conjunto completo de imagens, cada imagem é testada e removida se a restrição de cobertura ainda for realizada após a remoção. O teste de remoção é realizado para todas as imagens enumeradas em ordem crescente de resolução de imagem (\# de pixels), de modo que as imagens de baixa resolução sejam removidas primeiro. Observe que as imagens são descartadas permanentemente nesta etapa para acelerar as seguintes etapas principais de otimização.
 
 \subsection{Divisão de {\it cluster}}
@@ -234,7 +245,7 @@ Em seguida, é aplicada a restrição de tamanho dividindo os {\it clusters}, ig
 
 $e_{lm} = \sum_{P_j \in \Theta ^{lm}} \frac{f(Pj,{Il, Im})}{f(Pj, Vj )}$, onde $\Theta ^{lm}$ denota um conjunto de pontos SFM visíveis em $L_l$ e $I_m$. Intuitivamente, as imagens com alta contribuição no MVS têm pesos altos entre eles e são menos propensos a serem cortados. A divisão de um {\it cluster} se repete até que a restrição de tamanho seja satisfeita para todos os {\it clusters}.
 
-\subsection{Adição de imagens}
+\subsubsection{Adição de imagens}
 A restrição de cobertura pode ter sido violada na etapa anterior, e agora são adicionadas imagens a cada {\it cluster} para cobrir mais pontos SFM e restabelecer a cobertura. Nesta etapa, primeiro é construída uma lista de ações possíveis, onde cada ação mede a eficácia de adicionar uma imagem a um {\it cluster} para aumentar a cobertura. Para cada ponto SFM que está descoberto, $P_j$, deixe $C_k = argmax_{Cl} f(Pj, Cl)$ ser o {\it cluster} com a máxima precisão de reconstrução. 
 Então, para $P_j$, é criada uma ação ${(I \rightarrow C_k), g}$ que adiciona a imagem $I (\in V_j, \not\in C_k)$ a $C_k$, onde $g$ mede a eficácia. Só são consideradas ações que adicionam imagens ao $C_k$ em vez de cada {\it cluster} que poderia cobrir $P_j$, para eficiência computacional. Uma vez que as ações com a mesma imagem e com o mesmo {\it cluster} são geradas a partir de vários pontos SFM, ocorre uma mescla dessas ações ao resumir a eficácia medida $g$. As ações na lista são classificadas em uma ordem decrescente de sua eficácia. Tendo construído uma lista de ações, uma abordagem seria tomar a ação com a pontuação mais alta, então refazer a lista novamente, o que é computacionalmente muito caro. 
 
@@ -249,7 +260,7 @@ Após a adição da imagem, a restrição de tamanho pode ser violada e, neste c
 
 O passo seguinte, depois de obtido o {\it cluster} das imagens, é empregado algum algoritmo de reconstrução MVS, neste caso, o PMVS-2 (Patch-based Multiview Stereo Version 2).
 
-\subsection{PMVS-2}
+\subsubsection{PMVS-2}
 
 O PMVS utiliza a técnica de DoG e cantos de Harris. O DoG é utilizado para detecção de bordas, subtraindo o resultado de dois Gaussianos com escalas diferentes (Secao TAL). O operador de Harris emprega uma auto-correlação local para melhorar a consistência da borda, extraindo a borda e os cantos dos {\it features} das imagens. A resposta de Harris é positiva em regiões com cantos, negativas em bordas e pequenas em regiões planas. Além disso, no PMVS, usando pontos de amostras das imagens como sementes, as linhas epipolares são usadas para decidir a região correspondente (dentro de uma área 2x2 pixels) em outra imagem, gerando {\it patches} (cada uma definida com seu centro, normal e visibilidade) para atender às restrições na visibilidade, e levando à uma correspondência baseada em {\it patches} entre imagens. A correspondência Multi-view no PMVS é baseada em {\it patches} e depende da consistência fotográfica média de todos os pares visíveis. Um {\it patch} é reconstruído usando maximizando o valor médioda consistência da foto e, em seguida, aceitando somente se o número de imagens visíveis for maior ou igual a três.  
 
@@ -270,19 +281,19 @@ O PMVS pode ser dividido em algumas etapas:
 \item{Filtragem}
 \end{itemize}
 
-\subsection{Detecção de {\it features}}
+\subsubsection{Detecção de {\it features}}
 O PMVS padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris, onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são considerados consistentes para a reconstrução. 
 Após isso cria-se o {\it patch} onde o c(p) é calculado pela triangulação dos {\it features} detectados das imagens. A normal n(p) é o cálculo da relação do vetor c(p), multiplicado pela centro óptico da imagem, pelo módulo do numerador. E R(p) é a imagem de referência propriamente dita. São otimizadas as orientações e posições de todos os {\it patches}.
 Com a inicialização finalizada, temos como resultado a reconstrução esparsa da escultura. No caso do VisualSfM, como a reconstrução esparsa já é feita em passos anteriores (com o PBA), na realidade o PMVS-2 só é empregado para a reconstrução densa, ou seja, a inicialização não é feita pelo PMVS-2 no VisualSfM.
 
-\subsection{Expansão}
+\subsubsection{Expansão}
 Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de expansão (aumento da região). Um {\it patch} utilizado como semente é expandido da seguinte forma:
 
 Um novo {\it patch} é projetado em uma célula vizinha;
 A posição é definida para a interseção do raio projetado para trás e no plano de seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma imagem de referência.
 Novamente, são otimizadas as orientações e posições, porém, do novo {\it patch}.	
 
-\subsection{Filtragem}
+\subsubsection{Filtragem}
 É aplicada uma consistência de visibilidade global, onde os {\it patches} que não são visíveis pelos centros ópticos das imagens, são descartados (estão dentro da superfície). Para isso, são utilizados dois filtros: filtro de qualidade e filtro de visibilidade.
 
 \subsubsection{Filtro de Qualidade}

@@ -1,10 +1,12 @@
-\chapter{Pontos de Interesse}\label{sec:pontosdeinteresse}
+\chapter*{Reconstruções baseadas em fotogrametria}\label{sec:pontosdeinteresse}
 %======================================================================================
 %
+\section{Introdução}
+
 A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} ({\it SfM}). Tem como base a utilização de pontos de interesse
 ({\it features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
 
-\section { SIFT -- {\it Scale Invariant Feature Transform}}
+\section{ SIFT -- {\it Scale Invariant Feature Transform}}
 
 Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
 O algoritmo pode ser dividido em cinco etapas, das quais:
@@ -190,3 +192,5 @@ Este algoritmo é utilizado para minimizar o erro geométrico proveniente da rep
 	}\label{fig:triangulacaoErro}
 \end{figure}
 
+\input{mve}
+\input{visualsfm}
