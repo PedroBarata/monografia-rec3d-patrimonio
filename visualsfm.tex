@@ -51,13 +51,10 @@ O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de 
 e, atualiza $x$, da forma:
 
 \begin{algorithm}
-\label{euclid}
+\label{LMattX}
 \begin{algorithmic}[1]
-\Procedure {blabla}{$n$}
-\State $\text{caso} (||f(x + \delta^*)|| \le || f(x) ||)$
-\State $i \gets \textit{patlen}$
+\State $\text{caso} (||f(x + \delta^*)|| < || f(x) ||)$
 \State	$x = x + \delta^*$
-\EndProcedure
 \end{algorithmic}
 \end{algorithm}
 

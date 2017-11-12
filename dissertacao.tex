@@ -274,34 +274,13 @@ Ao meu orientador, pelo suporte no pouco tempo que lhe coube, pelas suas correç
 
 \referencia
 
-%Os vídeos de ondas de água são desafiadores para rastrear e reconstruir devido a alta transparência, 
-%especularidades, baixo contraste e padrões repetitivos, especialmente no
-%cenário de tanques de água. A maioria das abordagens não são especificamente 
-%projetadas para imagens de água, ou são específicas de uma forma que não 
-%generaliza para vários tipos de imagens. Criamos um detector de borda de subpíxel 
-%e um \textit{linker} especificamente para vídeos de água, 
-%aprendendo geometria e topologia em um conjunto de treinamento, para uso em sistemas recentes de 
-%fotogrametria com base em curva 3D. A abordagem, no entanto, generaliza à criação de 
-%detectores de \emph{features} geométricas específicas para uma série de aplicações adicionais.
-%No cenário geral -- sem textura abundante, 
-%curvas e superfícies seguindo modelos específicos ou limitando a complexidade da
-%cena -- a 
-%reconstrução 3D geralmente produz nuvens pontuais não organizadas, malhas ou representações de voxel, 
-%com algumas técnicas recentes produzindo nuvens desorganizadas de fragmentos de curva 3D. 
-%Essas representações baseadas em curva são ideais para o processamento de imagens 
-%de tanques de água, onde nenhum outro padrão, além de curvas, abundam.
-%O rastreador subpíxel de características de curva e suas transições topológicas desejáveis são 
-%treinados e validados em um extenso conjunto de dados de curvas marcadas à mão
-%que desenvolvemos para este projeto. Construímos um modelo recente de aprendizado de baixo nível, explorando desafios na 
-%interface de aprendizagem de máquina e geometria.
-
 A partir dos anos 2000, a área de reconstrução 3D vem sido amplamente explorada. No início, sensores de alcance, tanto aéreos quanto terrestres, eram empregados em diferentes aplicações. Porém, constantes melhorias na tecnologia, sobretudo, nos {\it hardwares} e {\it softwares} no âmbito da reconstrução, fizeram com que hoje, quase duas décadas depois, novas técnicas surgissem.
 
 Muitos cientistas que utilizavam a fotogrametria converteram seus esforços na área dos sensores à laser. Pois além de executarem uma reconstrução mais rápida, possuem uma altíssima acurácia, compensando seu alto custo inicial. Isto dificultou e desacelerou o processo de descoberta de novos algoritmos e métodos na área da fotogrametria. 
 
 Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o {\it Structure from Motion} (SfM), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
 
-Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS ({\it Multi-View Stereo}), utilizando {\it softwares} como o MVE (CITAR GOESELE) e o VisualSfM (CITAR CHANGCHANGWU), é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
+Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS ({\it Multi-View Stereo}), utilizando {\it softwares} como o MVE \cite{mve} e o VisualSfM \cite{wu2011visualsfm}, é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
 
 
 O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
@@ -402,7 +381,8 @@ O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os obj
 % Referencias
 % ----------------------------------------------------------
 
-%\citeoption{bibliografia}
+\bibliography{sfm,mve,visualsfm,laser,kinect}
+%\bibliographystyle{plain}
 %\bibliography{rf-multiview,personal,Kimia,indexing,vision,categorization,edge,recognition,segmentation,edge-linking,proceedings}
 
 % ----------------------------------------------------------

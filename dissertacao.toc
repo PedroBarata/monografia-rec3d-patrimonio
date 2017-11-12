@@ -40,3 +40,4 @@
 \contentsline {subsection}{\numberline {1.1.1}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o VisualSfM}}{57}{section*.77}
 \contentsline {subsection}{\numberline {1.1.2}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o MVE}}{58}{section*.86}
 \contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{63}{section*.95}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Refer\^encias}} }{64}{section*.97}
