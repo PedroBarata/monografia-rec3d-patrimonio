@@ -242,16 +242,16 @@
 
 \pretextualchapter{Agradecimentos}
 
-À Deus por ter me dado saúde e força para superar as dificuldades.
+A Deus por ter me dado saúde e força para superar as dificuldades.
 
 
-À minha família por sempre me apoiar, até nos momentos mais dificeis.
+A minha família por sempre me apoiar, até nos momentos mais dificeis.
 
 
-À UERJ e todo seu corpo docente, além da direção e administração, que mesmo sem ter condições ideais de funcionamento, realizam seu trabalho com tanto amor e dedicação, trabalhando incansavelmente para que nós, alunos, possamos contar com um ensino de extrema qualidade.
+A UERJ e todo seu corpo docente, além da direção e administração, que mesmo sem ter condições ideais de funcionamento, realizam seu trabalho com tanto amor e dedicação, trabalhando incansavelmente para que nós, alunos, possamos contar com um ensino de extrema qualidade.
 
 
-Ao meu orientador, pelo suporte no pouco tempo que lhe coube, pelas suas correções e incentivos.
+Ao meu professor e orientador Ricardo Fabbri, pelo suporte no pouco tempo que lhe coube, pelas suas correções e incentivos.
 
 % ----------------------------------------------------------
 % Epigrafe
@@ -282,7 +282,7 @@ Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos
 Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS ({\it Multi-View Stereo}), utilizando {\it softwares} como o MVE \cite{mve} e o VisualSfM \cite{wu2011visualsfm}, é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um {\it smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
 
 
-O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
+% O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
 
 % ABORDAR OS "TODO'S" DO HANGOUTS
 
@@ -297,25 +297,15 @@ O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os obj
 
 \reference
 
-%Water wave videos are challenging to track and reconstruct due to high transparency,
-%specularities, low contrast, and repetitive patterns, specially in the
-%scenario of water tanks. Most approaches are not specifically
-%engineered for water images, or are specific in a way that does not
-%generalize for multiple types of images.  We have engineered a subpixel
-%curve edge detector and linker specifically for water videos by
-%learning geometry and topology on a sample training set, for use in recent 3D curve-based
-%photogrammetry systems. The approach, however, generalizes to crafting specific
-%geometric feature detectors for a number of additional applications.
-%In the general setting -- without abundant texture,
-%curves and surfaces following specific models or limiting scene complexity -- 3D
-%reconstruction usually produces unorganized point clouds, meshes, or voxel
-%representations, with some recent techniques producing unorganized clouds of 3D curve
-%fragments. These curve-based representations turn out to be a perfect fit for processing
-%water tank images, where no other feature but curves abound.
-%The subpixel curve-feature tracker and its desirable topological transitions are trained
-%and validated on an extensive dataset of hand-marked curves we engineered for
-%this project. We built on a recent low-level learning model, exploring
-%challenges in the interface of machine learning and geometry.
+From the 2000s, the area of ​​3D reconstruction has been widely explored. In early, range sensors, both aerial and terrestrial, were used in different applications. However, constant improvements in technology, especially in hardware and software in the context of reconstruction, have led to the emergence of new techniques almost two decades later. 
+
+Many scientists wich used photogrammetry have converted their efforts into the area of ​​laser sensors. For besides performing a faster reconstruction, they have a very high accuracy, compensating the high initial cost. This hindered and slowed down the process of discovering new algorithms and methods in the field of photogrammetry. 
+
+Today, thanks to this advancement, photogrammetry, coupled with new algorithms such as Structured Motion (SfM), common points and image combining, for example, can compete with laser scanners and sensors of reach. 
+
+In this work, we will cover the use of techniques combining SfM and MVS (\emph{Multi-View Stereo}), using softwares such as MVE \cite{mve} and VisualSfM \cite{wu2011visualsfm}, it is possible to generate a satisfactory reconstruction only using a camera from a smartphone. In addition we will explore a bit about other types of techniques employed in major projects such as Microsoft's Kinect and its application in SfM and the project of reconstruction of the sculptures of Michelangelo, made by a group of Stanford University. 
+
+% The work was structured in the following way: previously presented the objectives of the project, highlighting its functionalities and goals, then divided into chapters; Chapter 1, which introduces the operation of each algorithm and technique employed, presenting and debating, comparatively points for and against; Chapter 2 is devoted to the graphing tool used to obtain the results (VisualSfM). Finally, we present the results and conclusions of the work, as well as suggestions for future implementations and work.
 
 
 \printkeys
@@ -364,7 +354,7 @@ O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os obj
 
 \input{intro}
 \input{laser}
-%\input{kinect}
+\input{kinect}
 \input{pontosdeinteresse}
 %\input{visualsfm}
 \input{experiments}

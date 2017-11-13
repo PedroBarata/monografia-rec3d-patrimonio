@@ -1,5 +1,5 @@
 %======================================================================================
-\chapter*{Introdução} \label{cap:intro}
+\chapter{Introdução} \label{cap:intro}
 %======================================================================================
 
 \section{Introdução e Justificativa}
@@ -19,7 +19,7 @@ metrologia a partir de câmeras na indústria automobilística e metal-mecânica
 
 Os desafios estão ligados às escolhas de grande escala de
 representações adequadas e de técnicas que possam modelar simultaneamente com
-materiais drásticamente diferentes (\eg, não-Lambertianos), modelos
+materiais drasticamente diferentes (\eg, não-Lambertianos), modelos
 geométricos (\eg, variedades curvilíneas gerais, descontinuidades, texturas,
 deformações, em escalas diferentes), tipos de regiões (com ou sem textura),
 condições de iluminação variadas, sombras, fortes diferenças de perspectivas,
@@ -28,7 +28,7 @@ número arbitrário de objetos e câmeras não-calibradas.
 
 Mesmo que um sistema completo esteja fora do alcance da tecnologia atual,
 um progresso significativo tem sido atingido nos últimos anos. Por um lado,
-uma tecnologia operacional tem evoluido, mais recentemente para sistemas de grande
+uma tecnologia operacional tem evoluído, mais recentemente para sistemas de grande
 escala~\cite{agarwal2011building},
 a partir do desenvolvimento da detecção robusta de
 \emph{features}~\cite{mikolajczyk2002detection}, o
@@ -45,13 +45,13 @@ No paradigma usando-se apenas imagens convencionais -- denominado
 \textbf{reconstrução estéreo multiocular passiva} --  a posição das câmeras são
 estimadas a partir apenas de imagens, usando pontos de interesse, em seguida uma
 nuvem de pontos é reconstruída~\ref{fig:rec3d}.
-As câmeras podem então ser utilizadas para obter modelos mais detalhados de reconstrução, como algoritmos de densificação~\cite{furukawa2007dense} e interpolação~\cite{poisson} da nuvem de pontos, bem como demais algoritmos densos de visão estéreo multi-perspectiva/multi-ocular, como os do grupo de Michel Goesele~\cite{mve}, também com código disponível. Tais algoritmos, no entanto, têm problemas, em particular a reconstrução suaviza partes bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se, portanto, utilizar a reconstrução 3D de curvas do pesquisador proponente~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12} para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem como para ajudar
+As câmeras podem então ser utilizadas para obter modelos mais detalhados de reconstrução, como algoritmos de densificação~\cite{furukawa2007dense} e interpolação~\cite{poisson} da nuvem de pontos, bem como demais algoritmos densos de visão estéreo multi-perspectiva/multi-ocular, como os do grupo de Michel Goesele~\cite{mve}, também com código disponível. Tais algoritmos, no entanto, tem problemas, em particular a reconstrução suaviza partes bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se, portanto, utilizar a reconstrução 3D de curvas do pesquisador proponente~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12} para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem como para ajudar
 no problema de escalabilidade quando a reconstrução 3D se torna muito grande.
 Um segundo paradigma, denominado \textbf{reconstrução estéreo multiocular
 ativa}, tem se tornado viável devido à indústria de videogames, e consiste na
 utilização de sistemas que alteram o funcionamento de câmeras convencionais,
-típicamente usando-se projetores infra-vermelho, laser ou câmeras ToF (time of
-flight), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
+típicamente usando-se projetores infra-vermelho, laser ou câmeras ToF (\emph{time of
+flight}), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
 
 \begin{figure} [!h]
 	\centering
@@ -70,23 +70,23 @@ flight), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
 	}\label{fig:kinect}
 \end{figure}
 
-A preservação de patrimônio tem sido realizada tradicionamente com scanners
+A preservação de patrimônio tem sido realizada tradicionalmente com scanners
 dedicados de alto custo, como no projeto David~\ref{fig:david}.
 O projeto teve início em 1992 e tem como objetivo a utilização de scanners a laser de profundidade
-({\it rangefinder scanners}), aliado com algoritmos que combinam diferentes profundidades e cores da imagem, 
+(\emph{rangefinder scanners}), aliado com algoritmos que combinam diferentes profundidades e cores da imagem, 
 para realizar uma digitalização da parte externa e da superficie de forma acurada da estátua de David 
 (porém, esse método pode ser utilizado em diferentes objetos no mundo real, 
 como partes de máquinas, artefatos culturais e na indústria de video games, por exemplo). 
 Para as partes mais detalhadas, foi utilizado um scanner de menor escala que faz uma pequena 
 triangulação com laser de profundidade.
 
-Seria de grande interesse explorar os dois paradigmas supracitados
-para avaliar as possibilidades disponíveis no estado da arte de reconstrução 3D
-para o escaneamento de baixo custo para a preservação de Patrimônio. O que se
-pode atingir com apenas uma filmagem de esculturas realizada por um smartphone,
-sem calibração prévia e \emph{in situ}, ou seja, sem ambiente controlado?  Como
-esta recontrução se compara nos dias de hoje com a reconstrução realizada por um
-scanner padrão baseado em Kinect?
+% Seria de grande interesse explorar os dois paradigmas supracitados
+% para avaliar as possibilidades disponíveis no estado da arte de reconstrução 3D
+% para o escaneamento de baixo custo para a preservação de Patrimônio. O que se
+% pode atingir com apenas uma filmagem de esculturas realizada por um smartphone,
+% sem calibração prévia e \emph{in situ}, ou seja, sem ambiente controlado?  Como
+% esta recontrução se compara nos dias de hoje com a reconstrução realizada por um
+% scanner padrão baseado em Kinect?
 
 \begin{figure}[!h]
 	\centering
@@ -142,23 +142,23 @@ figura~\ref{fig:esculturas}.
 \end{figure}
 
 
-\begin{figure} [!h]
-	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/rec3d.jpg}
-%	\includegraphics[width=0.95\linewidth]{figs/rec3d-curves-pmvs.pdf}
-	\label{fig:rec3d}
-	\caption{A reconstrução usando-se apenas imagens, sem controle de aquisição, 
-	   como em um vídeo de um smartphone filmado em torno do objeto, fornece uma
-	   nuvem de pontos, que pode ser
-	   densificada~\cite{snavely2010bundler,wu2011visualsfm,furukawa2007dense,mve}, ou
-	   atribuída de
-	   curvas~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}, de forma a preservar a resolução
-	   em áreas de alto conteúdo informativo. Tais representações estão sendo
-	   atualmente unificadas na pesquisa da área. Este projeto propõe explorar os
-	   limites da reconstrução 3D usando-se apenas imagens, no contexto de
-	   preservação de patrimônio.}
-\end{figure}
+% \begin{figure} [!h]
+% 	\centering
+% 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+% 	\includegraphics[width=1\linewidth]{figs/rec3d.jpg}
+% %	\includegraphics[width=0.95\linewidth]{figs/rec3d-curves-pmvs.pdf}
+% 	\label{fig:rec3d}
+% 	\caption{A reconstrução usando-se apenas imagens, sem controle de aquisição, 
+% 	   como em um vídeo de um smartphone filmado em torno do objeto, fornece uma
+% 	   nuvem de pontos, que pode ser
+% 	   densificada~\cite{snavely2010bundler,wu2011visualsfm,furukawa2007dense,mve}, ou
+% 	   atribuída de
+% 	   curvas~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}, de forma a preservar a resolução
+% 	   em áreas de alto conteúdo informativo. Tais representações estão sendo
+% 	   atualmente unificadas na pesquisa da área. Este projeto propõe explorar os
+% 	   limites da reconstrução 3D usando-se apenas imagens, no contexto de
+% 	   preservação de patrimônio.}
+% \end{figure}
 
 
 Idealizado e criado por Geraldo Simplicio (Nêgo), artista cearense que mora no 
@@ -166,10 +166,10 @@ local a mais de 30 anos, ganhou notoriedade por suas esculturas de barro, com tr
 singulares e técnicas únicas. Hoje, trabalha para reconstruir o Jardim da tragédia de 
 2011 na região serrana, onde algumas estruturas foram destruídas. Portanto, com o 
 consentimento do Nêgo, surgiu a motivação desta pesquisa: além de explorar métodos de 
-reconstrucão, também tem o objetivo de eternizar um patrimônio que é reconhecido no mundo
+reconstrução, também tem o objetivo de eternizar um patrimônio que é reconhecido no mundo
 todo.
 
-A preservação das esculturas do Jardim do Nego se torna um desafio à pesquisa em
+A preservação das esculturas do Jardim do Nêgo se torna um desafio à pesquisa em
 recontrução 3D, pois apresentam curvas bem delineadas, que são 
 representadas de maneira suavizada e empobrecida por métodos convencionais.
 Algumas esculturas apresentam pouca textura, quase sem nenhum padrão de textura/musgo.
@@ -179,36 +179,34 @@ disponível na internet.
 
 \section{Objetivos}
 
-O presente projeto pretende fazer com que o aluno ganhe experiência com técnicas
+Pretendemos, ao longo deste projeto, ganhar experiência com técnicas
 modernas de reconstrução 3D fotogramétrica, no contexto de uma aplicação
 bem-definida de preservação de patrimônio. A entrada do sistema deverá ser um
 conjunto de vídeos realizados por câmeras de baixo custo, ou um conjunto de
 escaneamentos realizados por scanners à mão de baixo custo baseados em Kinect.
 
-O objetivo concreto do aluno será explorar as tecnologias supracitadas para
+O objetivo concreto é explorar as tecnologias supracitadas para
 desenvolver um esquema de escaneamento usando software aberto, câmeras e
 scanners de baixo custo, representando o estado da arte em reconstrução 3D sem
 restrições de aquisição. Perguntas fundamentais a serem respondidas são: que
 nível de detalhe, facilidade e precisão se pode obter usando-se apenas imagens e software
 aberto? É possível utilizar scanners de baixo custo baseados em Kinect com
 melhorias significativas em termos de qualidade, conveniência ou tempo de
-processamento?  Quais são as restrições desses sistemas? Seria útil na prática
+processamento?  Quais são as restrições desses sistemas? Seria útil, na prática,
 uma reconstrução de curvas para auxiliar na reconstrução de nuvem de pontos e de
 superfícies densas? Onde o estado da arte deve ser avançado de forma a permitir
 uma solução mais conveniente e completa para a preservação de patrimônio?
 
 O principal objetivo em termos de pesquisa científica será comparar as
 diferentes abordagens do estado da arte disponíveis para reconstrução 3D e
-explicitar suas limitações práticas. O aluno deverá, com o entendimento das
-abordagens, desenvolver um esquema de aquisição de esculturas que permita
-ampliar os detalhes ou ajudar a resolver os problemas dos métodos. Com a
-experiência obtida, o aluno estará pronto para desenvolver pesquisa futura na
-área de recontrução 3D, com conhecimento de causa para avaliar direções de
-pesquisa de efetivo e alto impacto na prática.
+explicitar suas limitações práticas.
 
 \section{Organização deste manuscrito}
 
-O trabalho foi estruturado da seguinte maneira: previamente introduzimos os métodos baseados em pontos de interesse no Capítulo~\ref{sec:pontosdeinteresse}, destacando suas funcionalidades. No Capítulo~\ref{sec:denserecon} discutimos e aprofundamos o  funcionamento de cada algoritmo de reconstrução densa empregados, apresentando e debatendo, comparativamente, pontos à favor e contra; O Capítulo~\ref{sec:kinect} é apresentada a técnica de reconstrução utilizada nos  {\it Kinects}, da Microsoft; Com isso, temos o  Capítulo~\ref{sec:visualsfm}, que é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM) dos algoritmos de reconstrução densa utilizados. Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
+Este trabalho foi estruturado da seguinte maneira: previamente, introduzimos métodos baseados em reconstrução à laser, no Capítulo~\ref{cap:laser}, apresentando, de uma maneira mais técnica, o projeto das esculturas de Michelangelo na Seção~\ref{sec:David}, que foi um dos pioneiros na técnica de conservação de acervos culturais. No próximo Capítulo~\ref{cap:kinect}, discutimos o uso do Kinect, da Microsoft, no que tange a calibração do sistema para o uso em tecnologias Structure from Motion. 
+Adiante, no Capítulo~\ref{cap:pontosdeinteresse}, abordaremos o tema central do trabalho: técnicas de reconstrução baseadas em fotogrametria, com o emprego de dois softwares, o MVE~\ref{sec:mve} e o VisualSfM~\ref{sec:visualsfm} e seus respectivos funcionamentos. Finalmente, apresentamos experimentos e conclusões do trabalho, bem como sugestoões para implementações e trabalhos futuros.
+
+% O trabalho foi estruturado da seguinte maneira: previamente introduzimos os métodos baseados em pontos de interesse no Capítulo~\ref{sec:pontosdeinteresse}, destacando suas funcionalidades. No Capítulo~\ref{sec:denserecon} discutimos e aprofundamos o  funcionamento de cada algoritmo de reconstrução densa empregados, apresentando e debatendo, comparativamente, pontos à favor e contra; O Capítulo~\ref{sec:kinect} é apresentada a técnica de reconstrução utilizada nos  {\it Kinects}, da Microsoft; Com isso, temos o  Capítulo~\ref{sec:visualsfm}, que é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM) dos algoritmos de reconstrução densa utilizados. Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
 %Este trabalho está organizado da seguinte forma: discutimos as técnicas de
 %extração de curva sem aprendizagem de máquina supervisionada no
 %Capítulo~\ref{sec:cfrag:extraction}. No Capítulo~\ref{sec:learning:chapter},
