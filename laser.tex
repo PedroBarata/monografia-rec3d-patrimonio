@@ -3,22 +3,23 @@
 \section{Introdução}
 
 A técnica de reconstrução baseada em laser é conhecida desde o século passado, pois oferecem uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados. 
+Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza escaners baseados em superfícies, mais especificamente, utilizando luz estruturada \ref{fig:luzestruturada}.
+
+Luz estruturada é o processo de projetar um padrão conhecido (muitas vezes, grades ou barras horizontais, via laser) em uma cena. A forma como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/tomografia.png}
+	\includegraphics[width=0.5\linewidth]{figs/luzestruturada.jpg}
 	\caption{%
-	Exemplo de reconstrução à laser utilizando o método baseado em volume.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:laservolume}
+	Exemplo de um projetor de padrões de luz estruturada utilizando laser.
+	\cite{luzEstruturada}.
+	}\label{fig:kinect}
 \end{figure}
-
-Existem alguns tipos de reconstruções empregando lasers, baseados em volume (ressonância, tomografia, por exemplo \ref{fig:laservolume} ou em superfície (estereoscopia, {\it time of flight}, luz estruturada) . Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza escaners baseados em superfícies, mais especificamente, utilizando luz estruturada.
 
 \section{Projeto de preservação das esculturas de Michelangelo}\label{sec:David}
 
-Este projeto tem como motivação avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns dos principais artefatos culturais. Foi utilizada uma tecnologia chamada de {\it rangefinder}, com uma equipe de mais de 30 professores, funcionários e estudantes da Universidade de Stanford desenvolveram algoritmos para combinar imagens de múltiplas gamas e cores, passaram os anos de 1998 e 1999 na Itália escaneando esclturas de Michelangelo. 
+Este projeto tem como motivação avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns dos principais artefatos culturais. Foram utilizados sensores de alcance (\emph{range finders}) para triangulação, sensores de alcance baseados em ToF (\emph{Time of Flight}) câmeras digitais e um software de calibração. Com uma equipe de mais de 30 professores, funcionários e estudantes da Universidade de Stanford desenvolveram algoritmos para combinar imagens de múltiplas gamas e cores, passaram os anos de 1998 e 1999 na Itália escaneando esclturas de Michelangelo. 
 
 Pipeline:
 
@@ -165,7 +166,8 @@ Total de tempo para processamento de dados          & 4,000 horas de trabalho (a
 Custo do projeto                          & \$2,000,000                                         \\ \hline
 \end{tabular}
 \end{table}
+
 %COLOCAR FOTOS DAVID%
-Porém, devido ao seu alto custo com equipamentos, com {\it softwares} e sem falar na necessidade de estações robustas para armazenamento dos dados e para esacaneamento de patrimônios, outras técnicas foram emergindo com o passar dos anos, como a fotogrametria, que será abordada mais tarde neste documento.
+Porém, devido ao seu alto custo com equipamentos, com softwares e sem falar na necessidade de estações robustas para armazenamento dos dados e para escaneamento de patrimônios, outras técnicas foram emergindo com o passar dos anos, como a fotogrametria, que será abordada ao decorrer deste documento.
 
 % \input{kinect}
