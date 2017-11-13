@@ -8,12 +8,12 @@ A reconstrucão 3D de cenas gerais a partir de múltiplos pontos de vista
 usando-se câmeras convencionais, sem aquisição controlada, é um dos grandes
 objetivos de pesquisa em visão computacional, ambicioso até mesmo para os dias
 de hoje. Aplicações incluem a reconstrução de modelos 3D para uso em
-videogames~\cite{Ablan:3DPhoto:book}, filmes~\cite{Ablan:3DPhoto:book},
+videogames~\cite{ablan2007digital}, filmes~\cite{ablan2007digital},
 arqueologia, arquitetura, modelagem 3D urbana (\eg, Google Streetview); técnicas
 de \emph{match-moving} em cinematografia para fusão de conteúdo virtual e
-filmagem real~\cite{Dobbert:Matchmoving:book}, a organização de uma coleção de
+filmagem real~\cite{dobbert2012matchmoving}, a organização de uma coleção de
 fotografias com relação a uma cena (\eg, o sistema
-\emph{Phototourism}~\cite{Argarwal:Snavely:etal:ICCV09} e a funcionalidade
+\emph{Phototourism}~\cite{agarwal2010reconstructing} e a funcionalidade
 \emph{Look Around} do Google Panoramio e Steet View), manipulação robótica, e a
 metrologia a partir de câmeras na indústria automobilística e metal-mecânica.
 
@@ -29,15 +29,15 @@ número arbitrário de objetos e câmeras não-calibradas.
 Mesmo que um sistema completo esteja fora do alcance da tecnologia atual,
 um progresso significativo tem sido atingido nos últimos anos. Por um lado,
 uma tecnologia operacional tem evoluido, mais recentemente para sistemas de grande
-escala~\cite{Argarwal:Snavely:etal:ICCV09,Pollefeys:VanGool:etal:handheld:IJCV2004},
+escala~\cite{agarwal2011building},
 a partir do desenvolvimento da detecção robusta de
-\emph{features}~\cite{mikolajczyk:schmid:IJCV04}, o
+\emph{features}~\cite{mikolajczyk2002detection}, o
 \emph{fitting} robusto e seleção de correspondências baseados em \ransac, e o
 desenvolvimento de métodos de geometria projetiva para calibrar duas ou três
 imagens e progressivamente adicionar imagens e extrair estrutura 3D dessas
 \emph{features} na forma de nuvens de pontos. Com o código fonte do sistema
-Bundler~\cite{Noah:Bundler,Noah:Steven:Bundler} liberado por Noah Snavely, e sua subsequente incorporação
-ao sistema VisualSFM~\cite{Changchang:VisualSFM}, é possível utilizar este sistema para a
+Bundler~\cite{Nsnavely2010bundler} liberado por Noah Snavely, e sua subsequente incorporação
+ao sistema VisualSFM~\cite{wu2011visualsfm}, é possível utilizar este sistema para a
 reconstrução de patrimônio. 
 
 
@@ -45,7 +45,7 @@ No paradigma usando-se apenas imagens convencionais -- denominado
 \textbf{reconstrução estéreo multiocular passiva} --  a posição das câmeras são
 estimadas a partir apenas de imagens, usando pontos de interesse, em seguida uma
 nuvem de pontos é reconstruída~\ref{fig:rec3d}.
-As câmeras podem então ser utilizadas para obter modelos mais detalhados de reconstrução, como algoritmos de densificação~\cite{Furukawa:Ponce:CVPR2007} e interpolação~\cite{poisson} da nuvem de pontos, bem como demais algoritmos densos de visão estéreo multi-perspectiva/multi-ocular, como os do grupo de Michel Goesele~\cite{Goesele:MVE:2014}, também com código disponível. Tais algoritmos, no entanto, têm problemas, em particular a reconstrução suaviza partes bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se, portanto, utilizar a reconstrução 3D de curvas do pesquisador proponente~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12} para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem como para ajudar
+As câmeras podem então ser utilizadas para obter modelos mais detalhados de reconstrução, como algoritmos de densificação~\cite{furukawa2007dense} e interpolação~\cite{poisson} da nuvem de pontos, bem como demais algoritmos densos de visão estéreo multi-perspectiva/multi-ocular, como os do grupo de Michel Goesele~\cite{mve}, também com código disponível. Tais algoritmos, no entanto, têm problemas, em particular a reconstrução suaviza partes bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se, portanto, utilizar a reconstrução 3D de curvas do pesquisador proponente~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12} para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem como para ajudar
 no problema de escalabilidade quando a reconstrução 3D se torna muito grande.
 Um segundo paradigma, denominado \textbf{reconstrução estéreo multiocular
 ativa}, tem se tornado viável devido à indústria de videogames, e consiste na
@@ -98,7 +98,7 @@ scanner padrão baseado em Kinect?
     resolução, inferior um sistema a laser de alta qualidade (d) porém de baixo custo e
     muito mais versátil devido ao sistema de aquisição manual e a software
     amplamente utilizado e
-    desenvolvido\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+    desenvolvido\cite{wang2015research}.
 	}\label{fig:rec3d:comparacao}
 \end{figure}
 
@@ -151,7 +151,7 @@ figura~\ref{fig:esculturas}.
 	\caption{A reconstrução usando-se apenas imagens, sem controle de aquisição, 
 	   como em um vídeo de um smartphone filmado em torno do objeto, fornece uma
 	   nuvem de pontos, que pode ser
-	   densificada~\cite{Noah:Bundler,Noah:Steven:Bundler,Changchang:VisualSFM,Furukawa:Ponce:CVPR2007,Goesele:MVE:2014}, ou
+	   densificada~\cite{snavely2010bundler,wu2011visualsfm,furukawa2007dense,mve}, ou
 	   atribuída de
 	   curvas~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}, de forma a preservar a resolução
 	   em áreas de alto conteúdo informativo. Tais representações estão sendo

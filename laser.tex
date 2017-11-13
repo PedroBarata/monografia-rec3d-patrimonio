@@ -72,8 +72,6 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 \text{laser}
 \end{bmatrix}
 \]
-%  \] \[  \] \[  \] \[ \text{rotação de rolamento} \] \[ \text{laser para o escaner da cabeça} \] \[ \text{imagem para o laser} 
-%\end{gather*}
 
 Calibração do sistema de cores:
 Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de {\it features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
@@ -81,6 +79,7 @@ Para corrigir a distorção geométrica na câmera de cores, foi fotografado um 
 Para obter um mapeamento da câmera colorida para o escaner da cabeça, o alvo foi escaneado usando o laser e a câmera de alcance. Uma vez que o escaner retornou a intensidade refletida pelo laser, bem como a profundidade, pode-se calcular as coordenadas 3D de cada ponto da {\it feature}.
 
 Para corrigir os efeitos radiométricos espaciais, incluindo o aspecto de vinheta das lentes, a não uniformidade angular, o declínio da lei quadrada inversa dos holofotes e a não uniformidade espacial na resposta do sensor, foi fotografado um cartão branco sob o holofote e construída uma tabela de correção de intensidade por pixel.
+
 % Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa laser) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a laser ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
 
 %FIGURA DAS FERRAMENTAS AQUI%
