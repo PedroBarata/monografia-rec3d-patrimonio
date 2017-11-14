@@ -37,11 +37,10 @@ desenvolvimento de métodos de geometria projetiva para calibrar duas ou três
 imagens e progressivamente adicionar imagens e extrair estrutura 3D dessas
 \emph{features} na forma de nuvens de pontos. Com o código fonte do sistema
 Bundler~\cite{Nsnavely2010bundler} liberado por Noah Snavely, e sua subsequente incorporação
-ao sistema VisualSFM~\cite{wu2011visualsfm}, é possível utilizar este sistema para a
+ao sistema VisualSfM~\cite{wu2011visualsfm}, é possível utilizar este sistema para a
 reconstrução de patrimônio. 
 
-
-No paradigma usando-se apenas imagens convencionais -- denominado
+No paradigma, usando-se apenas imagens convencionais -- denominado
 \textbf{reconstrução estéreo multiocular passiva} --  a posição das câmeras são
 estimadas a partir apenas de imagens, usando pontos de interesse, em seguida uma
 nuvem de pontos é reconstruída~\ref{fig:rec3d}.
@@ -50,8 +49,8 @@ no problema de escalabilidade quando a reconstrução 3D se torna muito grande.
 Um segundo paradigma, denominado \textbf{reconstrução estéreo multiocular
 ativa}, tem se tornado viável devido à indústria de videogames, e consiste na
 utilização de sistemas que alteram o funcionamento de câmeras convencionais,
-típicamente usando-se projetores infra-vermelho, laser ou câmeras ToF (\emph{time of
-flight}), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
+típicamente usando-se projetores infra-vermelho, laser ou câmeras ToF (\emph{Time of
+Flight}), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
 
 \begin{figure} [!h]
 	\centering
@@ -73,7 +72,7 @@ flight}), como no caso dos dispositivos Kinect, figura~\ref{fig:kinect}.
 A preservação de patrimônio tem sido realizada tradicionalmente com scanners
 dedicados de alto custo, como no projeto David~\ref{fig:david}.
 O projeto teve início em 1992 e tem como objetivo a utilização de scanners a laser de profundidade
-(\emph{rangefinder scanners}), aliado com algoritmos que combinam diferentes profundidades e cores da imagem, 
+(\emph{Rangefinder Scanners}), aliado com algoritmos que combinam diferentes profundidades e cores da imagem, 
 para realizar uma digitalização da parte externa e da superficie de forma acurada da estátua de David 
 (porém, esse método pode ser utilizado em diferentes objetos no mundo real, 
 como partes de máquinas, artefatos culturais e na indústria de video games, por exemplo). 
@@ -119,10 +118,11 @@ triangulação com laser de profundidade.
    que faz o laser rotacionar, da posição horizontal para a vertical e também roda em torno da cabeça como um todo (c).
    Para a reconstrucão, o primeiro passo foi alinhar cerca de 100 scans em diversas posicoes, após isso, utilizado um 
    alinhamento automatico em pares dos scans, utilizando um algoritmo modificado de iteracoes de pontos próximos 
-   (ICP - \emph {iterated-closest-points}). Após isso, faz-se um processo de relaxação global a fim de minimizar erros 
+   (ICP - \emph {Iterated-Closest-Points}). Após isso, faz-se um processo de relaxação global a fim de minimizar erros 
    de alinhamento por toda a estátua. Depois de alinhados, usa-se o algoritmo de profundidade volumétrica de 
-   processamento de imagens (VRIP - \emph {volumetric range image processing} - do Brian Curless) (d).
-	}\label{fig:david}
+   processamento de imagens (VRIP - \emph {Volumetric Range Image Processing} - de Brian Curless) (d).
+	\cite{levoy2000digital}}
+  \label{fig:david}
 \end{figure}
 
 \subsection*{O Jardim do Nêgo, Nova Friburgo}
@@ -181,9 +181,10 @@ disponível na internet.
 
 Pretendemos, ao longo deste projeto, ganhar experiência com técnicas
 modernas de reconstrução 3D fotogramétrica, no contexto de uma aplicação
-bem-definida de preservação de patrimônio. A entrada do sistema deverá ser um
-conjunto de vídeos realizados por câmeras de baixo custo, ou um conjunto de
-escaneamentos realizados por scanners à mão de baixo custo baseados em Kinect.
+bem-definida de preservação de patrimônio. 
+% A entrada do sistema deverá ser um
+% conjunto de vídeos realizados por câmeras de baixo custo, ou um conjunto de
+% escaneamentos realizados por scanners à mão de baixo custo baseados em Kinect.
 
 O objetivo concreto é explorar as tecnologias supracitadas para
 desenvolver um esquema de escaneamento usando software aberto, câmeras e

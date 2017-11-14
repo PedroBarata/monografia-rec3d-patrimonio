@@ -1,11 +1,13 @@
 \chapter{Reconstruções baseadas em \emph{Time Of Flight}}\label{cap:kinect}
 %======================================================================================
 
-\section{Introdução}
+\section*{Introdução}
 
-\emph{Time of Flight}~\ref{gokturk2004time} ou Tempo de Vôo é um método ótico ativo, que consegue determinar a localização de objetos no alcance do sensor de infra-vermelho, a partir de alterações na matriz do projetor de feixes de infra-vermelho (\eg Kinect versão 1 \ref{smisek20133d}). Existe também, um outro método que utiliza fótons, que viajam na velocidade da luz. Onde o valor resultante cálculo da diferença da emissão e da chegada dos fótons aos detectores é utilizado na criação de uma probabilidade de distribuição localizando o evento detectado a uma distância do eixo do scanner (\eg Kinect versão 2 \ref{lachat2015first,valgma20163d}). 
+\emph{Time of Flight}~\ref{gokturk2004time} ou Tempo de Vôo é um método ótico ativo, que consegue determinar a localização de objetos no alcance do sensor de infra-vermelho (no caso do Kinect, um sensor ToF invisível), a partir de alterações na matriz do projetor de feixes de infra-vermelho (\eg Kinect versão 1 \ref{smisek20133d}). Existe também, um outro método que utiliza fótons, que viajam na velocidade da luz. Onde o valor resultante cálculo da diferença da emissão e da chegada dos fótons aos detectores é utilizado na criação de uma probabilidade de distribuição localizando o evento detectado a uma distância do eixo do scanner (\eg Kinect versão 2 \ref{lachat2015first,valgma20163d}). 
 
 \section{Kinect}
+
+\subsection*{Introdução}
 
 Um componente criado pela Microsoft para fins recreativos (como no XBox, por exemplo), se tornou uma das mais conhecidas ferramentas de reconstrução 3D no cenário atual. Sua primeira versão (Kinect V1) \ref{fig:kinect} utiliza uma técnica similar à empregada no projeto da Universidade de Stanford, com luz estruturada, porém, diferentemente dos escaners à laser, o Kinect tem um custo monetário baixo e é acessível a todo público em geral (desde entusiastas e amadores até profissionais da área). 
 
@@ -24,6 +26,8 @@ A partir deste momento, referenciamos o Kinect versão 1 apenas como Kinect.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:kinect}
 \end{figure}
+
+\subsection*{Processo de calibração}
 
 Sua principal saída da imagem do Kinect é correspondente à profundidade da cena. Em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade inversa, $D$.
 A profundidade da imagem é construída a partir da triangulação da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
@@ -157,7 +161,6 @@ Foi observado que após a calibração, o Kinect gerava erros residuais complexo
 Para validar essa correção, a correção-z das imagens foram construídas a partir dos resíduos das imagens ímpares e aplicadas nas pares, e o vice-versa. Depois da aplicação da correção-z , a media dos erros diminuiu aproximadamente 0,25mm.
 Como parâmetro de comparação, foram dispostas 2 câmeras diferentes, no mesmo ambiente do Kinect.
 
-
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
@@ -184,6 +187,7 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 \end{center}
 \end{table}
 
+\subsection*{Uso do Kinect com \emph{Structure from Motion}}
 
 Com o sistema calibrado, o Kinect foi testado usando técnicas \emph{Structure from Motion}, onde a figura a seguir compara a superfície 3D de nuvem de pontos com uma com Kinect. 
 
@@ -203,6 +207,6 @@ Quanto a qualidade da reconstrução de multi-view, o kinect ficou melhor que o 
 	}\label{fig:deslocKinect}
 \end{figure}
 
-O Kinect é tão utilizado para fins pessoais (e empresariais), que existem alguns softwares para utilizá-lo como uma ferramenta de reconstrução 3D e a maioria deles são bem acessíveis. Uma delas é o \emph{Skanect} que tem a versão gratuita onde é possível fazer escaneamentos básicos e a versão paga, que possibilita uma configuração maior, como por exemplo, a delimitação do objeto que será reconstruído, exportar o arquivo em diferentes formatos (\emph{.PLY}; \emph{.OBJ}: formato para exportação para programas que melhoram o modelo gerado (blender ou sculptris, por exemplo). E escolher o numero de faces a ser exportado; \emph{STL}: próprio para a impressora 3D (software \emph{Cura}); \epmh{VRML}: salva também as cores do modelo.)
+O Kinect é tão utilizado para fins pessoais (e empresariais), que existem alguns softwares para utilizá-lo como uma ferramenta de reconstrução 3D e a maioria deles são bem acessíveis (incluindo um pacote de ferramentas que a própria Microsoft disponibilizou, para o funcionamento do Kinect no Windows). Uma delas é o \emph{Skanect} que tem a versão gratuita onde é possível fazer escaneamentos básicos e a versão paga, que possibilita uma configuração maior, como por exemplo, a delimitação do objeto que será reconstruído, exportar o arquivo em diferentes formatos (\emph{.PLY}; \emph{.OBJ}: formato para exportação para programas que melhoram o modelo gerado (blender ou sculptris, por exemplo). E escolher o numero de faces a ser exportado; \emph{STL}: próprio para a impressora 3D (software \emph{Cura}); \epmh{VRML}: salva também as cores do modelo.)
 
 Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi projetado para funcionar bem em espaços fechados, com detecção de formas humanas e movimentações. Ou seja, numa aplicação \emph{in situ} já não funcionaria muito bem, pois além de não conseguir projetar os detalhes em alta definição de uma escultura, ele necessita de uma fonte de energia externa, o que dificulta a acessibilidade, e, como  é gerada uma reconstrução em tempo real (não tem uma forma de salvar em \emph{cache} ou internamente), ele precisa estar ligado a um computador para fazer o escaneamento.
