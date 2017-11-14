@@ -2,7 +2,7 @@
 %======================================================================================
 %
 \subsection{Introdução}
-Um dos algoritmos utilizados para a técnica de reconstrução densa é o MVE -- \emph{Multi-View Reconstruction Environment}~\cite{mve}, feito por Simon Fuhrmann, Fabian Langguth e Michael Goesele. Este algoritmo utiliza fotos e produz uma malha triangular superficial como resultado. Diferente das reconstruções baseadas nas geometrias das imagens, o MVE é focado na reconstrução multi-escala, um quesito importante na reconstrução de esculturas e acervo cultural. Portanto, com esta técnica, é possível reconstruir grandes volumes de dados, contendo regiões detalhadas em alta resolução, em comparação com o resto da cena. O sistema ainda possui uma interface gráfica para o uma reconstrução baseada no SfM, amigável ao usuário (conhecida como UMVE), onde permite a visualização e inspeção das imagens, mapas de profundidade e renderizar cenas e malhas 3D.
+Um dos algoritmos utilizados para a técnica de reconstrução densa é o MVE -- \emph{Multi-View Reconstruction Environment}~\cite{mve}. Este algoritmo utiliza fotos e produz uma malha triangular superficial como resultado. Diferentemente das reconstruções baseadas nas geometrias das imagens, o MVE é focado na reconstrução multi-escala, um quesito importante na reconstrução de esculturas e acervo cultural. Portanto, com esta técnica é possível reconstruir grandes volumes de dados, contendo regiões detalhadas em alta resolução, em comparação com o resto da cena. O sistema ainda possui uma interface gráfica para o uma reconstrução baseada no SfM, amigável ao usuário (conhecida como UMVE), onde permite a visualização e inspeção das imagens, mapas de profundidade e renderizar cenas e malhas 3D.
 
 Sua base de operação é basicamente \ref{fig:mvepipeline}:
 
@@ -12,7 +12,7 @@ Sua base de operação é basicamente \ref{fig:mvepipeline}:
 \begin{itemize}
 \item{
 Reconstrói os parâmetros da câmera (posição e orientação) e seus dados de calibração (distância focal e distorção radial),
-encontrando correspondências esparsas mas estáveis entre as imagens. (Passo abordado acima).
+encontrando correspondências esparsas, mas estáveis entre as imagens.
 }
 \end{itemize}
 
@@ -45,9 +45,9 @@ Como não existem muitas opções para algoritmos de SfM, o MVE permite a utiliz
 
 Uma vez com o passo do SfM feito, partimos para o MVS. Com os parâmetros de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos algoritmos para a reconstrução densa, o MVE no caso, utiliza um algoritmo próprio, feito por um de seus criadores, Michael Goesele~\cite{goesele2007multi}, que reconstrói um mapa de profundidade para cada foto. 
 
-Embora abordagens baseadas em mapeamentos de profundidade produzirem uma grande quantidade de redundância, (isso se dá por causa das inúmeras fotos que são sobrepostas e possuírem partes similares da mesma cena), este algoritmo é altamente escalável para grandes cenas, pois apenas um pequeno conjunto de fotos vizinhas é necessário para a reconstrução. Outra vantagem da utilização dos mapas de profundidade como representação intermediária é que a geometria é parametrizada em seu domínio natural, e os dados por foto (como a cor, por exemplo) estão diretamente acessíveis nas imagens.
+Embora abordagens baseadas em mapeamentos de profundidade produzam uma grande quantidade de redundâncias, (isso se dá por causa das inúmeras fotos que são sobrepostas e possuem partes similares da mesma cena), este algoritmo é altamente escalável para grandes cenas, pois apenas um pequeno conjunto de fotos vizinhas é necessário para a reconstrução. Outra vantagem da utilização dos mapas de profundidade como representação intermediária é que a geometria é parametrizada em seu domínio natural, e os dados por foto (como a cor, por exemplo) estão diretamente acessíveis nas imagens.
 
-A redundância excessiva nos mapas de profundidade pode ser pesado. Não com relação ao armazenamento, mas na questão do processamento computacional exigido nos mapas de profundidade. Porém, esta abordagem foi capaz de produzir uma geometria detalhada e superar o ruído nos mapas de profundidades individuais.
+Essa redundância excessiva nos mapas de profundidade pode ser pesado. Não com relação ao armazenamento, mas na questão do processamento computacional exigido nos mapas. Porém, esta abordagem foi capaz de produzir uma geometria detalhada e superar o ruído nos mapas de profundidade individuais.
 
 \subsection{Guia de reconstrução com o MVE~\cite{pipelinemve}}
 
@@ -166,108 +166,108 @@ Reconstrução de superfícies -- {Surface Reconstruction}: Utiliza-se a linha d
 A seguir, as ferramentas FSSR calculam uma representação volumétrica de escala múltipla a partir dos pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma malha final é extraída. Esta malha pode parecer desordenada devido à regiões não confiáveis e à componentes isolados, oriundos de medidas imprecisas. Logo, a malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis da superfície. 
 
 
-Experiência com o MVE: A utilização do \emph{software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
+% Experiência com o MVE: A utilização do \emph{software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
 
-Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras (\emph{EXIF}) e das imagens e, como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados \emph{frames}, não é possível obter a informação das câmeras \ref{fig:mveexif}, logo o \emph{software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
+% Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras (\emph{EXIF}) e das imagens e, como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados \emph{frames}, não é possível obter a informação das câmeras \ref{fig:mveexif}, logo o \emph{software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figs/exifumve.png}(a)
-	\includegraphics[width=0.5\linewidth]{figs/exifsemumve.png}(b)
-	\caption{%
-	A figura (a) é um exemplo onde a imagem possui dados na extensão \emph{EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul).
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:mveexif}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.5\linewidth]{figs/exifumve.png}(a)
+% 	\includegraphics[width=0.5\linewidth]{figs/exifsemumve.png}(b)
+% 	\caption{%
+% 	A figura (a) é um exemplo onde a imagem possui dados na extensão \emph{EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul).
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:mveexif}
+% \end{figure} 
 
-Com isso em mente, foi gerada uma reconstrução de um vídeo gravado de uma escultura no Jardim do Nêgo. O  vídeo foi cortado em \emph{frames} onde foram geradas 200 imagens base. 
+% Com isso em mente, foi gerada uma reconstrução de um vídeo gravado de uma escultura no Jardim do Nêgo. O  vídeo foi cortado em \emph{frames} onde foram geradas 200 imagens base. 
 
-A partir disso, foi executado, todos os passos de uma reconstrução utilizando o MVE, de forma que, foram utilizadas as duas opções, tanto por linha de comando, quanto pela interface gráfica (UMVE).
+% A partir disso, foi executado, todos os passos de uma reconstrução utilizando o MVE, de forma que, foram utilizadas as duas opções, tanto por linha de comando, quanto pela interface gráfica (UMVE).
 
-Pela interface gráfica, o processo todo de reconstrução foi rápido (cerca de 30 minutos) \ref{fig:UMVEdense}, ao passo que por linha de comando, levou cerca de 11 horas e 30 minutos. 
+% Pela interface gráfica, o processo todo de reconstrução foi rápido (cerca de 30 minutos) \ref{fig:UMVEdense}, ao passo que por linha de comando, levou cerca de 11 horas e 30 minutos. 
 
-O UMVE não sinaliza quando o processo em execução termina, então, a explicação para essa discrepância no tempo é devido à execução de outro comando, sobrepondo o que já estava sendo executado, sem deixar terminá-lo.
+% O UMVE não sinaliza quando o processo em execução termina, então, a explicação para essa discrepância no tempo é devido à execução de outro comando, sobrepondo o que já estava sendo executado, sem deixar terminá-lo.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figs/umvedense.png}
-	\caption{%
-	Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:UMVEdense}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.5\linewidth]{figs/umvedense.png}
+% 	\caption{%
+% 	Final da reconstrução via UMVE, percebe-se que alguns pontos não foram considerados, tendo como resultado uma "nuvem de pontos" mais densa, basicamente.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:UMVEdense}
+% \end{figure} 
 
-Na reconstrução por linha de comando também é possível visualizar em qual etapa da execução o algoritmo está \ref{fig:passosMVE}, configurar alguns parâmetros e inclusive mostrar a porcentagem de progresso do comando. Foram executados os comandos declarados nesta seção.  O \emph{sfmrecon} demorou cerca de 1 minuto e meio \ref{fig:MVESfM}.
+% Na reconstrução por linha de comando também é possível visualizar em qual etapa da execução o algoritmo está \ref{fig:passosMVE}, configurar alguns parâmetros e inclusive mostrar a porcentagem de progresso do comando. Foram executados os comandos declarados nesta seção.  O \emph{sfmrecon} demorou cerca de 1 minuto e meio \ref{fig:MVESfM}.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figs/umve2sfm.png} (a)
-	\includegraphics[width=0.5\linewidth]{figs/umve3sfmfeature.png} (b)
-	\includegraphics[width=0.5\linewidth]{figs/umve4ba.png} (c)
-	\caption{%
-	Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas as \emph{features} do conjunto de imagens. Em (b) está computado o \emph{pairwise matching} e em (c) está no processo de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide}, usando condições-padrão para as câmeras.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:passosMVE}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.5\linewidth]{figs/umve2sfm.png} (a)
+% 	\includegraphics[width=0.5\linewidth]{figs/umve3sfmfeature.png} (b)
+% 	\includegraphics[width=0.5\linewidth]{figs/umve4ba.png} (c)
+% 	\caption{%
+% 	Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas as \emph{features} do conjunto de imagens. Em (b) está computado o \emph{pairwise matching} e em (c) está no processo de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide}, usando condições-padrão para as câmeras.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:passosMVE}
+% \end{figure} 
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{figs/sfmmve.png}
-	\caption{%
-	Término do comando \emph{sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos).
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVESfM}
-\end{figure}
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{figs/sfmmve.png}
+% 	\caption{%
+% 	Término do comando \emph{sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos).
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVESfM}
+% \end{figure}
 
-O próximo comando, \emph{dmrecon} demorou cerca de 4 horas, usando como configuração um nível L2, com 20 vizinhos \ref{fig:MVEDenseRecon}. Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi cancelado devido à demora na execução. 
+% O próximo comando, \emph{dmrecon} demorou cerca de 4 horas, usando como configuração um nível L2, com 20 vizinhos \ref{fig:MVEDenseRecon}. Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi cancelado devido à demora na execução. 
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{figs/umvetempo.png}
-	\caption{%
-	Término do comando \emph{dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos).
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEDenseRecon}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{figs/umvetempo.png}
+% 	\caption{%
+% 	Término do comando \emph{dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos).
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVEDenseRecon}
+% \end{figure} 
 
-Usando o \emph{scene2pet}, é necessário em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável, neste caso \emph{.ply} \ref{fig:MVEScene2Pet}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
+% Usando o \emph{scene2pet}, é necessário em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável, neste caso \emph{.ply} \ref{fig:MVEScene2Pet}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{figs/mvemesh.png}
-	\caption{%
-	Execução dos comandos \emph{scene2pet}, nos níveis -F0, -F1, -F2 e -F3.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEScene2Pet}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{figs/mvemesh.png}
+% 	\caption{%
+% 	Execução dos comandos \emph{scene2pet}, nos níveis -F0, -F1, -F2 e -F3.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVEScene2Pet}
+% \end{figure} 
 
-Para juntar todos os níveis do \emph{scene2pet}, foi usado o \emph{fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
+% Para juntar todos os níveis do \emph{scene2pet}, foi usado o \emph{fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{figs/mvemeshtempo2.png}
-	\caption{%
-	Progressão do comando \emph{fssrecon}, onde possui o ETA -- \emph{Estimated Time of Arrival}.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEFSSR}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{figs/mvemeshtempo2.png}
+% 	\caption{%
+% 	Progressão do comando \emph{fssrecon}, onde possui o ETA -- \emph{Estimated Time of Arrival}.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVEFSSR}
+% \end{figure} 
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemeshout.png}
-	\caption{%
-	Malha com ruídos proveniente do comando \emph{fssrecon}.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEFSSRMesh}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=1\linewidth]{figs/mvemeshout.png}
+% 	\caption{%
+% 	Malha com ruídos proveniente do comando \emph{fssrecon}.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVEFSSRMesh}
+% \end{figure} 
 
-Finalmente, basta limpar a malha atual com o comando \emph{meshclean}, onde foi obtido o resultado \ref{MVEMeshClean}.
+% Finalmente, basta limpar a malha atual com o comando \emph{meshclean}, onde foi obtido o resultado \ref{MVEMeshClean}.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
-	\caption{%
-	Resultado final, após a remoção dos ruídos da malha.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEMeshClean}
-\end{figure} 
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
+% 	\caption{%
+% 	Resultado final, após a remoção dos ruídos da malha.
+% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+% 	}\label{fig:MVEMeshClean}
+% \end{figure} 

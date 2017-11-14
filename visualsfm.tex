@@ -16,7 +16,7 @@ Sua linha de reconstrução é parecida com o MVE~\ref{sec:mve}, porém é mais 
 
 	\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
 	\caption{%
-	Botões na parte superior da interface gráfica, este seria o \emph{pipeline} padrão de funcionamento do \emph{software}.
+	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do \emph{software}.
 	\cite{wu2011visualsfm}
 	}\label{fig:pipelineVisualSfM}
 \end{figure}
@@ -212,7 +212,7 @@ O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos 
 \item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
-CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo})
+CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo version 2})
 
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
 %Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste \emph{software} é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do \emph{software} é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
