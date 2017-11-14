@@ -3,36 +3,59 @@
 %
 \section*{Introdução}
 
-A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} ({\it SfM}). Tem como base a utilização de pontos de interesse
-({\it features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
+A reconstrução 3D pelo método da estrutura do movimento, ou \emph{Structure from Motion} (\emph{SfM}). Tem como base a utilização de pontos de interesse
+(\emph{features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados. 
 
-\section{ SIFT -- {\it Scale Invariant Feature Transform}}
+A maioria dos métodos baseados em SfM e MVS (\emph{Multi-View Stereo}) tem uma abordagem similar e funcionam com os seguintes passos \ref{fig:sfmpipeline}:
+
+\begin{itemize}
+\item{Obtenção de imagens}
+\item{Processamento dos parâmetros de câmera para cada imagem}
+\item{Reconstrução da geometria 3D de uma cena com um conjunto de imagens e seus parâmetros correspondentes}
+\end{itemize}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figs/pipelinesfm.png}
+	\caption{%
+	Procedimento padrão da maioria dos sistemas baseados em SfM e MVS
+	\cite{theia-manual}.
+	}\label{fig:sfmpipeline}
+\end{figure}
+
+Neste trabalho, abordaremos o uso de dois softwares baseados em MVS: o MVE~\cite{mve} e o VisualSfM~\cite{wu2011visualsfm}. Ambos utilizam os passos supracitados, que, posteriormente serão comentados. O que difere um do outro é a partir da etapa de reconstrução esparsa e densa, onde o MVE emprega um algoritmo de mapas de profundidade enquanto o VisualSfM utiliza um sistema baseado em \emph{Bundle Adjustment}. 
+
+O passo de obtenção de imagens, será discutido no Capítulo de experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para processamento das imagens de entrada.
+
+\section{Processamento dos parâmetros de câmera para cada imagem}
+
+\section{ SIFT -- \emph{Scale Invariant Feature Transform}}
 
 Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
 O algoritmo pode ser dividido em cinco etapas, das quais:
 
 \begin{itemize}
-	\item{Deteccão de espaço-escala extremos -- {\it Scale-space Extrema Detection}}
-	\item{Localização de pontos-chaves -- {\it Keypoint Localization}}
-	\item{Atribuição de orientação -- {\it Orientation Assignment}}
-	\item{Descritor de pontos-chaves -- {\it Keypoint Descriptor}}
-	\item{Combinação de pontos-chaves -- {\it Keypoint Matching}}
+	\item{Deteccão de espaço-escala extremos -- \emph{Scale-space Extrema Detection}}
+	\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
+	\item{Atribuição de orientação -- \emph{Orientation Assignment}}
+	\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
+	\item{Combinação de pontos-chaves -- \emph{Keypoint Matching}}
 \end{itemize}
 
 
-\subsection*{Detecção de espaço-escala extremos}
+\subsection*{Detecção de espaço-escala extremos}\label{DiffGaussian}
 
 % From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
 
 Em casos com cantos pequenos, a detecção funciona bem. Porém, raramente utilizaremos a mesma janela para detectar pontos-chaves em imagens com diferentes escalas, pois utilizamos imagens grandes e, consequentemente, cantos grandes. Para isso, precisamos de janelas grandes também. 
 
-Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano ({\it Laplacian of Gaussian} --  LoG). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o núcleo gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto-chave em potencial, com o par $(x,y)$ na escala $\sigma$.
+Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano (\emph{Laplacian of Gaussian} --  LoG). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o núcleo Gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto-chave em potencial, com o par $(x,y)$ na escala $\sigma$.
 
 % \begin{equation}
 % LoG(x,y) = - \frac{1}{\pi \sigma ^4 }\left [ 1 - \frac{x^2+y^2}{2 \sigma ^2} \right ]e^{- \frac{x^2+y^2}{2 \sigma ^2}} 
 % \end{equation}
 
-Porém, como o LoG é um pouco custoso, computacionalmente. O SIFT utiliza um algoritmo aproximado do LoG, o DoG (Diferença de Gaussianos -- {\it Difference of Gaussians}). O DoG é a diferença de um filtro Gaussiano de uma imagem, com dois valores diferentes de escala $\sigma$. 
+Porém, como o LoG é um pouco custoso, computacionalmente. O SIFT utiliza um algoritmo aproximado do LoG, o DoG (Diferença de Gaussianos -- \emph{Difference of Gaussians}). O DoG é a diferença de um filtro Gaussiano de uma imagem, com dois valores diferentes de escala $\sigma$. 
 
 Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
 
@@ -88,7 +111,7 @@ Onde \ref{eq:gaussiano} é a função padrão do operador gaussiano (núcleo), a
 
 A localização dos pontos extremos pode cair em um extremo local e não global. Logo, após a utilização do DoG e com os pontos-chaves em potencial localizados, eles precisam ser refinados para melhorar o resultado. Para isso, são utilizadas Séries de Taylor na escala e no espaço, e, se a intensidade nesse extremo é menor que o valor limite, este é rejeitado.
 %TODO: Ver isso 
-Os {\it frames} do SIFT (pontos-chaves) são extraídos baseados nos extremos locais (picos) a partir do DoG. Numericamente, extremos locais são elementos que possuem um menor (ou maior) valor em uma vizinhança em um espaço 3x3x3 (em escala e espaço).
+Os \emph{frames} do SIFT (pontos-chaves) são extraídos baseados nos extremos locais (picos) a partir do DoG. Numericamente, extremos locais são elementos que possuem um menor (ou maior) valor em uma vizinhança em um espaço 3x3x3 (em escala e espaço).
 Depois de extraídos, estes pontos são interpolados quadraticamente (este passo é muito importante, especialmente nas escalas de menor resolução, para ter uma localização precisa do ponto-chave na resolução completa). Finalmente, eles são filtrados para eliminar respostas de baixo contraste ou respostas próximas as bordas.
 
 %Eliminating low contrast responses
@@ -128,7 +151,7 @@ Uma vizinhança é obtida, dependente da escala, do gradiente da magnitude \ref{
 	\label{eq:direcaoSIFT}
 \end{equation}
 
-Então, um histograma de 36 orientações ({\it bins}) cobrindo 360 graus é criado. Onde ele é ponderado pelo gradiente da magnitude e por uma janela Gaussiana circular onde $\sigma$ vale $1.5$ em relação à escala do ponto-chave \ref{fig:histogramaOrientado}.
+Então, um histograma de 36 orientações (\emph{bins}) cobrindo 360 graus é criado. Onde ele é ponderado pelo gradiente da magnitude e por uma janela Gaussiana circular onde $\sigma$ vale $1.5$ em relação à escala do ponto-chave \ref{fig:histogramaOrientado}.
 
 \begin{figure} [!h]
 	\centering
@@ -145,7 +168,7 @@ Pontos-chaves são criados com a mesma localização e escala, mas em diferentes
 
 Com os pontos-chaves criados a partir do histograma orientado, cria-se agora o descritor de pontos-chaves.
 
-Uma vizinhança 16x16 ao redor do ponto-chave é escolhida e esta mesma vizinhaça é dividida em 16 sub-blocos 4x4. Para cada bloco, um histograma orientado com 8 {\it bin} é criado. Logo, temos 128 valores válidos de {\it bin}. Esses valores são representados em forma de vetor para expressar o descritor de pontos-chaves \ref{fig:descritorKeypoint}. 
+Uma vizinhança 16x16 ao redor do ponto-chave é escolhida e esta mesma vizinhaça é dividida em 16 sub-blocos 4x4. Para cada bloco, um histograma orientado com 8 \emph{bin} é criado. Logo, temos 128 valores válidos de \emph{bin}. Esses valores são representados em forma de vetor para expressar o descritor de pontos-chaves \ref{fig:descritorKeypoint}. 
 
 Além disso, são tomadas algumas medidas para deixar o descritor mais robusto,como, por exemplo, invariante à luminosidade, rotação, etc.
 
@@ -164,33 +187,24 @@ Pontos-chaves entre duas imagens são combinados a partir da identificação da 
 Nesse caso, a razão da distância mais próxima para a segunda distância mais próxima é utilizada. Se essa razão for maior que 0.8, essa combinação é descartada.
 Esse método elimina cerca de 90\% de combinações falsas, enquanto descarta apenas cerca de 5\% de combinações corretas.
 
-\section {Triangulação -- {\it Full pairwise image matching}}
+\section {Triangulação -- \emph{Full pair-wise image matching}}
 
-Com os pontos de interesse ({\it features}) extraídos, podemos agora fazer a triangulação entre os pontos das imagens.
+Com os pontos de interesse (\emph{features}) extraídos, podemos agora fazer a triangulação entre os pontos das imagens.
 
-A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, dado pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do {\it feature} correspondente àquele ponto 3D \ref{fig:triangulacao}.
+A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, dado pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do \emph{feature} correspondente àquele ponto 3D \ref{fig:triangulacao}.
 
 \begin{figure} [!h]
 	\centering
 	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
 	\caption{%
-	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um {\it feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
+	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
 	}\label{fig:triangulacao}
 \end{figure}
 
-Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem para aumentar a dificuldade da triangulação: ruídos, posição das câmeras, o feixe das projeções não se encontram no mesmo ponto 3D, não se tem informação da projeções nas câmeras, etc. Entretanto, existem diversos algoritmos para resolução de cada um dos problemas enfretados.
+Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem para aumentar a dificuldade da triangulação: ruídos, posição das câmeras, o feixe das projeções não se encontram no mesmo ponto 3D, não se tem informação da projeções nas câmeras, dentre outros. Entretanto, existem diversos algoritmos para resolução de cada um dos problemas enfretados. 
 
-Como o foco deste manuscrito está no {\it software} de reconstrução VisualSfM, atentamos apenas ao algoritmo utilizado pelo mesmo. Neste caso, ele utiliza um algoritmo chamado {\it Bundle Adjustment}. 
+Com a extração dos \emph{features} das imagens selecionadas, as próximas etapas da reconstrução para um dos sistemas se diferem, e a partir de agora, faremos abordagens individuais para cada um deles.
 
-Este algoritmo é utilizado para minimizar o erro geométrico proveniente da reprojeção da triangulação \ref{fig:triangulacaoErro}. Dentro dele, existe a técnica de resolução de problemas não-lineares chamada Levenberg-Marquardt.
-
-\begin{figure} [!h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figs/triangulacaoErro.png}
-	\caption{%
-	Erro proveniente da reprojeção, onde os pontos $x$ e $x'$ estão mais próximos das medidas reais da imagem. 
-	}\label{fig:triangulacaoErro}
-\end{figure}
 
 \input{mve}
 \input{visualsfm}
