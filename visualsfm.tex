@@ -1,11 +1,11 @@
 \section{VisualSfM}\label{sec:visualsfm}
 %======================================================================================
 %
-\subsection{Introdução}
+\subsection*{Introdução}
 
-VisualSfM é um {\it software} baseado em fotogrametria que faz todo o processo de reconstrução 3D de um objeto e que pode usá-lo por linha de comando ou então pela interface gráfica, que é ótima, por sinal. É altamente customizável, podendo utilizar o CUDA da NVIDIA ou OpenGL, especificar a lista de pares para correspondência de imagens, usar detectores de {\it features} próprios, velocidade da detecção de {\it features}, da reconstrução densa, dentre outros parâmetros. Ou seja, é um {\it software} robusto, que pode ser usado em Linux, Windows ou até mesmo Mac.
+VisualSfM~\cite{visualSFMTutorial} é um {\it software} baseado em fotogrametria que faz todo o processo de reconstrução 3D de um objeto e que pode usá-lo por linha de comando ou então pela interface gráfica, que é ótima, por sinal. É altamente customizável, podendo utilizar o CUDA da NVIDIA ou OpenGL, especificar a lista de pares para correspondência de imagens, usar detectores de {\it features} próprios, velocidade da detecção de {\it features}, da reconstrução densa, dentre outros parâmetros. Ou seja, é um {\it software} robusto, que pode ser usado em Linux, Windows ou até mesmo Mac.
 
-\subsection{Procedimento}
+\subsection*{Procedimento}
 
 Sua linha de reconstrução é parecida com o MVE \ref{sec:mve}, porém é mais intuitiva. Em sua interface, possui um Log de mensagens e erros que por ventura venham a acontecer e na parte de cima, alguns botões \ref{fig:pipelineVisualSfM}
 
@@ -23,18 +23,29 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 \begin{itemize}
 \item \textbf{1 - Adicionar algumas imagens.} Este é o primeiro passo, para começar uma reconstrução, primeiro adiciona-se imagens ao {\it software}, pode ser uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou então abrir um arquivo de extensão .nvm, que é interpretado como uma reconstrução esparsa previamente feita.
 
-\item \textbf{2 - Correspondência de imagens.} Agora, o {\it software} roda o algoritmo SIFT, realizando todas as correspondências entre os {\it features}.
+\item \textbf{2 - Correspondência de imagens.} Agora, o \emph{software} roda o algoritmo SIFT, realizando todas as correspondências entre os {\it features}.
 
-\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa em todos os {\it features} descobertos no passo passado. (PBA). %LEMBRAR QUAL É O ALGORITMO!!% 
+\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa em todos os {\it features} descobertos no passo passado. (PBA). 
 
 
 PBA/MCBA -- {\it Multi-Core Bundle Adjustment}
 
-"\textit{Bundle}" refere-se aos feixes de luz que refletem em cada {\it feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o {\it Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
+\emph{Bundle} refere-se aos feixes de luz que refletem em cada \emph{feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o {\it Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
 
-O PBA/MCBA é um algoritmo que utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais rápido, em CPU e 30 vezes, em GPU, que o utilizado na conferência ECCV de 2010. É o primeiro sistema baseado em GPU escala com maiores problemas de Bundle Adjustments publicado e abre a porta para resolver problemas ainda maiores. Isso é feito observando o passo inexato de resolução não-linear usando Levenberg Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (Hessiana, complemento de Schur ou Jacobiana) na memória. Para sistemas de núcleo único isso se traduzia em memória de troca por tempo, mas em GPUs, isso leva a uma vitória surpreendente no espaço e no tempo. Outra surpresa é que a aritmética de precisão única, quando combinada com técnicas de normalização adequadas, dá resultados comparáveis aos obtidos por um solver usando aritmética de dupla precisão. Isso resulta em mais espaço e economia de tempo.
+Solucionadores de problemas de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide} resumem-se em minimizar o erro de reprojeção \ref{fig:bundleAdjustment} entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é obtida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt~\cite{more1978levenberg} provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do \emph{Bundle Adjustment}, as equações normais tem uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero.
 
-Dado um conjunto de localizações e correspondências de \textit{features} de imagens, o objetivo do \textit{Bundle Adjustment} é encontrar posições de 3 pontos e parâmetros de câmera que minimizem o erro de reprojeção. Esse problema de otimização geralmente é formulado como um problema de mínimos quadrados não-linear, onde o erro é a norma L2 quadrada da diferença entre a localização da característica observada e a projeção do ponto 3D correspondente no plano da imagem da câmera.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figs/bundleAdjustment.png}
+	\caption{%
+	Dado um ponto de um objeto 3D $X^\hat$, sua reprojeção nas câmeras $C$ e $C'$, são, respectivamente, $x$ e $x'$. Esses pontos possuem um erro de reprojeção $d$ e $d'$ e ao utilizar o PBA/MCBA, os pontos $x$ e $x'$ serão reajustados como $x^\hat$ e $x^\hat '$, respectivamente. 
+	\cite{3DCompVision2Didier}.
+	}\label{fig:bundleAdjustment}
+\end{figure}
+
+Neste caso, o PBA/MCBA~\cite{furukawa2009accurate,wu2011multicore} é um algoritmo que utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais rápido, em CPU e 30 vezes, em GPU, em comparação ao utilizado na conferência ECCV de 2010. É o primeiro sistema publicado, baseado em GPU que escala com maiores problemas de Bundle Adjustments. Isto abriu a porta para resolver problemas ainda maiores. Ele funciona observando o passo inexato de resolução não-linear usando Levenberg Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (Hessiana, complemento de Schur ou Jacobiana) na memória. Para sistemas de núcleo único isso se traduzia em memória de troca por tempo, mas em GPUs, isso leva a um surpreendente ganho, no espaço e no tempo. Outra surpresa é que a aritmética de precisão única, quando combinada com técnicas de normalização adequadas, dá resultados comparáveis aos obtidos por um solucionador de problemas usando aritmética de dupla precisão. Isso resulta em mais espaço e economia de tempo.
+
+Este algoritmo recebe como entrada conjunto de localizações e correspondências de \emph{features} de imagens, o objetivo do \emph{Bundle Adjustment} é encontrar posições de 3 pontos e parâmetros de câmera que minimizem o erro de reprojeção. Esse problema de otimização geralmente é formulado como um problema de mínimos quadrados não-lineares, onde o erro é a norma L2 quadrada da diferença entre a localização da característica observada e a projeção do ponto 3D correspondente no plano da imagem da câmera.
 
 Assumindo que $x$ é um vetor de parâmetros e $f(x) = [f1(x), \dots, f_k(x)]$ é o vetor de erros de projeção de uma reconstrução 3D. O problema de otimização pode ser  formulado como um problema de mínimos quadrados não-linear:
 
@@ -71,7 +82,7 @@ Resolver \ref{eq:LM} é equivalente à resolver as equacões normais
 \end{equation}
 onde retiramos a dependência de $x$. A matriz $H_\lambda = J^T J + \lambda D^T D$ é conhecida como a matriz Hessiana aumentada. 
 
-No \textit{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como $x = [x_c;x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto, respectivamente. 
+No \emph{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como $x = [x_c;x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto, respectivamente. 
 Seja $U = J_c^T J_c$, $V = J_p^T J_p$, $U_lambda = U + \lambda D_c^T D_c$, $V_\lambda = V + \lambda D_p^T D_p$ e $W = J_c^T J_p$, então \ref{eq:LMNormal} pode ser re-escrita como um bloco de sistema linear estruturado
 
 \[
@@ -89,7 +100,7 @@ J_p^T f
 \end{bmatrix}
 \]
 
-Vale ressaltar que, para a maioria dos problemas de \textit{Bundle Adjustment}, $U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está no fundamento do truque do complemento de Schur usado para resolver esse sistema linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros da câmera:
+Vale ressaltar que, para a maioria dos problemas de \emph{Bundle Adjustment}, $U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está no fundamento do truque do complemento de Schur usado para resolver esse sistema linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros da câmera:
 
 \begin{equation}
 \label{eq:SchurComplementar}
@@ -111,12 +122,8 @@ combinando um algoritmo Inexact Step LM e gradientes de conjugado pré-condicion
 O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos da GPU e a combinação  de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
 
 
-
-Usos [editar]
-O ajuste do pacote é quase sempre usado como o último passo de cada algoritmo de reconstrução 3D baseado em recursos. Isso equivale a um problema de otimização na estrutura 3D e nos parâmetros de visualização (ou seja, a pose da câmera e, possivelmente, a calibração intrínseca e a distorção radial), para obter uma reconstrução otimizada em certos pressupostos quanto ao ruído pertencente às características de imagem observadas [1]: Se o erro de imagem for Gaussiano de média zero, o ajuste do pacote é o Estimador de máxima probabilidade. [2]: 2 O nome refere-se aos feixes de raios de luz originários de cada recurso 3D e a convergência no centro óptico de cada câmera, que são ajustados otimamente com respeito tanto à estrutura quanto aos parâmetros de visualização (a semelhança de significado com um feixe categórico parece ser uma pura coincidência). O ajuste do pacote foi originalmente concebido no campo da fotogrametria durante a década de 1950 e foi cada vez mais usado por pesquisadores de visão por computador nos últimos anos. [2]: 2
-
-Abordagem geral [editar]
-O ajuste do pacote resume-se a minimizar o erro de reprojecção entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é conseguida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do ajuste do feixe, as equações normais têm uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. [2]: 3
+% Abordagem geral [editar]
+% O ajuste do pacote resume-se a minimizar o erro de reprojecção entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é conseguida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do ajuste do feixe, as equações normais têm uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. [2]: 3
 
 
 
@@ -129,34 +136,34 @@ O ajuste do pacote resume-se a minimizar o erro de reprojecção entre as posiç
 
 %------------------------------------------------------------------------------------%
 
-Nos últimos anos, a paralelização baseada em GPU atraiu muita atenção para a pesquisa. Isso inclui o propósito geral
-bibliotecas como nVidia's Sparse Matrix-Vector Multiplication
-[3] e o trabalho de Li e Saad em várias GPUs baseadas em GPU
-algoritmos e técnicas de pré-condicionamento [10]. Embora seja
-Você pode criar um sistema de ajuste de pacotes usando estes
-bibliotecas de propósito geral, melhor desempenho é alcançado por
-construindo um sistema que explora a estrutura do problema
-tanto quanto possível.
-No campo da visão computacional, muitos algoritmos têm
-foi portado para a GPU com ganhos de velocidade significativos. Este
-inclui detecção de recursos, combinação de recursos e reconstrução estéreo,
-etc. Uma demonstração impressionante é o multiGPU
-sistema descrito em [6]. Vale a pena
-observando, no entanto, que o passo de ajuste do feixe neste sistema
-ainda foi realizada usando CPUs de um único segmento.
-Dado os constrangimentos do modelo de programação GPU,
-não é trivial obter algoritmos de ajuste de pacote para executar
-em GPUs. Recentemente, Gupta et al [8] tomaram uma abordagem híbrida
-para executar cálculos de sobreposição em GPU e CPU,
-onde as matrizes de Hessian e complementos de Schur são
-construído em GPU. Isso não é prático para grandes problemas
-(milhares de imagens ou mais), especialmente para a comunidade
-Coleções de fotos com complementos densos de Schur.
-Mesmo as GPUs de estação de trabalho da próxima geração têm uma pequena quantidade
-para armazenar os complementos Schur (mesmo o Hessian
-matronas ou jacobios), pode não ser viável. Até
-com memória suficiente, a construção de complementos de Schur
-ainda seria muito caro para grandes problemas.
+% Nos últimos anos, a paralelização baseada em GPU atraiu muita atenção para a pesquisa. Isso inclui o propósito geral
+% bibliotecas como nVidia's Sparse Matrix-Vector Multiplication
+% [3] e o trabalho de Li e Saad em várias GPUs baseadas em GPU
+% algoritmos e técnicas de pré-condicionamento [10]. Embora seja
+% Você pode criar um sistema de ajuste de pacotes usando estes
+% bibliotecas de propósito geral, melhor desempenho é alcançado por
+% construindo um sistema que explora a estrutura do problema
+% tanto quanto possível.
+% No campo da visão computacional, muitos algoritmos têm
+% foi portado para a GPU com ganhos de velocidade significativos. Este
+% inclui detecção de recursos, combinação de recursos e reconstrução estéreo,
+% etc. Uma demonstração impressionante é o multiGPU
+% sistema descrito em [6]. Vale a pena
+% observando, no entanto, que o passo de ajuste do feixe neste sistema
+% ainda foi realizada usando CPUs de um único segmento.
+% Dado os constrangimentos do modelo de programação GPU,
+% não é trivial obter algoritmos de ajuste de pacote para executar
+% em GPUs. Recentemente, Gupta et al [8] tomaram uma abordagem híbrida
+% para executar cálculos de sobreposição em GPU e CPU,
+% onde as matrizes de Hessian e complementos de Schur são
+% construído em GPU. Isso não é prático para grandes problemas
+% (milhares de imagens ou mais), especialmente para a comunidade
+% Coleções de fotos com complementos densos de Schur.
+% Mesmo as GPUs de estação de trabalho da próxima geração têm uma pequena quantidade
+% para armazenar os complementos Schur (mesmo o Hessian
+% matronas ou jacobios), pode não ser viável. Até
+% com memória suficiente, a construção de complementos de Schur
+% ainda seria muito caro para grandes problemas.
 % O PBA é um algoritmo utilizado para minimizar o erro geométrico proveniente da reprojeção de cada {\it feature} da etapa de triangulação. Implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas, para serem processadas e, posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
 
 
@@ -199,7 +206,7 @@ ainda seria muito caro para grandes problemas.
 
 % Hierarchical Merging
 
-\item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa CMVS/PMVS-2 embutido no próprio VisualSfM.
+\item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
 CMVS/PMVS-2 ({\it Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo})
@@ -207,8 +214,8 @@ CMVS/PMVS-2 ({\it Clustering Views for Multi-view Stereo / Patch-based for Multi
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
 %Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste {\it software} é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do {\it software} é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
 
-Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
-O CMVS usa a saída do Structure from Motion -- SfM (mais especificamente a saída do passo anterior, do PBA) e utiliza como entrada. Após isso, decompõe as imagens de entrada como um conjunto de {\it clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para processar cada {\it cluster} de forma independente e em paralelo, onde a união das reconstruções de todos os {\it clusters} não deve perder detalhes que poderiam ser obtidos através do conjunto de imagens.
+Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS~\cite{visualSfMPMVS,wu2013towards,furukawa2010towards,li2013improving} é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
+Ele usa a saída do Structure from Motion -- SfM (mais especificamente a saída do passo anterior, do PBA) e utiliza como entrada. Após isso, decompõe as imagens de entrada como um conjunto de {\it clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para processar cada {\it cluster} de forma independente e em paralelo, onde a união das reconstruções de todos os {\it clusters} não deve perder detalhes que poderiam ser obtidos através do conjunto de imagens.
 
 A formulação dos {\it clusters} é projetada para satisfazer três restrições: (1) as imagens redundantes são excluídas dos {\it clusters} (compacidade), (2) cada {\it cluster} é pequeno o suficiente para uma reconstrução MVS (restrição de tamanho) e (3) as reconstruções MVS destes {\it clusters} resultam em uma perda mínima de conteúdo e detalhes em comparação com o que pode ser obtido através do processamento do conjunto completo de imagens (cobertura).
 A compacidade é importante para a eficiência computacional, mas também para melhorar precisão, pois as coleções de fotos da Internet geralmente contêm centenas ou milhares de fotos adquiridas de quase mesmo ponto de vista, ou seja, um conjunto composto inteiramente informações duplicadas.
@@ -298,6 +305,9 @@ Novamente, são otimizadas as orientações e posições, porém, do novo {\it p
 A mesma região de superfície pode ser reconstruída em múltiplos clusters com qualidade de reconstrução variável: grupos próximos produzem pontos densos e precisos, enquanto cachos distantes produzem pontos escassos e ruidosos. Queremos filtrar o último, que é realizado pelo seguinte filtro de qualidade. Deixe Pj e Vj denotarem um ponto MVS e suas informações de visibilidade estimadas pelo algoritmo MVS, respectivamente.
 
 \subsubsection{Filtro de Visibilidade}
+
+
+BLABLA
 
 \end{itemize}
 % =================================================================

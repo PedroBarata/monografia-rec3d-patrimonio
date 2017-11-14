@@ -1,7 +1,7 @@
 \chapter{Reconstruções baseadas em fotogrametria}\label{cap:pontosdeinteresse}
 %======================================================================================
 %
-\section{Introdução}
+\section*{Introdução}
 
 A reconstrução 3D pelo método da estrutura do movimento, ou {\it Structure from Motion} ({\it SfM}). Tem como base a utilização de pontos de interesse
 ({\it features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados.
@@ -20,7 +20,7 @@ O algoritmo pode ser dividido em cinco etapas, das quais:
 \end{itemize}
 
 
-\subsection{Detecção de espaço-escala extremos}
+\subsection*{Detecção de espaço-escala extremos}
 
 % From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
 
@@ -84,7 +84,7 @@ No caso, as funções ficariam da seguinte forma:
 
 Onde \ref{eq:gaussiano} é a função padrão do operador gaussiano (núcleo), a equação \ref{eq:LoG} é o operador LoG,  \ref{eq:DoG} é o operador DoG e $\triangledown^2$ é o operador Laplaciano.
 
-\subsection{Localização de pontos-chaves}
+\subsection*{Localização de pontos-chaves}
 
 A localização dos pontos extremos pode cair em um extremo local e não global. Logo, após a utilização do DoG e com os pontos-chaves em potencial localizados, eles precisam ser refinados para melhorar o resultado. Para isso, são utilizadas Séries de Taylor na escala e no espaço, e, se a intensidade nesse extremo é menor que o valor limite, este é rejeitado.
 %TODO: Ver isso 
@@ -141,7 +141,7 @@ Então, um histograma de 36 orientações ({\it bins}) cobrindo 360 graus é cri
 O ponto mais do histograma é obtido e qualquer pico acima de 80\% é considerado no cálculo da orientação. 
 Pontos-chaves são criados com a mesma localização e escala, mas em diferentes direções, o que contribui para a establidade da correspondência.
 
-\subsection{Descritor de pontos-chaves}
+\subsection*{Descritor de pontos-chaves}
 
 Com os pontos-chaves criados a partir do histograma orientado, cria-se agora o descritor de pontos-chaves.
 
@@ -157,7 +157,7 @@ Além disso, são tomadas algumas medidas para deixar o descritor mais robusto,c
 	}\label{fig:descritorKeypoint}
 \end{figure}
 
-\subsection{Combinação de pontos-chaves}
+\subsection*{Combinação de pontos-chaves}
 
 Pontos-chaves entre duas imagens são combinados a partir da identificação da vizinhança mais próxima. Mas, em alguns casos, a segunda combinação mais próxima pode ser parecida com a primeira. Isso se dá por ruídos presentes nas imagens ou algo assim. 
 
