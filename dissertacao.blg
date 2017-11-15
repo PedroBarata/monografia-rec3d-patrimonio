@@ -17,7 +17,6 @@ Database file #3: mve.bib
 Database file #4: visualsfm.bib
 Database file #5: laser.bib
 Database file #6: kinect.bib
-Warning--I didn't find a database entry for "Nsnavely2010bundler"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -27,45 +26,44 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 35 entries,
+You've used 41 entries,
             6711 wiz_defined-function locations,
-            1408 strings with 15973 characters,
-and the built_in function-call counts, 35147 in all, are:
-= -- 3420
-> -- 966
-< -- 373
-+ -- 783
-- -- 293
-* -- 2355
-:= -- 4563
-add.period$ -- 144
-call.type$ -- 35
-change.case$ -- 359
-chr.to.int$ -- 57
-cite$ -- 34
-duplicate$ -- 2318
-empty$ -- 2214
-format.name$ -- 1411
-if$ -- 7994
+            1439 strings with 16918 characters,
+and the built_in function-call counts, 40283 in all, are:
+= -- 3793
+> -- 1190
+< -- 383
++ -- 867
+- -- 360
+* -- 2759
+:= -- 5239
+add.period$ -- 168
+call.type$ -- 41
+change.case$ -- 432
+chr.to.int$ -- 69
+cite$ -- 40
+duplicate$ -- 2556
+empty$ -- 2590
+format.name$ -- 1729
+if$ -- 9222
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 598
-newline$ -- 169
-num.names$ -- 160
-pop$ -- 804
+missing$ -- 704
+newline$ -- 197
+num.names$ -- 190
+pop$ -- 942
 preamble$ -- 1
-purify$ -- 137
+purify$ -- 163
 quote$ -- 0
-skip$ -- 2693
+skip$ -- 2952
 stack$ -- 1
-substring$ -- 1456
-swap$ -- 947
-text.length$ -- 36
+substring$ -- 1612
+swap$ -- 1066
+text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 29
+type$ -- 33
 warning$ -- 0
-while$ -- 250
+while$ -- 294
 width$ -- 0
-write$ -- 545
-(There was 1 warning)
+write$ -- 644

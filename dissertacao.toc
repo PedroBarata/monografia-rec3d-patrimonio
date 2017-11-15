@@ -1,30 +1,16 @@
 \select@language {brazil}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {1}}\penalty \@M {\bf \uppercase {Introdu\IeC {\c c}\IeC {\~a}o}} }{12}{chapter.1}
+\contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries {Objetivos}}{16}{section*.7}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o \IeC {\`a} Laser}} }{17}{chapter.2}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~o}es baseadas em \emph {Time Of Flight}}} }{22}{chapter.3}
+\contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Projeto de preserva\IeC {\c c}\IeC {\~a}o das esculturas de Michelangelo}}{17}{section*.11}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {T\IeC {\'e}cnicas de reconstru\IeC {\c c}\IeC {\~a}o baseadas em \emph {Time Of Flight}}} }{22}{chapter.3}
 \contentsline {section}{\numberline {3.1}\normalfont \normalsize \bfseries {Kinect}}{22}{section*.17}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~o}es baseadas em fotogrametria}} }{28}{chapter.4}
-\contentsline {section}{\numberline {4.1}\normalfont \normalsize \bfseries {Processamento dos par\IeC {\^a}metros de c\IeC {\^a}mera para cada imagem}}{29}{section*.30}
-\contentsline {section}{\numberline {4.2}\normalfont \normalsize \bfseries { SIFT -- \emph {Scale Invariant Feature Transform}}}{29}{section*.31}
-\contentsline {subsection}{\numberline {4.2.1}\normalfont \normalsize \uline {Atribui\IeC {\c c}\IeC {\~a}o de orienta\IeC {\c c}\IeC {\~a}o}}{32}{section*.36}
-\contentsline {section}{\numberline {4.3}\normalfont \normalsize \bfseries {Triangula\IeC {\c c}\IeC {\~a}o -- \emph {Full pair-wise image matching}}}{34}{section*.41}
-\contentsline {section}{\numberline {4.4}\normalfont \normalsize \bfseries {MVE -- \emph {Multi-View Reconstruction Environment}}}{34}{section*.43}
-\contentsline {subsection}{\numberline {4.4.1}\normalfont \normalsize \uline {Introdu\IeC {\c c}\IeC {\~a}o}}{34}{section*.44}
-\contentsline {subsection}{\numberline {4.4.2}\normalfont \normalsize \uline {Guia de reconstru\IeC {\c c}\IeC {\~a}o com o MVE~\cite {pipelinemve}}}{36}{section*.46}
-\contentsline {section}{\numberline {4.5}\normalfont \normalsize \bfseries {VisualSfM}}{39}{section*.51}
-\contentsline {subsubsection}{\numberline {4.5.0.1}\normalfont \normalsize {Filtro SFM}}{44}{section*.57}
-\contentsline {subsubsection}{\numberline {4.5.0.2}\normalfont \normalsize {Sele\IeC {\c c}\IeC {\~a}o de imagens}}{45}{section*.58}
-\contentsline {subsection}{\numberline {4.5.1}\normalfont \normalsize \uline {Divis\IeC {\~a}o de \emph {cluster}}}{45}{section*.59}
-\contentsline {subsubsection}{\numberline {4.5.1.1}\normalfont \normalsize {Adi\IeC {\c c}\IeC {\~a}o de imagens}}{46}{section*.60}
-\contentsline {subsubsection}{\numberline {4.5.1.2}\normalfont \normalsize {PMVS-2}}{46}{section*.61}
-\contentsline {subsubsection}{\numberline {4.5.1.3}\normalfont \normalsize {Detec\IeC {\c c}\IeC {\~a}o de \emph {features}}}{47}{section*.62}
-\contentsline {subsubsection}{\numberline {4.5.1.4}\normalfont \normalsize {Expans\IeC {\~a}o}}{48}{section*.63}
-\contentsline {subsubsection}{\numberline {4.5.1.5}\normalfont \normalsize {Filtragem}}{48}{section*.64}
-\contentsline {subsubsection}{\numberline {4.5.1.6}\normalfont \normalsize {Filtro de Qualidade}}{49}{section*.66}
-\contentsline {subsubsection}{\numberline {4.5.1.7}\normalfont \normalsize {Filtro de Visibilidade}}{49}{section*.67}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {T\IeC {\'e}cnicas de reconstru\IeC {\c c}\IeC {\~a}o baseadas em fotogrametria}} }{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}\normalfont \normalsize \bfseries {MVE -- \emph {Multi-View Reconstruction Environment}}}{34}{section*.41}
+\contentsline {section}{\numberline {4.2}\normalfont \normalsize \bfseries {VisualSfM}}{39}{section*.53}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {5}}\penalty \@M {\bf \uppercase {Experimentos}} }{50}{chapter.5}
-\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries {Procedimento}}{50}{section*.68}
-\contentsline {subsection}{\numberline {5.1.1}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o VisualSfM}}{51}{section*.70}
-\contentsline {subsection}{\numberline {5.1.2}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o MVE}}{52}{section*.79}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{62}{section*.97}
-\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Refer\^encias}} }{63}{section*.99}
+\contentsline {section}{\numberline {5.1}\normalfont \normalsize \bfseries {Procedimento}}{50}{section*.70}
+\contentsline {subsection}{\numberline {5.1.1}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o VisualSfM}}{51}{section*.72}
+\contentsline {subsection}{\numberline {5.1.2}\normalfont \normalsize \uline {Resultados da reconstru\IeC {\c c}\IeC {\~a}o do objeto com o MVE}}{53}{section*.81}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Conclus\IeC {\~a}o}} }{61}{section*.99}
+\contentsline {chapter}{\normalfont \numberline {}\penalty \@M {\bf \uppercase {Refer\^encias}} }{62}{section*.101}

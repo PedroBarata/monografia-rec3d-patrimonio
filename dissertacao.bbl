@@ -59,6 +59,11 @@ ISBN 9781118529669. Dispon{\'\i}vel em:
   2016.
 Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1007/s11263-016-0912-7}.}
 
+\bibitem[Fuhrmann e Goesele 2014]{fuhrmann2014floating}
+\abntrefinfo{Fuhrmann e Goesele}{FUHRMANN; GOESELE}{2014}
+{FUHRMANN, S.; GOESELE, M. Floating scale surface reconstruction.
+\emph{ACM Transactions on Graphics (TOG)}, ACM, v.~33, n.~4, p.~46, 2014.}
+
 \bibitem[Fuhrmann, Langguth e Goesele 2014]{mve}
 \abntrefinfo{Fuhrmann, Langguth e Goesele}{FUHRMANN; LANGGUTH; GOESELE}{2014}
 {FUHRMANN, S.; LANGGUTH, F.; GOESELE, M. Mve: A multi-view reconstruction
@@ -103,10 +108,24 @@ ISBN 978-3-905674-63-7. Dispon{\'\i}vel em:
   IEEE. \emph{Computer Vision, 2007. ICCV 2007. IEEE 11th International
   Conference on}. [S.l.], 2007. p.~1--8.}
 
+\bibitem[Gokturk, Yalcin e Bamji 2004]{gokturk2004time}
+\abntrefinfo{Gokturk, Yalcin e Bamji}{GOKTURK; YALCIN; BAMJI}{2004}
+{GOKTURK, S.~B.; YALCIN, H.; BAMJI, C. A time-of-flight depth sensor-system
+  description, issues and solutions. In:  IEEE. \emph{Computer Vision and
+  Pattern Recognition Workshop, 2004. CVPRW'04. Conference on}. [S.l.], 2004.
+  p. 35--35.}
+
 \bibitem[Haight 1967]{poisson}
 \abntrefinfo{Haight}{HAIGHT}{1967}
 {HAIGHT, F.~A. Handbook of the poisson distribution.
 Wiley, 1967.}
+
+\bibitem[Lachat et al. 2015]{lachat2015first}
+\abntrefinfo{Lachat et al.}{LACHAT et al.}{2015}
+{LACHAT, E. et al. First experiences with kinect v2 sensor for close range 3d
+  modelling.
+\emph{The International Archives of Photogrammetry, Remote Sensing and Spatial
+  Information Sciences}, Copernicus GmbH, v.~40, n.~5, p.~93, 2015.}
 
 \bibitem[Levoy et al. 2000]{levoy2000digital}
 \abntrefinfo{Levoy et al.}{LEVOY et al.}{2000}
@@ -153,6 +172,17 @@ Dispon{\'\i}vel em: \url{http://www.opto-engineering.com/}.}
 \abntrefinfo{Reconstruction\ldots}{RECONSTRUCTION\ldots}{}
 {RECONSTRUCTION Pipeline Howto version 0.1.}
 
+\bibitem[Silberman Derek~Hoiem e Fergus 2012]{Silberman:ECCV12}
+\abntrefinfo{Silberman Derek~Hoiem e Fergus}{SILBERMAN DEREK~HOIEM;
+  FERGUS}{2012}
+{SILBERMAN DEREK~HOIEM, P.~K. N.; FERGUS, R. Indoor segmentation and support
+  inference from rgbd images. In:  \emph{ECCV}. [S.l.: s.n.], 2012.}
+
+\bibitem[Smisek, Jancosek e Pajdla 2013]{smisek20133d}
+\abntrefinfo{Smisek, Jancosek e Pajdla}{SMISEK; JANCOSEK; PAJDLA}{2013}
+{SMISEK, J.; JANCOSEK, M.; PAJDLA, T. 3d with kinect. In:  \emph{Consumer depth
+  cameras for computer vision}. [S.l.]: Springer, 2013. p. 3--25.}
+
 \bibitem[Snavely et al. 2010]{snavely2010bundler}
 \abntrefinfo{Snavely et al.}{SNAVELY et al.}{2010}
 {SNAVELY, N. et al. Bundler: Structure from motion (sfm) for unordered image
@@ -182,6 +212,12 @@ ISBN 978-3-905674-63-7.}
 {USUMEZBAS, A.; FABBRI, R.; KIMIA, B.~B. From multiview image curves to {3D}
   drawings. In:  \emph{Proceedings of the European Conference on Computer
   Vision}. [S.l.]: Springer, 2016.  (Lecture Notes in Computer Science).}
+
+\bibitem[Valgma 2016]{valgma20163d}
+\abntrefinfo{Valgma}{VALGMA}{2016}
+{VALGMA, L.
+\emph{3D reconstruction using Kinect v2 camera}.
+Tese (Doutorado) --- Tartu {\"U}likool, 2016.}
 
 \bibitem[Wang et al. 2015]{wang2015research}
 \abntrefinfo{Wang et al.}{WANG et al.}{2015}

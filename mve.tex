@@ -1,7 +1,7 @@
 \section{MVE -- \emph{Multi-View Reconstruction Environment}}\label{sec:mve}
 %======================================================================================
 %
-\subsection{Introdução}
+\subsection*{Introdução}
 Um dos algoritmos utilizados para a técnica de reconstrução densa é o MVE -- \emph{Multi-View Reconstruction Environment}~\cite{mve}. Este algoritmo utiliza fotos e produz uma malha triangular superficial como resultado. Diferentemente das reconstruções baseadas nas geometrias das imagens, o MVE é focado na reconstrução multi-escala, um quesito importante na reconstrução de esculturas e acervo cultural. Portanto, com esta técnica é possível reconstruir grandes volumes de dados, contendo regiões detalhadas em alta resolução, em comparação com o resto da cena. O sistema ainda possui uma interface gráfica para o uma reconstrução baseada no SfM, amigável ao usuário (conhecida como UMVE), onde permite a visualização e inspeção das imagens, mapas de profundidade e renderizar cenas e malhas 3D.
 
 Sua base de operação é basicamente \ref{fig:mvepipeline}:
@@ -23,7 +23,7 @@ Utiliza a posição estimada das câmeras, encontrando as correspondências visu
 consequentemente a reconstrução 3D densa.
 } 
 \end{itemize}
-\item{Reconstrução de superfícies -- {Surface Reconstruction}}
+\item{Reconstrução de superfícies -- \emph{Surface Reconstruction}}
 \begin{itemize}
 \item{
 Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais. Produz uma malha superficial globalmente consistente.
@@ -34,9 +34,9 @@ Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	\includegraphics[width=0.8\linewidth]{figs/mvepipe.png}
 	\caption{%
-	Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).
+	Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR -- \emph{Floating Scale Surface Reconstruction}).
 	\protect\cite{mve}
 	}\label{fig:mvepipeline}
 \end{figure}
@@ -49,8 +49,8 @@ Embora abordagens baseadas em mapeamentos de profundidade produzam uma grande qu
 
 Essa redundância excessiva nos mapas de profundidade pode ser pesado. Não com relação ao armazenamento, mas na questão do processamento computacional exigido nos mapas. Porém, esta abordagem foi capaz de produzir uma geometria detalhada e superar o ruído nos mapas de profundidade individuais.
 
-\subsection{Guia de reconstrução com o MVE~\cite{pipelinemve}}
-
+\subsection*{Guia de reconstrução com o MVE}
+Existem algumas recomendações para se ter uma boa reconstrução com o MVE~\cite{pipelinemve,mve}.
 Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
 
 \begin{itemize}
@@ -91,8 +91,9 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 % for every photo. This process will also import meta informa-
 % tion from the images (EXIF tags), which is required to get
 % a focal length estimate for every photo. If EXIF tags are not
+\subsubsection*{Criando uma cena}
 
-Criando uma cena: Uma visualização contém dados por exibição (como imagens, mapas de profundidade ou outros dados). Uma cena é uma coleção de visualizações, que constitui um conjunto de dados. Uma nova cena pode ser criada utilizando a interface gráfica UMVE, ou por linha de comando (\emph{makescene}). 
+Uma visualização contém dados por exibição (como imagens, mapas de profundidade ou outros dados). Uma cena é uma coleção de visualizações, que constitui um conjunto de dados. Uma nova cena pode ser criada utilizando a interface gráfica UMVE, ou por linha de comando (\emph{makescene}). 
 
 Tecnicamente, a cena é criada como um diretório no sistema de arquivos (com o nome do conjunto de dados). Este, por sua vez, contém outro diretório (\emph{views}), com todas as visualizações guardadas com uma extensão de arquivos em .MVE.
 
@@ -101,7 +102,7 @@ Criar uma nova cena, criará apenas o diretório (\emph{views}) vazio. A importa
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.5\linewidth]{figs/umve1.png}
+	\includegraphics[width=0.7\linewidth]{figs/umve1.png}
 	\caption{%
 	Interface gráfica (UMVE)%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mvesfm}
@@ -117,13 +118,14 @@ Criar uma nova cena, criará apenas o diretório (\emph{views}) vazio. A importa
 % the sparse point cloud and the camera frusta. Note how dense
 % the frusta are spaced around the object to achieve a good re-
 % construction.
+\subsection*{Reconstrução SfM}
 
-Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando (\emph{sfmrecon}). A interface guia através da detecção de \emph{features}, combinação emparelhada (\emph{pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução \ref{fig:mvesfm}.
+Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando (\emph{sfmrecon}). A interface guia através da detecção de \emph{features}, combinação emparelhada (\emph{pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução \ref{fig:mvesfm}.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.5\linewidth]{figs/umve5sfm.png}
+	\includegraphics[width=0.7\linewidth]{figs/umve5sfm.png}
 	\caption{%
 	Reconstrução baseada em nuvem de pontos gerada a partir da reconstrução SfM.%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mvesfm}
@@ -145,8 +147,9 @@ Reconstrução SfM: Pode ser configurada e iniciada usando a interface gráfica 
 %(we often use L2), the process is faster and depth maps
 %become more complete. See Figure 9 for a depth map computed
 %at L2.
+\subsubsection*{Múltiplas visões estéreo -- \emph{Multi-View Stereo} (MVS)}
 
-Múltiplas visões estéreo -- \emph{Multi-View Stereo} (MVS): Usando as imagens junto com os parâmetros obtidos das câmeras, é possível reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a interface gráfica (UMVE) ou por linha de comando (\emph{dmrecon}).
+Usando as imagens junto com os parâmetros obtidos das câmeras, é possível reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a interface gráfica (UMVE) ou por linha de comando (\emph{dmrecon}).
 
 O parâmetro mais importante é o nível de resolução em que os mapas de profundidade são reconstruídos: Caso seja nível 0 (ou L0), a reconstrução é feita usando o tamanho original das imagens. Se for nível 1 (ou L1), a reconstrução corresponde a metade do tamanho (um quarto dos números de pixels), e assim por diante.
 
@@ -155,16 +158,16 @@ Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada,
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.5\linewidth]{figs/mvedepth.png}
+	\includegraphics[width=0.4\linewidth]{figs/mvedepth.png}
 	\caption{%
 	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região \protect\cite{mve}.
 	}\label{fig:mvedepth}
 \end{figure}
 
+\subsubsection*{Reconstrução de superfícies -- \emph{Surface Reconstruction}}
 
-Reconstrução de superfícies -- {Surface Reconstruction}: Utiliza-se a linha de comando \emph{scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução da superfície FSSR. %COLOCAR REFERENCIA FSSR%  
+Utiliza-se a linha de comando \emph{scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução de superfície usando FSSR~\cite{fuhrmann2014floating}.  
 A seguir, as ferramentas FSSR calculam uma representação volumétrica de escala múltipla a partir dos pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma malha final é extraída. Esta malha pode parecer desordenada devido à regiões não confiáveis e à componentes isolados, oriundos de medidas imprecisas. Logo, a malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis da superfície. 
-
 
 % Experiência com o MVE: A utilização do \emph{software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
 

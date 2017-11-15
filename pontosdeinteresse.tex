@@ -1,4 +1,4 @@
-\chapter{Reconstruções baseadas em fotogrametria}\label{cap:pontosdeinteresse}
+\chapter{Técnicas de reconstrução baseadas em fotogrametria}\label{cap:pontosdeinteresse}
 %======================================================================================
 %
 \section*{Introdução}
@@ -16,7 +16,7 @@ A maioria dos métodos baseados em SfM e MVS (\emph{Multi-View Stereo}) tem uma 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{figs/pipelinesfm.png}
+	\includegraphics[width=0.8\linewidth]{figs/pipelinesfm.png}
 	\caption{%
 	Procedimento padrão da maioria dos sistemas baseados em SfM e MVS
 	\protect\cite{theia-manual}.
@@ -27,9 +27,7 @@ Neste trabalho, abordaremos o uso de dois softwares baseados em MVS: o MVE~\cite
 
 O passo de obtenção de imagens, será discutido no Capítulo de experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para processamento das imagens de entrada.
 
-\section{Processamento dos parâmetros de câmera para cada imagem}
-
-\section{ SIFT -- \emph{Scale Invariant Feature Transform}}
+\section*{ SIFT -- \emph{Scale Invariant Feature Transform}}
 
 Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
 O algoritmo pode ser dividido em cinco etapas, das quais:
@@ -61,10 +59,10 @@ Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
 
 \begin{figure} [!h]
 	\centering
-	\includegraphics[width=0.45\linewidth]{figs/lena.jpg}(a)
-	\includegraphics[width=0.45\linewidth]{figs/lenaSigma1.png}(b)
-	\includegraphics[width=0.45\linewidth]{figs/lenaSigma2.png}(c)
- 	\includegraphics[width=0.45\linewidth]{figs/lenaDoG.png} (d)
+	\includegraphics[width=0.20\linewidth]{figs/lena.jpg}(a)
+	\includegraphics[width=0.20\linewidth]{figs/lenaSigma1.png}(b)
+	\includegraphics[width=0.20\linewidth]{figs/lenaSigma2.png}(c)
+ 	\includegraphics[width=0.20\linewidth]{figs/lenaDoG.png} (d)
 	\caption{%
 	É aplicado um filtro gaussiano na imagem original (a), com $\sigma$ = 1, tendo como resultado a imagem (b).
 	Um outro filtro gaussiano é usado, porém, neste caso, o $\sigma$ = 2 (c). Após isso, subtrai-se (b) de (c), obtendo 
@@ -76,7 +74,7 @@ Uma vez que o DoG é aplicado, as iamgens são utilizadas com o espaço e escala
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.45\linewidth]{figs/sift_local_extrema.jpg}
+	\includegraphics[width=0.35\linewidth]{figs/sift_local_extrema.jpg}
 	\caption{%
 	Exemplo de funcionamento de deteccão de espaço-escala extrema
 	}\label{fig:extrema}
@@ -91,7 +89,7 @@ No caso, as funções ficariam da seguinte forma:
 
 \begin{equation}
 \label{eq:gaussianScaleSpace}
-	I_\sigma = g_\sigma * I, \sigma >= 0
+	I_\sigma = g_\sigma * I, \sigma \geq 0
 \end{equation}
 
 \begin{equation}
@@ -136,7 +134,7 @@ Onde, $T_r$ é o traço, ou seja, $T_r(H) = D_{xx} + D_{yy}$ e a matriz $D$ é d
 
 No caso, v possui um valor mínimo (igual a 4) quando os autovalores da Jacobiana são iguais (pico curvado) e aumentam à medida que um dos autovalores aumenta e os outros permanecem baixos. Os picos são retidos se $v  < \frac{(t_e+1)(t_e+1)}{t_e}$ , onde $t_e$ é o limite da borda. 
 
-\subsection{Atribuição de orientação}
+\subsection*{Atribuição de orientação}
 
 Agora, uma orientação é atribuída a cada ponto-chave para obter a invariância à rotação da imagem. 
 Uma vizinhança é obtida, dependente da escala, do gradiente da magnitude \ref{eq:magnitudeSIFT} e da direção \ref{eq:direcaoSIFT} (usando diferenças finitas), ao redor da localização do ponto-chave. 
@@ -187,7 +185,7 @@ Pontos-chaves entre duas imagens são combinados a partir da identificação da 
 Nesse caso, a razão da distância mais próxima para a segunda distância mais próxima é utilizada. Se essa razão for maior que 0.8, essa combinação é descartada.
 Esse método elimina cerca de 90\% de combinações falsas, enquanto descarta apenas cerca de 5\% de combinações corretas.
 
-\section {Triangulação -- \emph{Full pair-wise image matching}}
+\section*{Triangulação -- \emph{Full pair-wise image matching}}
 
 Com os pontos de interesse (\emph{features}) extraídos, podemos agora fazer a triangulação entre os pontos das imagens.
 
@@ -200,6 +198,7 @@ A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, da
 	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
 	}\label{fig:triangulacao}
 \end{figure}
+
 
 Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem para aumentar a dificuldade da triangulação: ruídos, posição das câmeras, o feixe das projeções não se encontram no mesmo ponto 3D, não se tem informação da projeções nas câmeras, dentre outros. Entretanto, existem diversos algoritmos para resolução de cada um dos problemas enfretados. 
 

@@ -1,29 +1,15 @@
 \BOOKMARK [0][-]{chapter.1}{Introdu\347\343o }{}% 1
-\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o \340 Laser }{}% 2
-\BOOKMARK [0][-]{chapter.3}{Reconstru\347\365es baseadas em Time Of Flight }{}% 3
-\BOOKMARK [1][-]{section*.17}{Kinect}{chapter.3}% 4
-\BOOKMARK [0][-]{chapter.4}{Reconstru\347\365es baseadas em fotogrametria }{}% 5
-\BOOKMARK [1][-]{section*.30}{Processamento dos par\342metros de c\342mera para cada imagem}{chapter.4}% 6
-\BOOKMARK [1][-]{section*.31}{ SIFT \205 Scale Invariant Feature Transform}{chapter.4}% 7
-\BOOKMARK [2][-]{section*.36}{Atribui\347\343o de orienta\347\343o}{section*.31}% 8
-\BOOKMARK [1][-]{section*.41}{Triangula\347\343o \205 Full pair-wise image matching}{chapter.4}% 9
-\BOOKMARK [1][-]{section*.43}{MVE \205 Multi-View Reconstruction Environment}{chapter.4}% 10
-\BOOKMARK [2][-]{section*.44}{Introdu\347\343o}{section*.43}% 11
-\BOOKMARK [2][-]{section*.46}{Guia de reconstru\347\343o com o MVE pipelinemve}{section*.43}% 12
-\BOOKMARK [1][-]{section*.51}{VisualSfM}{chapter.4}% 13
-\BOOKMARK [2][-]{section*.57}{Filtro SFM}{section*.51}% 14
-\BOOKMARK [3][-]{section*.58}{Sele\347\343o de imagens}{section*.57}% 15
-\BOOKMARK [2][-]{section*.59}{Divis\343o de cluster}{section*.51}% 16
-\BOOKMARK [3][-]{section*.60}{Adi\347\343o de imagens}{section*.59}% 17
-\BOOKMARK [3][-]{section*.61}{PMVS-2}{section*.59}% 18
-\BOOKMARK [3][-]{section*.62}{Detec\347\343o de features}{section*.59}% 19
-\BOOKMARK [3][-]{section*.63}{Expans\343o}{section*.59}% 20
-\BOOKMARK [3][-]{section*.64}{Filtragem}{section*.59}% 21
-\BOOKMARK [3][-]{section*.66}{Filtro de Qualidade}{section*.59}% 22
-\BOOKMARK [3][-]{section*.67}{Filtro de Visibilidade}{section*.59}% 23
-\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 24
-\BOOKMARK [1][-]{section*.68}{Procedimento}{chapter.5}% 25
-\BOOKMARK [2][-]{section*.70}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.68}% 26
-\BOOKMARK [2][-]{section*.79}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.68}% 27
-\BOOKMARK [0][-]{section*.97}{Conclus\343o }{}% 28
-\BOOKMARK [0][-]{section*.99}{Refer\352ncias }{}% 29
+\BOOKMARK [1][-]{section*.7}{Objetivos}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o \340 Laser }{}% 3
+\BOOKMARK [1][-]{section*.11}{Projeto de preserva\347\343o das esculturas de Michelangelo}{chapter.2}% 4
+\BOOKMARK [0][-]{chapter.3}{T\351cnicas de reconstru\347\343o baseadas em Time Of Flight }{}% 5
+\BOOKMARK [1][-]{section*.17}{Kinect}{chapter.3}% 6
+\BOOKMARK [0][-]{chapter.4}{T\351cnicas de reconstru\347\343o baseadas em fotogrametria }{}% 7
+\BOOKMARK [1][-]{section*.41}{MVE \205 Multi-View Reconstruction Environment}{chapter.4}% 8
+\BOOKMARK [1][-]{section*.53}{VisualSfM}{chapter.4}% 9
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 10
+\BOOKMARK [1][-]{section*.70}{Procedimento}{chapter.5}% 11
+\BOOKMARK [2][-]{section*.72}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.70}% 12
+\BOOKMARK [2][-]{section*.81}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.70}% 13
+\BOOKMARK [0][-]{section*.99}{Conclus\343o }{}% 14
+\BOOKMARK [0][-]{section*.101}{Refer\352ncias }{}% 15

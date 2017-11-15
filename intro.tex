@@ -36,14 +36,14 @@ a partir do desenvolvimento da detecção robusta de
 desenvolvimento de métodos de geometria projetiva para calibrar duas ou três
 imagens e progressivamente adicionar imagens e extrair estrutura 3D dessas
 \emph{features} na forma de nuvens de pontos. Com o código fonte do sistema
-Bundler~\cite{Nsnavely2010bundler} liberado por Noah Snavely, e sua subsequente incorporação
+Bundler~\cite{snavely2010bundler} liberado por Noah Snavely, e sua subsequente incorporação
 ao sistema VisualSfM~\cite{wu2011visualsfm}, é possível utilizar este sistema para a
 reconstrução de patrimônio. 
 
 No paradigma, usando-se apenas imagens convencionais -- denominado
 \textbf{reconstrução estéreo multiocular passiva} --  a posição das câmeras são
 estimadas a partir apenas de imagens, usando pontos de interesse, em seguida uma
-nuvem de pontos é reconstruída~\ref{fig:rec3d}.
+nuvem de pontos é reconstruída~\ref{fig:reconstrucaoEsparsaVisualSFM},\ref{fig:reconstrucaoEsparsaVisualSFM},\ref{fig:reconstrucaoEsparsaVisualSFM224}, \ref{fig:mvesfm}.
 As câmeras podem então ser utilizadas para obter modelos mais detalhados de reconstrução, como algoritmos de densificação~\cite{furukawa2007dense} e interpolação~\cite{poisson} da nuvem de pontos, bem como demais algoritmos densos de visão estéreo multi-perspectiva/multi-ocular, como os do grupo de Michel Goesele~\cite{mve}, também com código disponível. Tais algoritmos, no entanto, tem problemas, em particular a reconstrução suaviza partes bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se, portanto, utilizar a reconstrução 3D de curvas do pesquisador proponente~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12} para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem como para ajudar
 no problema de escalabilidade quando a reconstrução 3D se torna muito grande.
 Um segundo paradigma, denominado \textbf{reconstrução estéreo multiocular
@@ -177,7 +177,9 @@ Seria de grande interesse availiar o potencial de técnicas atuais de
 reconstrução 3D geral sem controle de aquisição, as quais têm seu código fonte
 disponível na internet.
 
-\section*{Objetivos}
+\newpage
+
+\section{Objetivos}\label{sec:objetivos}
 
 Pretendemos, ao longo deste projeto, ganhar experiência com técnicas
 modernas de reconstrução 3D fotogramétrica, no contexto de uma aplicação
