@@ -37,7 +37,7 @@ Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade individuais
 	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
 	\caption{%
 	Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos esparsos. Mapas de profundidade são computados para cada imagem usando o MVS. Finalmente, uma malha colorida é extraída da união de todos os mapas de profundidade usando um algoritmo de aproximações de reconstruções de superfícies (FSSR).
-	\cite{mve}
+	\protect\cite{mve}
 	}\label{fig:mvepipeline}
 \end{figure}
 
@@ -73,7 +73,7 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 	\includegraphics[width=0.2\linewidth]{figs/parallaxC.png}(c)
 	\caption{%
 	Caso o espaçamento entre as câmeras seja grande, a informação extraída das imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário que as câmeras estejam dispostas como (b), conseguindo extrair uma boa quantidade e qualidade de informações do ponto.
-	\cite{3DCompVision2Didier}
+	\protect\cite{3DCompVision2Didier}
 	}
 	\label{fig:parallax}
 \end{figure}
@@ -157,7 +157,7 @@ Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada,
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.5\linewidth]{figs/mvedepth.png}
 	\caption{%
-	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região \cite{mve}.
+	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região \protect\cite{mve}.
 	}\label{fig:mvedepth}
 \end{figure}
 

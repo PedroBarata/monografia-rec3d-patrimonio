@@ -1,42 +1,29 @@
-\BOOKMARK [0][-]{section*.2}{Introdu\347\343o }{}% 1
-\BOOKMARK [1][-]{section*.3}{Introdu\347\343o e Justificativa}{section*.2}% 2
-\BOOKMARK [2][-]{section*.7}{O Jardim do N\352go, Nova Friburgo}{section*.3}% 3
-\BOOKMARK [1][-]{section*.10}{Objetivos}{section*.2}% 4
-\BOOKMARK [1][-]{section*.11}{Organiza\347\343o deste manuscrito}{section*.2}% 5
-\BOOKMARK [0][-]{section*.13}{Reconstru\347\343o \340 Laser }{}% 6
-\BOOKMARK [1][-]{section*.14}{Introdu\347\343o}{section*.13}% 7
-\BOOKMARK [1][-]{section*.16}{Projeto de preserva\347\343o das esculturas de Michelangelo}{section*.13}% 8
-\BOOKMARK [1][-]{section*.18}{Reconstru\347\365es baseadas em Time Of Flight}{section*.13}% 9
-\BOOKMARK [2][-]{section*.19}{Introdu\347\343o}{section*.18}% 10
-\BOOKMARK [2][-]{section*.20}{Kinect}{section*.18}% 11
-\BOOKMARK [0][-]{section*.28}{Reconstru\347\365es baseadas em fotogrametria }{}% 12
-\BOOKMARK [1][-]{section*.29}{Introdu\347\343o}{section*.28}% 13
-\BOOKMARK [1][-]{section*.30}{ SIFT \205 Scale Invariant Feature Transform}{section*.28}% 14
-\BOOKMARK [2][-]{section*.31}{Detec\347\343o de espa\347o-escala extremos}{section*.30}% 15
-\BOOKMARK [2][-]{section*.34}{Localiza\347\343o de pontos-chaves}{section*.30}% 16
-\BOOKMARK [2][-]{section*.35}{Atribui\347\343o de orienta\347\343o}{section*.30}% 17
-\BOOKMARK [2][-]{section*.37}{Descritor de pontos-chaves}{section*.30}% 18
-\BOOKMARK [2][-]{section*.39}{Combina\347\343o de pontos-chaves}{section*.30}% 19
-\BOOKMARK [1][-]{section*.40}{Triangula\347\343o \205 Full pairwise image matching}{section*.28}% 20
-\BOOKMARK [1][-]{section*.43}{MVE \205 Multi-View Reconstruction Environment}{section*.28}% 21
-\BOOKMARK [2][-]{section*.44}{Introdu\347\343o}{section*.43}% 22
-\BOOKMARK [2][-]{section*.46}{Guia de reconstru\347\343o com o MVE}{section*.43}% 23
-\BOOKMARK [1][-]{section*.60}{VisualSfM}{section*.28}% 24
-\BOOKMARK [2][-]{section*.61}{Introdu\347\343o}{section*.60}% 25
-\BOOKMARK [2][-]{section*.62}{Procedimento}{section*.60}% 26
-\BOOKMARK [3][-]{section*.65}{Filtro SFM}{section*.62}% 27
-\BOOKMARK [3][-]{section*.66}{Sele\347\343o de imagens}{section*.62}% 28
-\BOOKMARK [2][-]{section*.67}{Divis\343o de cluster}{section*.60}% 29
-\BOOKMARK [3][-]{section*.68}{Adi\347\343o de imagens}{section*.67}% 30
-\BOOKMARK [3][-]{section*.69}{PMVS-2}{section*.67}% 31
-\BOOKMARK [3][-]{section*.70}{Detec\347\343o de features}{section*.67}% 32
-\BOOKMARK [3][-]{section*.71}{Expans\343o}{section*.67}% 33
-\BOOKMARK [3][-]{section*.72}{Filtragem}{section*.67}% 34
-\BOOKMARK [3][-]{section*.73}{Filtro de Qualidade}{section*.67}% 35
-\BOOKMARK [3][-]{section*.74}{Filtro de Visibilidade}{section*.67}% 36
-\BOOKMARK [0][-]{chapter.1}{Experimentos }{}% 37
-\BOOKMARK [1][-]{section*.75}{Procedimento}{chapter.1}% 38
-\BOOKMARK [2][-]{section*.77}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.75}% 39
-\BOOKMARK [2][-]{section*.86}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.75}% 40
-\BOOKMARK [0][-]{section*.95}{Conclus\343o }{}% 41
-\BOOKMARK [0][-]{section*.97}{Refer\352ncias }{}% 42
+\BOOKMARK [0][-]{chapter.1}{Introdu\347\343o }{}% 1
+\BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o \340 Laser }{}% 2
+\BOOKMARK [0][-]{chapter.3}{Reconstru\347\365es baseadas em Time Of Flight }{}% 3
+\BOOKMARK [1][-]{section*.17}{Kinect}{chapter.3}% 4
+\BOOKMARK [0][-]{chapter.4}{Reconstru\347\365es baseadas em fotogrametria }{}% 5
+\BOOKMARK [1][-]{section*.30}{Processamento dos par\342metros de c\342mera para cada imagem}{chapter.4}% 6
+\BOOKMARK [1][-]{section*.31}{ SIFT \205 Scale Invariant Feature Transform}{chapter.4}% 7
+\BOOKMARK [2][-]{section*.36}{Atribui\347\343o de orienta\347\343o}{section*.31}% 8
+\BOOKMARK [1][-]{section*.41}{Triangula\347\343o \205 Full pair-wise image matching}{chapter.4}% 9
+\BOOKMARK [1][-]{section*.43}{MVE \205 Multi-View Reconstruction Environment}{chapter.4}% 10
+\BOOKMARK [2][-]{section*.44}{Introdu\347\343o}{section*.43}% 11
+\BOOKMARK [2][-]{section*.46}{Guia de reconstru\347\343o com o MVE pipelinemve}{section*.43}% 12
+\BOOKMARK [1][-]{section*.51}{VisualSfM}{chapter.4}% 13
+\BOOKMARK [2][-]{section*.57}{Filtro SFM}{section*.51}% 14
+\BOOKMARK [3][-]{section*.58}{Sele\347\343o de imagens}{section*.57}% 15
+\BOOKMARK [2][-]{section*.59}{Divis\343o de cluster}{section*.51}% 16
+\BOOKMARK [3][-]{section*.60}{Adi\347\343o de imagens}{section*.59}% 17
+\BOOKMARK [3][-]{section*.61}{PMVS-2}{section*.59}% 18
+\BOOKMARK [3][-]{section*.62}{Detec\347\343o de features}{section*.59}% 19
+\BOOKMARK [3][-]{section*.63}{Expans\343o}{section*.59}% 20
+\BOOKMARK [3][-]{section*.64}{Filtragem}{section*.59}% 21
+\BOOKMARK [3][-]{section*.66}{Filtro de Qualidade}{section*.59}% 22
+\BOOKMARK [3][-]{section*.67}{Filtro de Visibilidade}{section*.59}% 23
+\BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 24
+\BOOKMARK [1][-]{section*.68}{Procedimento}{chapter.5}% 25
+\BOOKMARK [2][-]{section*.70}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.68}% 26
+\BOOKMARK [2][-]{section*.79}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.68}% 27
+\BOOKMARK [0][-]{section*.97}{Conclus\343o }{}% 28
+\BOOKMARK [0][-]{section*.99}{Refer\352ncias }{}% 29
