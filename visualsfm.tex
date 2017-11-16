@@ -29,12 +29,13 @@ Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da
 
 \item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa (PBA/MCBA)~\cite{wu2011multicore} em todos os \emph{features} descobertos no passo passado. 
 
+\textbf{\emph{Bundle Adjustment}}
 
-PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}\label{pba}
+O termo \emph{Bundle} refere-se aos feixes de luz que refletem em cada \emph{feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o \emph{Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
 
-\emph{Bundle} refere-se aos feixes de luz que refletem em cada \emph{feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o \emph{Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
+Solucionadores de problemas de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide} resumem-se em minimizar o erro de reprojeção \ref{fig:bundleAdjustment} entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é obtida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt~\cite{more1978levenberg,press1992art}, que emprega um método híbrido de iterações de Newton e \emph{Gradient Descent} provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais, na qual, o desafio de se ter uma boa performance é basicamente, escolher uma boa suposição inicial. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do \emph{Bundle Adjustment}, as equações normais tem uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. 
 
-Solucionadores de problemas de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide} resumem-se em minimizar o erro de reprojeção \ref{fig:bundleAdjustment} entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é obtida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt~\cite{more1978levenberg} provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do \emph{Bundle Adjustment}, as equações normais tem uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero.
+A descrição~\ref{fabbri2011multiview} é uma das abordagens mais comuns sobre o \emph{Bundle Adjustment} e por isso, usaremos ela como exemplo. 
 
 \begin{figure}[!h]
 	\centering
@@ -45,6 +46,12 @@ Solucionadores de problemas de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSl
 	}\label{fig:bundleAdjustment}
 \end{figure}
 
+\textbf{Formulação inicial}
+
+Consideremos o seguinte problema de estimativa de um conjunto de parâmetros $x \in \mathbb{R}^M$ de um conjunto de osbervações $\bar{Z} \in mathbb{R}^N$, com $M \ll N$. O objetivo é calcular $x$ na qual $Z(x)$ é o mais próximo de $\bar{Z}$ possível, \ie, para minimizar o erro de previsão residual $|| \Delta Z || = || \bar{Z} - Z(x) ||$
+
+\textbf{PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}}\label{pba}
+
 Neste caso, o PBA/MCBA~\cite{furukawa2009accurate,wu2011multicore} é um algoritmo que utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais rápido, em CPU e 30 vezes, em GPU, em comparação ao utilizado na conferência ECCV de 2010. É o primeiro sistema publicado, baseado em GPU que escala com maiores problemas de Bundle Adjustments. Isto abriu a porta para resolver problemas ainda maiores. Ele funciona observando o passo inexato de resolução não-linear usando Levenberg Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (Hessiana, complemento de Schur ou Jacobiana) na memória. Para sistemas de núcleo único isso se traduzia em memória de troca por tempo, mas em GPUs, isso leva a um surpreendente ganho, no espaço e no tempo. Outra surpresa é que a aritmética de precisão única, quando combinada com técnicas de normalização adequadas, dá resultados comparáveis aos obtidos por um solucionador de problemas usando aritmética de dupla precisão. Isso resulta em mais espaço e economia de tempo.
 
 Este algoritmo recebe como entrada conjunto de localizações e correspondências de \emph{features} de imagens, o objetivo do \emph{Bundle Adjustment} é encontrar posições de 3 pontos e parâmetros de câmera que minimizem o erro de reprojeção. Esse problema de otimização geralmente é formulado como um problema de mínimos quadrados não-lineares, onde o erro é a norma L2 quadrada da diferença entre a localização da característica observada e a projeção do ponto 3D correspondente no plano da imagem da câmera.
@@ -52,7 +59,7 @@ Este algoritmo recebe como entrada conjunto de localizações e correspondência
 Assumindo que $x$ é um vetor de parâmetros e $f(x) = [f1(x), \dots, f_k(x)]$ é o vetor de erros de projeção de uma reconstrução 3D. O problema de otimização pode ser  formulado como um problema de mínimos quadrados não-linear:
 
 \begin{equation}
-x^* = \text{argmin}_x \sum_{i=1}^k || f_i(x)||^2
+x^* = \underset{x}{\text{argmin}} \sum_{i=1}^k || f_i(x)||^2
 \end{equation}
 
 O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de problemas de mínimos quadrados não-lineares. O LM funciona resolvendo uma série de aproximações lineares regularizadas ao problema não-linear original. Seja $J(x)$ a Jacobiana de $f(x)$, então em cada iteração LM resolve um problema linear de mínimos quadrados da forma:
