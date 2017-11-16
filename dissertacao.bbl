@@ -168,6 +168,11 @@ Tese (Doutorado) --- Institut National Polytechnique de Grenoble-INPG, 2002.}
 2017.
 Dispon{\'\i}vel em: \url{http://www.opto-engineering.com/}.}
 
+\bibitem[Press 1992]{press1992art}
+\abntrefinfo{Press}{PRESS}{1992}
+{PRESS, W.~H. \emph{The art of scientific computing}. [S.l.]: Cambridge
+  university press, 1992.}
+
 \bibitem[Reconstruction Pipeline Howto version 0.1]{pipelinemve}
 \abntrefinfo{Reconstruction\ldots}{RECONSTRUCTION\ldots}{}
 {RECONSTRUCTION Pipeline Howto version 0.1.}
@@ -190,10 +195,10 @@ Dispon{\'\i}vel em: \url{http://www.opto-engineering.com/}.}
 \emph{Available online: phototour. cs. washington. edu/bundler/(accessed on 12
   July 2013)}, v.~1, 2010.}
 
-\bibitem[Stricker 2013]{3DCompVision2Didier}
-\abntrefinfo{Stricker}{STRICKER}{2013}
+\bibitem[Stricker 2015]{3DCompVision2Didier}
+\abntrefinfo{Stricker}{STRICKER}{2015}
 {STRICKER, D. Structure from motion ii.
-2013.}
+2015.}
 
 \bibitem[Sweeney 2016]{theia-manual}
 \abntrefinfo{Sweeney}{SWEENEY}{2016}

@@ -3,13 +3,13 @@
 \BOOKMARK [0][-]{chapter.2}{Reconstru\347\343o \340 Laser }{}% 3
 \BOOKMARK [1][-]{section*.11}{Projeto de preserva\347\343o das esculturas de Michelangelo}{chapter.2}% 4
 \BOOKMARK [0][-]{chapter.3}{T\351cnicas de reconstru\347\343o baseadas em Time Of Flight }{}% 5
-\BOOKMARK [1][-]{section*.17}{Kinect}{chapter.3}% 6
+\BOOKMARK [1][-]{section*.20}{Kinect}{chapter.3}% 6
 \BOOKMARK [0][-]{chapter.4}{T\351cnicas de reconstru\347\343o baseadas em fotogrametria }{}% 7
-\BOOKMARK [1][-]{section*.41}{MVE \205 Multi-View Reconstruction Environment}{chapter.4}% 8
-\BOOKMARK [1][-]{section*.53}{VisualSfM}{chapter.4}% 9
+\BOOKMARK [1][-]{section*.44}{MVE \205 Multi-View Reconstruction Environment}{chapter.4}% 8
+\BOOKMARK [1][-]{section*.56}{VisualSfM}{chapter.4}% 9
 \BOOKMARK [0][-]{chapter.5}{Experimentos }{}% 10
-\BOOKMARK [1][-]{section*.70}{Procedimento}{chapter.5}% 11
-\BOOKMARK [2][-]{section*.72}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.70}% 12
-\BOOKMARK [2][-]{section*.81}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.70}% 13
-\BOOKMARK [0][-]{section*.99}{Conclus\343o }{}% 14
-\BOOKMARK [0][-]{section*.101}{Refer\352ncias }{}% 15
+\BOOKMARK [1][-]{section*.73}{Procedimento}{chapter.5}% 11
+\BOOKMARK [2][-]{section*.75}{Resultados da reconstru\347\343o do objeto com o VisualSfM}{section*.73}% 12
+\BOOKMARK [2][-]{section*.83}{Resultados da reconstru\347\343o do objeto com o MVE}{section*.73}% 13
+\BOOKMARK [0][-]{section*.103}{Conclus\343o }{}% 14
+\BOOKMARK [0][-]{section*.105}{Refer\352ncias }{}% 15

@@ -21,8 +21,6 @@ Com este material, foram feitos "cortes" em determinados \emph{frames} do vídeo
 Com isso em mente, foram reconstruídas duas esculturas: empregando o VisualSfM, usamos um único vídeo, totalizando 200 imagens. %guerreiro, indio%
 Com o MVE, utilizamos dois vídeos, que, ao cortá-los, totalizou cerca de 280 imagens. %sapo%
 
-%COLOCAR PROCEDIMENTO DO MVE E VISUALSFM AQUI%
-
 Além de esculturas ao ar livre, fizemos alguns testes em ambiente fechado, dentro de uma casa, por exemplo. Foi utilizado um objeto feito de cabaça (casca de abóbora) na qual possui uma superfície propícia (Lambertiana)~\cite{basri2003lambertian} para uma reconstrução.
 
 Com o procedimento descrito anteriormente, a partir dos vídeos feitos, obtemos um total de 200 imagens em um vídeo superficial e mais 24 imagens mais detalhadas do objeto, ambos numa resolução de 1080x1920 pixels. E, para um mesmo conjunto de imagens, rodamos tanto o VisualSfM quanto o MVE.
@@ -51,7 +49,7 @@ Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
 \end{tabular}
 \end{table}
 
-A figura \ref{fig:reconstrucaoEsparsaVisualSFM} mostra, o resultado da reconstrução esparsa do algoritmo PBA. Não é tão nítida como na reconstrução densa ~\ref{fig:reconstrucaoDensaVisualSFM}, a quantidade de ruídos, provenientes de outros objetos presentes na cena (o VisualSfM só identifica objetos estáticos). Só é possível limpar a malha manualmente, pressionando a tecla F1 e selecionando a área desejada para ser deletada. Não é muito prático, pois podemos excluir alguns pontos importantes, o ideal seria fazer esta limpeza por meio de programas externos.
+A figura \ref{fig:reconstrucaoEsparsaVisualSFM} mostra o resultado da reconstrução esparsa do algoritmo PBA. Não é tão nítida como na reconstrução densa ~\ref{fig:reconstrucaoDensaVisualSFM}, a quantidade de ruídos, provenientes de outros objetos presentes na cena (o VisualSfM só identifica objetos estáticos). Só é possível limpar a malha manualmente, pressionando a tecla F1 e selecionando a área desejada para ser deletada. Não é muito prático, pois podemos excluir alguns pontos importantes, o ideal seria fazer esta limpeza por meio de programas externos.
 
 \begin{figure}[!h]
 	\centering
