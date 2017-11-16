@@ -21,11 +21,29 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 Este projeto tem como motivação avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns dos principais artefatos culturais. Foram utilizados sensores de alcance (\emph{range finders}) para triangulação, sensores de alcance baseados em ToF (\emph{Time of Flight}), câmeras digitais e um software de calibração. Com uma equipe de mais de 30 professores, funcionários e estudantes da Universidade de Stanford desenvolveram algoritmos para combinar imagens de múltiplas gamas e cores, passaram os anos de 1998 e 1999 na Itália escaneando esculturas de Michelangelo. 
 
-O principal componente de hardware do sistema é um scanner de triangulação à laser, que é composto por 4 eixos motorizados, um laser, uma câmera de alcance, uma câmera de cores e uma luz branca, isso tudo acrescido de suportes e estruturas para o escaneamento de estátuas grandes. O objetivo de um scanner deste porte era capturar marcas menores que um milímetro, das ferramentas utilizadas por Michelangelo em suas esculturas. 
+O principal componente de hardware do sistema é um scanner de triangulação à laser, que é composto por 4 eixos motorizados, um laser, uma câmera de alcance, uma câmera de cores e uma luz branca~\ref{fig:cabecaScanner}, isso tudo acrescido de suportes e estruturas para o escaneamento de estátuas grandes. O objetivo de um scanner deste porte era capturar marcas menores que um milímetro, das ferramentas utilizadas por Michelangelo em suas esculturas. 
 Para isso foram testadas diversas resoluções, na qual foi decidido um espaçamento Y (ao longo da faixa do laser) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas vezes este valor. 
 O que resultou em uma visualização de 14 cm de largura (ao longo da faixa do laser) por 14 cm de profundidade. Caso esta resolução fosse menor, as marcas de cinzelão ficariam borradas e se fosse maior, o conjunto de dados produzido seria gigantesco.
-Felizmente, a maioria das estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em Carrara Statuario, uma pedra altamente uniforme, não direcional e constituída de grãos finos. Além disso, com exceção da "Noite", as esculturas não são polidas e cobertas por terra, o que aumenta a dispersão superficial e reduz a abaixo da superfície.
+Felizmente, a maioria das estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em Carrara Statuario, uma pedra altamente uniforme, não direcional e constituída de grãos finos. Além disso, com exceção da "Noite"~\ref{fig:noite}, as esculturas não são polidas e cobertas por terra, o que aumenta a dispersão superficial e reduz a abaixo da superfície.
 Neste contexto, a dispersão abaixo da superfície causa alguns problemas: não se pode assumir que a superfície é Lambertiana ideal~\cite{basri2003lambertian}, mudou a forma com que a renderização dos modelos seriam feitos e diminuiu a qualidade de disposição de dados.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/gantry-and-david4-s.jpg}(a)
+	\includegraphics[width=0.7\linewidth]{figs/mgantry-scannerhead-s.jpg}(b)
+	\caption{%
+	Como era feito o escaneamento da estátua de David (a), composto por dois scanners, sendo (b) o scanner principal (da cabeça) e estruturas para alcançar todos os pontos necessários.
+	\cite{levoy2000digital}.
+	}\label{fig:cabecaScanner}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/michelangelo-notte.jpg}
+	\caption{%
+	Escultura "Noite", de Michelangelo.
+	}\label{fig:noite}
+\end{figure}
 
 \subsection*{Calibração}
 
@@ -85,7 +103,14 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 
 % Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa laser) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a laser ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
 
-%FIGURA DAS FERRAMENTAS AQUI%
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/ferramentasMich.jpg}
+	\caption{%
+	Alguns tipos de cinzelões que provavelmente foram usados por Michelangelo na escultura de "St. Matthew".
+	\protect\cite{levoy2000digital}.
+	}\label{fig:noite}
+\end{figure}
 
 \subsection*{Procedimento de digitalização}
 
@@ -171,7 +196,6 @@ Custo do projeto                          & \$2.000.000                         
 \end{table}
 
 
-%COLOCAR FOTOS DAVID%
 Porém, devido ao seu alto custo com equipamentos, com softwares e sem falar na necessidade de estações robustas para armazenamento dos dados e para escaneamento de patrimônios, outras técnicas foram emergindo com o passar dos anos, como a fotogrametria, que será abordada ao decorrer deste documento.
 
 % \input{kinect}

@@ -103,7 +103,7 @@ z
 
 
 
-Onde $k_n$ é o parâmetro de distorção, calibração $K$, rotação $R$ e centro $C$.
+Onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$, rotação $R$ e centro $C$.
 
 A profundidade é associada à geometria da câmera IR. que retorna a profundidade inversa ao longo do eixo $z$.
 
@@ -128,8 +128,8 @@ u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB})
 Associamos o sistema de coordenadas do Kinect com a câmera IR e consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$. 
 O ponto 3D $X_{IR}$ é construído a partir da medição de [x,y,d] de \ref{eq:distKinect} e produz uma imagem RGB de \ref{eq:finalKinect}.
 
-Em \ref{eq:distKinect}, $dis$ é a distorção de \ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção relacionada à IR e à RGB. 
-$K{IR}$ é a calibração de IR, $K_{RGB}$ é a matriz de calibraçao. $R_{RGB}$ e $C_{RGB}$ são, a matriz de rotação e de centro da câmera RGB, respectivamente.
+Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de \ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção relacionada à IR e à RGB. 
+$K_{IR}$ é a matriz de calibração da câmera IR, $K_{RGB}$ é a matriz de calibração da câmera RGB. $R_{RGB}$ e $C_{RGB}$ são, a matriz de rotação e de centro da câmera RGB, respectivamente.
 
 A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D, e consequentemente, a mesma posição relativa das câmeras.
 O sistema de coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$, $C_{RGB}$.
