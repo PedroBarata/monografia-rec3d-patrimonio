@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {portuguese}
+\beamer@sectionintoc {1}{Primeira se\c c\~ao...}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{subse\c c\~ao...}{7}{0}{1}
+\beamer@subsectionintoc {1}{2}{Outra subse\c c\~ao}{8}{0}{1}
+\beamer@sectionintoc {2}{Segunda se\c c\~ao}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{subse\c c\~ao...}{10}{0}{2}
+\beamer@sectionintoc {3}{Algumas considera\c c\~oes importantes...}{11}{0}{3}
