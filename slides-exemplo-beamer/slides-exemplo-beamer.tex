@@ -4,10 +4,34 @@
 
 \documentclass[table, usenames, svgnames, dvipsnames]{beamer}
 \usepackage{beamerthemeshadow}
-\usepackage[portuguese]{babel}
-\usepackage[latin1]{inputenc}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{array}
+\usepackage[brazil]{babel}  % adequacao para o portugues Brasil
+\usepackage[utf8]{inputenc} % Determina a codificacao utiizada
+                            % (conversão automática dos acentos)
+\usepackage{makeidx}        % Cria o indice
+\usepackage{hyperref}       % Controla a formacao do indice
+\usepackage{lastpage}       % Usado pela Ficha catalografica
+\usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
+\usepackage{xcolor}          % Controle das cores
+\usepackage{graphicx}       % Inclusao de graficos
+\usepackage{subfig}
+\usepackage{amsmath}        % pacote matemático
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hhline}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{multirow}
+\usepackage{bigstrut}
+\usepackage{algpseudocode}
+
+\usepackage{setspace}
+\usepackage{caption}
+\captionsetup[table]{singlelinecheck=false}
+\captionsetup[figure]{slc=off}
+\captionsetup{font=singlespacing}
+\captionsetup{tableposition=top}
 
 %\usepackage{subfigure}
 %\usepackage{multicol}

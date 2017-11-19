@@ -1,0 +1,22 @@
+\select@language {brazil}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Objetivos}{5}{0}{1}
+\beamer@sectionintoc {2}{Reconstru\IeC {\c c}\IeC {\~a}o \IeC {\`a} laser}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Esculturas de Michelangelo}{8}{0}{2}
+\beamer@sectionintoc {3}{Kinect}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Kinect com \emph {Structure from Motion}}{11}{0}{3}
+\beamer@sectionintoc {4}{\emph {Structure from Motion}}{12}{0}{4}
+\beamer@subsectionintoc {4}{1}{MVE -- \emph {Multi-View Stereo Environment}}{14}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{1}{MVS}{15}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{2}{FSSR}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{VisualSfM}{17}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{PBA/MCBA}{18}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{2}{CMVS/PMVS-2}{19}{0}{4}
+\beamer@sectionintoc {5}{Experimentos}{20}{0}{5}
+\beamer@subsectionintoc {5}{1}{Escultura do Jardim do N\IeC {\^e}go}{22}{0}{5}
+\beamer@subsectionintoc {5}{2}{Objeto em ambiente fechado}{23}{0}{5}
+\beamer@subsectionintoc {5}{3}{MVE}{24}{0}{5}
+\beamer@subsectionintoc {5}{4}{Escultura do Jardim do N\IeC {\^e}go}{25}{0}{5}
+\beamer@subsubsectionintoc {5}{4}{1}{Objeto em ambiente fechado}{26}{0}{5}
+\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{27}{0}{6}
+\beamer@sectionintoc {7}{Trabalhos futuros}{29}{0}{7}

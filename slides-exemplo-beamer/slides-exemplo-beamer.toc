@@ -1,8 +1,26 @@
-\beamer@endinputifotherversion {3.07pt}
-\select@language {portuguese}
-\beamer@sectionintoc {1}{Primeira se\c c\~ao...}{5}{0}{1}
-\beamer@subsectionintoc {1}{1}{subse\c c\~ao...}{7}{0}{1}
-\beamer@subsectionintoc {1}{2}{Outra subse\c c\~ao}{8}{0}{1}
-\beamer@sectionintoc {2}{Segunda se\c c\~ao}{9}{0}{2}
-\beamer@subsectionintoc {2}{1}{subse\c c\~ao...}{10}{0}{2}
-\beamer@sectionintoc {3}{Algumas considera\c c\~oes importantes...}{11}{0}{3}
+\select@language {brazil}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Objetivos}{6}{0}{1}
+\beamer@sectionintoc {2}{Reconstru\IeC {\c c}\IeC {\~a}o \IeC {\`a} laser}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Esculturas de Michelangelo}{9}{0}{2}
+\beamer@sectionintoc {3}{Kinect}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{12}{0}{3}
+\beamer@subsectionintoc {3}{2}{Kinect com \emph {Structure from Motion}}{13}{0}{3}
+\beamer@sectionintoc {4}{\emph {Structure from Motion}}{14}{0}{4}
+\beamer@subsectionintoc {4}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{MVE -- \emph {Multi-View Stereo Environment}}{17}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{\emph {dmrecon}}{18}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{2}{\emph {FSSRecon}}{19}{0}{4}
+\beamer@subsectionintoc {4}{3}{VisualSfM}{20}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{1}{PBA/MCBA -- \emph {Parallel Bundle Adjustment/Multi-core Bundle Adjustment}}{21}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{2}{CMVS/PMVS-2 -- \emph {Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo version 2}}{22}{0}{4}
+\beamer@sectionintoc {5}{Experimentos}{23}{0}{5}
+\beamer@subsectionintoc {5}{1}{VisualSfM}{25}{0}{5}
+\beamer@subsubsectionintoc {5}{1}{1}{Escultura do Jardim do N\IeC {\^e}go}{26}{0}{5}
+\beamer@subsubsectionintoc {5}{1}{2}{Objeto em ambiente fechado}{27}{0}{5}
+\beamer@subsectionintoc {5}{2}{MVE}{28}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{1}{Escultura do Jardim do N\IeC {\^e}go}{29}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{2}{Objeto em ambiente fechado}{30}{0}{5}
+\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{31}{0}{6}
+\beamer@sectionintoc {7}{Trabalhos futuros}{33}{0}{7}

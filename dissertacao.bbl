@@ -3,7 +3,7 @@
 \setlength{\labelsep}{0pt}\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
-\abntbstabout{v-1.9.2 }
+\abntbstabout{v-1.9.6 }
 
 \bibitem[Ablan 2007]{ablan2007digital}
 \abntrefinfo{Ablan}{ABLAN}{2007}
