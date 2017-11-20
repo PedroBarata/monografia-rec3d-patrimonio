@@ -78,23 +78,23 @@ Figura~\ref{fig:kinect}.
    Kinects de primeira geração (a) consistindo de câmeras e projetores
    infra-vermelho (b) e de segunda geração, consistindo de tecnologia ToF (c). 
    Ambos os kinects são largamente utilizados para escaneamento em tempo real, 
-   formando a base de scanners manuais (d), porém nem sempre são úteis para 
+   formando a base de escaneadores manuais (d), porém nem sempre são úteis para 
    preservação detalhada de patrimônio. Um dos objetivos deste
    projeto é explorar os limites desta tecnologia.
 	}\label{fig:kinect}
 \end{figure}
 
-A preservação de patrimônio tem sido realizada tradicionalmente com scanners
+A preservação de patrimônio tem sido realizada tradicionalmente com escaneadores
 dedicados de alto custo, como no famoso projeto de escaneamento \emph{in situ} da escultura
 David, chamado \emph{Digital Michaelangelo}~\cite{levoy2000digital},
 Figura~\ref{fig:david}.  O projeto teve início em 1992 e tem como objetivo a
-utilização de scanners a laser de profundidade (\emph{Rangefinder Scanners}),
+utilização de escaneadores a laser de profundidade (\emph{Rangefinder Scanners}),
 aliado a algoritmos que combinam diferentes profundidades e cores da imagem,
 para realizar uma digitalização da parte externa e da superficie de forma
 acurada da estátua de David. Note-se, porém, que esse método pode ser utilizado em diferentes
 objetos no mundo real, como partes de máquinas, artefatos culturais e na
 indústria de video games, por exemplo.  Para as partes mais detalhadas, foi
-utilizado um scanner de menor escala que faz uma pequena triangulação com
+utilizado um escaneador de menor escala que faz uma pequena triangulação com
 laser de profundidade.
 
 Mais recentemente, pode-se considerar tecnologias mais acessíveis, similares às
@@ -113,7 +113,7 @@ Figura~\ref{fig:rec3d:comparacao}.
 % pode atingir com apenas uma filmagem de esculturas realizada por um smartphone,
 % sem calibração prévia e \emph{in situ}, ou seja, sem ambiente controlado?  Como
 % esta recontrução se compara nos dias de hoje com a reconstrução realizada por um
-% scanner padrão baseado em Kinect?
+% escaneador padrão baseado em Kinect?
 
 \begin{figure}[!h]
 	\centering
@@ -140,9 +140,9 @@ Figura~\ref{fig:rec3d:comparacao}.
 % \vspace{2ex}
 \subfloat[]{\label{fig:davidd}\includegraphics[width=0.18\linewidth]{figs/david-classic-leftlight-s.jpg}}
 \caption{%
-   Protótipo do scanner a laser de triangulação. O objeto a ser escaneado é uma réplica em tamanho real
-   de um sarcófago egípcio (a). O scanner foi reconfigurado para escanear objetos maiores, pois 
-   a escultura possui 517 centímetros (b), o da cabeça também sofreu uma reconfiguração, este scanner gira em 90 graus, 
+   Protótipo do escaneador a laser de triangulação. O objeto a ser escaneado é uma réplica em tamanho real
+   de um sarcófago egípcio (a). O escaneador foi reconfigurado para escanear objetos maiores, pois 
+   a escultura possui 517 centímetros (b), o da cabeça também sofreu uma reconfiguração, este escaneador gira em 90 graus, 
    que faz o laser rotacionar, da posição horizontal para a vertical e também roda em torno da cabeça como um todo (c).
    Para a reconstrução, o primeiro passo foi alinhar cerca de 100 scans em
    diversas posições, após isso, utilizado um 
@@ -215,14 +215,14 @@ modernas de reconstrução 3D fotogramétrica, no contexto de uma aplicação
 bem-definida de preservação de patrimônio. 
 % A entrada do sistema deverá ser um
 % conjunto de vídeos realizados por câmeras de baixo custo, ou um conjunto de
-% escaneamentos realizados por scanners à mão de baixo custo baseados em Kinect.
+% escaneamentos realizados por escaneadores à mão de baixo custo baseados em Kinect.
 
 O objetivo concreto é explorar as tecnologias supracitadas para
 desenvolver um esquema de escaneamento de patrimônio usando software aberto, câmeras e
-scanners de baixo custo, representando o estado da arte em reconstrução 3D sem
+escaneadores de baixo custo, representando o estado da arte em reconstrução 3D sem
 restrições de aquisição. Perguntas fundamentais a serem respondidas são: que
 nível de detalhe, facilidade e precisão se pode obter usando-se apenas imagens e software
-aberto? É possível utilizar scanners de baixo custo baseados em Kinect com
+aberto? É possível utilizar escaneadores de baixo custo baseados em Kinect com
 melhorias significativas em termos de qualidade, conveniência ou tempo de
 processamento?  Quais são as restrições desses sistemas? Seria útil, na prática,
 uma reconstrução de curvas para auxiliar na reconstrução de nuvem de pontos e de
