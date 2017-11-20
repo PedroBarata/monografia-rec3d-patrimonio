@@ -164,6 +164,12 @@ Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada,
 	}\label{fig:mvedepth}
 \end{figure}
 
+O MVS pode ser dividido em duas partes:
+\begin{itemize}
+\item {Uma estrutura regional-crescente que tem uma fila de candidatos correspondentes, Q, ordenada pelas localizações dos pixels na câmera acrescido de seus valores para profundidade e normais;}
+\item {Um sistema de correspondências que leva um candidato correspondente como entrada e calcula profundidade, normal e uma confiança de correspondência usando vistas vizinhas fornecidas pela seleção de exibição local. Se a correspondência for bem sucedida, os dados são armazenados em mapas de profundidade, normais e de confiança e os pixels vizinhos na câmera são adicionados como novos candidatos a Q.}
+\end{itemize}
+
 \subsubsection*{Reconstrução de superfícies -- \emph{Surface Reconstruction}}
 
 Utiliza-se a linha de comando \emph{scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução de superfície usando FSSR~\cite{fuhrmann2014floating}.  

@@ -216,18 +216,6 @@ Universidade do Estado do Rio de Janeiro}
 	\end{center}
 \end{frame}
 
-\begin{frame}
-
-Perguntas a serem respondidas ao longo deste projeto:
-
-	\begin{enumerate}
-	\item {Que nível de detalhe, facilidade e precisão pode-se obter usando apenas imagens e softwares abertos?}
-	\item {É possível utilizar escaneadores de baixo custo baseados em Kinect com melhorias significativas em termos de qualidade, conveniência ou tempo de processamento?}
-	\item {Quais são as restrições desses sitemas?}
-	\end{enumerate}
-	
-\end{frame}
-
 \begin{frame} 
 	\begin{figure}[!h]
 		\centering
@@ -250,6 +238,17 @@ Perguntas a serem respondidas ao longo deste projeto:
 	\end{figure}
 \end{frame}
 
+\begin{frame}
+
+Perguntas a serem respondidas ao longo deste projeto:
+
+	\begin{enumerate}
+	\item {Que nível de detalhe, facilidade e precisão pode-se obter usando apenas imagens e softwares abertos?}
+	\item {É possível utilizar scanners de baixo custo baseados em Kinect com melhorias significativas em termos de qualidade, conveniência ou tempo de processamento?}
+	\item {Quais são as restrições desses sitemas?}
+	\end{enumerate}
+	
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{Reconstrução a laser}
@@ -339,6 +338,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \end{frame}
 
 \begin{frame}
+\frametitle{\textbf{SIFT}}
 	\begin{center}
 		{SIFT -- \emph{Scale Invariant Feature Transform}}
 		Detector de pontos-chave.
@@ -353,8 +353,8 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 
 \begin{frame}
+\frametitle{\textbf{Triangulação}}
 	\begin{center}
-	Triangulação
 		\begin{figure} [!h]
 	\centering
 	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
@@ -370,6 +370,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
+\frametitle{\textbf{MVE -- \emph{Multi-View Stereo Environment}}}
 	\begin{center}
 		\begin{itemize}
 		\item {Reconstrução multi-escala}
@@ -380,13 +381,31 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 	\end{center}
 \end{frame}
 
+\begin{frame}
+\frametitle{\textbf{MVE -- \emph{Multi-View Stereo Environment}}}
+	\begin{center}
+	 	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	\end{center}
+\end{frame}
+
 % ---------------------------------------------------------------------------- %
 \subsubsection{MVS}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
+\frametitle{\textbf{MVS}}
 	\begin{center}
-		
+		\begin{itemize}
+			\item {Uma estrutura regional-crescente que tem uma fila de candidatos correspondentes, Q, ordenada pelas localizações dos pixels na câmera acrescido de seus valores para profundidade e normais;}
+	\item {Um sistema de correspondências que leva um candidato correspondente como entrada e calcula profundidade, normal e uma confiança de correspondência usando vistas vizinhas fornecidas pela seleção de exibição local.}
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{MVS}}
+	\begin{center}
+	 	\includegraphics[width=0.8\linewidth]{figs/mvedepth.png}
 	\end{center}
 \end{frame}
 
@@ -394,9 +413,11 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \subsubsection{FSSR}
 % ---------------------------------------------------------------------------- %
 
-\begin{frame} 
+\begin{frame}
+\frametitle{\textbf{FSSR}}
 	\begin{center}
-Para construir uma superfície...
+	Usa como entrada a união de todos os vértices dos mapas de profundidade
+	E, a partir desses parâmetros ele calcula a representação volumétrica do MVS.
 	\end{center}
 \end{frame}
 
@@ -406,8 +427,14 @@ Para construir uma superfície...
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
+\frametitle{\textbf{VisualSfM}}
 	\begin{center}
-Outro software utilizado é o VisualSfM ...
+		\begin{itemize}
+			\item {Palavra-chave: Escalabilidade}
+			\item {Possui interface gráfica}
+			\item {Baseado em mapas de profundidade}
+			\item {Implementa um algoritmo de reconstrução de superfícies}
+		\end{itemize}
 	\end{center}
 \end{frame}
 
@@ -416,6 +443,7 @@ Outro software utilizado é o VisualSfM ...
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
+\frametitle{\textbf{PBA/MCBA}}
 	\begin{center}
 Para ponto de nuvens, usa-se o PBA ...
 	\end{center}
@@ -426,6 +454,7 @@ Para ponto de nuvens, usa-se o PBA ...
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
+\frametitle{\textbf{CMVS/PMVS-2}}
 	\begin{center}
 Para reconstrução densa usa-se o CMVS..
 	\end{center}
@@ -478,17 +507,44 @@ Para reconstrução densa usa-se o CMVS..
 \subsection{Escultura do Jardim do Nêgo}
 % ---------------------------------------------------------------------------- %
 
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{VisualSfM}
+% ---------------------------------------------------------------------------- %
 \begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
 	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
 	
 	TABELA VISUALSFM INDIO
 \end{frame}
 
 \begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
 	FOTO INDIO ESPARSA
 \end{frame}
 
 \begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
+FOTO INDIO DENSOI
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{MVE}
+% ---------------------------------------------------------------------------- %
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
+	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
+	
+	TABELA VISUALSFM INDIO
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
+	FOTO INDIO ESPARSA
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
 FOTO INDIO DENSOI
 \end{frame}
 
@@ -500,50 +556,23 @@ FOTO INDIO DENSOI
 	Para o objeto, temos os seguintes resultados:
 \end{frame}
 
-
 % ---------------------------------------------------------------------------- %
-\subsection{MVE}
+\subsubsection{VisualSfM}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
+\frametitle{\textbf{Objeto com VisualSfM}}
 	Com o MVE, fizemos os seguintes processos....
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\subsection{Escultura do Jardim do Nêgo}
+\subsubsection{MVE}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{enumerate}
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-    	
-		\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-	\end{enumerate}
+\frametitle{\textbf{Objeto com MVE}}
+	Com o MVE, fizemos os seguintes processos....
 \end{frame}
-
-
-% ---------------------------------------------------------------------------- %
-\subsubsection{Objeto em ambiente fechado}
-% ---------------------------------------------------------------------------- %
-
-\begin{frame}
-	\begin{enumerate}
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-    	
-		\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-	\end{enumerate}
-\end{frame}
-
 
 % ---------------------------------------------------------------------------- %
 \section{Conclusão}
