@@ -33,6 +33,8 @@
 \usepackage{bigstrut}
 \usepackage{algpseudocode}
 
+
+
 \usepackage{setspace}
 \usepackage{caption}
 \captionsetup[table]{singlelinecheck=false}
@@ -245,10 +247,10 @@
 A Deus por ter me dado saúde e força para superar as dificuldades.
 
 
-A minha família por sempre me apoiar, até nos momentos mais dificeis.
+Á minha família por sempre me apoiar, até nos momentos mais dificeis.
 
 
-A UERJ e todo seu corpo docente, além da direção e administração, que mesmo sem ter condições ideais de funcionamento, realizam seu trabalho com tanto amor e dedicação, trabalhando incansavelmente para que nós, alunos, possamos contar com um ensino de extrema qualidade.
+Á UERJ e todo seu corpo docente, além da direção e administração, que mesmo sem ter condições ideais de funcionamento, realizam seu trabalho com tanto amor e dedicação, trabalhando incansavelmente para que nós, alunos, possamos contar com um ensino de extrema qualidade.
 
 
 Ao meu professor e orientador Ricardo Fabbri, pelo suporte no pouco tempo que lhe coube, pelas suas correções e incentivos.
@@ -273,13 +275,35 @@ Ao meu professor e orientador Ricardo Fabbri, pelo suporte no pouco tempo que lh
 
 \referencia
 
-A área de reconstrução 3D vem sido amplamente explorada. Sensores de alcance, tanto aéreos quanto terrestres, eram empregados em diferentes aplicações. Porém, constantes melhorias na tecnologia, sobretudo, nos \emph{hardwares} e \emph{softwares} no âmbito da reconstrução, fizeram com que hoje, quase duas décadas depois, novas técnicas surgissem.
+A área de reconstrução 3D vem sido amplamente explorada. Sensores de
+profundidade, tanto aéreos quanto terrestres, têm sido empregados em diferentes
+aplicações já há muito tempo. Entretanto, constantes melhorias na tecnologia, sobretudo, no
+\emph{hardware} e \emph{software} no âmbito da reconstrução, fizeram com que
+nas últimas duas décadas, novas técnicas surgissem.
 
-Muitos cientistas que utilizavam a fotogrametria converteram seus esforços na área dos sensores à laser. Pois além de executarem uma reconstrução mais rápida, possuem uma altíssima acurácia, compensando seu alto custo inicial. Isto dificultou e desacelerou o processo de descoberta de novos algoritmos e métodos na área da fotogrametria. 
+Muitos cientistas que utilizavam a fotogrametria pura -- isto é, usando sensores de 
+imagens convencionais -- haviam convertido seus esforços à área dos sensores à laser. Além de
+executarem uma reconstrução mais rápida e confiável de objetos com baixa
+textura, tais sensores possuem uma altíssima acurácia, compensando seu alto
+custo inicial.  Isto dificultou e desacelerou o processo de descoberta de novos
+algoritmos e métodos em fotogrametria pura.
 
-Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o \emph{Structure from Motion} (SfM), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
+Graças a avanços recentes, a fotogrametria, aliada a novos algoritmos,
+como o \emph{Structure from Motion} (SfM), pontos de interesse e o casamento entre
+imagens, por exemplo, consegue competir com scanners à laser e sensores de
+profundidade. As características mais bem-reconhecidas das técnicas recentes, no
+entanto, são a robustez, flexibilidade, e praticidade, não sendo claro se na prática podem 
+competir com scanners à laser quanto à precisão em aplicações de interesse.
 
-Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS (\emph{Multi-View Stereo}), utilizando \emph{softwares} como o MVE \cite{mve} e o VisualSfM \cite{wu2011visualsfm}, é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um \emph{smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
+Neste trabalho, investiga-se a praticidade de técnicas atuais combinando SfM e MVS
+(\emph{Multi-View Stereo}), utilizando \emph{softwares} como o MVE~\cite{mve} e
+o VisualSfM~\cite{wu2011visualsfm}. Em particular, relata-se um estudo de até
+onde é possível chegar apenas utilizando-se a câmera de um \emph{smartphone}, visando
+aplicação futura à preservação completa do patrimônio do Jardim do Nêgo, em Nova Friburgo.
+Essa tecnologia é confrontada com outros tipos de técnicas empregadas em
+grandes projetos, como o Kinect, da Microsoft, e sua aplicação em SfM, bem como técnicas clássicas de 
+escaneamento a laser, tais como as empregadas no projeto \emph{Digital Michaelangelo} de preservação de
+esculturas liderado pela Universidade de Stanford.
 
 
 % O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
@@ -297,13 +321,30 @@ Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS (\emph{Multi
 
 \reference
 
-The 3D reconstruction area has been widely explored. Range sensors, both aerial and terrestrial, where used in different applications. However, constant improvements in technology, especially in hardware and software in the context of reconstruction, have led to the emergence of new techniques almost two decades later.
+The field of 3D reconstruction has been widely explored. Range sensors, both aerial
+and terrestrial, have long been employed in different applications. However, constant
+improvements in technology, especially in hardware and software in the context
+of reconstruction, have led to the emergence of new techniques in the past two decades.
 
-Many scientists wich used photogrammetry have converted their efforts into the area of laser sensors. For besides performing a faster reconstruction, they have a very high accuracy, compensating the high initial cost. This hindered and slowed down the process of discovering new algorithms and methods in the field of photogrammetry.
+Many scientists that used pure photogrammetry -- \ie, using conventional
+imaging sensors -- have converted their efforts into the area of laser sensors.
+Such sensors, beyond providing a faster and more reliable reconstruction for
+objects with low texture information, provide high accuracy, justifying their
+initial cost.  This hindered and slowed down the process of discovering new algorithms
+and methods in pure photogrammetry.
 
-Today, thanks to this advancement, photogrammetry, coupled with new algorithms such as Structured Motion (SfM), common points and image combining, for example, can compete with laser scanners and sensors of reach. 
+Thanks to recent advances, photogrammetry, coupled with new algorithms
+such as Structured Motion (SfM), interest points and image matching, for instance,
+can compete with laser scanners and other range sensors. While Recent techniques are well-known for robustness, flexibility and ease of use, it is not yet clear whether they can compete with laser scanners in terms of precision in applications of interest.
 
-In this work, we will cover the use of techniques combining SfM and MVS (\emph{Multi-View Stereo}), using softwares such as MVE \cite{mve} and VisualSfM \cite{wu2011visualsfm}, it is possible to generate a satisfactory reconstruction only using a camera from a smartphone. In addition we will explore a bit about other types of techniques employed in major projects such as Microsoft's Kinect and its application in SfM and the project of reconstruction of the sculptures of Michelangelo, made by a group of Stanford University. 
+In this work, we investigate the practical applicability of current techniques
+combining SfM and MVS (\emph{Multi-View Stereo}), using softwares such as
+MVE~\cite{mve} and VisualSfM~\cite{wu2011visualsfm}. In particular, we study
+how far can one go by using a standard smartphone camera, aiming at a future application to the complete preservation of the sculpture garden Jardim do Nêgo at Nova Friburgo. 
+This technology will be confronted against other types of techniques employed in
+major projects, such as Microsoft's Kinect and its application in SfM, as well as
+classical techniques of laser scanning of sculptures, such as those employed in
+the Digital Michaelangelo project, lead by Stanford University.
 
 % The work was structured in the following way: previously presented the objectives of the project, highlighting its functionalities and goals, then divided into chapters; Chapter 1, which introduces the operation of each algorithm and technique employed, presenting and debating, comparatively points for and against; Chapter 2 is devoted to the graphing tool used to obtain the results (VisualSfM). Finally, we present the results and conclusions of the work, as well as suggestions for future implementations and work.
 
