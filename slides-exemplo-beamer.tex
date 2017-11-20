@@ -257,7 +257,7 @@ Perguntas a serem respondidas ao longo deste projeto:
 
 \begin{frame} 
 	\begin{center}
-	O método de reconstrução 3D baseado em lasers é um \textbf{método ótico ativo}, é bem conhecida, pois oferecem uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
+	O método de reconstrução 3D baseado em lasers é um \textbf{método ótico ativo}, amplamente utilizada, pois oferece uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
 Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza scanners baseados em superfícies, mais especificamente, utilizando \emph{Time of Flight}, ou tempo de voo.
 	\end{center}
 \end{frame}
@@ -265,13 +265,14 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{center}
-		\emph{Time of Flight} é uma técnica de escaneamento baseado em um projetor de padrões
+		\emph{Time of Flight} é uma técnica de escaneamento baseado em um projetor de padrões (muitas vezes, grades ou barras horizontais, via laser) em uma cena a ser reconstruída. A forma de como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
 	\end{center}
 \end{frame}
 
 \begin{frame} 
 	\begin{center}
-		COLOCAR FOTO DE TOF
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/luzestruturada.jpg}
 	\end{center}
 \end{frame}
 
@@ -287,19 +288,21 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame} 
 	\begin{center}
-		Para isso, este grupo contou com DESCREVER APARATO
+		Para isso, este grupo contou com sensores de alcance (\emph{range finders}) para triangulação, sensores de alcance baseados em \emph{Time of Flight}, câmeras digitais e um software de calibração.
 	\end{center}
 \end{frame}
 
 \begin{frame} 
-	\begin{center}
-		COLOCAR FOTO MICHELANGELO E SCANNERS
-	\end{center}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figs/gantry-and-david4-s.jpg}
+		\includegraphics[width=0.4\linewidth]{figs/mgantry-scannerhead-s.jpg}
+	\end{figure}
 \end{frame}
 
 \begin{frame} 
 	\begin{center}
-	COLOCAR FOTO MICHELANGELO E SCANNERS.
+		\includegraphics[width=0.7\linewidth]{figs/scanner-head-and-david-head-s.jpg}
 	\end{center}
 \end{frame}
 
@@ -310,13 +313,40 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{center}
-	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica baseada em estimar a posição de estruturas tridimendisionais is a photogrammetric range imaging technique for estimating three-dimensional structures from two-dimensional image sequences that may be coupled with local motion signals. It is studied in the fields of computer vision and visual perception. In biological vision, SfM refers to the phenomenon by which humans (and other living creatures) can recover 3D structure from the projected 2D (retinal) motion field of a moving object or scene.
-		A maioria das abordagens SfM utilizam um processo similar a esse ...
-		
-		COLOCAR PIPELINE SFM!!
+	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica baseada em estimar a posição de estruturas tridimendisionais  a partir de sequencias de imagens em duas dimensões. 
 	\end{center}
 \end{frame}
 
+\begin{frame}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{figs/pipelinesfm.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		SIFT -- \emph{Scale Invariant Feature Transform}
+		
+		O algoritmo pode ser dividido em cinco etapas, das quais:
+
+		\begin{itemize}
+			\item{Deteccão de espaço-escala extremos -- \emph{Scale-space Extrema Detection}}
+			\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
+			\item{Atribuição de orientação -- \emph{Orientation Assignment}}
+			\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
+			\item{Combinação de pontos-chaves -- \emph{Keypoint Matching}}
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics[width=0.20\linewidth]{figs/lena.jpg}
+		\includegraphics[width=0.20\linewidth]{figs/lenaSigma1.png}
+		\includegraphics[width=0.20\linewidth]{figs/lenaSigma2.png}
+	 	\includegraphics[width=0.20\linewidth]{figs/lenaDoG.png}
+	\end{center}
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \subsection{MVE -- \emph{Multi-View Stereo Environment}}
