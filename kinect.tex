@@ -3,13 +3,13 @@
 
 \section*{Introdução}
 
-\emph{Time of Flight}~\cite{gokturk2004time} ou Tempo de Vôo é um \textbf{método ótico ativo}, que consegue determinar a localização de objetos no alcance do sensor de infra-vermelho (no caso do Kinect, um sensor ToF invisível), a partir de alterações na matriz do projetor de feixes de infra-vermelho (\eg, Kinect versão 1~\cite{smisek20133d}). Existe também, um outro método que utiliza fótons, que viajam na velocidade da luz. Onde o valor resultante cálculo da diferença da emissão e da chegada dos fótons aos detectores é utilizado na criação de uma probabilidade de distribuição localizando o evento detectado a uma distância do eixo do scanner (\eg, Kinect versão 2~\cite{lachat2015first,valgma20163d}). 
+\emph{Time of Flight}~\cite{gokturk2004time} ou Tempo de Vôo é um \textbf{método ótico ativo}, que consegue determinar a localização de objetos no alcance do sensor de infra-vermelho (no caso do Kinect, um sensor ToF invisível), a partir de alterações na matriz do projetor de feixes de infra-vermelho (\eg, Kinect versão 1~\cite{smisek20133d}). Existe também, um outro método que utiliza fótons, que viajam na velocidade da luz. Onde o valor resultante cálculo da diferença da emissão e da chegada dos fótons aos detectores é utilizado na criação de uma probabilidade de distribuição localizando o evento detectado a uma distância do eixo do escaneador (\eg, Kinect versão 2~\cite{lachat2015first,valgma20163d}). 
 
 \section{Kinect}
 
 \subsection*{Introdução}
 
-Um componente criado pela Microsoft para fins recreativos (como no XBox, por exemplo), se tornou uma das mais conhecidas ferramentas de reconstrução 3D no cenário atual. Sua primeira versão (Kinect V1) \ref{fig:kinect} utiliza uma técnica similar à empregada no projeto da Universidade de Stanford, com luz estruturada, porém, diferentemente dos escaners à laser, o Kinect tem um custo monetário baixo e é acessível a todo público em geral (desde entusiastas e amadores até profissionais da área). 
+Um componente criado pela Microsoft para fins recreativos (como no XBox, por exemplo), se tornou uma das mais conhecidas ferramentas de reconstrução 3D no cenário atual. Sua primeira versão (Kinect V1) \ref{fig:kinect} utiliza uma técnica similar à empregada no projeto da Universidade de Stanford, com luz estruturada, porém, diferentemente dos escaners a \emph{laser}, o Kinect tem um custo monetário baixo e é acessível a todo público em geral (desde entusiastas e amadores até profissionais da área). 
 
 O Kinect V2 é composto de uma câmera RGB-D (\emph{Red, Green, Blue} e \emph{Depth}) e utiliza uma projeção de fótons, é mais robusto que seu antecessor, para ambientes fechados e para fins de escaneamento de formas humanas (como esqueleto, músculos, batimento cardíaco, por exemplo). Devido à técnica empregada para reconhecimento 3D (\emph{Time Of Flight} com fótons), ele é muito sensível às texturas presentes no objeto. Ou seja, para esculturas com diferentes superfícies, diferentes refletâncias, lambertianos ou especulares, por exemplo, podem acarretar em problemas nas reconstruções. Além disso, existem outros obstáculos, como a dificuldade onde o fóton emitido pelo emissor rebate em várias superfícies antes de ser detectado pelo sensor de infra-vermelho. E, portanto, para o uso em áreas externas, a primeira versão se sai melhor.
 
@@ -42,7 +42,7 @@ A profundidade da imagem é construída a partir da triangulação da imagem IR 
 	}\label{fig:profKinect}
 \end{figure}
  
-Foram realizados alguns experimentos associando o uso do Kinect V1 como um scanner em reconstruções. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
+Foram realizados alguns experimentos associando o uso do Kinect V1 como um escaneador em reconstruções. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
 
 \begin{equation}
 \label{eq:kinectCalibracao}
