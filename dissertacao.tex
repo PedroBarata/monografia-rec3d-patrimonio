@@ -279,15 +279,29 @@ aplicações já há muito tempo. Entretanto, constantes melhorias na tecnologia
 \emph{hardware} e \emph{software} no âmbito da reconstrução, fizeram com que
 nas últimas duas décadas, novas técnicas surgissem.
 
-Muitos cientistas que utilizavam a fotogrametria converteram seus esforços na
-área dos sensores à laser. Pois além de executarem uma reconstrução mais
-rápida, possuem uma altíssima acurácia, compensando seu alto custo inicial.
-Isto dificultou e desacelerou o processo de descoberta de novos algoritmos e
-métodos na área da fotogrametria. 
+Muitos cientistas que utilizavam a fotogrametria pura -- isto é, usando apenas
+imagens -- converteram seus esforços à área dos sensores à laser. Além de
+executarem uma reconstrução mais rápida e confiável de objetos com baixa
+textura, tais sensores possuem uma altíssima acurácia, compensando seu alto
+custo inicial.  Isto dificultou e desacelerou o processo de descoberta de novos
+algoritmos e métodos na área da fotogrametria pura.
 
-Hoje em dia, graças à esse avanço, a fotogrametria, aliada a novos algoritmos, como o \emph{Structure from Motion} (SfM), pontos em comum e de combinação de imagens, por exemplo, consegue competir com scanners à laser e sensores de alcance. 
+Graças a avanços recentes, a fotogrametria, aliada a novos algoritmos,
+como o \emph{Structure from Motion} (SfM), pontos de interesse e o casamento entre
+imagens, por exemplo, consegue competir com scanners à laser e sensores de
+profundidade. As características mais bem-reconhecidas das técnicas recentes, no
+entanto, são a robustez, flexibilidade, e praticidade, não sendo claro se na prática podem 
+competir com scanners à laser quanto à precisão em aplicações de interesse.
 
-Neste trabalho, abordaremos o uso de técnicas combinando SfM e MVS (\emph{Multi-View Stereo}), utilizando \emph{softwares} como o MVE \cite{mve} e o VisualSfM \cite{wu2011visualsfm}, é possível gerar uma reconstrução satisfatória apenas utilizando uma câmera de um \emph{smartphone}. Além disso exploraremos um pouco sobre outros tipos de técnicas empregadas em grandes projetos, como o Kinect, da Microsoft e sua aplicação em SfM e o projeto de reconstrução das esculturas de Michelangelo, feito por um grupo da Universidade de Stanford.
+Neste trabalho, investiga-se a praticidade de técnicas atuais combinando SfM e MVS
+(\emph{Multi-View Stereo}), utilizando \emph{softwares} como o MVE~\cite{mve} e
+o VisualSfM~\cite{wu2011visualsfm}. Em particular, relata-se um estudo de até
+onde é possível chegar apenas utilizando-se a câmera de um \emph{smartphone}, visando
+aplicação futura à preservação completa do patrimônio do Jardim do Nêgo, em Nova Friburgo.
+Essa tecnologia será confrontada com outros tipos de técnicas empregadas em
+grandes projetos, como o Kinect, da Microsoft, e sua aplicação em SfM, bem como técnicas clássicas de 
+escaneamento a laser, tais como as empregadas no projeto de reconstrução das
+esculturas de Michelangelo, da Universidade de Stanford.
 
 
 % O trabalho foi estruturado da seguinte maneira: previamente apresentam-se os objetivos do projeto, destacando suas funcionalidades e metas, a seguir divide-se em capítulos; O Capítulo 1, que introduz o funcionamento de cada algoritmo e técnica empregada, apresentando e debatendo, comparativamente pontos à favor e contra; O Capítulo 2 é dedicado à ferramenta gráfica utilizada para a obtenção dos resultados (VisualSfM). Finalmente, apresentamos os resultados e conclusões do trabalho, bem como sugestões para implementações e trabalhos futuros.
