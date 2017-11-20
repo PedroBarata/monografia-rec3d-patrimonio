@@ -102,7 +102,7 @@
 % ---------------------------------------------------------------------------- %
 % Título
 % ---------------------------------------------------------------------------- %
-\title{\textbf{Aplicações práticas em técnicas de reconstrução 3D utilizando fotogrametria}}
+\title{\textbf{Aplicações de técnicas atuais em reconstrução 3D fotogramétrica}}
 
 \author[Pedro Felipe Pena Barata]{\scriptsize
     Pedro Felipe Pena Barata
@@ -306,6 +306,11 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 	\end{center}
 \end{frame}
 
+\begin{frame} 
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{figs/ferramentasMich.png}
+	\end{center}
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{\emph{Structure from Motion}}
@@ -313,7 +318,17 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{center}
-	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica baseada em estimar a posição de estruturas tridimendisionais  a partir de sequencias de imagens em duas dimensões. 
+	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica estéreo multiocular passiva, baseada em estimar a posição de estruturas tridimendisionais  a partir de sequencias de imagens em duas dimensões. 
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begin{enumerate}
+			\item{Obtenção de imagens;}
+			\item{Processamento dos parâmetros de câmera para cada imagem;}
+			\item{Reconstrução da geometria 3D de uma cena com um conjunto de imagens e seus parâmetros correspondentes.}
+		\end{enumerate}
 	\end{center}
 \end{frame}
 
@@ -325,26 +340,28 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{center}
-		SIFT -- \emph{Scale Invariant Feature Transform}
-		
-		O algoritmo pode ser dividido em cinco etapas, das quais:
-
-		\begin{itemize}
-			\item{Deteccão de espaço-escala extremos -- \emph{Scale-space Extrema Detection}}
-			\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
-			\item{Atribuição de orientação -- \emph{Orientation Assignment}}
-			\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
-			\item{Combinação de pontos-chaves -- \emph{Keypoint Matching}}
-		\end{itemize}
+		{SIFT -- \emph{Scale Invariant Feature Transform}}
+		Detector de pontos-chave.
 	\end{center}
 \end{frame}
 
 \begin{frame}
 	\begin{center}
-		\includegraphics[width=0.20\linewidth]{figs/lena.jpg}
-		\includegraphics[width=0.20\linewidth]{figs/lenaSigma1.png}
-		\includegraphics[width=0.20\linewidth]{figs/lenaSigma2.png}
-	 	\includegraphics[width=0.20\linewidth]{figs/lenaDoG.png}
+	 	\includegraphics[width=0.8\linewidth]{figs/lenaDoG.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+	Triangulação
+		\begin{figure} [!h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
+	\caption{%
+	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
+	}\label{fig:triangulacao}
+\end{figure}
 	\end{center}
 \end{frame}
 
@@ -354,7 +371,12 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame} 
 	\begin{center}
-	Um sistema MVE...
+		\begin{itemize}
+		\item {Reconstrução multi-escala}
+		\item {Possui interface gráfica}
+		\item {Baseado em mapas de profundidade}
+		\item {Implementa um algoritmo de reconstrução de superfícies}
+		\end{itemize}
 	\end{center}
 \end{frame}
 
@@ -364,7 +386,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame} 
 	\begin{center}
-Outro algoritmo é o Dmrecon
+		
 	\end{center}
 \end{frame}
 
