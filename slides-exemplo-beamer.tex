@@ -193,19 +193,17 @@ Universidade do Estado do Rio de Janeiro}
 % ---------------------------------------------------------------------------- %
 \begin{frame} 
 %\frametitle{\textbf{Cabeçalho...}}
-A reconstrucão 3D de cenas gerais a partir de múltiplos pontos de vista usando-se
-câmeras convencionais, sem aquisição controlada, é um dos grandes objetivos de pesquisa
-em visão computacional, ambicioso até mesmo para os dias de hoje. 
-%Os desafios estão ligados às escolhas de grande escala de representações adequadas
-% e de técnicas que possam modelar simultaneamente com materiais drasticamente dife-
-% rentes (e.g., não-Lambertianos), modelos geométricos (e.g., variedades curvilı́neas gerais,
-% descontinuidades, texturas, deformações, em escalas diferentes), tipos de regiões (com ou
-% sem textura), condições de iluminação variadas, sombras, fortes diferenças de perspecti-
-% vas, desbalanceamento devido a excesso de detalhes em partes menos importantes, número
-% arbitrário de objetos e câmeras não-calibradas.
-
+	\begin{center}
+		A reconstrucão 3D de cenas gerais a partir de múltiplos pontos de vista, usando-se câmeras convencionais, sem aquisição controlada, é um dos grandes objetivos de pesquisa em visão computacional, ambicioso até mesmo para os dias de hoje.
+	\end{center}
 %COLOCAR IMAGEM IMPRESSORA 3D%
+\end{frame}
 
+\begin{frame} 
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{figs/impressora-3d-capa.jpg}
+	\end{figure}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
@@ -213,13 +211,45 @@ em visão computacional, ambicioso até mesmo para os dias de hoje.
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
-%\frametitle{\textbf{Cabeçalho...}}
 	\begin{center}
-		O objetivo deste trabalho é, por meio de técnicas fotogramétricas, preservar o patrimônio cultural 
-		do Jardim do Nêgo, localizado na estrada Teresópolis-Friburgo, Rio de Janeiro. Na qual algumas esculturas 
-		foram 
+		O objetivo deste trabalho é, por meio de técnicas fotogramétricas, preservar o patrimônio cultural do Jardim do Nêgo, localizado na estrada Teresópolis-Friburgo, Rio de Janeiro. Na qual algumas esculturas passaram por um processo de erosão por conta da tragédia de 2011.
 	\end{center}
 \end{frame}
+
+\begin{frame}
+
+Perguntas a serem respondidas ao longo deste projeto:
+
+	\begin{enumerate}
+	\item {Que nível de detalhe, facilidade e precisão pode-se obter usando apenas imagens e softwares abertos?}
+	\item {É possível utilizar scanners de baixo custo baseados em Kinect com melhorias significativas em termos de qualidade, conveniência ou tempo de processamento?}
+	\item {Quais são as restrições desses sitemas?}
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame} 
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame} 
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego22.jpg}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame} 
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego32.jpg}
+	\end{figure}
+\end{frame}
+
 
 % ---------------------------------------------------------------------------- %
 \section{Reconstrução à laser}
@@ -227,7 +257,21 @@ em visão computacional, ambicioso até mesmo para os dias de hoje.
 
 \begin{frame} 
 	\begin{center}
-	O método de reconstrução 3D baseado em lasers...
+	O método de reconstrução 3D baseado em lasers é um \textbf{método ótico ativo}, é bem conhecida, pois oferecem uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
+Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza scanners baseados em superfícies, mais especificamente, utilizando \emph{Time of Flight}, ou tempo de voo.
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+		\emph{Time of Flight} é uma técnica de escaneamento baseado em um projetor de padrões
+	\end{center}
+\end{frame}
+
+\begin{frame} 
+	\begin{center}
+		COLOCAR FOTO DE TOF
 	\end{center}
 \end{frame}
 
@@ -237,30 +281,28 @@ em visão computacional, ambicioso até mesmo para os dias de hoje.
 
 \begin{frame} 
 	\begin{center}
-		Uma motivação para este trabalho é o projeto da Universidade de Stanford, onde um grupo constituído ...
+		Uma motivação para este trabalho é o projeto da Universidade de Stanford, onde um grupo constituído por mais de 30 professores, funcionários e estudantes, este projeto tem como objetivo preservar as esculturas de Michelangelo, na Itália.
 	\end{center}
 \end{frame}
-
-% ---------------------------------------------------------------------------- %
-\section{Kinect}
-% ---------------------------------------------------------------------------- %
-
-\begin{frame}
-	\begin{center}
-    			Uma ferramenta interessante para a combinação com técnicas SfM, usando ToF é o Kinect...
-	\end{center}
-\end{frame}
-
-% ---------------------------------------------------------------------------- %
-\subsection{Kinect com \emph{Structure from Motion}}
-% ---------------------------------------------------------------------------- %
 
 \begin{frame} 
 	\begin{center}
-		Texto texto texto texto texto texto texto texto texto texto texto texto texto
-		texto texto texto.
+		Para isso, este grupo contou com DESCREVER APARATO
 	\end{center}
 \end{frame}
+
+\begin{frame} 
+	\begin{center}
+		COLOCAR FOTO MICHELANGELO E SCANNERS
+	\end{center}
+\end{frame}
+
+\begin{frame} 
+	\begin{center}
+	COLOCAR FOTO MICHELANGELO E SCANNERS.
+	\end{center}
+\end{frame}
+
 
 % ---------------------------------------------------------------------------- %
 \section{\emph{Structure from Motion}}
@@ -268,7 +310,10 @@ em visão computacional, ambicioso até mesmo para os dias de hoje.
 
 \begin{frame}
 	\begin{center}
+	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica baseada em estimar a posição de estruturas tridimendisionais is a photogrammetric range imaging technique for estimating three-dimensional structures from two-dimensional image sequences that may be coupled with local motion signals. It is studied in the fields of computer vision and visual perception. In biological vision, SfM refers to the phenomenon by which humans (and other living creatures) can recover 3D structure from the projected 2D (retinal) motion field of a moving object or scene.
 		A maioria das abordagens SfM utilizam um processo similar a esse ...
+		
+		COLOCAR PIPELINE SFM!!
 	\end{center}
 \end{frame}
 
@@ -335,31 +380,64 @@ Para reconstrução densa usa-se o CMVS..
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
+\section{Kinect}
+% ---------------------------------------------------------------------------- %
+
+\begin{frame}
+	\begin{center}
+    	Uma ferramenta interessante para a combinação com técnicas SfM, usando ToF é o Kinect...
+	\end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Kinect com \emph{Structure from Motion}}
+% ---------------------------------------------------------------------------- %
+
+\begin{frame} 
+	\begin{center}
+		Texto texto texto texto texto texto texto texto texto texto texto texto texto
+		texto texto texto.
+	\end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
 \section{Experimentos}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
 	\begin{center}
-		Nossos experimentos se baseiam...
+		Nossos experimentos se baseiam no uso dos programas (VisualSfM e MVE), com o seguinte procedimento:
 	\end{center}
 \end{frame}
 
+\begin{frame}
+	\begin{center}
+		%\includegraphics[scale=•]{•} IMAGEM PROCESSO
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		Com esse processo, filmamos duas esculturas do jarim do Nego, e um objeto em um ambiente fechado. 
+	\end{center}
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \subsection{Escultura do Jardim do Nêgo}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{enumerate}
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
+	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
+	
+	TABELA VISUALSFM INDIO
+\end{frame}
 
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-    	
-		\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-	\end{enumerate}
+\begin{frame}
+	FOTO INDIO ESPARSA
+\end{frame}
+
+\begin{frame}
+FOTO INDIO DENSOI
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
@@ -367,16 +445,7 @@ Para reconstrução densa usa-se o CMVS..
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{enumerate}
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-    	
-		\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-	\end{enumerate}
+	Para o objeto, temos os seguintes resultados:
 \end{frame}
 
 
@@ -385,16 +454,7 @@ Para reconstrução densa usa-se o CMVS..
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{enumerate}
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-
-    	\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-    	
-		\item Texto texto texto texto texto texto texto texto...
-		\\[0.5em]
-	\end{enumerate}
+	Com o MVE, fizemos os seguintes processos....
 \end{frame}
 
 % ---------------------------------------------------------------------------- %

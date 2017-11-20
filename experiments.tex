@@ -203,7 +203,7 @@ O UMVE não sinaliza quando o processo em execução termina, então, a explica�
 Comando            & Tempo (aprox.)    \\ \hline
 \emph{sfmrecon}  & 78 segundos     \\ \hline
 \emph{dmrecon}   & 14.503 segundos \\ \hline
-\emph{scene2pet} & 600 segundos    \\ \hline
+\emph{scene2pset} & 600 segundos    \\ \hline
 \emph{fssrecon}  & 25.293 segundos \\ \hline
 \emph{meshclean} & 60 segundos     \\ \hline
 \end{tabular}
@@ -247,18 +247,18 @@ Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi can
 	}\label{fig:MVEDenseRecon}
 \end{figure} 
 
-Usando o \emph{scene2pet}, é necessário especificarmos em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável, neste caso \emph{.ply} \ref{fig:MVEScene2Pet}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
+Usando o \emph{scene2pset}, é necessário especificarmos em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável, neste caso \emph{.ply} \ref{fig:MVEscene2pset}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.8\linewidth]{figs/mvemesh.png}
 	\caption{%
-	Execução dos comandos \emph{scene2pet}, nos níveis -F0, -F1, -F2 e -F3.
+	Execução dos comandos \emph{scene2pset}, nos níveis -F0, -F1, -F2 e -F3.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEScene2Pet}
+	}\label{fig:MVEscene2pset}
 \end{figure} 
 
-Para juntar todos os níveis do \emph{scene2pet}, foi usado o \emph{fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
+Para juntar todos os níveis do \emph{scene2pset}, foi usado o \emph{fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
 
 \newpage
 
@@ -304,7 +304,7 @@ Para comparação, usamos o mesmo objeto utilizado na reconstrução do VisualSf
 Comando            & Tempo (aprox.)         \\ \hline
 \emph{sfmrecon}  & 371 segundos   \\ \hline
 \emph{dmrecon}   & 3.716 segundos \\ \hline
-\emph{scene2pet} & 300 segundos   \\ \hline
+\emph{scene2pset} & 300 segundos   \\ \hline
 \emph{fssrecon}  & 1.695 segundos \\ \hline
 \emph{meshclean} & 45 segundos    \\ \hline
 \end{tabular}
@@ -355,6 +355,8 @@ Comando            & Tempo (aprox.)         \\ \hline
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:galinhaMeshClean}
 \end{figure}
+
+\newpage
 
 A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém percebemos que a reconstrução não foi satisfatória, o \emph{software} se confundiu, e não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir disso, o erro se propagou e gerou essa reconstrução acima \ref{fig:galinhaFssr} e \ref{fig:galinhaMeshClean}.
 

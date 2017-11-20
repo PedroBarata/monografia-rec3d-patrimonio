@@ -3,14 +3,14 @@
 \section*{Introdução}
 
 A técnica de reconstrução baseada em laser é conhecida desde o século passado, pois oferecem uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados. 
-Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza scanners baseados em superfícies, mais especificamente, utilizando luz estruturada \ref{fig:luzestruturada} este processo se baseia em projetar um padrão conhecido (muitas vezes, grades ou barras horizontais, via laser) em uma cena. A forma como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
+Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza scanners baseados em superfícies, mais especificamente, utilizando uma técnica conhecida como \emph{Time of Flight}, ou tempo de voo \ref{fig:luzestruturada}. Este processo se baseia em projetar um padrão conhecido (muitas vezes, grades ou barras horizontais, via laser) em uma cena. A forma como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.7\linewidth]{figs/luzestruturada.jpg}
 	\caption{%
-	Exemplo de um projetor de padrões de luz estruturada utilizando laser.
+	Exemplo de um projetor de padrões utilizando um laser visível.
 	\cite{luzEstruturada}.
 	}\label{fig:luzestruturada}
 \end{figure}

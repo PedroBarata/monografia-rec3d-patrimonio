@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  19 NOV 2017 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  20 NOV 2017 13:23
 entering extended mode
 **./dissertacao.tex
 (dissertacao.tex
@@ -1517,11 +1517,16 @@ Package babel Info: Redefining portuges shorthand "|
  [6
 
 ] (dissertacao.lof
+Overfull \hbox (17.05334pt too wide) in paragraph at lines 10--10
+ [][] [][][]\OT1/cmr/m/n/12 Exemplo de um pro-je-tor de padr~oes uti-li-zando u
+m la-ser visvel. ([][]OPTO...[][], 
+ []
+
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 15.
- [7
+[7
 
 ]
 Overfull \hbox (2.22054pt too wide) in paragraph at lines 25--25
@@ -2554,35 +2559,35 @@ Package pdftex.def Info: figs/galinhameshclean.png used on input line 352.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/mvesfmrecongalinhapertolonge.png, id=1233, 1084.05pt x 643.6547pt>
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 359.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 359.
+[72 <./figs/galinhalongesfmreconmve.png> <./figs/galinhadmreconmve.png> <./figs
+/mvefssrecongalinha.png>]
+<figs/mvesfmrecongalinhapertolonge.png, id=1238, 1084.05pt x 643.6547pt>
 File: figs/mvesfmrecongalinhapertolonge.png Graphic file (type png)
 
 <use figs/mvesfmrecongalinhapertolonge.png>
 Package pdftex.def Info: figs/mvesfmrecongalinhapertolonge.png used on input li
-ne 365.
+ne 367.
 (pdftex.def)             Requested size: 227.62206pt x 135.142pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/mvedmrecongalinhapertolonge.png, id=1234, 1084.05pt x 627.09282pt>
+<figs/mvedmrecongalinhapertolonge.png, id=1239, 1084.05pt x 627.09282pt>
 File: figs/mvedmrecongalinhapertolonge.png Graphic file (type png)
 
 <use figs/mvedmrecongalinhapertolonge.png>
 Package pdftex.def Info: figs/mvedmrecongalinhapertolonge.png used on input lin
-e 374.
+e 376.
 (pdftex.def)             Requested size: 227.62206pt x 131.66467pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (conclusion.tex
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
- [72 <./figs/galinhalongesfmreconmve.png> <./figs/galinhadmreconmve.png> <./fig
-s/mvefssrecongalinha.png>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
@@ -2655,8 +2660,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 422.
  ) 
 Here is how much of TeX's memory you used:
  22003 strings out of 493323
- 393269 string characters out of 3139061
- 501361 words of memory out of 3000000
+ 393270 string characters out of 3139061
+ 501430 words of memory out of 3000000
  24706 multiletter control sequences out of 15000+200000
  11352 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2677,7 +2682,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
 pe1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on dissertacao.pdf (79 pages, 23858664 bytes).
+Output written on dissertacao.pdf (79 pages, 23858839 bytes).
 PDF statistics:
  1397 PDF objects out of 1440 (max. 8388607)
  299 named destinations out of 1000 (max. 500000)

@@ -7,7 +7,7 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{subfigure.2.3}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{14}{subfigure.2.4}
 \contentsline {figure}{\numberline {Figura\hfill 4 - }{\ignorespaces Algumas esculturas do Jardim do N\IeC {\^e}go\relax }}{15}{figure.caption.6}
-\contentsline {figure}{\numberline {Figura\hfill 5 - }{\ignorespaces Exemplo de um projetor de padr\IeC {\~o}es de luz estruturada utilizando laser. \cite {luzEstruturada}. \relax }}{17}{figure.caption.10}
+\contentsline {figure}{\numberline {Figura\hfill 5 - }{\ignorespaces Exemplo de um projetor de padr\IeC {\~o}es utilizando um laser vis\IeC {\'\i }vel. \cite {luzEstruturada}. \relax }}{17}{figure.caption.10}
 \contentsline {figure}{\numberline {Figura\hfill 6 - }{\ignorespaces Como era feito o escaneamento da est\IeC {\'a}tua de David (a), composto por dois scanners, sendo (b) o scanner principal (da cabe\IeC {\c c}a) e estruturas para alcan\IeC {\c c}ar todos os pontos necess\IeC {\'a}rios. \cite {levoy2000digital}. \relax }}{18}{figure.caption.13}
 \contentsline {figure}{\numberline {Figura\hfill 7 - }{\ignorespaces Escultura "Noite", de Michelangelo. \relax }}{19}{figure.caption.14}
 \contentsline {figure}{\numberline {Figura\hfill 8 - }{\ignorespaces Alguns tipos de cinzel\IeC {\~o}es que provavelmente foram usados por Michelangelo na escultura de "St. Matthew". \cite {levoy2000digital}. \relax }}{20}{figure.caption.16}
@@ -49,7 +49,7 @@
 \contentsline {figure}{\numberline {Figura\hfill 40 - }{\ignorespaces Processos dentro do comando \emph {sfmrecon}, onde (a) est\IeC {\~a}o sendo detectadas as \emph {features} do conjunto de imagens. Em (b) est\IeC {\'a} computado o \emph {pairwise matching} e em (c) est\IeC {\'a} no processo de \emph {Bundle Adjustment}~\cite {bundleAdjustmentSlide}, usando condi\IeC {\c c}\IeC {\~o}es-padr\IeC {\~a}o para as c\IeC {\^a}meras. \relax }}{68}{figure.caption.107}
 \contentsline {figure}{\numberline {Figura\hfill 41 - }{\ignorespaces T\IeC {\'e}rmino do comando \emph {sfmrecon}, onde demorou cerca de 1 minuto e meio (75509 milisegundos). \relax }}{68}{figure.caption.108}
 \contentsline {figure}{\numberline {Figura\hfill 42 - }{\ignorespaces T\IeC {\'e}rmino do comando \emph {dmrecon}, onde demorou cerca de 4 horas (14502576 milisegundos). \relax }}{69}{figure.caption.109}
-\contentsline {figure}{\numberline {Figura\hfill 43 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos \emph {scene2pet}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{69}{figure.caption.110}
+\contentsline {figure}{\numberline {Figura\hfill 43 - }{\ignorespaces Execu\IeC {\c c}\IeC {\~a}o dos comandos \emph {scene2pset}, nos n\IeC {\'\i }veis -F0, -F1, -F2 e -F3. \relax }}{69}{figure.caption.110}
 \contentsline {figure}{\numberline {Figura\hfill 44 - }{\ignorespaces Progress\IeC {\~a}o do comando \emph {fssrecon}, onde possui o ETA -- \emph {Estimated Time of Arrival}. \relax }}{70}{figure.caption.111}
 \contentsline {figure}{\numberline {Figura\hfill 45 - }{\ignorespaces Malha com ru\IeC {\'\i }dos proveniente do comando \emph {fssrecon}. \relax }}{70}{figure.caption.112}
 \contentsline {figure}{\numberline {Figura\hfill 46 - }{\ignorespaces Resultado final, ap\IeC {\'o}s a remo\IeC {\c c}\IeC {\~a}o dos ru\IeC {\'\i }dos da malha. \relax }}{71}{figure.caption.113}
