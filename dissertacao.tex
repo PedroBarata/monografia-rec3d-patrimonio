@@ -33,6 +33,8 @@
 \usepackage{bigstrut}
 \usepackage{algpseudocode}
 
+
+
 \usepackage{setspace}
 \usepackage{caption}
 \captionsetup[table]{singlelinecheck=false}
@@ -279,12 +281,12 @@ aplicações já há muito tempo. Entretanto, constantes melhorias na tecnologia
 \emph{hardware} e \emph{software} no âmbito da reconstrução, fizeram com que
 nas últimas duas décadas, novas técnicas surgissem.
 
-Muitos cientistas que utilizavam a fotogrametria pura -- isto é, usando apenas
-imagens -- converteram seus esforços à área dos sensores à laser. Além de
+Muitos cientistas que utilizavam a fotogrametria pura -- isto é, usando sensores de 
+imagens convencionais -- haviam convertido seus esforços à área dos sensores à laser. Além de
 executarem uma reconstrução mais rápida e confiável de objetos com baixa
 textura, tais sensores possuem uma altíssima acurácia, compensando seu alto
 custo inicial.  Isto dificultou e desacelerou o processo de descoberta de novos
-algoritmos e métodos na área da fotogrametria pura.
+algoritmos e métodos em fotogrametria pura.
 
 Graças a avanços recentes, a fotogrametria, aliada a novos algoritmos,
 como o \emph{Structure from Motion} (SfM), pontos de interesse e o casamento entre
@@ -324,11 +326,25 @@ and terrestrial, have long been employed in different applications. However, con
 improvements in technology, especially in hardware and software in the context
 of reconstruction, have led to the emergence of new techniques in the past two decades.
 
-Many scientists wich used photogrammetry have converted their efforts into the area of laser sensors. For besides performing a faster reconstruction, they have a very high accuracy, compensating the high initial cost. This hindered and slowed down the process of discovering new algorithms and methods in the field of photogrammetry.
+Many scientists that used pure photogrammetry -- \ie, using conventional
+imaging sensors -- have converted their efforts into the area of laser sensors.
+Such sensors, beyond providing a faster and more reliable reconstruction for
+objects with low texture information, provide high accuracy, justifying their
+initial cost.  This hindered and slowed down the process of discovering new algorithms
+and methods in pure photogrammetry.
 
-Today, thanks to this advancement, photogrammetry, coupled with new algorithms such as Structured Motion (SfM), common points and image combining, for example, can compete with laser scanners and sensors of reach. 
+Thanks to recent advances, photogrammetry, coupled with new algorithms
+such as Structured Motion (SfM), interest points and image matching, for instance,
+can compete with laser scanners and other range sensors. While Recent techniques are well-known for robustness, flexibility and ease of use, it is not yet clear whether they can compete with laser scanners in terms of precision in applications of interest.
 
-In this work, we will cover the use of techniques combining SfM and MVS (\emph{Multi-View Stereo}), using softwares such as MVE \cite{mve} and VisualSfM \cite{wu2011visualsfm}, it is possible to generate a satisfactory reconstruction only using a camera from a smartphone. In addition we will explore a bit about other types of techniques employed in major projects such as Microsoft's Kinect and its application in SfM and the project of reconstruction of the sculptures of Michelangelo, made by a group of Stanford University. 
+In this work, we investigate the practical applicability of current techniques
+combining SfM and MVS (\emph{Multi-View Stereo}), using softwares such as
+MVE~\cite{mve} and VisualSfM~\cite{wu2011visualsfm}. In particular, we study
+how far can one go by using a standard smartphone camera, aiming at a future application to the complete preservation of the sculpture garden Jardim do Nêgo at Nova Friburgo. 
+This technology will be confronted against other types of techniques employed in
+major projects, such as Microsoft's Kinect and its application in SfM, as well as
+classical techniques of laser scanning of sculptures, such as those employed in
+the Digital Michaelangelo project, lead by Stanford University.
 
 % The work was structured in the following way: previously presented the objectives of the project, highlighting its functionalities and goals, then divided into chapters; Chapter 1, which introduces the operation of each algorithm and technique employed, presenting and debating, comparatively points for and against; Chapter 2 is devoted to the graphing tool used to obtain the results (VisualSfM). Finally, we present the results and conclusions of the work, as well as suggestions for future implementations and work.
 
