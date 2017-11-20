@@ -67,85 +67,92 @@
 \headcommand {\beamer@subsectionentry {0}{3}{1}{27}{MVE -- \emph {Multi-View Stereo Environment}}}
 \headcommand {\slideentry {3}{1}{1}{27/27}{MVE -- \emph {Multi-View Stereo Environment}}{0}}
 \headcommand {\beamer@framepages {27}{27}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{1}{1}{28}{MVS}}
 \headcommand {\slideentry {3}{1}{2}{28/28}{MVE -- \emph {Multi-View Stereo Environment}}{0}}
 \headcommand {\beamer@framepages {28}{28}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{1}{2}{29}{FSSR}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{1}{1}{29}{MVS}}
 \headcommand {\slideentry {3}{1}{3}{29/29}{MVE -- \emph {Multi-View Stereo Environment}}{0}}
 \headcommand {\beamer@framepages {29}{29}}
-\headcommand {\beamer@subsectionpages {27}{29}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{30}{VisualSfM}}
-\headcommand {\slideentry {3}{2}{1}{30/30}{VisualSfM}{0}}
+\headcommand {\slideentry {3}{1}{4}{30/30}{MVE -- \emph {Multi-View Stereo Environment}}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{2}{1}{31}{PBA/MCBA}}
-\headcommand {\slideentry {3}{2}{2}{31/31}{VisualSfM}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{1}{2}{31}{FSSR}}
+\headcommand {\slideentry {3}{1}{5}{31/31}{MVE -- \emph {Multi-View Stereo Environment}}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{2}{2}{32}{CMVS/PMVS-2}}
-\headcommand {\slideentry {3}{2}{3}{32/32}{VisualSfM}{0}}
+\headcommand {\beamer@subsectionpages {27}{31}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{32}{VisualSfM}}
+\headcommand {\slideentry {3}{2}{1}{32/32}{VisualSfM}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@sectionpages {20}{32}}
-\headcommand {\beamer@subsectionpages {30}{32}}
-\headcommand {\sectionentry {4}{Kinect}{33}{Kinect}{0}}
-\headcommand {\slideentry {4}{0}{1}{33/33}{}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{2}{1}{33}{PBA/MCBA}}
+\headcommand {\slideentry {3}{2}{2}{33/33}{VisualSfM}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\slideentry {4}{0}{2}{34/34}{}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{2}{2}{34}{CMVS/PMVS-2}}
+\headcommand {\slideentry {3}{2}{3}{34/34}{VisualSfM}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\beamer@subsectionpages {33}{34}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{35}{Kinect com \emph {Structure from Motion}}}
-\headcommand {\slideentry {4}{1}{1}{35/35}{Kinect com \emph {Structure from Motion}}{0}}
+\headcommand {\beamer@sectionpages {20}{34}}
+\headcommand {\beamer@subsectionpages {32}{34}}
+\headcommand {\sectionentry {4}{Kinect}{35}{Kinect}{0}}
+\headcommand {\slideentry {4}{0}{1}{35/35}{}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\beamer@sectionpages {33}{35}}
-\headcommand {\beamer@subsectionpages {35}{35}}
-\headcommand {\sectionentry {5}{Experimentos}{36}{Experimentos}{0}}
-\headcommand {\slideentry {5}{0}{1}{36/36}{}{0}}
+\headcommand {\slideentry {4}{0}{2}{36/36}{}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\slideentry {5}{0}{2}{37/37}{}{0}}
+\headcommand {\beamer@subsectionpages {35}{36}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{37}{Kinect com \emph {Structure from Motion}}}
+\headcommand {\slideentry {4}{1}{1}{37/37}{Kinect com \emph {Structure from Motion}}{0}}
 \headcommand {\beamer@framepages {37}{37}}
-\headcommand {\slideentry {5}{0}{3}{38/38}{}{0}}
+\headcommand {\beamer@sectionpages {35}{37}}
+\headcommand {\beamer@subsectionpages {37}{37}}
+\headcommand {\sectionentry {5}{Experimentos}{38}{Experimentos}{0}}
+\headcommand {\slideentry {5}{0}{1}{38/38}{}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\slideentry {5}{0}{4}{39/39}{}{0}}
+\headcommand {\slideentry {5}{0}{2}{39/39}{}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\beamer@subsectionpages {36}{39}}
-\headcommand {\beamer@subsectionentry {0}{5}{1}{40}{Escultura do Jardim do N\IeC {\^e}go}}
-\headcommand {\slideentry {5}{1}{1}{40/40}{Escultura do Jardim do N\IeC {\^e}go}{0}}
+\headcommand {\slideentry {5}{0}{3}{40/40}{}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\slideentry {5}{1}{2}{41/41}{Escultura do Jardim do N\IeC {\^e}go}{0}}
+\headcommand {\slideentry {5}{0}{4}{41/41}{}{0}}
 \headcommand {\beamer@framepages {41}{41}}
-\headcommand {\slideentry {5}{1}{3}{42/42}{Escultura do Jardim do N\IeC {\^e}go}{0}}
+\headcommand {\beamer@subsectionpages {38}{41}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{42}{Escultura do Jardim do N\IeC {\^e}go}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{1}{1}{42}{VisualSfM}}
+\headcommand {\slideentry {5}{1}{1}{42/42}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\beamer@subsectionpages {40}{42}}
-\headcommand {\beamer@subsectionentry {0}{5}{2}{43}{Objeto em ambiente fechado}}
-\headcommand {\slideentry {5}{2}{1}{43/43}{Objeto em ambiente fechado}{0}}
+\headcommand {\slideentry {5}{1}{2}{43/43}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {43}{43}}
-\headcommand {\beamer@subsectionpages {43}{43}}
-\headcommand {\beamer@subsectionentry {0}{5}{3}{44}{MVE}}
-\headcommand {\slideentry {5}{3}{1}{44/44}{MVE}{0}}
+\headcommand {\slideentry {5}{1}{3}{44/44}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {44}{44}}
-\headcommand {\beamer@subsectionpages {44}{44}}
-\headcommand {\beamer@subsectionentry {0}{5}{4}{45}{Escultura do Jardim do N\IeC {\^e}go}}
-\headcommand {\slideentry {5}{4}{1}{45/45}{Escultura do Jardim do N\IeC {\^e}go}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{1}{2}{45}{MVE}}
+\headcommand {\slideentry {5}{1}{4}{45/45}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {45}{45}}
-\headcommand {\beamer@subsubsectionentry {0}{5}{4}{1}{46}{Objeto em ambiente fechado}}
-\headcommand {\slideentry {5}{4}{2}{46/46}{Escultura do Jardim do N\IeC {\^e}go}{0}}
+\headcommand {\slideentry {5}{1}{5}{46/46}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {46}{46}}
-\headcommand {\beamer@sectionpages {36}{46}}
-\headcommand {\beamer@subsectionpages {45}{46}}
-\headcommand {\sectionentry {6}{Conclus\IeC {\~a}o}{47}{Conclus\IeC {\~a}o}{0}}
-\headcommand {\slideentry {6}{0}{1}{47/47}{}{0}}
+\headcommand {\slideentry {5}{1}{6}{47/47}{Escultura do Jardim do N\IeC {\^e}go}{0}}
 \headcommand {\beamer@framepages {47}{47}}
-\headcommand {\slideentry {6}{0}{2}{48/48}{}{0}}
+\headcommand {\beamer@subsectionpages {42}{47}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{48}{Objeto em ambiente fechado}}
+\headcommand {\slideentry {5}{2}{1}{48/48}{Objeto em ambiente fechado}{0}}
 \headcommand {\beamer@framepages {48}{48}}
-\headcommand {\beamer@sectionpages {47}{48}}
-\headcommand {\beamer@subsectionpages {47}{48}}
-\headcommand {\sectionentry {7}{Trabalhos futuros}{49}{Trabalhos futuros}{0}}
-\headcommand {\slideentry {7}{0}{1}{49/49}{}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{2}{1}{49}{VisualSfM}}
+\headcommand {\slideentry {5}{2}{2}{49/49}{Objeto em ambiente fechado}{0}}
 \headcommand {\beamer@framepages {49}{49}}
-\headcommand {\slideentry {7}{0}{2}{50/50}{}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{2}{2}{50}{MVE}}
+\headcommand {\slideentry {5}{2}{3}{50/50}{Objeto em ambiente fechado}{0}}
 \headcommand {\beamer@framepages {50}{50}}
-\headcommand {\slideentry {7}{0}{3}{51/51}{}{0}}
+\headcommand {\beamer@sectionpages {38}{50}}
+\headcommand {\beamer@subsectionpages {48}{50}}
+\headcommand {\sectionentry {6}{Conclus\IeC {\~a}o}{51}{Conclus\IeC {\~a}o}{0}}
+\headcommand {\slideentry {6}{0}{1}{51/51}{}{0}}
 \headcommand {\beamer@framepages {51}{51}}
-\headcommand {\beamer@partpages {1}{51}}
-\headcommand {\beamer@subsectionpages {49}{51}}
-\headcommand {\beamer@sectionpages {49}{51}}
-\headcommand {\beamer@documentpages {51}}
-\headcommand {\def \inserttotalframenumber {50}}
+\headcommand {\slideentry {6}{0}{2}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\beamer@sectionpages {51}{52}}
+\headcommand {\beamer@subsectionpages {51}{52}}
+\headcommand {\sectionentry {7}{Trabalhos futuros}{53}{Trabalhos futuros}{0}}
+\headcommand {\slideentry {7}{0}{1}{53/53}{}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {7}{0}{2}{54/54}{}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {7}{0}{3}{55/55}{}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\beamer@partpages {1}{55}}
+\headcommand {\beamer@subsectionpages {53}{55}}
+\headcommand {\beamer@sectionpages {53}{55}}
+\headcommand {\beamer@documentpages {55}}
+\headcommand {\def \inserttotalframenumber {54}}
