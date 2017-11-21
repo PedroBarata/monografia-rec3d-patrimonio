@@ -96,8 +96,8 @@ da imagem IR com o padrão conhecido do projetor.
 	}\label{fig:profKinect}
 \end{figure}
  
-Foram realizados alguns experimentos associando o uso do Kinect V1 como um
-escaneador em reconstruções~\cite{smisek20133d}, tarefa para a qual não foi
+Na literatura, foram realizados alguns experimentos associando o uso do Kinect V1 como um
+escaneador de baixo custo em reconstruções~\cite{smisek20133d}, tarefa para a qual não foi
 originalmente projetado. Primeiramente, foi executada uma calibração do
 Kinect para este tipo de reconstrução, onde, a partir de experimentos, o sistema
 foi modelado como
@@ -155,9 +155,10 @@ z
 \end{bmatrix} = R(X-C),
 \label{eq:relacaoKinect}
 \end{gather}
-Onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$, rotação $R$ e centro $C$.
+onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$,
+rotação $R$ e centro de projeção $C$.
 A profundidade é associada à geometria da câmera IR. que retorna a profundidade inversa ao longo do eixo $z$.
-Os valores de $u$ e de $v$ são dados pela equação~\ref{eq:distorcaoKinect} %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
+Os valores de $u$ e de $v$ são dados pela equação~\ref{eq:distorcaoKinect}, %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
 
 \begin{gather} 
 X_{IR} = \frac{1}{c_1 d + c_0}dis^{-1}\left ( K^{-1}_{IR}
@@ -172,13 +173,12 @@ y+v_0\\
 
 \begin{equation}
 \label{eq:finalKinect}
-u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB})
+u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB}).
 \end{equation}
 
-%xxx
 Associamos o sistema de coordenadas do Kinect com a câmera IR e,
 consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$.  O ponto 3D $X_{IR}$
-é construído a partir da medição de $[x,y,d]$ da equação~\ref{eq:distKinect} e
+é construído a partir da medição de $[x,y,d]^\top$ da equação~\ref{eq:distKinect} e
 produz uma imagem RGB, Equação~\ref{eq:finalKinect}.
 
 Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de
