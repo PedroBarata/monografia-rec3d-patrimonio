@@ -46,7 +46,7 @@ câmera de profundidade, uma câmera de cores RGB e uma luz
 branca~\ref{fig:cabecaScanner}, isso tudo acrescido de suportes e estruturas
 para o escaneamento de estátuas grandes. O objetivo de um escaneador deste
 porte era capturar marcas menores que um milímetro, das ferramentas utilizadas
-por Michelangelo em suas esculturas.  Para isso, foram testadas diversas
+por Michelangelo em suas esculturas, Figura~\ref{fig:cinzeis}.  Para isso, foram testadas diversas
 resoluções, tendo sido decidido um espaçamento Y (ao longo da faixa do
 \emph{laser}) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas
 vezes este valor. Isso resultou em uma visualização de 14 cm de largura (ao
@@ -82,19 +82,44 @@ dados.
 
 \subsection*{Calibração}
 
-O objetivo de calibrar o aparato era encontrar um mapeamento de coordenadas 2D no seu alcance e cores para coordenadas 3D em um quadro de referência global. Idealmente, este quadro deve ser a estátua (estacionária). Porém não foi rastreado o aparato, ele tornou-se a própria referência. O mapeamento final foi realizado alinhando novas varreduras, com varreduras previamente existentes.
+O objetivo de calibrar o aparato era encontrar um mapeamento de coordenadas 2D
+no seu alcance e cores para coordenadas 3D em um quadro de referência global.
+Idealmente, este quadro deve ser a estátua (estacionária). Porém, 
+na prática o aparato tornou-se a própria referência. O mapeamento final do aparato à estátua
+foi realizado alinhando-se novas reconstruções com aquelas provenientes de varreduras previamente 
+existentes, conforme detalhado no artigo original~\cite{levoy2000digital}.
 
-Para calibrar qualquer sistema, primeiramente escolhe-se um modelo matemático que se aproxime do comportamento do sistema, então estima-se parâmetros desse modelo medindo o comportamento do sistema. No caso do projeto de David, o modelo matemático natural era um modelo geométrico 3D parametrizado da cabeça digitalizada e do aparato. Se os componentes do sistema forem suficientemente independentes, a calibração pode ser dividida em estágios, correspondente a cada componente do sistema. Por isso o aparato foi construído pensando na rigidez (independência), pois particionar a calibração em etapas reduz o grau de liberdade em cada etapa, e com isso, o número de medidas necessárias para calibrar este estágio.
+Para calibrar qualquer sistema, primeiramente escolhe-se um modelo matemático
+que se aproxime do comportamento do sistema, então estima-se parâmetros desse
+modelo medindo o comportamento do sistema. No caso do projeto de David, o
+modelo matemático natural era um modelo geométrico 3D parametrizado da cabeça
+digitalizada e do aparato. Se os componentes do sistema forem suficientemente
+independentes, a calibração pode ser dividida em estágios, correspondente a
+cada componente do sistema. Por isso o aparato foi construído pensando na
+rigidez (independência), pois particionar a calibração em etapas reduz o grau
+de liberdade em cada etapa, e com isso, o número de medidas necessárias para
+calibrar este estágio.
 
-Em um sistema mecânico, também é reduzido o volume físico total na qual essas medidas de calibração devem ser tomadas. Além disso, uma calibração em etapas é menos suscetível a propagação de erros, pois caso uma calibração falhasse, seria apenas uma parte da calibração e não o sistema como um todo. No projeto de David, a calibração foi divida em seis etapas distintas:
+Em um sistema mecânico, tal particionamento também reduz o volume físico total no qual essas
+medidas de calibração devem ser tomadas, o que é relevante dado que o sistema
+de aquisição é bastante grande. Além disso, uma calibração em etapas é menos
+suscetível à propagação de erros, pois, caso uma calibração falhasse, seria
+apenas uma parte da calibração e não o sistema como um todo. No projeto de
+David, a calibração foi divida em seis etapas distintas:
 
 \begin{enumerate}
-\item{Um mapeamento 2D a partir de coordenadas de \emph{pixels} das imagens da câmera para locais físicos na camada de laser}
-\item{Transformação rígida 2D/3D do sistema de coordenadas da camada do \emph{laser} para esferas de aço anexadas ao escaneador da cabeça}
-\item{Transformação rígida 3D para acomodar o rolamento do escaneador da cabeça em $90^{\circ}$ (ao remontá-lo) em relação ao conjunto de inclinação}
-\item{A localização do eixo de rotação de inclinação e o mapeamento não-linear de movimento comandos para ângulos de rotação físicas}
-\item{A localização do eixo de rotação panorâmico e o mapeamento de seus comandos de movimento para ângulos de rotação física}
-\item{A localização do eixo de translação, que também depende de como o conjunto inclinação-panorâmico está montado no braço horizontal}
+\item{Um mapeamento 2D a partir de coordenadas de \emph{pixels} das imagens da
+  câmera de profundidade para localizações físicas na camada de laser}
+\item{Uma transformação rígida 2D/3D do sistema de coordenadas da camada de
+    \emph{laser} para esferas de aço anexadas à cabeça do escaneador}
+\item{Transformação rígida 3D para acomodar o rolamento da cabeça do escaneador 
+    em $90^{\circ}$ (ao remontá-lo) em relação ao conjunto \emph{pan-tilt}}
+  \item{A localização do eixo de rotação de inclinação \emph{tilt} e o mapeamento não-linear
+  dos comandos de movimento para ângulos de rotação físicos}
+\item{A localização do eixo de rotação \emph{pan} e o mapeamento de seus
+  comandos de movimento para ângulos de rotação físicos}
+\item{A localização do eixo de translação, que também depende de como o
+    conjunto \emph{pan-tilt} está montado no braço horizontal}
 \end{enumerate}
 
 O resultado da calibração pode ser descrito como uma concatenação de seis matrizes 4x4:
@@ -105,12 +130,12 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 \end{bmatrix}
 \begin{bmatrix}
 \text{rotação} \\ 
-\text{panorâmica}
+\text{\emph{pan}}
 \end{bmatrix}
 \begin{bmatrix}
 \text{rotação} \\
 \text{de} \\
-\text{inclinação}
+\text{\emph{tilt}}
 \end{bmatrix}
 \begin{bmatrix}
 \text{rotação} \\
@@ -118,15 +143,15 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 \text{rolamento}
 \end{bmatrix}
 \begin{bmatrix}
-\text{laser para o} \\
-\text{escaneador }
-\text{da cabeça}
+\text{laser para a} \\
+\text{cabeça do}\\
+\text{escaneador}
 \end{bmatrix}
 \begin{bmatrix}
 \text{imagem} \\
 \text{para o} \\
 \text{laser}
-\end{bmatrix}
+\end{bmatrix}.
 \]
 
 % Calibração do sistema de cores:
@@ -142,9 +167,9 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 	\centering
 	\includegraphics[width=0.5\linewidth]{figs/ferramentasMich.png}
 	\caption{%
-	Alguns tipos de cinzelões que provavelmente foram usados por Michelangelo na escultura de "St. Matthew".
+	Alguns tipos de cinzéis que provavelmente foram usados por Michelangelo na escultura de "St. Matthew".
 	\protect\cite{levoy2000digital}.
-	}\label{fig:noite}
+	}\label{fig:cinzeis}
 \end{figure}
 
 \subsection*{Procedimento de digitalização}

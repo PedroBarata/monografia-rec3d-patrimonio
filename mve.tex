@@ -93,7 +93,10 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 % a focal length estimate for every photo. If EXIF tags are not
 \subsubsection*{Criando uma cena}
 
-Uma visualização contém dados por exibição (como imagens, mapas de profundidade ou outros dados). Uma cena é uma coleção de visualizações, que constitui um conjunto de dados. Uma nova cena pode ser criada utilizando a interface gráfica UMVE, ou por linha de comando (\emph{makescene}). 
+Uma visualização contém dados por exibição (como imagens, mapas de profundidade
+ou outros dados). Uma cena é uma coleção de visualizações, que constitui um
+conjunto de dados. Uma nova cena pode ser criada utilizando a interface gráfica
+UMVE, Figura~\ref{fig:umve:gui}, ou por linha de comando (\emph{makescene}). 
 
 Tecnicamente, a cena é criada como um diretório no sistema de arquivos (com o nome do conjunto de dados). Este, por sua vez, contém outro diretório (\emph{views}), com todas as visualizações guardadas com uma extensão de arquivos em .MVE.
 
@@ -102,10 +105,10 @@ Criar uma nova cena, criará apenas o diretório (\emph{views}) vazio. A importa
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.7\linewidth]{figs/umve1.png}
+	\includegraphics[width=\linewidth]{figs/umve1.png}
 	\caption{%
 	Interface gráfica (UMVE)%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:mvesfm}
+	}\label{fig:umve:gui}
 \end{figure}
 % SfM reconstruction: The SfM reconstruction can be con-
 % figured and started using UMVE, or the command line tool
@@ -120,7 +123,7 @@ Criar uma nova cena, criará apenas o diretório (\emph{views}) vazio. A importa
 % construction.
 \subsection*{Reconstrução SfM}
 
-Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando (\emph{sfmrecon}). A interface guia através da detecção de \emph{features}, combinação emparelhada (\emph{pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução \ref{fig:mvesfm}.
+Pode ser configurada e iniciada usando a interface gráfica UMVE ou por linha de comando (\emph{sfmrecon}). A interface guia através da detecção de \emph{features}, combinação emparelhada (\emph{pairwise matching}) e uso incremental do SfM. Que, por sua vez, a reconstrução SfM começa a partir de um par inicial, e adiciona, de forma incremental, mais vistas à reconstrução~\ref{fig:mvesfm}.
 
 \begin{figure}[!h]
 	\centering

@@ -90,7 +90,14 @@ Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
 \end{tabular}
 \end{table}
 
-A figura \ref{fig:reconstrucaoEsparsaVisualSFM} mostra o resultado da reconstrução esparsa do algoritmo PBA. Não é tão nítida como na reconstrução densa ~\ref{fig:reconstrucaoDensaVisualSFM}, a quantidade de ruídos, provenientes de outros objetos presentes na cena (o VisualSfM só identifica objetos estáticos). Só é possível limpar a malha manualmente, pressionando a tecla F1 e selecionando a área desejada para ser deletada. Não é muito prático, pois podemos excluir alguns pontos importantes, o ideal seria fazer esta limpeza por meio de programas externos.
+A Figura~\ref{fig:reconstrucaoEsparsaVisualSFM} mostra o resultado da
+reconstrução esparsa do algoritmo PBA. Não é tão nítida como na reconstrução
+densa, Figura~\ref{fig:reconstrucaoDensaVisualSFM}, a quantidade de ruídos,
+provenientes de outros objetos presentes na cena (o VisualSfM só identifica
+objetos estáticos). Só é possível limpar a malha manualmente, pressionando a
+tecla F1 e selecionando a área desejada para ser deletada. Não é muito prático,
+pois podemos excluir alguns pontos importantes, o ideal seria fazer esta limpeza
+por meio de programas externos.
 
 \begin{figure}[!h]
 	\centering
@@ -127,7 +134,12 @@ Gerar a reconstrução densa do modelo & 1920 segundos \\ \hline
 \end{tabular}
 \end{table}
 
-Percebemos que não foi tão proveitoso (qualitativamente) usar mais imagens neste caso, inclusive o algoritmo perdeu a referência do objeto e gerou um segundo modelo na reconstrução esparsa \ref{fig:reconstrucaoEsparsaVisualSFM224}, e consequentemente, na reconstrução densa \ref{fig:reconstrucaoDensaVisualSFM2241} e \ref{fig:reconstrucaoDensaVisualSFM2242}. O que gerou uma cerca incoerência na reconstrução.
+Percebemos que não foi tão proveitoso (qualitativamente) usar mais imagens neste
+caso, inclusive o algoritmo perdeu a referência do objeto e gerou um segundo
+modelo na reconstrução esparsa,
+Figura~\ref{fig:reconstrucaoEsparsaVisualSFM224}, e, consequentemente, na
+reconstrução densa,
+Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241},~\ref{fig:reconstrucaoDensaVisualSFM2241:2} e~\ref{fig:reconstrucaoDensaVisualSFM2242}. O que gerou uma cerca incoerência na reconstrução.
 
 \begin{figure}[!h]
 	\centering
@@ -146,7 +158,7 @@ Percebemos que não foi tão proveitoso (qualitativamente) usar mais imagens nes
 	\caption{%
 	Foram gerados dois modelos esparsos do objeto a partir do conjunto inicial de 224 imagens, provavelmente, proveniente da falta de parâmetros da câmera.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoEsparsaVisualSFM224}
+	}\label{fig:reconstrucaoEsparsaVisualSFM224:2}
 \end{figure}
 
 \begin{figure}[!h]
