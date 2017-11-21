@@ -669,33 +669,51 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{center}
-		Nossos experimentos se baseiam no uso dos programas (VisualSfM e MVE), com o seguinte procedimento:
-	\end{center}
+	\begin{figure}
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=0.7\linewidth]{figs/procedimentoscan.png}
+	\caption{%
+	Exemplo de como foi realizada a varredura da escultura
+	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+	}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
+	Seguintes conjuntos de dados:
 	\begin{center}
-		%\includegraphics[scale=•]{•} IMAGEM PROCESSO
-	\end{center}
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-		Com esse processo, filmamos duas esculturas do Jardim do Nego e um objeto em um ambiente fechado. 
+		\begin{itemize}
+			\item 2 vídeos de uma escultura (sapo), resultando em 280 imagens (MVE);
+			\item 1 vídeo de uma esculutra (índio), resultando em 197 imagens (VisualSfM);
+			\item 2 vídeos em ambiente fechado, com um total de 224 imagens (MVE e VisualSfM).
+		\end{itemize}
 	\end{center}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
 \subsection{Escultura do Jardim do Nêgo}
-% ---------------------------------------------------------------------------- %
-
+% ---------------------------------------------------------------------------- 
 
 % ---------------------------------------------------------------------------- 
 \subsubsection{VisualSfM}
 % ---------------------------------------------------------------------------- 
 
 \begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
+		\caption{%
+		Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
+		\tiny{Fonte: http://ccwu.me/vsfm/}
+		}\label{fig:pipelineVisualSfM}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
 	\begin{center}
 		\movie[width=160px, height=90px, externalviewer]{Assistir o video do jardim do Nêgo}{videos/indio.MOV}
 	\end{center}
@@ -703,47 +721,134 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
-	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
-	
-	TABELA VISUALSFM INDIO
+	\begin{table}
+	\caption{Tempos obtidos da reconstrução da escultura do Jardim do Nêgo usando o VisualSfM}
+		\begin{tabular}{|l|p{3cm}|}
+			\hline
+			Procedimento & Tempo (aprox.) \\ \hline
+			Carregamento de imagens & 10 segundos \\ \hline
+			Calcular pares correspondentes de \emph{features} & 6.643 segundos \\ \hline
+			Gerar a reconstrução esparsa do modelo & 220 segundos \\ \hline
+			Gerar a reconstrução densa do modelo & 1.385 segundos \\ \hline
+		\end{tabular}
+	\end{table}
 \end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
-	FOTO INDIO ESPARSA
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.9\linewidth]{figs/guerreiroEsparsa.jpg}
+		\caption{%
+		Reconstrução esparsa da escultura do Jardim do Nêgo no VisualSfM com 197 imagens.
+		}\label{fig:reconstrucaoEsparsaIndioVisualSFM}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
-FOTO INDIO DENSOI
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.75\linewidth]{figs/guerreirovisualsfmdmr.jpg}
+		\caption{%
+		Resultados da reconstrução densa da escultura do Jardim do Nêgo usando o VisualSfM.
+		}\label{fig:reconstrucaoDensaIndioVisualSFM}
+	\end{figure}
 \end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/guerreirovisualsfmdmr2.jpg}
+		\caption{%
+		Resultados da reconstrução densa da escultura do Jardim do Nêgo usando o VisualSfM, em outro ângulo.
+		}\label{fig:reconstrucaoDensaIndioVisualSFM}
+	\end{figure}
+\end{frame}
+
 
 % ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
 % ---------------------------------------------------------------------------- 
 \begin{frame}
+\frametitle{\textbf{MVE}}
+	Comandos utilizados:
+	\begin{center}
+		\begin{enumerate}
+			\item {Cria-se uma cena e adiciona-se imagens a ela;}
+			\item {\emph{sfmrecon};}
+			\item {\emph{dmrecon};}
+			\item {\emph{scene2pset};}
+			\item {\emph{fssrecon};}
+			\item {\emph{meshclean}.}
+		\end{enumerate}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
 	\begin{center}
 		\movie[width=160px, height=90px, externalviewer]{Assistir o primeiro video do jardim do Nêgo}{videos/sapo1.MOV}
 	\end{center}
 \end{frame}
 
 \begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
 	\begin{center}
 		\movie[width=160px, height=90px, externalviewer]{Assistir o segundo video do jardim do Nêgo}{videos/sapo2.MOV}
 	\end{center}
 \end{frame}
 
-
 \begin{frame}
-\frametitle{\textbf{Escultura com MVE}}
-	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
-	
-	TABELA MVE SAPO
+	\frametitle{\textbf{Escultura com MVE}}
+		\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.9\linewidth]{figs/umvedense.png}
+		\caption{%
+		Final da reconstrução via UMVE.
+		}\label{fig:UMVEdense}
+	\end{figure} 
 \end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com MVE}}
-	FOTOS SAPO AQUI
+	\begin{table}[!h]
+	\centering
+	\caption{Tempos obtidos usando o MVE em um conjunto de dados do Jardim do Nêgo}
+	\label{tab:mveSapo}
+		\begin{tabular}{|l|l|}
+			\hline
+			Comando            & Tempo (aprox.)    \\ \hline
+			\emph{sfmrecon}  & 78 segundos     \\ \hline
+			\emph{dmrecon}   & 14.503 segundos \\ \hline
+			\emph{scene2pset} & 600 segundos    \\ \hline
+			\emph{fssrecon}  & 25.293 segundos \\ \hline
+			\emph{meshclean} & 60 segundos     \\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/mvemeshout.png}
+		\caption{%
+		Malha com ruídos proveniente do comando \emph{fssrecon}.
+		}\label{fig:MVEFSSRMesh}
+	\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Escultura com MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/mvemeshclean.png}
+		\caption{%
+		Resultado final, após a remoção dos ruídos da malha.
+		}\label{fig:MVEMeshClean}
+	\end{figure} 
 \end{frame}
 
 % ---------------------------------------------------------------------------- 
@@ -762,29 +867,149 @@ FOTO INDIO DENSOI
 	\end{center}
 \end{frame}
 
-%\begin{frame}
-
-
-\begin{frame}
-	Para o objeto, temos os seguintes resultados:
-\end{frame}
-
 % ---------------------------------------------------------------------------- 
 \subsubsection{VisualSfM}
 % ---------------------------------------------------------------------------- 
 
 \begin{frame}
-\frametitle{\textbf{Objeto com VisualSfM}}
-	Com o VisualSfM, fizemos os seguintes processos....
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{table}[h!]
+		\caption{Tempos obtidos da reconstrução do objeto com 200 imagens, usando o VisualSfM}
+		\label{tab:temposSfM}
+		\begin{tabular}{|l|p{3cm}|}
+			\hline
+			Procedimento & Tempo (aprox.) \\ \hline
+			Carregamento de imagens & 50 segundos \\ \hline
+			Calcular pares correspondentes de \emph{features} & 9.540 segundos \\ \hline
+			Gerar a reconstrução esparsa do modelo & 135 segundos \\ \hline
+			Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
+		\end{tabular}
+	\end{table}
 \end{frame}
 
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/galinhasparsa.jpg}
+		\caption{%
+		Reconstrução esparsa do objeto no VisualSfM com 200 imagens.
+		}\label{fig:reconstrucaoEsparsaVisualSFM}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/galinhadense.jpg}
+		\caption{%
+		Reconstrução densa do objeto no VisualSfM com 200 imagens.
+		}\label{fig:reconstrucaoDensaVisualSFM}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{table}[h!]
+		\caption{Tempos obtidos da reconstrução do objeto, com 224 imagens usando o VisualSfM}
+		\label{tab:temposSfM224}
+		\begin{tabular}{|l|p{3cm}|}
+			\hline
+			Procedimento & Tempo (aprox.) \\ \hline
+			Carregamento de imagens & 60 segundos \\ \hline
+			Calcular pares correspondentes de \emph{features} & 10.451 segundos \\ \hline
+			Gerar a reconstrução esparsa do modelo & 162 segundos \\ \hline
+			Gerar a reconstrução densa do modelo & 1920 segundos \\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/perto_longe_esparsa.jpg}
+		\caption{%
+		Reconstrução esparsa do objeto com 224 imagens no VisualSfM.
+		}\label{fig:reconstrucaoEsparsaVisualSFM224}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2241}\includegraphics[width=0.45\linewidth]{figs/galinhadense224.jpg}}
+		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2242}\includegraphics[width=0.45\linewidth]{figs/galinhavisualsfm224.jpg}}
+		\caption{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
+		}
+	\end{figure}
+\end{frame}
 % ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
 % ---------------------------------------------------------------------------- 
 
 \begin{frame}
-\frametitle{\textbf{Objeto com MVE}}
-	Com o MVE, fizemos os seguintes processos....
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{table}[!h]
+	\centering
+	\caption{Tempos obtidos usando o MVE em um conjunto de dados em ambiente interno com 200 imagens}
+	\label{tab:galinha200mve}
+		\begin{tabular}{|l|l|}
+			\hline
+			Comando            & Tempo (aprox.)         \\ \hline
+			\emph{sfmrecon}  & 371 segundos   \\ \hline
+			\emph{dmrecon}   & 3.716 segundos \\ \hline
+			\emph{scene2pset} & 300 segundos   \\ \hline
+			\emph{fssrecon}  & 1.695 segundos \\ \hline
+			\emph{meshclean} & 45 segundos    \\ \hline
+		\end{tabular}
+	\end{table}	
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/galinhadmr.png}
+		\caption{%
+		Resultado da etapa \emph{fssrecon} do MVE
+		}\label{fig:galinhaFssr}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/galinhameshclean.png}
+		\caption{%
+		Resultado da etapa \emph{meshclean}, da etapa anterior \ref{fig:galinhaFssr}.
+		}\label{fig:galinhaMeshClean}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/mvesfmrecongalinhapertolonge.png}
+		\caption{%
+		Resultado da etapa \emph{sfmrecon}, com todas as imagens.
+		}\label{fig:galinhaSfM224}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
+	\begin{figure}[!h]
+			\centering
+			\includegraphics[width=0.8\linewidth]{figs/mvedmrecongalinhapertolonge.png}
+			\caption{%
+			Resultado da etapa \emph{dmrecon}, com todas as imagens.
+			}\label{fig:galinhaDMR224}
+	\end{figure}
 \end{frame}
 
 % ---------------------------------------------------------------------------- 
