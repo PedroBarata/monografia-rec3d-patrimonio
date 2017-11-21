@@ -104,7 +104,7 @@ Kinect para este tipo de reconstrução, onde, a partir de experimentos, o siste
 foi modelado como
 \begin{equation}
 \label{eq:kinectCalibracao}
-q(z)=2.73z^{2}+0.74z-0.58,
+q(z)=2.73z^{2}+0.74z-0.58
 \end{equation}
 onde $z$ é a profundidade em metros, e $q$ a quantização, em milímetros.
 O modelo geométrico do Kinect foi criado com um sistema multi-ocular
@@ -260,23 +260,59 @@ O Kinect, com o procedimento de calibração, pode ser combinado
 com técnicas \emph{SfM} e \emph{multi-view stereo}, o que abre uma
 nova metodologia na área de reconstrução 3D.
 Quanto à qualidade da reconstrução, o Kinect ficou melhor que o
-SR-4000 e perto do 3.5M SLR Stereo, Figura~\ref{tab:resultadosKinect}.
+SR-4000 e perto do 3.5M SLR Stereo, figuras~\ref{fig:resultadoKinect1}, \ref{fig:resultadoKinect2} e tabela~\ref{tab:resultadosKinect}.
 
 %COLOCAR IMAGEM COMPARATIVA AQUI%
-%\begin{figure}[!h]
-%	\centering
-%	\subfloat[Sem o alinhamento]{\label{fig:deslocamentokinectA}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectA.png}}
-%	\subfloat[Com o alinhamento]{\label{fig:deslocamentokinectB}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectB.png}}
-%	\caption{%
-%	Representação visual do acerto do deslocamento. A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo.
-%	}\label{fig:deslocKinect}
-%\end{figure}
+\begin{figure}[!h]
+	\centering
+	\subfloat[Imagem do lado esquerdo da câmera SLR]{\label{fig:SLResq}\includegraphics[width=0.3\linewidth]{figs/imagemSLResquerda.png}}
+	\subfloat[Imagem da profundidade do Kinect]{\label{fig:KinectDepth}\includegraphics[width=0.3\linewidth]{figs/imagemProfundidadeKinect.png}}
+	\subfloat[Imagem do lado direito da câmera SLR]{\label{fig:SLRdir}\includegraphics[width=0.3\linewidth]{figs/imagemSLRdireita.png}}
+	\caption{%
+	Imagens iniciais para reconstrução 3D~\cite{smisek20133d}.
+	}\label{fig:resultadoKinect1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.3\linewidth]{figs/imagemMVS.png}(a)
+	\includegraphics[width=0.3\linewidth]{figs/imagemMVSKinect.png}(b)
+	\caption{%
+	Resultados da reconstrução SfM, onde (a) é a reconstrução do SLR e (b) o resultado do Kinect. Qualitativamente ambas são satisfatórias~\cite{smisek20133d}.
+	}\label{fig:resultadoKinect2}
+\end{figure}
 
 O Kinect é tão utilizado para fins pessoais e empresariais, que existem alguns
 softwares prontamente disponíveis para utilizá-lo como uma ferramenta de
 reconstrução 3D, sendo a maioria deles acessíveis (incluindo um pacote de ferramentas que a própria
-Microsoft disponibilizou). Um desses softwares
-é o \emph{Skanect}, que tem a versão gratuita com a qual é possível fazer escaneamentos
+Microsoft disponibilizou para adaptar o Kinect ao Windows).
+
+Além disso, a Microsoft criou um software para Windows chamado Kinect Fusion, que promove escaneamentos usando o Kinect, de um dado objeto e cria um modelo 3D. 
+O usuário pode pintar uma cena com o Kinect e, ao mesmo tempo, interagir com o modelo 3D detalhado.
+
+\begin{figure}[!h]
+	\centering
+		\includegraphics[width=1\linewidth]{figs/reconstrucaoKinectFusion.png}
+		\caption{%
+		Funcionamento do Kinect Fusion, adquirindo o mapa de profundidade com a câmera do Kinect, onde há várias falhas devido à falta de dados. Em alguns segundos  é realizada uma reconstrução 3D realista de uma cena estática apenas movendo o Kinect ao redor da cena. Após isso, uma nuvem de pontos ou uma malha 3D densa pode ser produzida.~\cite{Izadi:2011:KRR:2047196.2047270}
+	}\label{fig:KinectFusionPipe}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+		\includegraphics[width=1\linewidth]{figs/kinectfusionpipeline.png}
+		\caption{%
+		Processo de escaneamento e geração do modelo 3D no Kinect Fusion.~\cite{Izadi:2011:KRR:2047196.2047270}
+	}\label{fig:KinectFusionPipe}
+\end{figure}
+
+
+
+Outro programa conhecido é o \emph{Skanect}, que tem a versão gratuita com a qual é possível fazer escaneamentos
 básicos, bem como a versão paga, que possibilita uma configuração mais
 detalhada, como por
 exemplo: a delimitação do objeto que será reconstruído; exportar o arquivo em

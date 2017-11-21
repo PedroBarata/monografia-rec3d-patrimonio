@@ -38,3 +38,9 @@ latexSuiteTemp*
 sibigrapi-template/
 .DS_Store
 paper.out
+*.MOV
+*.3gp
+*.nav
+*.snm
+slides-exemplo-beamer.pdf
+dissertacao.pdf
