@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1.1}\normalfont \normalsize \bfseries {Objetivos}}{17}{section*.7}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {2}}\penalty \@M {\bf \uppercase {Reconstru\IeC {\c c}\IeC {\~a}o 3D Ativa}} }{18}{chapter.2}
 \contentsline {section}{\numberline {2.1}\normalfont \normalsize \bfseries {Projeto de preserva\IeC {\c c}\IeC {\~a}o das esculturas de Michelangelo}}{18}{section*.11}
-\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {T\IeC {\'e}cnicas de reconstru\IeC {\c c}\IeC {\~a}o baseadas em \emph {Time Of Flight}}} }{24}{chapter.3}
+\contentsline {chapter}{\normalfont \penalty \@M {\numberline {3}}\penalty \@M {\bf \uppercase {T\IeC {\'e}cnicas de luz estruturada e \emph {Time Of Flight}}} }{24}{chapter.3}
 \contentsline {section}{\numberline {3.1}\normalfont \normalsize \bfseries {Kinect}}{24}{section*.20}
 \contentsline {chapter}{\normalfont \penalty \@M {\numberline {4}}\penalty \@M {\bf \uppercase {T\IeC {\'e}cnicas de reconstru\IeC {\c c}\IeC {\~a}o baseadas em fotogrametria}} }{30}{chapter.4}
 \contentsline {section}{\numberline {4.1}\normalfont \normalsize \bfseries {MVE -- \emph {Multi-View Reconstruction Environment}}}{36}{section*.44}

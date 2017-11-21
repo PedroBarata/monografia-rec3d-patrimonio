@@ -17,6 +17,7 @@ viajam na velocidade da luz. O valor resultante da diferença da
 emissão e do retorno dos fótons aos
 detectores é utilizado na criação de uma distribuição de probabilidade 
 localizando o evento detectado a uma distância do eixo do escaneador.
+
 Até recentemente, a técnica ToF foi extremamente cara e restrita a baixas resoluções, devido à
 necessidade de equipamento capaz de medir fotons refletidos em uma escala de
 picosegundos. Tal técnica foi barateada em ordens de magnitude pela indústria
@@ -78,32 +79,35 @@ dominado pelo Kinect versão 2.
 
 \subsection*{Processo de calibração}
 
-Sua principal saída da imagem do Kinect é correspondente à profundidade da
-cena. Em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade
-inversa, $D$.  A profundidade da imagem é construída a partir da triangulação
-da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
+A principal saída do Kinect é correspondente à profundidade da
+cena. Na realidade, em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade
+inversa, $D$. Essa informação é construída a partir da triangulação
+da imagem IR com o padrão conhecido do projetor.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
 	\caption{%
-	Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor disposta na imagem, corresponde à profundidade ou distância da cena para o Kinect.
+  Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada
+  disposta na imagem corresponde à profundidade ou distância da cena para
+  o Kinect, e preto corresponde a pontos sem informação confiável.
 	\cite{Silberman:ECCV12}.
 	}\label{fig:profKinect}
 \end{figure}
  
-Foram realizados alguns experimentos associando o uso do Kinect V1 como um escaneador em reconstruções. Primeiramente, foi executado uma calibração do Kinect para este tipo de reconstrução, onde a partir de experimentos, o sistema foi modelado como \ref{eq:kinectCalibracao}.
-
+Foram realizados alguns experimentos associando o uso do Kinect V1 como um
+escaneador em reconstruções~\cite{smisek20133d}, tarefa para a qual não foi
+originalmente projetado. Primeiramente, foi executada uma calibração do
+Kinect para este tipo de reconstrução, onde, a partir de experimentos, o sistema
+foi modelado como
 \begin{equation}
 \label{eq:kinectCalibracao}
-q(z)=2.73z^{2}+0.74z-0.58
+q(z)=2.73z^{2}+0.74z-0.58,
 \end{equation}
-
-Onde "z" é a profundidade em metros, e "q" a quantização, em milímetros.
-
-O modelo geométrico do Kinect foi criado com um sistema \emph{multi-view} considerando o RGB, IR e a profundidade.
-
+onde $z$ é a profundidade em metros, e $q$ a quantização, em milímetros.
+O modelo geométrico do Kinect foi criado com um sistema multi-ocular
+(\emph{multi-view}) considerando o RGB, IR e a profundidade.
 \begin{gather} 
 \label{eq:matrix}
 \begin{bmatrix}
@@ -111,7 +115,7 @@ u\\
 v\\
 1
 \end{bmatrix} 
-= K
+= k
 \begin{bmatrix}
 s\\
 t\\
@@ -148,17 +152,12 @@ r^2 = p^2+q^2,
 pz\\ 
 qz\\ 
 z
-\end{bmatrix} = R(X-C)
+\end{bmatrix} = R(X-C),
 \label{eq:relacaoKinect}
 \end{gather}
-
-
-
 Onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$, rotação $R$ e centro $C$.
-
 A profundidade é associada à geometria da câmera IR. que retorna a profundidade inversa ao longo do eixo $z$.
-
-Os valores de $u$ e de $v$ são dados pela equação \ref{eq:distorcaoKinect} %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
+Os valores de $u$ e de $v$ são dados pela equação~\ref{eq:distorcaoKinect} %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
 
 \begin{gather} 
 X_{IR} = \frac{1}{c_1 d + c_0}dis^{-1}\left ( K^{-1}_{IR}
@@ -176,16 +175,26 @@ y+v_0\\
 u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB})
 \end{equation}
 
-Associamos o sistema de coordenadas do Kinect com a câmera IR e consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$. 
-O ponto 3D $X_{IR}$ é construído a partir da medição de [x,y,d] de \ref{eq:distKinect} e produz uma imagem RGB de \ref{eq:finalKinect}.
+%xxx
+Associamos o sistema de coordenadas do Kinect com a câmera IR e,
+consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$.  O ponto 3D $X_{IR}$
+é construído a partir da medição de $[x,y,d]$ da equação~\ref{eq:distKinect} e
+produz uma imagem RGB, Equação~\ref{eq:finalKinect}.
 
-Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de \ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção relacionada à IR e à RGB. 
-$K_{IR}$ é a matriz de calibração da câmera IR, $K_{RGB}$ é a matriz de calibração da câmera RGB. $R_{RGB}$ e $C_{RGB}$ são, a matriz de rotação e de centro da câmera RGB, respectivamente.
+Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de
+\ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção
+relacionada à IR e à RGB.  $K_{IR}$ é a matriz de calibração da câmera IR,
+$K_{RGB}$ é a matriz de calibração da câmera RGB. $R_{RGB}$ e $C_{RGB}$ são, a
+matriz de rotação e de centro da câmera RGB, respectivamente.
 
-A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D, e consequentemente, a mesma posição relativa das câmeras.
-O sistema de coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$, $C_{RGB}$.
+A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D,
+e consequentemente, a mesma posição relativa das câmeras.  O sistema de
+coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$,
+$C_{RGB}$.
 
-Também foi observado que existe um deslocamento entre imagem IR e a imagem da profundidade criada pelo Kinect. Para contornar este problema, uma série de experimentos foram executados, gerando \ref{tab:deslocamentoKinect}.
+Também foi observado que existe um deslocamento entre imagem IR e a imagem da
+profundidade criada pelo Kinect. Para contornar este problema, uma série de
+experimentos foram executados, gerando \ref{tab:deslocamentoKinect}.
 
 \begin{table}[!h]
 \centering
