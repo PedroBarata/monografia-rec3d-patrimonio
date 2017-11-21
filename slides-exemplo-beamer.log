@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  20 NOV 2017 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.2)  20 NOV 2017 22:59
 entering extended mode
 **./slides-exemplo-beamer.tex
 (slides-exemplo-beamer.tex
@@ -1051,6 +1051,10 @@ Now handling font encoding PD1 ...
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\multimedia\multimedia.sty"
+Package: multimedia 2012/05/02 ver 0.02
+\mm@movie=\count157
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
@@ -1074,22 +1078,22 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen262
 \caption@hangindent=\dimen263
 )
-\c@ContinuedFloat=\count157
+\c@ContinuedFloat=\count158
 Package caption Info: beamer document class.
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
 )
-\c@KVtest=\count158
+\c@KVtest=\count159
 \sf@farskip=\skip60
 \sf@captopadj=\dimen264
 \sf@capskip=\skip61
 \sf@nearskip=\skip62
-\c@subfigure=\count159
-\c@subfigure@save=\count160
-\c@depth=\count161
-\c@subtable=\count162
-\c@subtable@save=\count163
+\c@subfigure=\count160
+\c@subfigure@save=\count161
+\c@depth=\count162
+\c@subtable=\count163
+\c@subtable@save=\count164
 \sf@top=\skip63
 \sf@bottom=\skip64
 )
@@ -1135,7 +1139,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
 code.tex"
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count164
+\pgf@plot@mark@count=\count165
 \pgfplotmarksize=\dimen269
 )
 \tikz@lastx=\dimen270
@@ -1148,18 +1152,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box57
 \tikz@tempbox=\box58
 \tikz@tempbox@bg=\box59
-\tikztreelevel=\count165
-\tikznumberofchildren=\count166
-\tikznumberofcurrentchild=\count167
-\tikz@fig@count=\count168
+\tikztreelevel=\count166
+\tikznumberofchildren=\count167
+\tikznumberofcurrentchild=\count168
+\tikz@fig@count=\count169
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count169
-\pgfmatrixcurrentcolumn=\count170
-\pgf@matrix@numberofcolumns=\count171
+\pgfmatrixcurrentrow=\count170
+\pgfmatrixcurrentcolumn=\count171
+\pgf@matrix@numberofcolumns=\count172
 )
-\tikz@expandcount=\count172
+\tikz@expandcount=\count173
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 librarytopaths.code.tex"
@@ -1172,7 +1176,7 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip65
-\multirow@cntb=\count173
+\multirow@cntb=\count174
 \multirow@dima=\skip66
 \bigstrutjot=\dimen276
 )
@@ -1189,15 +1193,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count174
-\c@ALG@rem=\count175
-\c@ALG@nested=\count176
+\c@ALG@line=\count175
+\c@ALG@rem=\count176
+\c@ALG@nested=\count177
 \ALG@tlm=\skip67
 \ALG@thistlm=\skip68
-\c@ALG@Lnr=\count177
-\c@ALG@blocknr=\count178
-\c@ALG@storecount=\count179
-\c@ALG@tmpcounter=\count180
+\c@ALG@Lnr=\count178
+\c@ALG@blocknr=\count179
+\c@ALG@storecount=\count180
+\c@ALG@tmpcounter=\count181
 \ALG@tmplength=\skip69
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -1218,20 +1222,20 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (slides-exemplo-beamer.aux)
 \openout1 = `slides-exemplo-beamer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1269,16 +1273,16 @@ LaTeX Font Info:    ... okay on input line 121.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count181
+\scratchcounter=\count182
 \scratchdimen=\dimen281
 \scratchbox=\box60
-\nofMPsegments=\count182
-\nofMParguments=\count183
+\nofMPsegments=\count183
+\nofMParguments=\count184
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count184
+\MPscratchCnt=\count185
 \MPscratchDim=\dimen282
-\MPnumerator=\count185
-\makeMPintoPDFobject=\count186
+\MPnumerator=\count186
+\makeMPintoPDFobject=\count187
 \everyMPtoPDFconversion=\toks51
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1294,7 +1298,7 @@ Package grfext Info: Graphics extension search list:
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 121.
+Package hyperref Info: Link coloring OFF on input line 124.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1302,68 +1306,68 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count187
+\c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 121.
-LaTeX Info: Redefining \pageref on input line 121.
-LaTeX Info: Redefining \nameref on input line 121.
+LaTeX Info: Redefining \ref on input line 124.
+LaTeX Info: Redefining \pageref on input line 124.
+LaTeX Info: Redefining \nameref on input line 124.
 
 (slides-exemplo-beamer.out) (slides-exemplo-beamer.out)
 \@outlinefile=\write5
 \openout5 = `slides-exemplo-beamer.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 121.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 124.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 121.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 124.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 121.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 121.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 121.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 121.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 124.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 121.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 121.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 121.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 124.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 121.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 121.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 121.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 124.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 121.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 121.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 124.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 121.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 124.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 121.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 121.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 121.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 121.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 121.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 124.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 121.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 121.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 124.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 124.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 1
-21.
+24.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-121.
+124.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 121.
+ut line 124.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-basi
 c-dictionary\translator-basic-dictionary-English.dict"
@@ -1391,7 +1395,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 121.
+(lastpage)             ! on input line 124.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1399,25 +1403,25 @@ Package caption Info: End \AtBeginDocument code.
 (slides-exemplo-beamer.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 121.
+(Font)              using `OT1/cmss/bx/n' instead on input line 124.
 
-<logo_uerj_cor.jpg, id=77, 292.4526pt x 321.8424pt>
+<logo_uerj_cor.jpg, id=78, 292.4526pt x 321.8424pt>
 File: logo_uerj_cor.jpg Graphic file (type jpg)
  <use logo_uerj_cor.jpg>
-Package pdftex.def Info: logo_uerj_cor.jpg used on input line 150.
+Package pdftex.def Info: logo_uerj_cor.jpg used on input line 153.
 (pdftex.def)             Requested size: 46.53455pt x 51.21504pt.
 
-Overfull \hbox (43.68929pt too wide) in paragraph at lines 150--150
+Overfull \hbox (43.68929pt too wide) in paragraph at lines 153--153
 [][]  
  []
 
-<iprj2.png, id=78, 560.0925pt x 300.12125pt>
+<iprj2.png, id=79, 560.0925pt x 300.12125pt>
 File: iprj2.png Graphic file (type png)
  <use iprj2.png>
-Package pdftex.def Info: iprj2.png used on input line 150.
+Package pdftex.def Info: iprj2.png used on input line 153.
 (pdftex.def)             Requested size: 79.64308pt x 42.67912pt.
 
-Overfull \hbox (76.79782pt too wide) in paragraph at lines 150--150
+Overfull \hbox (76.79782pt too wide) in paragraph at lines 153--153
 [][]  
  []
 
@@ -1425,11 +1429,11 @@ Overfull \hbox (76.79782pt too wide) in paragraph at lines 150--150
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./logo_uerj_cor.jpg> <./i
 prj2.png>] (slides-exemplo-beamer.toc)
-<logo_uerj_cor_transp.png, id=111, 292.4526pt x 321.8424pt>
+<logo_uerj_cor_transp.png, id=112, 292.4526pt x 321.8424pt>
 File: logo_uerj_cor_transp.png Graphic file (type png)
 
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 188.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 191.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1442,7 +1446,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 File: logo_uerj_cor_transp.png Graphic file (type png)
 
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 192.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 195.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1454,7 +1458,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 200.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 203.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1463,15 +1467,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [4
 
-] <figs/impressora-3d-capa.jpg, id=167, 742.775pt x 321.2pt>
+] <figs/impressora-3d-capa.jpg, id=168, 742.775pt x 321.2pt>
 File: figs/impressora-3d-capa.jpg Graphic file (type jpg)
 
 <use figs/impressora-3d-capa.jpg>
-Package pdftex.def Info: figs/impressora-3d-capa.jpg used on input line 207.
+Package pdftex.def Info: figs/impressora-3d-capa.jpg used on input line 210.
 (pdftex.def)             Requested size: 307.28987pt x 132.88382pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 207.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 210.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1483,7 +1487,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/impressora-3d-capa.jpg>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 217.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 220.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1492,15 +1496,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [6
 
-] <figs/jardim-do-nego.jpg, id=193, 552.0625pt x 414.54875pt>
+] <figs/jardim-do-nego.jpg, id=194, 552.0625pt x 414.54875pt>
 File: figs/jardim-do-nego.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego.jpg>
-Package pdftex.def Info: figs/jardim-do-nego.jpg used on input line 224.
+Package pdftex.def Info: figs/jardim-do-nego.jpg used on input line 227.
 (pdftex.def)             Requested size: 215.10196pt x 161.52155pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 224.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 227.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1510,15 +1514,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [7
 
  <./figs/jardim-do-nego.jpg>]
-<figs/jardim-do-nego22.jpg, id=208, 552.0625pt x 413.545pt>
+<figs/jardim-do-nego22.jpg, id=209, 552.0625pt x 413.545pt>
 File: figs/jardim-do-nego22.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego22.jpg>
-Package pdftex.def Info: figs/jardim-do-nego22.jpg used on input line 231.
+Package pdftex.def Info: figs/jardim-do-nego22.jpg used on input line 234.
 (pdftex.def)             Requested size: 215.10196pt x 161.13045pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 231.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 234.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1528,15 +1532,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [8
 
  <./figs/jardim-do-nego22.jpg>]
-<figs/jardim-do-nego32.jpg, id=222, 552.0625pt x 310.15875pt>
+<figs/jardim-do-nego32.jpg, id=223, 552.0625pt x 310.15875pt>
 File: figs/jardim-do-nego32.jpg Graphic file (type jpg)
 
 <use figs/jardim-do-nego32.jpg>
-Package pdftex.def Info: figs/jardim-do-nego32.jpg used on input line 239.
+Package pdftex.def Info: figs/jardim-do-nego32.jpg used on input line 242.
 (pdftex.def)             Requested size: 215.10196pt x 120.84784pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 239.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 242.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1548,7 +1552,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/jardim-do-nego32.jpg>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 251.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 254.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1560,7 +1564,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ] (slides-exemplo-beamer.toc)
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 254.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 257.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1572,7 +1576,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 262.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1584,7 +1588,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 269.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 272.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1593,15 +1597,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [13
 
-] <figs/luzestruturada.jpg, id=298, 1204.5pt x 806.01125pt>
+] <figs/luzestruturada.jpg, id=299, 1204.5pt x 806.01125pt>
 File: figs/luzestruturada.jpg Graphic file (type jpg)
 
 <use figs/luzestruturada.jpg>
-Package pdftex.def Info: figs/luzestruturada.jpg used on input line 276.
+Package pdftex.def Info: figs/luzestruturada.jpg used on input line 279.
 (pdftex.def)             Requested size: 215.10196pt x 143.93198pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 276.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 279.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1613,7 +1617,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/luzestruturada.jpg>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 286.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 289.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1625,7 +1629,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 292.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 295.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1634,23 +1638,23 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [16
 
-] <figs/gantry-and-david4-s.jpg, id=337, 200.75pt x 250.9375pt>
+] <figs/gantry-and-david4-s.jpg, id=338, 200.75pt x 250.9375pt>
 File: figs/gantry-and-david4-s.jpg Graphic file (type jpg)
 
 <use figs/gantry-and-david4-s.jpg>
-Package pdftex.def Info: figs/gantry-and-david4-s.jpg used on input line 300.
+Package pdftex.def Info: figs/gantry-and-david4-s.jpg used on input line 303.
 (pdftex.def)             Requested size: 122.91406pt x 153.64598pt.
 
-<figs/mgantry-scannerhead-s.jpg, id=338, 274.52562pt x 351.3125pt>
+<figs/mgantry-scannerhead-s.jpg, id=339, 274.52562pt x 351.3125pt>
 File: figs/mgantry-scannerhead-s.jpg Graphic file (type jpg)
 
 <use figs/mgantry-scannerhead-s.jpg>
-Package pdftex.def Info: figs/mgantry-scannerhead-s.jpg used on input line 300.
+Package pdftex.def Info: figs/mgantry-scannerhead-s.jpg used on input line 303.
 
 (pdftex.def)             Requested size: 122.91406pt x 157.29042pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 300.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 303.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1660,16 +1664,16 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [17
 
  <./figs/gantry-and-david4-s.jpg> <./figs/mgantry-scannerhead-s.jpg>]
-<figs/scanner-head-and-david-head-s.jpg, id=352, 185.0112pt x 115.632pt>
+<figs/scanner-head-and-david-head-s.jpg, id=353, 185.0112pt x 115.632pt>
 File: figs/scanner-head-and-david-head-s.jpg Graphic file (type jpg)
 
 <use figs/scanner-head-and-david-head-s.jpg>
 Package pdftex.def Info: figs/scanner-head-and-david-head-s.jpg used on input l
-ine 306.
+ine 309.
 (pdftex.def)             Requested size: 215.10196pt x 134.4455pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 306.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 309.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1679,15 +1683,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [18
 
  <./figs/scanner-head-and-david-head-s.jpg>]
-<figs/ferramentasMich.png, id=366, 803.0pt x 451.6875pt>
+<figs/ferramentasMich.png, id=367, 803.0pt x 451.6875pt>
 File: figs/ferramentasMich.png Graphic file (type png)
 
 <use figs/ferramentasMich.png>
-Package pdftex.def Info: figs/ferramentasMich.png used on input line 312.
+Package pdftex.def Info: figs/ferramentasMich.png used on input line 315.
 (pdftex.def)             Requested size: 215.10196pt x 120.99234pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 312.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 315.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1700,7 +1704,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 File: logo_uerj_cor_transp.png Graphic file (type png)
 
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 315.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 318.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1712,7 +1716,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 322.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 325.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1724,7 +1728,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 332.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 335.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1733,15 +1737,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [22
 
-] <figs/pipelinesfm.png, id=434, 1405.25pt x 602.25pt>
+] <figs/pipelinesfm.png, id=435, 1405.25pt x 602.25pt>
 File: figs/pipelinesfm.png Graphic file (type png)
 
 <use figs/pipelinesfm.png>
-Package pdftex.def Info: figs/pipelinesfm.png used on input line 338.
+Package pdftex.def Info: figs/pipelinesfm.png used on input line 341.
 (pdftex.def)             Requested size: 307.28987pt x 131.6959pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 338.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 341.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1753,7 +1757,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/pipelinesfm.png (PNG copy)>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 346.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 349.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1762,19 +1766,19 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [24
 
-] <figs/lenaDoG.png, id=465, 174.6525pt x 174.6525pt>
+] <figs/lenaDoG.png, id=466, 174.6525pt x 174.6525pt>
 File: figs/lenaDoG.png Graphic file (type png)
 
 <use figs/lenaDoG.png>
-Package pdftex.def Info: figs/lenaDoG.png used on input line 352.
+Package pdftex.def Info: figs/lenaDoG.png used on input line 355.
 (pdftex.def)             Requested size: 245.83282pt x 245.84698pt.
 
-Overfull \vbox (43.44063pt too high) detected at line 352
+Overfull \vbox (43.44063pt too high) detected at line 355
  []
 
 File: logo_uerj_cor_transp.png Graphic file (type png)
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 352.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 355.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1784,24 +1788,24 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [25
 
  <./figs/lenaDoG.png>]
-<figs/triangulacao.png, id=482, 392.96812pt x 316.93407pt>
+<figs/triangulacao.png, id=483, 392.96812pt x 316.93407pt>
 File: figs/triangulacao.png Graphic file (type png)
 
 <use figs/triangulacao.png>
-Package pdftex.def Info: figs/triangulacao.png used on input line 366.
+Package pdftex.def Info: figs/triangulacao.png used on input line 369.
 (pdftex.def)             Requested size: 138.2795pt x 111.52824pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 366.
+LaTeX Font Info:    Try loading font information for U+msa on input line 369.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 366.
+LaTeX Font Info:    Try loading font information for U+msb on input line 369.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 366.
+line 369.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\sansmathaccent\ot1mathkerncmss.fd"
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1810,7 +1814,7 @@ thkerncmss.
 File: logo_uerj_cor_transp.png Graphic file (type png)
 
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 366.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 369.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1822,7 +1826,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/triangulacao.png>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 382.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 385.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1831,15 +1835,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [27
 
-] <figs/mvepipe.png, id=515, 794.97pt x 210.7875pt>
+] <figs/mvepipe.png, id=516, 794.97pt x 210.7875pt>
 File: figs/mvepipe.png Graphic file (type png)
  <use figs/mvepipe.png>
-Package pdftex.def Info: figs/mvepipe.png used on input line 389.
+Package pdftex.def Info: figs/mvepipe.png used on input line 392.
 (pdftex.def)             Requested size: 307.28987pt x 81.47989pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
 
 <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 389.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 392.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1851,7 +1855,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/mvepipe.png>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 403.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 406.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1860,15 +1864,15 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [29
 
-] <figs/mvedepth.png, id=545, 417.05812pt x 277.78781pt>
+] <figs/mvedepth.png, id=546, 417.05812pt x 277.78781pt>
 File: figs/mvedepth.png Graphic file (type png)
 
 <use figs/mvedepth.png>
-Package pdftex.def Info: figs/mvedepth.png used on input line 410.
+Package pdftex.def Info: figs/mvedepth.png used on input line 413.
 (pdftex.def)             Requested size: 245.83282pt x 163.74078pt.
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 410.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 413.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1880,7 +1884,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  <./figs/mvedepth.png>]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 422.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 425.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1892,7 +1896,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 439.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 442.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1904,7 +1908,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 450.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 453.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1916,7 +1920,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 461.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 464.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1928,7 +1932,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ] (slides-exemplo-beamer.toc)
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 464.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 467.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1940,7 +1944,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 471.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 474.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1952,7 +1956,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 482.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 485.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1964,7 +1968,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ] (slides-exemplo-beamer.toc)
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 485.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 488.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1976,7 +1980,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 492.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 495.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -1988,7 +1992,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 498.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 501.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2000,7 +2004,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 504.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 507.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2012,7 +2016,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 519.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 533.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2024,7 +2028,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 524.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 538.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2036,7 +2040,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 529.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 543.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2048,7 +2052,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 539.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 572.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2060,7 +2064,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 544.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 577.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2070,9 +2074,14 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [46
 
 ]
+
+Package multimedia Warning: The movie file ``videos/video1.3gp'' could not be f
+ound in the current directory, where it must reside for viewing. on input line 
+587.
+
 File: logo_uerj_cor_transp.png Graphic file (type png)
- <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 549.
+<use logo_uerj_cor_transp.png>
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 587.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2082,9 +2091,14 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 [47
 
 ]
+
+Package multimedia Warning: The movie file ``videos/video2.3gp'' could not be f
+ound in the current directory, where it must reside for viewing. on input line 
+593.
+
 File: logo_uerj_cor_transp.png Graphic file (type png)
- <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 557.
+<use logo_uerj_cor_transp.png>
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 593.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2096,7 +2110,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 566.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 600.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2108,7 +2122,7 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 ]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 575.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 609.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2117,10 +2131,10 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [50
 
-] (slides-exemplo-beamer.toc)
+]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 578.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 618.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2129,10 +2143,10 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [51
 
-]
+] (slides-exemplo-beamer.toc)
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 586.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 621.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2141,10 +2155,10 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [52
 
-] (slides-exemplo-beamer.toc)
+]
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 589.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 628.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2153,10 +2167,10 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [53
 
-]
+] (slides-exemplo-beamer.toc)
 File: logo_uerj_cor_transp.png Graphic file (type png)
  <use logo_uerj_cor_transp.png>
-Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 600.
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 631.
 (pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
 
 Overfull \hbox (25.60748pt too wide) has occurred while \output is active
@@ -2165,7 +2179,19 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
 
 [54
 
-] [55
+]
+File: logo_uerj_cor_transp.png Graphic file (type png)
+ <use logo_uerj_cor_transp.png>
+Package pdftex.def Info: logo_uerj_cor_transp.png used on input line 642.
+(pdftex.def)             Requested size: 28.45274pt x 31.31198pt.
+
+Overfull \hbox (25.60748pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[55
+
+] [56
 
 ]
 \tf@nav=\write6
@@ -2180,41 +2206,53 @@ Overfull \hbox (25.60748pt too wide) has occurred while \output is active
  
 AED: lastpage setting LastPage
 
-Package caption Warning: Unused \captionsetup[table] on input line 31.
+Package caption Warning: Unused \captionsetup[table] on input line 34.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 622.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 622.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 664.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 664.
 (slides-exemplo-beamer.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 622.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 622.
-Package rerunfilecheck Info: File `slides-exemplo-beamer.out' has not changed.
-(rerunfilecheck)             Checksum: 04F930D08E8E15DC31A47B0532138A7B;896.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 664.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 664.
 
+
+Package rerunfilecheck Warning: File `slides-exemplo-beamer.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `slides-exemplo-beamer.out':
+(rerunfilecheck)             Before: 04F930D08E8E15DC31A47B0532138A7B;896
+(rerunfilecheck)             After:  614CD088FB2966A48D92A02F30E9D5F0;893.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 23478 strings out of 493323
- 450295 string characters out of 3139061
- 540937 words of memory out of 3000000
- 26280 multiletter control sequences out of 15000+200000
+ 23580 strings out of 493323
+ 452177 string characters out of 3139061
+ 543596 words of memory out of 3000000
+ 26371 multiletter control sequences out of 15000+200000
  13490 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,20n,64p,820b,746s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mssi9.pfb>
-Output written on slides-exemplo-beamer.pdf (55 pages, 3182640 bytes).
+pdfTeX warning (dest): name{Outline0.5.2.48} has been referenced but does not
+ exist, replaced by a fixed one
+
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+si9.pfb>
+Output written on slides-exemplo-beamer.pdf (56 pages, 3186165 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 134 named destinations out of 1000 (max. 500000)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1008 PDF objects out of 1200 (max. 8388607)
+ 137 named destinations out of 1000 (max. 500000)
+ 292 words of extra memory for PDF output out of 10000 (max. 10000000)
 
