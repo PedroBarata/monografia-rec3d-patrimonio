@@ -37,48 +37,51 @@ Criado pela Microsoft para fins recreativos (como no console de videogame XBox, 
 exemplo), o Kinect se tornou uma das mais conhecidas ferramentas de reconstrução 3D no
 cenário atual. Sua primeira versão (Kinect V1)~\ref{fig:kinectv1}, ainda atual, utiliza uma
 técnica similar à empregada no projeto \emph{Digital Michelangelo} da Universidade de Stanford, com luz
-estruturada, porém, diferentemente dos escaners a \emph{laser}, o Kinect tem um
-custo monetário baixo e é acessível ao público em geral (desde entusiastas
+estruturada, porém, diferentemente dos escaners a \emph{laser}, o Kinect é mais rápido e tem um
+custo monetário baixo, acessível ao público em geral (desde entusiastas
 e amadores até profissionais da área). 
 
-%xxx
 O Kinect versão 2 é composto de uma câmera RGB-D (\emph{red, green, blue} e
-\emph{depth}) e utiliza uma projeção de fótons, é mais robusto que seu
+\emph{depth}) e utiliza uma projeção de fótons, sendo mais robusto que seu
 antecessor, para ambientes fechados e para fins de escaneamento de formas
-humanas (como esqueleto, músculos, batimento cardíaco, por exemplo). devido à
-técnica empregada para reconhecimento 3d (\emph{time of flight} com fótons),
-ele é muito sensível às texturas presentes no objeto. ou seja, para esculturas
-com diferentes superfícies, diferentes refletâncias, lambertianos ou
-especulares, por exemplo, podem acarretar em problemas nas reconstruções. além
-disso, existem outros obstáculos, como a dificuldade onde o fóton emitido pelo
-emissor rebate em várias superfícies antes de ser detectado pelo sensor de
-infra-vermelho. e, portanto, para o uso em áreas externas, a primeira versão se
-sai melhor.
+humanas (como esqueleto, músculos, e até mesmo para medir o batimento cardíaco, por exemplo). Devido à
+técnica empregada para reconhecimento 3D \emph{Time of Flight},
+ele é muito sensível às texturas presentes no objeto, ou seja, esculturas
+com diferentes superfícies, diferentes refletâncias, lambertianas ou
+especulares, por exemplo, podem acarretar em problemas ou buracos nas reconstruções. Além
+disso, existem outros obstáculos, como a dificuldade em que o fóton emitido 
+rebate em várias superfícies antes de ser detectado pelo sensor. 
+Portanto, para o uso em áreas externas, a primeira versão do Kinect se sai melhor.
 
-o kinect versão 1 é composto por 2 câmeras: uma rgb e outra de profundidade e
-por um projetor ir (\emph{infra-red}) de padrões. e funciona da seguinte
-maneira: o projetor ir de padrões lança uma matriz que já é previamente
-conhecida pelo sistema do kinect, a partir disso, qualquer deformação deste
-padrão é captada pelas câmeras, o que identifica se um objeto está no alcance
-dos sensores ou não. a resposta, é composta por 3 \emph{outputs}: uma imagem
-ir,  uma rgb e a profundidade (inversa) da imagem. 
+O Kinect versão 1 é composto por duas câmeras: uma RGB apenas para cores e aparência,
+e outra câmera infra-vermelho para profundidade, atuando em sincronia com um projetor de padrões em infra-vermelho (IR ou \emph{infra-red}). O projetor IR lança uma matriz de padrões que já é previamente
+conhecida pelo sistema do Kinect, e, a partir disso, qualquer deformação deste
+padrão é captada pela câmera IR, o que identifica se um objeto está no alcance
+dos sensores ou não. O espectro infra-vermelho é utilizado por não ser percebido pela visão humana.
+A resposta é composta por 3 saídas: uma imagem de intensidades IR, uma RGB e a profundidade de cada pixel. 
 
-a partir deste momento, referenciamos o kinect versão 1 apenas como kinect.
+A seguir, será usado o termo ``Kinect'' para o Kinect versão 1, pois este é ainda
+o modelo mais utilizado na literatura para o escaneamento de objetos, conforme
+é o foco deste trabalho, em vez do rastreamento em tempo real para entretenimento, que é
+dominado pelo Kinect versão 2.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
 	\caption{%
-	Imagem de um Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR - \emph{Infra-Red}), uma câmera RGB e um projetor IR.
-	\protect\cite{smisek20133d}.
+  Imagem de um Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR -
+  \emph{Infra-Red}), uma câmera RGB e um projetor IR.
+  \protect\cite{smisek20133d}.
 	}\label{fig:kinectv1}
 \end{figure}
 
 \subsection*{Processo de calibração}
 
-Sua principal saída da imagem do Kinect é correspondente à profundidade da cena. Em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade inversa, $D$.
-A profundidade da imagem é construída a partir da triangulação da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
+Sua principal saída da imagem do Kinect é correspondente à profundidade da
+cena. Em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade
+inversa, $D$.  A profundidade da imagem é construída a partir da triangulação
+da imagem IR com o projetor e, consequentemente, "carregada" pela imagem IR.
 
 \begin{figure}[!h]
 	\centering
