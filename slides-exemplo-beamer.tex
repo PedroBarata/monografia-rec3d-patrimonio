@@ -394,12 +394,13 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \frametitle{\textbf{Triangulação}}
 	\begin{center}
 		\begin{figure} [!h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
-	\caption{%
-	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
-	}\label{fig:triangulacao}
-\end{figure}
+			\centering
+			\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
+			\caption{%
+				Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \\
+				\tiny{Fonte: http://cs.nyu.edu/~fergus/teaching/vision/11\underline{\space}12\underline{\space}multiview.pdf}
+		}
+		\end{figure}
 	\end{center}
 \end{frame}
 
@@ -422,7 +423,14 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \begin{frame}
 \frametitle{\textbf{MVE -- \emph{Multi-View Stereo Environment}}}
 	\begin{center}
-	 	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	 	\caption{
+		Processo empregado pelo MVE. \\
+		\tiny{Fonte: https://www.gcc.tu-darmstadt.de/media/gcc/papers/Fuhrmann-2014-MVE.pdf}
+	}
+	\end{figure}
 	\end{center}
 \end{frame}
 
@@ -443,7 +451,15 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \begin{frame}
 \frametitle{\textbf{MVS}}
 	\begin{center}
-	 	\includegraphics[width=0.8\linewidth]{figs/mvedepth.png}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{figs/mvedepth.png}
+			\caption{
+			Mapa de profundidade de uma imagem. \\
+			\tiny{Fonte: https://www.gcc.tu-darmstadt.de/media/gcc/papers/Fuhrmann-2014-MVE.pdf}
+			}
+		\end{figure}
+	 	
 	\end{center}
 \end{frame}
 
