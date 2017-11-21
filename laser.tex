@@ -1,9 +1,19 @@
-\chapter{Reconstrução à Laser}\label{cap:laser}
+\chapter{Reconstrução 3D Ativa}\label{cap:laser}
 
 \section*{Introdução}
 
-A técnica de reconstrução baseada em \emph{laser} é conhecida desde o século passado, pois oferecem uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados. 
-Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza escaneadores baseados em superfícies, mais especificamente, utilizando uma técnica conhecida como \emph{Time of Flight}, ou tempo de voo \ref{fig:luzestruturada}. Este processo se baseia em projetar um padrão conhecido (muitas vezes, grades ou barras horizontais, via \emph{laser}) em uma cena. A forma como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
+A técnica de reconstrução 3D baseada em \emph{laser} 
+é conhecida desde o século
+passado, pois oferece uma alta qualidade geométrica de dados, até mesmo para
+regiões sem textura.  Neste capítulo, abordamos o projeto clássico de escaneamento da
+escultura de Michelangelo, Davi, que utiliza escaneadores 
+por laser, também relacionados a técnicas de luz estruturada e
+uma técnica conhecida como \emph{Time of Flight}, ou tempo de voo,
+Figura~\ref{fig:luzestruturada}. Esse processo se baseia em projetar um padrão
+conhecido (muitas vezes, grades ou barras horizontais, via \emph{laser} ou luz infra-vermelho) em uma
+cena. A forma como o padrão se deforma quando atinge superfícies permite que
+sistemas de visão calculem a profundidade e informações das superfícies dos
+objetos na cena.
 
 \begin{figure}[!h]
 	\centering
@@ -17,23 +27,48 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \section{Projeto de preservação das esculturas de Michelangelo}\label{sec:David}
 
+
 \subsection*{Introdução}
 
-Este projeto tem como motivação avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns dos principais artefatos culturais. Foram utilizados sensores de alcance (\emph{range finders}) para triangulação, sensores de alcance baseados em ToF (\emph{Time of Flight}), câmeras digitais e um software de calibração. Com uma equipe de mais de 30 professores, funcionários e estudantes da Universidade de Stanford desenvolveram algoritmos para combinar imagens de múltiplas gamas e cores, passaram os anos de 1998 e 1999 na Itália escaneando esculturas de Michelangelo. 
+O projeto Digital Michaelangelo~\cite{levoy2000digital} tem como motivação
+avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns
+dos principais artefatos culturais. Foram
+utilizados sensores de profundidade (\emph{range finders}) para triangulação,
+sensores de profundidade baseados em ToF (\emph{Time of Flight}), câmeras digitais e
+um software de calibração. Uma equipe de mais de 30 professores pesquisadores,
+funcionários e estudantes das Universidades de Stanford e de Washington, bem como pesquisadores de 
+empresas privadas, passaram os anos de 1998 e
+1999 na Itália escaneando esculturas de Michelangelo. 
 
-O principal componente de hardware do sistema é um escaneador de triangulação a \emph{laser}, que é composto por 4 eixos motorizados, um \emph{laser}, uma câmera de alcance, uma câmera de cores e uma luz branca~\ref{fig:cabecaScanner}, isso tudo acrescido de suportes e estruturas para o escaneamento de estátuas grandes. O objetivo de um escaneador deste porte era capturar marcas menores que um milímetro, das ferramentas utilizadas por Michelangelo em suas esculturas. 
-Para isso foram testadas diversas resoluções, na qual foi decidido um espaçamento Y (ao longo da faixa do \emph{laser}) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas vezes este valor. 
-O que resultou em uma visualização de 14 cm de largura (ao longo da faixa do \emph{laser}) por 14 cm de profundidade. Caso esta resolução fosse menor, as marcas de cinzelão ficariam borradas e se fosse maior, o conjunto de dados produzido seria gigantesco.
-Felizmente, a maioria das estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em Carrara Statuario, uma pedra altamente uniforme, não direcional e constituída de grãos finos. Além disso, com exceção da "Noite"~\ref{fig:noite}, as esculturas não são polidas e cobertas por terra, o que aumenta a dispersão superficial e reduz a abaixo da superfície.
-Neste contexto, a dispersão abaixo da superfície causa alguns problemas: não se pode assumir que a superfície é Lambertiana ideal~\cite{basri2003lambertian}, mudou a forma com que a renderização dos modelos seriam feitos e diminuiu a qualidade de disposição de dados.
+O principal componente de hardware do sistema é um escaneador de triangulação a
+\emph{laser}, que é composto por quatro eixos motorizados, um projetor a \emph{laser}, uma
+câmera de profundidade, uma câmera de cores RGB e uma luz
+branca~\ref{fig:cabecaScanner}, isso tudo acrescido de suportes e estruturas
+para o escaneamento de estátuas grandes. O objetivo de um escaneador deste
+porte era capturar marcas menores que um milímetro, das ferramentas utilizadas
+por Michelangelo em suas esculturas.  Para isso, foram testadas diversas
+resoluções, tendo sido decidido um espaçamento Y (ao longo da faixa do
+\emph{laser}) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas
+vezes este valor. Isso resultou em uma visualização de 14 cm de largura (ao
+longo da faixa do \emph{laser}) por 14 cm de profundidade. Caso esta resolução
+fosse menor, as marcas de cinzel ficariam borradas e, se fosse maior, o
+conjunto de dados produzido seria gigantesco.  Felizmente, a maioria das
+estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em
+Carrara, chamado Statuario, uma pedra altamente uniforme, não direcional e constituída
+de grãos finos. Além disso, com exceção de ``Noite''~\ref{fig:noite}, as
+esculturas não são polidas e cobertas por terra, o que aumenta a dispersão
+superficial e reduz a abaixo da superfície.  Nesse contexto, a dispersão abaixo
+da superfície causa alguns problemas: não se pode assumir que a superfície é
+Lambertiana ideal~\cite{basri2003lambertian}, o que mudou a forma com que a
+renderização dos modelos seria feita e diminuiu a qualidade de disposição de
+dados.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.3\linewidth]{figs/gantry-and-david4-s.jpg}(a)
-	\includegraphics[width=0.3\linewidth]{figs/mgantry-scannerhead-s.jpg}(b)
+	\includegraphics[width=0.45\linewidth]{figs/gantry-and-david4-s.jpg}(a)
+	\includegraphics[width=0.45\linewidth]{figs/mgantry-scannerhead-s.jpg}(b)
 	\caption{%
-	Como era feito o escaneamento da estátua de David (a), composto por dois escaneadores, sendo (b) o escaneador principal (da cabeça) e estruturas para alcançar todos os pontos necessários.
-	\cite{levoy2000digital}.
+	Como era feito o escaneamento da estátua de David (a), composto por dois escaneadores, sendo (b) o escaneador principal (da cabeça) e estruturas para alcançar todos os pontos necessários~\cite{levoy2000digital}.
 	}\label{fig:cabecaScanner}
 \end{figure}
 
@@ -41,7 +76,7 @@ Neste contexto, a dispersão abaixo da superfície causa alguns problemas: não 
 	\centering
 	\includegraphics[width=0.4\linewidth]{figs/michelangelo-notte.jpg}
 	\caption{%
-	Escultura "Noite", de Michelangelo.
+	Escultura ``Noite'', de Michelangelo.
 	}\label{fig:noite}
 \end{figure}
 
