@@ -96,8 +96,9 @@ da imagem IR com o padrão conhecido do projetor.
 	}\label{fig:profKinect}
 \end{figure}
  
-Foram realizados alguns experimentos associando o uso do Kinect V1 como um
-escaneador em reconstruções~\cite{smisek20133d}, tarefa para a qual não foi
+%TODO: conferir essas contas
+Na literatura, foram realizados alguns experimentos associando o uso do Kinect V1 como um
+escaneador de baixo custo em reconstruções~\cite{smisek20133d}, tarefa para a qual não foi
 originalmente projetado. Primeiramente, foi executada uma calibração do
 Kinect para este tipo de reconstrução, onde, a partir de experimentos, o sistema
 foi modelado como
@@ -155,9 +156,10 @@ z
 \end{bmatrix} = R(X-C),
 \label{eq:relacaoKinect}
 \end{gather}
-Onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$, rotação $R$ e centro $C$.
+onde $k_n$ é o parâmetro de distorção, matriz de calibração da câmera $K$,
+rotação $R$ e centro de projeção $C$.
 A profundidade é associada à geometria da câmera IR. que retorna a profundidade inversa ao longo do eixo $z$.
-Os valores de $u$ e de $v$ são dados pela equação~\ref{eq:distorcaoKinect} %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
+Os valores de $u$ e de $v$ são dados pela equação~\ref{eq:distorcaoKinect}, %(substitui-se o vetor [s, t, 1] em 2), X é o ponto coordenada 3D, c1 e c0 parâmetros do modelo.
 
 \begin{gather} 
 X_{IR} = \frac{1}{c_1 d + c_0}dis^{-1}\left ( K^{-1}_{IR}
@@ -172,13 +174,12 @@ y+v_0\\
 
 \begin{equation}
 \label{eq:finalKinect}
-u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB})
+u_{RGB} = K_{RGB} dis(R_{RGB}(X_{IR} - C_{RGB}),k_{RGB}).
 \end{equation}
 
-%xxx
 Associamos o sistema de coordenadas do Kinect com a câmera IR e,
 consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$.  O ponto 3D $X_{IR}$
-é construído a partir da medição de $[x,y,d]$ da equação~\ref{eq:distKinect} e
+é construído a partir da medição de $[x,y,d]^\top$ da equação~\ref{eq:distKinect} e
 produz uma imagem RGB, Equação~\ref{eq:finalKinect}.
 
 Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de
@@ -250,13 +251,16 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \subsection*{Uso do Kinect com \emph{Structure from Motion}}
 
-Com o sistema calibrado, o Kinect foi testado usando técnicas \emph{Structure from Motion}, onde a figura a seguir compara a superfície 3D de nuvem de pontos com uma com Kinect. 
+Com o sistema calibrado, o Kinect foi testado usando técnicas \emph{Structure
+from Motion}, onde a figura a seguir compara a superfície 3D de nuvem de pontos
+com uma com Kinect~\cite{smisek20133d}.  O resultado é tão bom quanto ao mais
+acurado resultado de \emph{Multi-View Stereo}.
 
-O resultado é tão bom quanto ao mais acurado \emph{Multi-View Stereo}.
-
-O Kinect tem a capacidade e, com o procedimento de calibração, é possível combiná-lo com técnicas \emph{SfM} e \emph{multi-view stereo}, o que abre uma nova aplicação na área de reconstrução 3D.
-
-Quanto a qualidade da reconstrução de multi-view, o Kinect ficou melhor que o SR-4000 e perto do 3.5M SLR Stereo \ref{tab:resultadosKinect}.
+O Kinect, com o procedimento de calibração, pode ser combinado
+com técnicas \emph{SfM} e \emph{multi-view stereo}, o que abre uma
+nova metodologia na área de reconstrução 3D.
+Quanto à qualidade da reconstrução, o Kinect ficou melhor que o
+SR-4000 e perto do 3.5M SLR Stereo, Figura~\ref{tab:resultadosKinect}.
 
 %COLOCAR IMAGEM COMPARATIVA AQUI%
 %\begin{figure}[!h]
@@ -268,6 +272,30 @@ Quanto a qualidade da reconstrução de multi-view, o Kinect ficou melhor que o 
 %	}\label{fig:deslocKinect}
 %\end{figure}
 
-O Kinect é tão utilizado para fins pessoais (e empresariais), que existem alguns softwares para utilizá-lo como uma ferramenta de reconstrução 3D e a maioria deles são bem acessíveis (incluindo um pacote de ferramentas que a própria Microsoft disponibilizou, para o funcionamento do Kinect no Windows). Uma delas é o \emph{Skanect} que tem a versão gratuita onde é possível fazer escaneamentos básicos e a versão paga, que possibilita uma configuração maior, como por exemplo, a delimitação do objeto que será reconstruído, exportar o arquivo em diferentes formatos (\emph{.PLY}; \emph{.OBJ}: formato para exportação para programas que melhoram o modelo gerado (blender ou sculptris, por exemplo). E escolher o numero de faces a ser exportado; \emph{STL}: próprio para a impressora 3D (software \emph{Cura}); \emph{VRML}: salva também as cores do modelo.)
+O Kinect é tão utilizado para fins pessoais e empresariais, que existem alguns
+softwares prontamente disponíveis para utilizá-lo como uma ferramenta de
+reconstrução 3D, sendo a maioria deles acessíveis (incluindo um pacote de ferramentas que a própria
+Microsoft disponibilizou). Um desses softwares
+é o \emph{Skanect}, que tem a versão gratuita com a qual é possível fazer escaneamentos
+básicos, bem como a versão paga, que possibilita uma configuração mais
+detalhada, como por
+exemplo: a delimitação do objeto que será reconstruído; exportar o arquivo em
+diferentes formatos (\emph{.PLY} e \emph{.OBJ}, formatos para exportação para
+programas que trabalham o modelo gerado, como Blender ou Sculptris);
+escolher o numero de faces a ser exportado; e suporte a demais formatos como
+\emph{STL} (próprio para a impressora 3D, através de software como o \emph{Cura})
+e \emph{VRML}, além de salvar também as cores do modelo.
 
-Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi projetado para funcionar bem em espaços fechados, com detecção de formas humanas e movimentações. Ou seja, numa aplicação \emph{in situ} já não funcionaria muito bem, pois além de não conseguir projetar os detalhes em alta definição de uma escultura, ele necessita de uma fonte de energia externa, o que dificulta a acessibilidade, e, como  é gerada uma reconstrução em tempo real (não tem uma forma de salvar em \emph{cache} ou internamente), ele precisa estar ligado a um computador para fazer o escaneamento.
+Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi
+projetado para funcionar bem em espaços fechados, com detecção de formas humanas
+e movimentações. Ou seja, numa aplicação \emph{in situ} já não funcionaria muito
+bem, pois além de não conseguir escanear os detalhes em alta definição de uma
+escultura, ele necessita de uma fonte de energia externa, diferentemente de um
+\emph{smartphone} ou câmera convencional, o que dificulta a acessibilidade.
+Ademais, como é gerada uma reconstrução em tempo real (não tem uma forma de salvar em
+\emph{cache} ou internamente), ele precisa estar ligado a um computador para fazer o escaneamento.
+Algumas empresas vendem soluções mais convenientes de escaneamento 3D baseado no
+hardware do Kinect, porém o custo desta alternativa pode ser considerável se
+comparado a câmeras convencionais.
+
+% TODO: incluir mais softwares: kinect fusion
