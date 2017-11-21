@@ -206,6 +206,10 @@ Universidade do Estado do Rio de Janeiro}
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=1\linewidth]{figs/impressora-3d-capa.jpg}
+		\caption{%
+		Impressora 3D \\
+		\tiny{Fonte: http://publicidademarketing.com/impressora-3d/}		
+		}
 	\end{figure}
 \end{frame}
 
@@ -259,7 +263,7 @@ Perguntas a serem respondidas ao longo deste projeto:
 
 \begin{frame} 
 	\begin{center}
-    O método de reconstrução 3D baseado em \emph{lasers} é um \textbf{método ótico ativo}, amplamente utilizada, pois oferece uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
+    O método de reconstrução 3D baseado em \emph{lasers} é um \textbf{método ótico ativo}, amplamente utilizado, pois oferece uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
 Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza escaneadores baseados em superfícies, mais especificamente, utilizando \emph{Time of Flight}, ou tempo de voo.
 	\end{center}
 \end{frame}
@@ -271,11 +275,17 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 	\end{center}
 \end{frame}
 
-\begin{frame} 
-	\begin{center}
+\begin{frame}
+	\begin{figure}
+		\begin{center}
 		\centering
 		\includegraphics[width=0.7\linewidth]{figs/luzestruturada.jpg}
+		\caption{Exemplo de um projetor de padrões de ToF à laser. \\
+		\tiny{Fonte: http://www.opto-engineering.com/}
+		}
 	\end{center}
+\end{figure}	 
+
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
@@ -299,18 +309,37 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 		\centering
 		\includegraphics[width=0.4\linewidth]{figs/gantry-and-david4-s.jpg}
 		\includegraphics[width=0.4\linewidth]{figs/mgantry-scannerhead-s.jpg}
+		\caption{%
+		Scanners utilizados no projeto de reconstrução de David. \\
+		\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
+		}
 	\end{figure}
 \end{frame}
 
 \begin{frame} 
 	\begin{center}
+	\begin{figure}[!h]
+		\centering
 		\includegraphics[width=0.7\linewidth]{figs/scanner-head-and-david-head-s.jpg}
+		\caption{%
+		Como foi escaneada a cabeça da escultura. \\
+		\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
+		}
+	\end{figure}
+		
 	\end{center}
 \end{frame}
 
 \begin{frame} 
 	\begin{center}
-		\includegraphics[width=0.7\linewidth]{figs/ferramentasMich.png}
+		\centering
+		\begin{figure}[!h]
+			\includegraphics[width=0.7\linewidth]{figs/ferramentasMich.png}
+			\caption{%
+			Exemplos de cinzelões usados por Michelangelo \\
+			\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
+			}
+		\end{figure}
 	\end{center}
 \end{frame}
 
@@ -336,35 +365,42 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{center}
-		\includegraphics[width=1\linewidth]{figs/pipelinesfm.png}
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=1\linewidth]{figs/pipelinesfm.png}
+			\caption{%
+				Processo do SfM \\
+			\tiny{Fonte: http://www.theia-sfm.org/sfm.html}
+			}
+		\end{figure}	
 	\end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{\textbf{SIFT}}
-	\begin{center}
-		{SIFT -- \emph{Scale Invariant Feature Transform}}
-		Detector de pontos-chave.
+\frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
+	\begin{center}		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=1\linewidth]{figs/sift1.png}
+			\caption{%
+				Exemplo de interpretação SIFT. \\
+			\tiny{Fonte: https://www.usna.edu/Users/cs/taylor/courses/si475/index.php?page=class/siftProject.html}
+			}
+		\end{figure}
 	\end{center}
 \end{frame}
-
-\begin{frame}
-	\begin{center}
-	 	\includegraphics[width=0.8\linewidth]{figs/lenaDoG.png}
-	\end{center}
-\end{frame}
-
 
 \begin{frame}
 \frametitle{\textbf{Triangulação}}
 	\begin{center}
 		\begin{figure} [!h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
-	\caption{%
-	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
-	}\label{fig:triangulacao}
-\end{figure}
+			\centering
+			\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
+			\caption{%
+				Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$. \\
+				\tiny{Fonte: http://cs.nyu.edu/~fergus/teaching/vision/11\underline{\space}12\underline{\space}multiview.pdf}
+		}
+		\end{figure}
 	\end{center}
 \end{frame}
 
@@ -387,7 +423,14 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \begin{frame}
 \frametitle{\textbf{MVE -- \emph{Multi-View Stereo Environment}}}
 	\begin{center}
-	 	\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{figs/mvepipe.png}
+	 	\caption{
+		Processo empregado pelo MVE. \\
+		\tiny{Fonte: https://www.gcc.tu-darmstadt.de/media/gcc/papers/Fuhrmann-2014-MVE.pdf}
+	}
+	\end{figure}
 	\end{center}
 \end{frame}
 
@@ -408,7 +451,15 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \begin{frame}
 \frametitle{\textbf{MVS}}
 	\begin{center}
-	 	\includegraphics[width=0.8\linewidth]{figs/mvedepth.png}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{figs/mvedepth.png}
+			\caption{
+			Mapa de profundidade de uma imagem. \\
+			\tiny{Fonte: https://www.gcc.tu-darmstadt.de/media/gcc/papers/Fuhrmann-2014-MVE.pdf}
+			}
+		\end{figure}
+	 	
 	\end{center}
 \end{frame}
 
