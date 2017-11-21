@@ -539,10 +539,30 @@ Para reconstrução densa usa-se o CMVS..
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-	\begin{center}
-    	Uma ferramenta interessante para a combinação com técnicas SfM, usando luz estruturada é o Kinect Versão 1
-	\end{center}
+	\begin{itemize}
+		\item {Baseado em luz estruturada}
+		\item {Baseado em \emph{Time of Flight}
+	\end{itemize}
 \end{frame}
+
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
+	\caption{%
+ 		 Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR -
+ 		 \emph{Infra-Red}), uma câmera RGB e um projetor IR.
+	}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
+	\caption{%
+ 		 Saída de uma imagem interpretada pelo Kinect.
+	}\label{fig:profKinect}
+\end{figure}
 
 % ---------------------------------------------------------------------------- %
 \subsection{Kinect com \emph{Structure from Motion}}
