@@ -468,13 +468,33 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
-\frametitle{\textbf{FSSR}}
+\frametitle{\textbf{FSSR -- Floating Scale Surface Reconstruction}}
 	\begin{center}
-	Usa como entrada a união de todos os vértices dos mapas de profundidade
-	E, a partir desses parâmetros ele calcula a representação volumétrica do MVS.
+	Usa como entrada a união de todos os vértices dos mapas de profundidade. \\
+	A partir desses parâmetros ele calcula a representação volumétrica do passo anterior (MVS).
 	\end{center}
 \end{frame}
 
+\begin{frame}
+\frametitle{\textbf{FSSR -- Floating Scale Surface Reconstruction}}
+	\begin{center}
+		\begin{itemize}
+			\item {Utliza uma função implícita e com escala contínua (flutuante);}
+			\item {O FSSR não necessita de muitos parâmetros na sua abordagem abordagem;}
+			\item {A função implícita consegue validar rapidamente os parâmetros de entrada;}
+			\item {Escalável e não requer nenhuma operação global (cortes ou resolução de grandes sistemas de equações).}
+		\end{itemize}
+	\end{center}	  
+\end{frame}
+%
+%• A reconstrução de uma função implícita contínua e assinada
+%com escala espacialmente contínua (escala flutuante) usando um simples
+%formulação matemática
+%• uma abordagem praticamente sem parâmetros que seleciona a escala de reconstrução apropriada e adapta automaticamente o comportamento de interpolação e aproximação dependendo da redundância nos dados,
+%• nenhuma agregação dispendiosa de amostras em um passo de pré-processamento para que a função implícita possa, considerando as amostras de entrada, pronta e rapidamente, e
+%• um método eficiente e escalável que não requer nenhum
+%operações globais (como a aplicação de cortes de gráficos ou a resolução de grandes
+%sistemas de equações).
 
 % ---------------------------------------------------------------------------- %
 \subsection{VisualSfM}

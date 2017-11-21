@@ -66,15 +66,15 @@ O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de 
 
 \begin{equation}
 \label{eq:LM}
-\delta* = \text{argmin}_\delta || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
+\delta* = \underset{\delta}{\text{argmin}} || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
 \end{equation}
 e, atualiza $x$, da forma:
 
 \begin{algorithm}
 \label{LMattX}
 \begin{algorithmic}[1]
-\State $\text{caso} (||f(x + \delta^*)|| < || f(x) ||)$
-\State	$x = x + \delta^*$
+\State $\text{caso} (||f(x + \delta^*)|| < || f(x) ||) \text{, então}$
+\markcomment{2}\State	 $x = x + \delta^*$
 \end{algorithmic}
 \end{algorithm}
 

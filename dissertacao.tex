@@ -54,6 +54,10 @@
 \newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand{\rnum}[1]{\expandafter{\romannumeral #1\relax}}
 \renewcommand{\myparagraph}{\noindent\textbf}
+\usepackage{forloop}
+\newcounter{ct}
+\newcommand{\markdent}[1]{\forloop{ct}{0}{\value{ct} < #1}{\hspace{\algorithmicindent}}}
+\newcommand{\markcomment}[1]{\Statex\markdent{#1}}
 
 % ---
 % Pacote auxiliar para as normas da UERJ
