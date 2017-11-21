@@ -1,7 +1,7 @@
 % slides-exemplo-beamer
 %
 % Sáb Out  1 19:47:43 BRT 2011
-
+%\pdfminorversion=7 
 \documentclass[table, usenames, svgnames, xcolor=dvipsnames]{beamer}
 \usepackage{beamerthemeshadow}
 \usepackage[absolute,overlay]{textpos}
@@ -9,8 +9,11 @@
 \usepackage[brazil]{babel}  % adequacao para o portugues Brasil
 \usepackage[utf8]{inputenc} % Determina a codificacao utiizada
                             % (conversão automática dos acentos)
-\usepackage{makeidx}        % Cria o indice
-\usepackage{hyperref}       % Controla a formacao do indice
+\usepackage{makeidx}        % Cria o indice 
+%\usepackage{movie15}
+%\usepackage{flashmovie}
+\usepackage{multimedia}
+\usepackage{hyperref}     % Controla a formacao do indice
 \usepackage{lastpage}       % Usado pela Ficha catalografica
 \usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
 \usepackage{xcolor}          % Controle das cores
@@ -508,9 +511,16 @@ Para reconstrução densa usa-se o CMVS..
 % ---------------------------------------------------------------------------- %
 
 
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \subsubsection{VisualSfM}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o video do jardim do Nêgo}{videos/indio.MOV}
+	\end{center}
+\end{frame}
+
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
 	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
@@ -528,66 +538,88 @@ Para reconstrução densa usa-se o CMVS..
 FOTO INDIO DENSOI
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o primeiro video do jardim do Nêgo}{videos/sapo1.MOV}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o segundo video do jardim do Nêgo}{videos/sapo2.MOV}
+	\end{center}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{\textbf{Escultura com MVE}}
 	Para a escultura do Jardim com o VisualSfM, obtivemos os seguintes resultados
 	
-	TABELA VISUALSFM INDIO
+	TABELA MVE SAPO
 \end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com MVE}}
-	FOTO INDIO ESPARSA
+	FOTOS SAPO AQUI
 \end{frame}
 
-\begin{frame}
-\frametitle{\textbf{Escultura com MVE}}
-FOTO INDIO DENSOI
-\end{frame}
-
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \subsection{Objeto em ambiente fechado}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o primeiro video em ambiente fechado}{videos/video1.3gp}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o segundo video em ambiente fechado}{videos/video2.3gp}
+	\end{center}
+\end{frame}
+
+%\begin{frame}
+
 
 \begin{frame}
 	Para o objeto, temos os seguintes resultados:
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \subsubsection{VisualSfM}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 
 \begin{frame}
 \frametitle{\textbf{Objeto com VisualSfM}}
-	Com o MVE, fizemos os seguintes processos....
+	Com o VisualSfM, fizemos os seguintes processos....
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 
 \begin{frame}
 \frametitle{\textbf{Objeto com MVE}}
 	Com o MVE, fizemos os seguintes processos....
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 \section{Conclusão}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 
 \begin{frame}
 	\begin{center}
-	Constatamos, que através de métodos fotogramétricos, combinado com \emph{Structure from Motion}, é possível termos reconstruções 3D qualitativamente satisfatórias com uma câmera comum de celular.
+	Constatamos, que através de métodos \emph{Structure from Motion} combinados com programas de código livre e gratuitos, é possível, a partir de uma câmera comum de celular, conseguirmos  reconstruções 3D qualitativamente satisfatórias.
 	\end{center}
-
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
+% ----------------------------------------------------------------------------
 \section{Trabalhos futuros}
-% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- 
 
 \begin{frame}
 	\begin{enumerate}
