@@ -1,23 +1,69 @@
-\chapter{Técnicas de reconstrução baseadas em \emph{Time Of Flight}}\label{cap:kinect}
+\chapter{Técnicas de luz estruturada e \emph{Time Of Flight}}\label{cap:kinect}
 %======================================================================================
 
 \section*{Introdução}
 
-\emph{Time of Flight}~\cite{gokturk2004time} ou Tempo de Vôo é um \textbf{método ótico ativo}, que consegue determinar a localização de objetos no alcance do sensor de infra-vermelho (no caso do Kinect, um sensor ToF invisível), a partir de alterações na matriz do projetor de feixes de infra-vermelho (\eg, Kinect versão 1~\cite{smisek20133d}). Existe também, um outro método que utiliza fótons, que viajam na velocidade da luz. Onde o valor resultante cálculo da diferença da emissão e da chegada dos fótons aos detectores é utilizado na criação de uma probabilidade de distribuição localizando o evento detectado a uma distância do eixo do escaneador (\eg, Kinect versão 2~\cite{lachat2015first,valgma20163d}). 
+A técnica de luz estruturada é um
+\textbf{método fotogramétrico ativo} que consegue determinar a localização de objetos
+no alcance do sensor de infra-vermelho, a partir de alterações nos padrões conhecidos de um projetor 
+infra-vermelho. Um exemplo recente de escaneador de luz estruturada de baixo custo
+é o Kinect versão~\cite{smisek20133d}, que também serve como base para uma
+série de scanners que utilizam o mesmo hardware. Uma vantagem clara em relação
+aos escaneadores a \emph{laser} é a velocidade e o baixo custo; uma desvantagem
+é a precisão, conforme discutido mais adiante.  Existe também, um outro método
+fotogramétrico ativo denominado\emph{Time of Flight}~\cite{gokturk2004time},
+que em vez de padrões infra-vermelho ou laser, emite fótons a cada pixels, que
+viajam na velocidade da luz. O valor resultante da diferença da
+emissão e do retorno dos fótons aos
+detectores é utilizado na criação de uma distribuição de probabilidade 
+localizando o evento detectado a uma distância do eixo do escaneador.
+Até recentemente, a técnica ToF foi extremamente cara e restrita a baixas resoluções, devido à
+necessidade de equipamento capaz de medir fotons refletidos em uma escala de
+picosegundos. Tal técnica foi barateada em ordens de magnitude pela indústria
+de entretenimento, no lançamento recente do Kinect versão
+2~\cite{lachat2015first,valgma20163d}. Além do baixo custo permitido pelo
+Kinect 2, uma vantagem desta técnica é a alta velocidade de escaneamento e
+maior robustez dos resultados se comparado à técnica de luz estruturada e mesmo escaneadores a \emph{laser}.
+No enanto, ela não pode ser aplicada com confiabilidade em ambientes abertos,
+e não supera a precisão de um bom escaneador a \emph{laser}. Note-se que, no entanto, escaneadores a \emph{laser} Não são adequados para aplicações em tempo real; porém, para o nosso objetivo de preservação de patrimônio,
+o requisito de escaneamento em tempo real é secundário, sendo desejável apenas para aplicações em que uma previsão rápida da reconstrução 3D é desejada pelo arqueólogo, ou para realidade aumentada.
+A seguir, discutimos essas tecnologias de reconstrução 3D ativas em maiores detalhes.
 
 \section{Kinect}
 
 \subsection*{Introdução}
 
-Um componente criado pela Microsoft para fins recreativos (como no XBox, por
-exemplo), se tornou uma das mais conhecidas ferramentas de reconstrução 3D no
-cenário atual. Sua primeira versão (Kinect V1)~\ref{fig:kinectv1} utiliza uma técnica similar à empregada no projeto da Universidade de Stanford, com luz estruturada, porém, diferentemente dos escaners a \emph{laser}, o Kinect tem um custo monetário baixo e é acessível a todo público em geral (desde entusiastas e amadores até profissionais da área). 
+Criado pela Microsoft para fins recreativos (como no console de videogame XBox, por
+exemplo), o Kinect se tornou uma das mais conhecidas ferramentas de reconstrução 3D no
+cenário atual. Sua primeira versão (Kinect V1)~\ref{fig:kinectv1}, ainda atual, utiliza uma
+técnica similar à empregada no projeto \emph{Digital Michelangelo} da Universidade de Stanford, com luz
+estruturada, porém, diferentemente dos escaners a \emph{laser}, o Kinect tem um
+custo monetário baixo e é acessível ao público em geral (desde entusiastas
+e amadores até profissionais da área). 
 
-O Kinect V2 é composto de uma câmera RGB-D (\emph{Red, Green, Blue} e \emph{Depth}) e utiliza uma projeção de fótons, é mais robusto que seu antecessor, para ambientes fechados e para fins de escaneamento de formas humanas (como esqueleto, músculos, batimento cardíaco, por exemplo). Devido à técnica empregada para reconhecimento 3D (\emph{Time Of Flight} com fótons), ele é muito sensível às texturas presentes no objeto. Ou seja, para esculturas com diferentes superfícies, diferentes refletâncias, lambertianos ou especulares, por exemplo, podem acarretar em problemas nas reconstruções. Além disso, existem outros obstáculos, como a dificuldade onde o fóton emitido pelo emissor rebate em várias superfícies antes de ser detectado pelo sensor de infra-vermelho. E, portanto, para o uso em áreas externas, a primeira versão se sai melhor.
+%xxx
+O Kinect versão 2 é composto de uma câmera RGB-D (\emph{red, green, blue} e
+\emph{depth}) e utiliza uma projeção de fótons, é mais robusto que seu
+antecessor, para ambientes fechados e para fins de escaneamento de formas
+humanas (como esqueleto, músculos, batimento cardíaco, por exemplo). devido à
+técnica empregada para reconhecimento 3d (\emph{time of flight} com fótons),
+ele é muito sensível às texturas presentes no objeto. ou seja, para esculturas
+com diferentes superfícies, diferentes refletâncias, lambertianos ou
+especulares, por exemplo, podem acarretar em problemas nas reconstruções. além
+disso, existem outros obstáculos, como a dificuldade onde o fóton emitido pelo
+emissor rebate em várias superfícies antes de ser detectado pelo sensor de
+infra-vermelho. e, portanto, para o uso em áreas externas, a primeira versão se
+sai melhor.
 
-O Kinect versão 1 é composto por 2 câmeras: uma RGB e outra de profundidade e por um projetor IR (\emph{Infra-Red}) de padrões. E funciona da seguinte maneira: o projetor IR de padrões lança uma matriz que já é previamente conhecida pelo sistema do Kinect, a partir disso, qualquer deformação deste padrão é captada pelas câmeras, o que identifica se um objeto está no alcance dos sensores ou não. A resposta, é composta por 3 \emph{outputs}: uma imagem IR,  uma RGB e a profundidade (inversa) da imagem. 
+o kinect versão 1 é composto por 2 câmeras: uma rgb e outra de profundidade e
+por um projetor ir (\emph{infra-red}) de padrões. e funciona da seguinte
+maneira: o projetor ir de padrões lança uma matriz que já é previamente
+conhecida pelo sistema do kinect, a partir disso, qualquer deformação deste
+padrão é captada pelas câmeras, o que identifica se um objeto está no alcance
+dos sensores ou não. a resposta, é composta por 3 \emph{outputs}: uma imagem
+ir,  uma rgb e a profundidade (inversa) da imagem. 
 
-A partir deste momento, referenciamos o Kinect versão 1 apenas como Kinect.
+a partir deste momento, referenciamos o kinect versão 1 apenas como kinect.
 
 \begin{figure}[!h]
 	\centering
