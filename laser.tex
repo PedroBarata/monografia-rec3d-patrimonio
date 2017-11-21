@@ -163,7 +163,7 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 
 % Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa \emph{laser}) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a \emph{laser} ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
 
-\begin{figure}[!h]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{figs/ferramentasMich.png}
 	\caption{%
@@ -174,7 +174,10 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 
 \subsection*{Procedimento de digitalização}
 
-Um operador move, interativamente o escaneador da cabeça através de uma sequência de movimentos, definindo os limites de volume a ser escaneado. O volume que pode ser coberto em uma única varredura, foi delimitado por conta de quatro fatores:
+Um operador move interativamente a cabeça do escaneador através de uma
+sequência de movimentos, definindo os limites do volume a ser escaneado. O
+volume que pode ser coberto em uma única varredura foi delimitado por conta de
+quatro fatores:
 \begin{itemize}
 \item{O campo de visão e os limites de movimento do escaneador}
 \item{A  queda na qualidade da varredura com o aumento da obliquidade do laser}
@@ -182,8 +185,11 @@ Um operador move, interativamente o escaneador da cabeça através de uma sequê
 \item{Obstruções físicas, como paredes, estátuas ou o próprio equipamento}
 \end{itemize}
 
-Uma vez planejada a varredura, um script de digitalização é executado automaticamente, levando desde alguns minutos, até horas para terminar, dependendo da largura da área a ser coberta.
-A partir do script, são feitas as etapas de escaneamento de alcance (\emph{laser}) e do escaneamento colorido (câmera digital).
+Uma vez planejada a varredura, um \emph{script} de digitalização é executado
+automaticamente, levando desde alguns minutos, até horas para terminar,
+dependendo da largura da área a ser coberta.  A partir do \emph{script}, são feitas as
+etapas de escaneamento de profundidade (\emph{laser}) e do escaneamento da fotometria
+(câmera digital RGB).
 
 % Range scanning. A typical range scan consisted of several con-
 % centric curved shells separated by translational motion of the scan
@@ -202,37 +208,38 @@ A partir do script, são feitas as etapas de escaneamento de alcance (\emph{lase
 
 % O principal componente de hardware do nosso sistema foi um escaneador de triangulação a \emph{laser} e um pórtico motorizado personalizado para digitalizar grandes estátuas. Nossos requisitos para este escaneador eram exigentes; queríamos capturar marcas de cinzelão menores do que um milímetro, queríamos capturá-las a uma distância segura, e queríamos chegar ao topo do David de Michelangelo, que tem 23 pés de altura no pedestal. Nas seções que se seguem, descrevemos os sistemas de aquisição de alcance e cor deste escaneador, seu pórtico mecânico de suporte e nosso procedimento para calibrá-lo.
 
-Primeiramente faz-se o escaneamento da geometria da escultura:
+Primeiramente faz-se o escaneamento fotogramétrico da geometria da escultura:
 
-\begin{itemize}
+\begin{enumerate}
 \item{Alinhamento manual}
 \item{ICP -- \emph{Iterative Closest Point} para uma câmera existente} %CITAR ICP AQUI%
 \item{ICP automático para todos os pares sobrepostos}
 \item{Relaxação global para espalhar o erro}
 \item{Reunir utilizando métodos volumétricos}
-\end{itemize}
-
-
-Após isso, ocorre o escaneamento e processamento das cores da escultura:
-
-\begin{itemize}
+\end{enumerate}
+Após isso, ocorre o escaneamento fotométrico e o processamento das cores da escultura:
+\begin{enumerate}
 \item{Compensação da iluminação do ambiente}
-\item{Descarte de pixels com sombra ou especulares}
+\item{Descarte de pixels com sombra ou reflexos especulares}
 \item{Mapeia-se os vértices (uma cor por vértice)}
 \item{Correção da irradiância e reflectância difusa}
-\end{itemize}
+\end{enumerate}
 
 Limitações:
 \begin{itemize}
 \item{Inter-reflexões são ignoradas}
-\item{Dispersões subterrâneas são ignoradas}
-\item{Tratamento difuso com Lambertiano} %CITAR TREATED DIFFUSED AS LAMBERTIAN%
-\item{Usa superfícies normais agregadas}
+\item{Dispersões subterrâneas (\emph{subsurface scattering}) são ignoradas}
+\item{Tratamento de efeito difuso como Lambertiano} %CITAR TREATED DIFFUSED AS LAMBERTIAN%
+\item{Uso de normais de superfícies suavizadas}
 \end{itemize}
 
-O projeto não teve mais nenhum avanço desde o verão de 2004, por falta de financiamento. Como resultado, modelos de alta qualidade só existem do David na resolução de 1,0 mm (56 milhões de triângulos) e São Mateus a 0,25 mm (372 milhões de triângulos). Um modelo também existe para o Atlas em 0,25 mm (aproximadamente 500 milhões de triângulos), mas contém erros de alinhamento. Após 6 anos de trabalho estudantil remunerado e voluntário, existem modelos para cada um dos 1.186 fragmentos. Esses modelos, que totalizam quase 8 bilhões de polígonos, se encontram no próprio site da Universidade de Stanford %CITAR AQUI$. 
-
-Também foram disponibilizadas algumas métricas sobre este projeto \ref{tab:metricasDavid}.
+O projeto não teve mais nenhum avanço desde o verão de 2004, por falta de
+financiamento. Como resultado, modelos de alta qualidade só existem do David na
+resolução de 1,0 mm (56 milhões de triângulos) e São Mateus a 0,25 mm (372
+milhões de triângulos). Um modelo também existe para o Atlas em 0,25 mm
+(aproximadamente 500 milhões de triângulos), mas contém erros de alinhamento.
+%CITAR AQUI$. 
+Também foram disponibilizadas algumas métricas sobre este projeto na Tabela~\ref{tab:metricasDavid}.
 
 \begin{table}
 \caption{Métricas do projeto de reconstrução da escultura David}
@@ -256,6 +263,9 @@ Custo do projeto                          & \$2.000.000                         
 \end{table}
 
 
-Porém, devido ao seu alto custo com equipamentos, com softwares e sem falar na necessidade de estações robustas para armazenamento dos dados e para escaneamento de patrimônios, outras técnicas foram emergindo com o passar dos anos, como a fotogrametria, que será abordada ao decorrer deste documento.
+Porém, devido ao seu alto custo com equipamentos, com softwares especializados e na
+necessidade de estações robustas para armazenamento dos dados e para
+escaneamento de patrimônios, outras técnicas foram emergindo com o passar dos
+anos, como a fotogrametria passiva, usando apenas imagens, que será abordada ao decorrer deste manuscrito.
 
 % \input{kinect}
