@@ -515,13 +515,29 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 % ---------------------------------------------------------------------------- %
 \subsubsection{PBA/MCBA}
 % ---------------------------------------------------------------------------- %
+\begin{frame} 
+\frametitle{\textbf{PBA/MCBA}}
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=0.6\linewidth]{figs/bundleAdjustment.png}
+			\caption{Exemplo do problema de \emph{Bundle Adjustment}. \\
+			\tiny{Fonte: http://av.dfki.de/members/stricker/}
+			}
+		\end{figure}
+	\end{center}
+\end{frame}
 
 \begin{frame} 
 \frametitle{\textbf{PBA/MCBA}}
 	\begin{center}
-Para ponto de nuvens, usa-se o PBA ...
+		\begin{itemize}
+			\item Utiliza Levenberg Mardquardt na resolução do \emph{Bundle Adjustment}.
+			\item Multi-núcleos
+		\end{itemize}
 	\end{center}
 \end{frame}
+
+
 
 % ---------------------------------------------------------------------------- %
 \subsubsection{CMVS/PMVS-2}
@@ -530,7 +546,12 @@ Para ponto de nuvens, usa-se o PBA ...
 \begin{frame} 
 \frametitle{\textbf{CMVS/PMVS-2}}
 	\begin{center}
-Para reconstrução densa usa-se o CMVS..
+		\begin{figure}
+			\includegraphics[width=0.6\linewidth]{figs/cmvspipe.png}
+			\caption{Processo do algoritmo CMVS. \\
+			\tiny{Fonte: http://ieeexplore.ieee.org/abstract/document/5539802/}
+			}
+		\end{figure}
 	\end{center}
 \end{frame}
 
@@ -541,38 +562,107 @@ Para reconstrução densa usa-se o CMVS..
 \begin{frame}
 	\begin{itemize}
 		\item {Baseado em luz estruturada}
-		\item {Baseado em \emph{Time of Flight}
+		\item {Baseado em \emph{Time of Flight}}
 	\end{itemize}
 \end{frame}
 
-\begin{figure}[!h]
-	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
-	\caption{%
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/kinect.png}
+		\caption{%
  		 Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR -
  		 \emph{Infra-Red}), uma câmera RGB e um projetor IR.
-	}
+ 		 \tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/Xbox-One-Kinect.jpg}
+		\caption{%
+ 		 Kinect V2.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
+		\caption{%
+ 			 Saída de uma imagem interpretada pelo Kinect.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+	\subfloat[Imagem IR iluminada pelo projetor de padrões IR]{\includegraphics[width=0.2\linewidth]{figs/kinect1.png}}
+	\subfloat[Imagem IR com iluminação externa]{\includegraphics[width=0.2\linewidth]{figs/kinect2.png}}
+	\subfloat[Pontos de calibração reproduzidos na imagem RGB]{\includegraphics[width=0.2\linewidth]{figs/kinect3.png}}
+	\subfloat[Pontos de calibração reproduzidos na imagem de profundidade]{\includegraphics[width=0.2\linewidth]{figs/kinect4.png}}
+	\caption{%
+	Método de calibração do Kinect, em imagens IR, RGB e de profundidade.
+	\tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}}
 \end{figure}
 
-\begin{figure}[!h]
-	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
-	\caption{%
- 		 Saída de uma imagem interpretada pelo Kinect.
-	}\label{fig:profKinect}
-\end{figure}
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \subsection{Kinect com \emph{Structure from Motion}}
 % ---------------------------------------------------------------------------- %
+\begin{frame}
+	\begin{center}
+		\begin{table}[htbp]
+\caption{Resultados dos testes executados}
+\label{tab:resultadosKinect}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multirow{2}{1.5cm}{Método}& \multicolumn{3}{p{5cm}|}{Erro geométrico $e$ [mm]} \bigstrut \\
+\cline{2-4} & \multicolumn{1}{c|}{$\mu$($e$)} & \multicolumn{1}{c|}{$\sigma$($e$)} & \multicolumn{1}{c|}{max($e$)} \bigstrut \\ \hline
+SLR Stereo & 1,57 & 1,15 & 7,38 \bigstrut \\ \hline
+Kinect & 2,39 & 1,67 & 8,64 \bigstrut \\ \hline
+SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+	\end{center}
+\end{frame}
 
 \begin{frame} 
 	\begin{center}
-		
+		\begin{figure}
+		\subfloat[Imagem do lado esquerdo da câmera SLR]{\includegraphics[width=0.3\linewidth]{figs/imagemSLResquerda.png}}
+		\subfloat[Imagem da profundidade do Kinect]{\includegraphics[width=0.3\linewidth]{figs/imagemProfundidadeKinect.png}}
+		\subfloat[Imagem do lado direito da câmera SLR]{\includegraphics[width=0.3\linewidth]{figs/imagemSLRdireita.png}}
+		\caption{%
+		Imagens iniciais para reconstrução 3D. \\
+		\tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}
+		}
+		\end{figure}
 	\end{center}
 \end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.3\linewidth]{figs/imagemMVS.png}(a)
+			\includegraphics[width=0.3\linewidth]{figs/imagemMVSKinect.png}(b)
+			\caption{%
+			Resultados da reconstrução SfM, onde (a) é a reconstrução do SLR e (b) o resultado do Kinect. \\
+			\tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}
+			}
+			\end{figure}
+	\end{center}
+\end{frame}
+
+
 
 % ---------------------------------------------------------------------------- %
 \section{Experimentos}
@@ -703,7 +793,7 @@ FOTO INDIO DENSOI
 
 \begin{frame}
 	\begin{center}
-	Constatamos, que através de métodos \emph{Structure from Motion} combinados com programas de código livre e gratuitos, é possível, a partir de uma câmera comum de celular, conseguirmos  reconstruções 3D qualitativamente satisfatórias.
+	Constatamos, que através de métodos \emph{Structure from Motion} combinados com programas de código livre e gratuitos, é possível, a partir de uma câmera comum de celular, obtermos reconstruções 3D qualitativamente satisfatórias.
 	\end{center}
 \end{frame}
 
