@@ -1,22 +1,26 @@
-\chapter{Técnicas de reconstrução baseadas em fotogrametria}\label{cap:pontosdeinteresse}
+\chapter{Técnicas de fotogrametria passiva}\label{cap:pontosdeinteresse}
 %======================================================================================
 %
 \section*{Introdução}
 
-A reconstrução 3D pelo método da estrutura do movimento, ou \emph{Structure from Motion} (\emph{SfM}). Tem como base a utilização de pontos de interesse
-(\emph{features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados. 
-
-A maioria dos métodos baseados em SfM e MVS (\emph{Multi-View Stereo}) tem uma abordagem similar e funcionam com os seguintes passos \ref{fig:sfmpipeline}:
+A grande maioria dos métodos de reconstrução 3D robusta de estrutura por movimento, ou \emph{Structure
+from Motion} (SfM), tem como base a utilização de pontos de interesse
+(\emph{features}), que são pontos ou áreas em comum entre as imagens a serem
+reconstruídas. Para encontrar estes pontos, diferentes algoritmos são empregados. 
+A maioria dos métodos baseados em SfM estima os modelos de câmeras e
+realiza reconstruções esparsas de nuvens de pontos, e é seguida de abordagens denominadas
+\emph{Multi-View Stereo} (MVS) para obtenção de informação 3D mais completa.  O
+pipeline SfM+MVS funciona com os seguintes passos \ref{fig:sfmpipeline}:
 
 \begin{itemize}
-\item{Obtenção de imagens}
-\item{Processamento dos parâmetros de câmera para cada imagem}
-\item{Reconstrução da geometria 3D de uma cena com um conjunto de imagens e seus parâmetros correspondentes}
+\item{Aquisição de imagens}
+\item{Estimação dos parâmetros de câmera para cada imagem}
+\item{Reconstrução da geometria 3D de uma cena em diversos níveis de detalhe}
 \end{itemize}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.8\linewidth]{figs/pipelinesfm.png}
+	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
 	\caption{%
 	Procedimento padrão da maioria dos sistemas baseados em SfM e MVS
 	\protect\cite{theia-manual}.
