@@ -3,13 +3,13 @@
 %
 \subsection*{Introdução}
 
-O VisualSfM~\cite{wu2011visualsfm} é um sistema de \emph{software} baseado em fotogrametria
+O VisualSfM~\cite{wu2011visualsfm} é um sistema de software baseado em fotogrametria
 que faz todo o processo de reconstrução 3D de um objeto e que pode ser usado por
 linha de comando ou então pela interface gráfica, que é ótima, por sinal. É
 altamente customizável, podemos utilizar o CUDA da NVIDIA, ou OpenGL,
 especificar a lista de pares para correspondência de imagens, usar detectores de
 \emph{features} próprios, velocidade da detecção de \emph{features}, da
-reconstrução densa, dentre outros parâmetros. Ou seja, é um \emph{software}
+reconstrução densa, dentre outros parâmetros. Ou seja, é um software
 robusto, que pode ser usado em Linux, Windows ou até mesmo Mac.
 
 Além disso, o VisualSfM é capaz de mostrar a matriz de correspondência de \emph{features}, número de \emph{features}, rodar um \emph{Bundle Adjustment} independente, usar um Level 0 no PVMS, alterar a memória de GPU usada na reconstrução, deletar uma reconstrução indesejável ou até mesmo alterar parâmetros.
@@ -22,7 +22,7 @@ Sua linha de reconstrução é parecida com o MVE~\ref{sec:mve}, porém é mais 
 	\centering
 	\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
 	\caption{%
-	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do \emph{software}.
+	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
 	\protect\cite{wu2011visualsfm}
 	}\label{fig:pipelineVisualSfM}
 \end{figure}
@@ -30,9 +30,9 @@ Sua linha de reconstrução é parecida com o MVE~\ref{sec:mve}, porém é mais 
 Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da seguinte forma:
 
 \begin{itemize}
-\item \textbf{1 - Adicionar algumas imagens.} Este é o primeiro passo, para começar uma reconstrução, primeiro adiciona-se imagens ao \emph{software}, pode ser uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou então abrir um arquivo de extensão .nvm, que é interpretado como uma reconstrução esparsa previamente feita.
+\item \textbf{1 - Adicionar algumas imagens.} Este é o primeiro passo, para começar uma reconstrução, primeiro adiciona-se imagens ao software, pode ser uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou então abrir um arquivo de extensão .nvm, que é interpretado como uma reconstrução esparsa previamente feita.
 
-\item \textbf{2 - Correspondência de imagens.} Agora, o \emph{software} roda o algoritmo SIFT, realizando todas as correspondências entre os \emph{features}, que já foi discutido anteriormente.
+\item \textbf{2 - Correspondência de imagens.} Agora, o software roda o algoritmo SIFT, realizando todas as correspondências entre os \emph{features}, que já foi discutido anteriormente.
 
 \item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa (PBA/MCBA)~\cite{wu2011multicore} em todos os \emph{features} descobertos no passo passado. 
 
@@ -228,7 +228,7 @@ O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos 
 CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo version 2})
 
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
-%Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste \emph{software} é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do \emph{software} é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
+%Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste software é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do software é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
 
 Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS~\cite{visualSfMPMVS,wu2013towards,li2013improving} é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
 Ele usa a saída do Structure from Motion -- SfM (mais especificamente a saída do passo anterior, do PBA) e utiliza como entrada. Após isso, decompõe as imagens de entrada como um conjunto de \emph{clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para processar cada \emph{cluster} de forma independente e em paralelo, onde a união das reconstruções de todos os \emph{clusters} não deve perder detalhes que poderiam ser obtidos através do conjunto de imagens.
