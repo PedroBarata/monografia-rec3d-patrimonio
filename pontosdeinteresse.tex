@@ -10,7 +10,7 @@ reconstruídas. Para encontrar estes pontos, diferentes algoritmos são empregad
 A maioria dos métodos baseados em SfM estima os modelos de câmeras e
 realiza reconstruções esparsas de nuvens de pontos, e é seguida de abordagens denominadas
 \emph{Multi-View Stereo} (MVS) para obtenção de informação 3D mais completa.  O
-pipeline SfM+MVS funciona com os seguintes passos \ref{fig:sfmpipeline}:
+pipeline SfM+MVS funciona com os seguintes passos, ilustrados na Figura~\ref{fig:sfmpipeline}:
 
 \begin{itemize}
 \item{Aquisição de imagens}
@@ -22,18 +22,30 @@ pipeline SfM+MVS funciona com os seguintes passos \ref{fig:sfmpipeline}:
 	\centering
 	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
 	\caption{%
-	Procedimento padrão da maioria dos sistemas baseados em SfM e MVS
+	Procedimento padrão da maioria dos sistemas baseados em SfM. Além dessas
+  etapas, geralmente a reconstrução é densificada usando-se MVS.
 	\protect\cite{theia-manual}.
 	}\label{fig:sfmpipeline}
 \end{figure}
 
-Neste trabalho, abordaremos o uso de dois softwares baseados em MVS: o MVE~\cite{mve} e o VisualSfM~\cite{wu2011visualsfm}. Ambos utilizam os passos supracitados, que, posteriormente serão comentados. O que difere um do outro é a partir da etapa de reconstrução esparsa e densa, onde o MVE emprega um algoritmo de mapas de profundidade enquanto o VisualSfM utiliza um sistema baseado em \emph{Bundle Adjustment}. 
+Neste trabalho, abordaremos o uso de dois softwares baseados em SfM+MVS: o
+MVE~\cite{mve} e o VisualSfM~\cite{wu2011visualsfm}, que julgamos serem os mais
+consolidados em pesquisa prática de ponta atualmente. Ambos são grandes pacotes
+que controlam inúmeros outros softwares e bibliotecas para os passos
+supracitados, que posteriormente serão comentados. O que difere um do outro é a
+partir da etapa de reconstrução esparsa e densa, onde o MVE emprega um algoritmo
+de agregação de mapas de profundidade, enquanto o VisualSfM fornece ouros
+algoritmos de densificação, sendo mais fortemente calcado no resultado esparso do SfM.
 
-O passo de obtenção de imagens, será discutido no Capítulo de experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para processamento das imagens de entrada.
+O passo de aquisição de imagens será discutido em detalhes no Capítulo de
+experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para
+processamento.
 
-\section*{ SIFT -- \emph{Scale Invariant Feature Transform}}
+\section*{SIFT -- \emph{Scale Invariant Feature Transform}}
 
-Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
+Primeiramente, calcula-se o SIFT (algoritmo de detecção de pontos de interesse,
+invariante à escala e à transformações, como rotação, translação e iluminação da
+imagem) em cada imagem.
 O algoritmo pode ser dividido em cinco etapas, das quais:
 
 \begin{itemize}
@@ -41,7 +53,7 @@ O algoritmo pode ser dividido em cinco etapas, das quais:
 	\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
 	\item{Atribuição de orientação -- \emph{Orientation Assignment}}
 	\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
-	\item{Combinação de pontos-chaves -- \emph{Keypoint Matching}}
+	\item{Casamento de pontos-chaves -- \emph{Keypoint Matching}}
 \end{itemize}
 
 
