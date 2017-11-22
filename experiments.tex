@@ -1,33 +1,61 @@
 \chapter{Experimentos}\label{sec:experiments}
 %======================================================================================
-No presente trabalho, nos concentramos no objetivo proposto descrito na Seção~\ref{sec:objetivos}.
+Os experimentos se concentraram em explorar os objetivos propostos na Seção~\ref{sec:objetivos}.
 
 \section{Procedimento}
-Primeiramente, filmamos algumas esculturas utilizando a câmera de um \emph{smartphone} convencional na resolução de 1920x1080 pixels. Esta filmagem foi realizada varrendo toda (ou maioria) da superfície da escultura em $360^{\circ}$ com o intuito de ter toda a escultura reconstruída \ref{fig:procedimentoscan}.
-Após isso, fizemos mais alguns vídeos, pegando alguns pontos que possuíam mais detalhes e que, com uma única varredura, não era capaz de reproduzir uma boa reconstrução.
+Primeiramente, foram realizadas filmagens iniciais de algumas esculturas,
+utilizando-se a câmera de um \emph{smartphone} convencional, primariamente um
+iPhone 5s, na resolução \emph{Full HD} de 1920x1080 pixels. Esta filmagem foi realizada de
+forma conveniente a um usuário leigo, sem grandes restrições, procurando-se
+varrer a maioria da superfície da escultura em $360^{\circ}$,
+Figura~\ref{fig:procedimentoscan}.  Em seguida, fizemos mais alguns vídeos,
+capturando alguns pontos que possuíam mais detalhes mais de perto.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.4\linewidth]{figs/procedimentoscan.png}
 	\caption{%
-	Exemplo de como foi realizada a varredura da escultura
+	Exemplo de como foi realizada a varredura das esculturas.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:procedimentoscan}
 \end{figure}
 
-Com este material, foram feitos "cortes" em determinados \emph{frames} do vídeo, com atenção para não cortar em \emph{frames} muito juntos, pois aumentaria o número de correspondências ambíguas entre as imagens e com isso, o processamento da reconstrução demoraria mais. E não usar \emph{frames} muito distantes, que ocorreria o inverso: com menos correspondências, ficariam buracos (partes sem a informação necessária) na reconstrução, como descrito na Seção \ref{sec:mve}.
+Com este material, foram feitos videoclipes extraindo um subconjunto de
+\emph{frames} do vídeo, para ao menos inicialmente não utilizarmos uma quantidade muito
+grande de imagens. Houve atenção para não extrair apenas \emph{frames} muito
+juntos, pois aumentaria o número de correspondências ambíguas entre as imagens e
+com isso, o processamento da reconstrução demoraria mais. Também procurou-se 
+evitar usar apenas \emph{frames} muito distantes, pulando os muito próximos,
+pois ocorreria o inverso: com menos
+correspondências, ficariam buracos (partes sem a informação necessária) na
+reconstrução, como descrito na Seção~\ref{sec:mve}.
+Com isso em mente, nos experimentos iniciais foram reconstruídas duas esculturas
+empregando o VisualSfM, totalizando 197 imagens, 
+%
+%guerreiro, indio% 
+%
+e, com o MVE, utilizamos dois vídeos, que, ao selectionar os frames, totalizou cerca de 280
+imagens.
+%
+%sapo%
 
-Com isso em mente, foram reconstruídas duas esculturas: empregando o VisualSfM, usamos um único vídeo, totalizando 197 imagens. %guerreiro, indio%
-Com o MVE, utilizamos dois vídeos, que, ao cortá-los, totalizou cerca de 280 imagens. %sapo%
-
-Além de esculturas ao ar livre, fizemos alguns testes em ambiente fechado, dentro de uma casa, por exemplo. Foi utilizado um objeto feito de cabaça (casca de abóbora) na qual possui uma superfície propícia (Lambertiana)~\cite{basri2003lambertian} para uma reconstrução.
-
-Com o procedimento descrito anteriormente, a partir dos vídeos feitos, obtemos um total de 200 imagens em um vídeo superficial e mais 24 imagens mais detalhadas do objeto, ambos numa resolução de 1080x1920 pixels. E, para um mesmo conjunto de imagens, rodamos tanto o VisualSfM quanto o MVE.
+Além de esculturas ao ar livre, fizemos alguns testes em ambiente fechado,
+dentro de uma casa, por exemplo. Foi utilizado um objeto feito de cabaça (casca
+de abóbora), a qual possui uma reflectância propícia
+(Lambertiana) para uma reconstrução~\cite{basri2003lambertian}, ao mesmo tempo
+sendo um objeto de arte e suave, com certos desafios similares às esculturas do
+Jardim do Nêgo.  Com o procedimento descrito anteriormente, a partir dos vídeos
+feitos, selecionamos um total de 200 imagens em um vídeo superficial e mais 24
+imagens mais detalhadas do objeto, ambos numa resolução de 1080x1920 pixels. 
+Para um mesmo conjunto de imagens, foi executado tanto o VisualSfM quanto o MVE.
 
 \subsection{Resultados da reconstrução com o VisualSfM}
 
-Seguindo o passo-a-passo de reconstrução do software, obtivemos os seguintes resultados, para a escultura de 197 imagens do Jardim do Nêgo.
+Seguindo o passo-a-passo de reconstrução do software, obtivemos os seguintes
+resultados de tempo, Tabela~\ref{tab:temposSfMJardimDoNego}, para a escultura de
+197 imagens do Jardim do Nêgo, com as reconstruções mostradas nas
+Figuras~\ref{fig:reconstrucaoEsparsaIndioVisualSFM} e~\ref{fig:reconstrucaoDensaIndioVisualSFM}.
 
 \begin{table}[h!]
 \caption{Tempos obtidos da reconstrução da escultura do Jardim do Nêgo usando o VisualSfM}
@@ -42,9 +70,14 @@ Gerar a reconstrução densa do modelo & 1.385 segundos \\ \hline
 \end{tabular}
 \end{table}
 
-Com as seguintes reconstruções~\ref{fig:reconstrucaoEsparsaIndioVisualSFM},~\ref{fig:reconstrucaoDensaIndioVisualSFM}.
-Percebemos que foi gerada uma nuvem de pontos bem consistente, a partir da reconstrução esparsa do algoritmo PBA.
-Por conta disso, nossa reconstrução 3D densa, empregando o MCBA/PMVS-2 obteve uma qualidade adequada para o conjunto de imagens usada.
+Percebe-se que foi gerada uma nuvem de pontos bastante consistente, a partir da
+reconstrução esparsa do algoritmo PBA.  Por conta disso, nossa reconstrução 3D
+densa, empregando o MCBA/PMVS-2, obteve uma qualidade razoável para o conjunto de
+imagens usada, apesar de apresentar ainda ruídos e falta de resolução para uma
+preservação de patrimônio completa como no projeto \emph{Digital Michaelangelo}
+de escaneamento a laser. Nota-se que o resultado é bastante surpreendente, dado que
+apenas os vídeos foram fornecidos, e o software teve que calcular as posição
+das câmeras, além da e reconstrução geométrica e fotométrica.
 %COLOCAR IMAGENS GUERREIRO AQUI%
 
 \begin{figure}[!h]
@@ -56,8 +89,6 @@ Por conta disso, nossa reconstrução 3D densa, empregando o MCBA/PMVS-2 obteve 
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:reconstrucaoEsparsaIndioVisualSFM}
 \end{figure}
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -74,10 +105,9 @@ Por conta disso, nossa reconstrução 3D densa, empregando o MCBA/PMVS-2 obteve 
 %-------------------GALINHA A PARTIR DAQUI----------------------------------%
 
 Com o objeto em ambiente fechado, conseguimos os resultados a seguir. 
-
-Para o primeiro vídeo, convertido em 200 imagens:
-
-\begin{table}[h!]
+Para o primeiro vídeo, convertido em 200 imagens, os tempos estão relatados na
+Tabela~\ref{tab:TemposSfM}.
+\begin{table}
 \caption{Tempos obtidos da reconstrução do objeto, com 200 imagens usando o VisualSfM}
 \label{tab:temposSfM}
 \begin{tabular}{|l|p{4.7cm}|}
@@ -91,12 +121,12 @@ Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
 \end{table}
 
 A Figura~\ref{fig:reconstrucaoEsparsaVisualSFM} mostra o resultado da
-reconstrução esparsa do algoritmo PBA. Não é tão nítida como na reconstrução
-densa, Figura~\ref{fig:reconstrucaoDensaVisualSFM}, a quantidade de ruídos,
+reconstrução esparsa pelo algoritmo PBA. Nota-se que Não é tão nítida como na reconstrução
+densa, Figura~\ref{fig:reconstrucaoDensaVisualSFM}, dada a quantidade de ruídos
 provenientes de outros objetos presentes na cena (o VisualSfM só identifica
 objetos estáticos). Só é possível limpar a malha manualmente, pressionando a
-tecla F1 e selecionando a área desejada para ser deletada. Não é muito prático,
-pois podemos excluir alguns pontos importantes, o ideal seria fazer esta limpeza
+tecla \texttt{F1} e selecionando a área desejada para ser deletada. Não é muito prático,
+pois podemos excluir alguns pontos importantes. O ideal seria fazer esta limpeza
 por meio de programas externos.
 
 \begin{figure}[!h]
@@ -119,8 +149,12 @@ por meio de programas externos.
 	}\label{fig:reconstrucaoDensaVisualSFM}
 \end{figure}
 
-Fizemos uma outra reconstrução, utilizando os dois vídeos (gerando 224 imagens). Caso usássemos um conjunto maior, o programa parava de funcionar por falta de memória, mesmo após ajustar parâmetros (como o número de vizinhos, número de \emph{cores} do processador, \emph{level} do PMVS, entre outros) para melhorar esse problema. Portanto, o experimento seguiu da forma:
-
+Outra reconstrução também foi realizada neste trabalho, utilizando os dois
+vídeos (gerando 224 imagens).  Quando era usado um conjunto maior, o programa
+parava de funcionar por falta de memória, mesmo após ajustar parâmetros (como o
+número de vizinhos, número de \emph{cores} do processador, \emph{level} do PMVS,
+entre outros) para tentar melhorar esse problema. Portanto, o experimento seguiu da
+forma: os tempos estão relatados na Tabela~\ref{tab:temposSfM224}.
 \begin{table}[h!]
 \caption{Tempos obtidos da reconstrução do objeto, com 224 imagens usando o VisualSfM}
 \label{tab:temposSfM224}
@@ -134,12 +168,12 @@ Gerar a reconstrução densa do modelo & 1920 segundos \\ \hline
 \end{tabular}
 \end{table}
 
-Percebemos que não foi tão proveitoso (qualitativamente) usar mais imagens neste
-caso, inclusive o algoritmo perdeu a referência do objeto e gerou um segundo
-modelo na reconstrução esparsa,
+Percebe-se que não foi tão proveitoso (qualitativamente) usar mais imagens neste
+caso; inclusive, o algoritmo perdeu a referência do objeto e gerou um segundo
+modelo espelhado na reconstrução esparsa,
 Figura~\ref{fig:reconstrucaoEsparsaVisualSFM224}, e, consequentemente, na
 reconstrução densa,
-Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241},~\ref{fig:reconstrucaoDensaVisualSFM2241:2} e~\ref{fig:reconstrucaoDensaVisualSFM2242}. O que gerou uma certa incoerência na reconstrução.
+Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241},~\ref{fig:reconstrucaoDensaVisualSFM2241:2} e~\ref{fig:reconstrucaoDensaVisualSFM2242}, o que gerou uma certa incoerência na reconstrução.
 
 \begin{figure}[!h]
 	\centering
@@ -156,7 +190,7 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241},~\ref{fig:reconstrucaoDensaVisu
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=\linewidth]{figs/perto_longe_esparsa_2.jpg}
 	\caption{%
-	Caso em que foram gerados dois modelos refletidos esparsos do objeto a partir
+	Caso de falha em que foram gerados dois modelos refletidos esparsos do objeto a partir
   do conjunto inicial de 224 imagens, provavelmente, proveniente da falta de
   informações para estimar as câmeras.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -175,29 +209,50 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241},~\ref{fig:reconstrucaoDensaVisu
 
 \subsection{Resultados da reconstrução com o MVE}
 
-A utilização do software é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
+A utilização do software é bem intuitiva, seja por linha de comando ou pela
+interface gráfica (neste modo, fica mais fácil visualizar cada etapa da
+reconstrução). O programa é amplamente configurável, podendo escolher a vizinhança, escala,
+manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre
+outras configurações.
 
-Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras, inseridas nas imagens (\emph{EXIF}) e como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados \emph{frames}, não é possível obter a informação das câmeras~\ref{fig:mveexif}. Logo o software não tem tanta aplicabilidade neste caso, pois pode recair no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados. A menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
+Entretanto, para a aplicação proposta neste projeto, o MVE não é muito interessante,
+visto que utiliza fortemente a informação \emph{a priori} das câmeras inseridas nas imagens
+(\emph{EXIF}) e, como as imagens empregadas na reconstrução são, tecnicamente,
+vídeos cortados em determinados \emph{frames}, não é fácil obter essa informação
+das câmeras~\ref{fig:mveexif}. Logo o, software não tem tanta aplicabilidade
+neste caso, pois pode recair no problema dos parâmetros padrões adotados para as
+câmeras não serem bons o suficiente para estes conjuntos de dados. A menos que
+sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja
+gerar a reconstrução densa, pois dessa forma, as informações necessárias das
+câmeras estarão armazenadas no \emph{EXIF}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.461\linewidth]{figs/exifumve.png}(a)
 	\includegraphics[width=0.461\linewidth]{figs/exifsemumve.png}(b)
 	\caption{%
-	A figura (a) é um exemplo onde a imagem possui dados na extensão \emph{EXIF} (destacado em azul). Ao passo que a figura (b) é um frame de um vídeo, que não possui os dados das câmeras (destacado em azul).
+  (a) Um exemplo onde a imagem possui dados na extensão \emph{EXIF}
+  (azul); (b) Um frame de um vídeo, que não
+  possui os dados das câmeras (azul).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}\label{fig:mveexif}
 \end{figure} 
 
-\newpage
+Foi gerada uma reconstrução no MVE de um vídeo gravado de uma escultura no Jardim do
+Nêgo. O  vídeo foi reduzido a \emph{frames} de onde foram selecionadas 200 imagens base,
+com os parâmetros de câmera gerados pelo próprio software, mesmo sem o
+\emph{EXIF} para ajudar na estimativa inicial. 
+A partir disso, foram executados todos os passos de uma reconstrução utilizando o
+MVE, de forma que foram utilizadas as duas opções, tanto por linha de comando,
+quanto pela interface gráfica (UMVE).
 
-Foi gerada uma reconstrução de um vídeo gravado de uma escultura no Jardim do Nêgo. O  vídeo foi cortado em \emph{frames} onde foram geradas 200 imagens base, com os parâmetros de câmera gerados pelo próprio software. 
-
-A partir disso, foi executado, todos os passos de uma reconstrução utilizando o MVE, de forma que, foram utilizadas as duas opções, tanto por linha de comando, quanto pela interface gráfica (UMVE).
-
-Pela interface gráfica, o processo todo de reconstrução foi rápido (cerca de 30 minutos) \ref{fig:UMVEdense}, ao passo que por linha de comando, levou cerca de 11 horas e 30 minutos, portanto, vamos nos atentar somente à reconstrução por linha de comando, onde, resumindo, tivemos os resultados~\ref{tab:mveSapo}. 
-
-O UMVE não sinaliza quando o processo em execução termina, então, a explicação para essa discrepância no tempo é devido à execução de outro comando, sobrepondo o que já estava sendo executado, sem que o primeiro tivesse terminado.
+Pela interface gráfica, o processo todo de reconstrução foi rápido (cerca de 30
+minutos), Figura~\ref{fig:UMVEdense}, ao passo que por linha de comando, levou cerca de
+11 horas e 30 minutos. Portanto, vamos nos atentar somente à reconstrução por
+linha de comando, onde, resumindo, tivemos os resultados na Tabela~\ref{tab:mveSapo}. 
+O UMVE não sinaliza quando o processo em execução termina; a explicação
+para essa discrepância no tempo é devido à execução de outro comando, sobrepondo
+o que já estava sendo executado, sem que o primeiro tivesse terminado.
 
 \begin{figure}[!h]
 	\centering
@@ -224,9 +279,11 @@ Comando            & Tempo (aprox.)    \\ \hline
 \end{tabular}
 \end{table}
 
-Na reconstrução por linha de comando também é possível visualizar em qual etapa da execução o algoritmo está (figura~\ref{fig:passosMVE}), configurar alguns parâmetros e inclusive mostrar a porcentagem de progresso do comando em execução. Foram executados os comandos declarados nesta seção.  O \emph{sfmrecon} demorou cerca de 1 minuto e meio \ref{fig:MVESfM}. 
-
-\newpage
+Na reconstrução por linha de comando também é possível visualizar em qual etapa
+da execução o algoritmo está (Figura~\ref{fig:passosMVE}), configurar alguns
+parâmetros e inclusive mostrar a porcentagem de progresso do comando em
+execução. Foram executados os comandos declarados nesta seção.  O
+\texttt{sfmrecon} demorou cerca de 1 minuto e meio \ref{fig:MVESfM}. 
 
 \begin{figure}[!h]
 	\centering
@@ -234,9 +291,13 @@ Na reconstrução por linha de comando também é possível visualizar em qual e
 	\includegraphics[width=0.45\linewidth]{figs/umve3sfmfeature.png} (b)
 	\includegraphics[width=0.45\linewidth]{figs/umve4ba.png} (c)
 	\caption{%
-	Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas as \emph{features} do conjunto de imagens. Em (b) está computado o \emph{pairwise matching} e em (c) está no processo de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide}, usando condições-padrão para as câmeras.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:passosMVE}
+  Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas
+  as \emph{features} do conjunto de imagens. Em (b) está computado o
+  \emph{pairwise matching} e em (c) está no processo de \emph{Bundle
+  Adjustment}~\cite{bundleAdjustmentSlide}, usando condições-padrão para as
+  câmeras.
+  %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+  }\label{fig:passosMVE}
 \end{figure} 
 
 \begin{figure}[h!]
@@ -248,10 +309,10 @@ Na reconstrução por linha de comando também é possível visualizar em qual e
 	}\label{fig:MVESfM}
 \end{figure}
 
-O próximo comando, \emph{dmrecon} demorou cerca de 4 horas, usando como configuração um nível L2, com 20 vizinhos \ref{fig:MVEDenseRecon}. 
-Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi cancelado devido à demora na execução. 
-
-\newpage
+O próximo comando, \texttt{dmrecon} demorou cerca de 4 horas, usando como
+configuração um nível L2, com 20 vizinhos \ref{fig:MVEDenseRecon}.  Usando um
+nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi cancelado
+devido à demora na execução. 
 
 \begin{figure}[!h]
 	\centering
@@ -262,7 +323,12 @@ Usando um nível L0, o algoritmo rodou durante 6 horas aproximadamente e foi can
 	}\label{fig:MVEDenseRecon}
 \end{figure} 
 
-Usando o \emph{scene2pset}, é necessário especificarmos em qual nível estamos reconstruindo e também uma saída válida. Por exemplo: "scene2pset.exe -Fnivel cena output". Onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante, a cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável, neste caso \emph{.ply} \ref{fig:MVEscene2pset}. Este comando foi rápido, demorou cerca de 10 minutos, levando em conta todos os níveis.
+Usando o \texttt{scene2pset}, é necessário especificar em qual nível estamos
+reconstruindo e também uma saída válida. Por exemplo: \texttt{scene2pset.exe -Fnivel
+cena output}, onde o nível poderá ser um 0 (-F0), 1 (-F1) e assim por diante; a
+cena é o \emph{input} e o \emph{output} é um arquivo de extensão configurável,
+neste caso \texttt{.ply} \ref{fig:MVEscene2pset}. Este comando foi rápido, demorou
+cerca de 10 minutos, levando em conta todos os níveis.
 
 \begin{figure}[!h]
 	\centering
@@ -273,9 +339,11 @@ Usando o \emph{scene2pset}, é necessário especificarmos em qual nível estamos
 	}\label{fig:MVEscene2pset}
 \end{figure} 
 
-Para juntar todos os níveis do \emph{scene2pset}, foi usado o \emph{fssrecon}, que gera uma única reconstrução. Este processo demorou bastante, cerca de 7 horas \ref{fig:MVEFSSR}. Que teve como resultado a malha \ref{fig:MVEFSSRMesh}.
-
-\newpage
+Para juntar todos os níveis do \texttt{scene2pset}, foi usado o \texttt{fssrecon},
+que gera uma única reconstrução. Este processo demorou bastante, cerca de 7
+horas, Figura~\ref{fig:MVEFSSR}, e teve como resultado a malha da Figura~\ref{fig:MVEFSSRMesh}.
+Porfim, basta limpar a malha atual com o comando \texttt{meshclean}, onde foi
+obtido o resultado~\ref{fig:MVEMeshClean}.
 
 \begin{figure}[!h]
 	\centering
@@ -295,10 +363,6 @@ Para juntar todos os níveis do \emph{scene2pset}, foi usado o \emph{fssrecon}, 
 	}\label{fig:MVEFSSRMesh}
 \end{figure} 
 
-Finalmente, basta limpar a malha atual com o comando \emph{meshclean}, onde foi obtido o resultado~\ref{fig:MVEMeshClean}.
-
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
@@ -308,7 +372,11 @@ Finalmente, basta limpar a malha atual com o comando \emph{meshclean}, onde foi 
 	}\label{fig:MVEMeshClean}
 \end{figure} 
 
-Para comparação, usamos o mesmo objeto utilizado na reconstrução do VisualSfM (a galinha) e fizemos o passo a passo com o MVE: com a interface gráfica (UMVE), criamos uma nova cena e inserimos, primeiramente, as 200 fotos do objeto. Em seguida, utilizando as linhas de comando do MVE, fizemos o procedimento padrão de reconstrução do software. E, obtivemos os seguintes resultados~\ref{tab:galinha200mve}:
+Para comparação, usou-se o mesmo objeto utilizado na reconstrução do VisualSfM (a
+galinha) e foi feito o passo a passo com o MVE: com a interface gráfica (UMVE),
+criou-se uma nova cena inserido-se, primeiramente, as 200 fotos do objeto. Em
+seguida, utilizando as linhas de comando do MVE, foi feito o procedimento padrão
+de reconstrução do software. Foram obtidos os resultados na Tabela~\ref{tab:galinha200mve}:
 
 \begin{table}[!h]
 \centering
@@ -324,8 +392,6 @@ Comando            & Tempo (aprox.)         \\ \hline
 \emph{meshclean} & 45 segundos    \\ \hline
 \end{tabular}
 \end{table}
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -371,11 +437,14 @@ Comando            & Tempo (aprox.)         \\ \hline
 	}\label{fig:galinhaMeshClean}
 \end{figure}
 
-\newpage
-
-A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém percebemos que a reconstrução não foi satisfatória, o software se confundiu, e não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir disso, o erro se propagou e gerou essa reconstrução acima \ref{fig:galinhaFssr} e \ref{fig:galinhaMeshClean}.
-
-Rodamos também, com as 224 fotos, só foi possível executar o passo \emph{sfmrecon} \ref{fig:galinhaSfM224}, pois o MVE não conseguiu rodar o comando \emph{dmrecon} por algum motivo, e não gerou nenhum resultado para a continuação do algoritmo \ref{fig:galinhaDMR224}.
+A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém
+a reconstrução não foi satisfatória, o software se confundiu, e
+não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir
+disso, o erro se propagou e gerou a reconstrução das Figuras~\ref{fig:galinhaFssr}
+e~\ref{fig:galinhaMeshClean}.  Rodamos também com as 224 fotos, mas só foi possível
+executar o passo \emph{sfmrecon} \ref{fig:galinhaSfM224}, pois o MVE não
+conseguiu rodar o comando \emph{dmrecon} por algum motivo, e não gerou nenhum
+resultado para a continuação do algoritmo, Figura~\ref{fig:galinhaDMR224}.
 
 \begin{figure}[!h]
 	\centering
