@@ -1,35 +1,51 @@
-\chapter{Técnicas de reconstrução baseadas em fotogrametria}\label{cap:pontosdeinteresse}
+\chapter{Técnicas de fotogrametria passiva}\label{cap:pontosdeinteresse}
 %======================================================================================
 %
 \section*{Introdução}
 
-A reconstrução 3D pelo método da estrutura do movimento, ou \emph{Structure from Motion} (\emph{SfM}). Tem como base a utilização de pontos de interesse
-(\emph{features}), que são pontos ou áreas em comum entre as imagens usadas na reconstrução. Para encontrar estes pontos, diferentes algoritmos são empregados. 
-
-A maioria dos métodos baseados em SfM e MVS (\emph{Multi-View Stereo}) tem uma abordagem similar e funcionam com os seguintes passos \ref{fig:sfmpipeline}:
+A grande maioria dos métodos de reconstrução 3D robusta de estrutura por movimento, ou \emph{Structure
+from Motion} (SfM), tem como base a utilização de pontos de interesse
+(\emph{features}), que são pontos ou áreas em comum entre as imagens a serem
+reconstruídas. Para encontrar estes pontos, diferentes algoritmos são empregados. 
+A maioria dos métodos baseados em SfM estima os modelos de câmeras e
+realiza reconstruções esparsas de nuvens de pontos, e é seguida de abordagens denominadas
+\emph{Multi-View Stereo} (MVS) para obtenção de informação 3D mais completa.  O
+pipeline SfM+MVS funciona com os seguintes passos, ilustrados na Figura~\ref{fig:sfmpipeline}:
 
 \begin{itemize}
-\item{Obtenção de imagens}
-\item{Processamento dos parâmetros de câmera para cada imagem}
-\item{Reconstrução da geometria 3D de uma cena com um conjunto de imagens e seus parâmetros correspondentes}
+\item{Aquisição de imagens}
+\item{Estimação dos parâmetros de câmera para cada imagem}
+\item{Reconstrução da geometria 3D de uma cena em diversos níveis de detalhe}
 \end{itemize}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.8\linewidth]{figs/pipelinesfm.png}
+	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
 	\caption{%
-	Procedimento padrão da maioria dos sistemas baseados em SfM e MVS
+	Procedimento padrão da maioria dos sistemas baseados em SfM. Além dessas
+  etapas, geralmente a reconstrução é densificada usando-se MVS.
 	\protect\cite{theia-manual}.
 	}\label{fig:sfmpipeline}
 \end{figure}
 
-Neste trabalho, abordaremos o uso de dois softwares baseados em MVS: o MVE~\cite{mve} e o VisualSfM~\cite{wu2011visualsfm}. Ambos utilizam os passos supracitados, que, posteriormente serão comentados. O que difere um do outro é a partir da etapa de reconstrução esparsa e densa, onde o MVE emprega um algoritmo de mapas de profundidade enquanto o VisualSfM utiliza um sistema baseado em \emph{Bundle Adjustment}. 
+Neste trabalho, abordaremos o uso de dois softwares baseados em SfM+MVS: o
+MVE~\cite{mve} e o VisualSfM~\cite{wu2011visualsfm}, que julgamos serem os mais
+consolidados em pesquisa prática de ponta atualmente. Ambos são grandes pacotes
+que controlam inúmeros outros softwares e bibliotecas para os passos
+supracitados, que posteriormente serão comentados. O que difere um do outro é a
+partir da etapa de reconstrução esparsa e densa, onde o MVE emprega um algoritmo
+de agregação de mapas de profundidade, enquanto o VisualSfM fornece ouros
+algoritmos de densificação, sendo mais fortemente calcado no resultado esparso do SfM.
 
-O passo de obtenção de imagens, será discutido no Capítulo de experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para processamento das imagens de entrada.
+O passo de aquisição de imagens será discutido em detalhes no Capítulo de
+experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para
+processamento.
 
-\section*{ SIFT -- \emph{Scale Invariant Feature Transform}}
+\section*{SIFT -- \emph{Scale Invariant Feature Transform}}
 
-Primeiramente, utiliza-se o SIFT (algoritmo de detecção de pontos de interesse, invariante à escala e à transformações, como rotação, translação e iluminação da imagem, por exemplo).
+Primeiramente, calcula-se o SIFT (algoritmo de detecção de pontos de interesse,
+invariante à escala e à transformações, como rotação, translação e iluminação da
+imagem) em cada imagem.
 O algoritmo pode ser dividido em cinco etapas, das quais:
 
 \begin{itemize}
@@ -37,7 +53,7 @@ O algoritmo pode ser dividido em cinco etapas, das quais:
 	\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
 	\item{Atribuição de orientação -- \emph{Orientation Assignment}}
 	\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
-	\item{Combinação de pontos-chaves -- \emph{Keypoint Matching}}
+	\item{Casamento de pontos-chaves -- \emph{Keypoint Matching}}
 \end{itemize}
 
 
