@@ -39,41 +39,60 @@ algoritmos de densificação, sendo mais fortemente calcado no resultado esparso
 
 O passo de aquisição de imagens será discutido em detalhes no Capítulo de
 experimentos~\ref{sec:experiments}. Seguimos adiante com os algoritmos para
-processamento.
+processamento. Note-se que será usado o termo curto ``ponto'' para denotar
+``ponto de interesse''.
 
 \section*{SIFT -- \emph{Scale Invariant Feature Transform}}
 
 Primeiramente, calcula-se o SIFT (algoritmo de detecção de pontos de interesse,
 invariante à escala e à transformações, como rotação, translação e iluminação da
-imagem) em cada imagem.
-O algoritmo pode ser dividido em cinco etapas, das quais:
+imagem) em cada imagem~\cite{Lowe:IJCV2004}.
+O algoritmo pode ser dividido em cinco etapas:
 
 \begin{itemize}
-	\item{Deteccão de espaço-escala extremos -- \emph{Scale-space Extrema Detection}}
-	\item{Localização de pontos-chaves -- \emph{Keypoint Localization}}
+	\item{Deteccão de extremos no espaço-escala -- \emph{Scale-space Extrema Detection}}
+	\item{Localização de pontos -- \emph{Keypoint Localization}}
 	\item{Atribuição de orientação -- \emph{Orientation Assignment}}
-	\item{Descritor de pontos-chaves -- \emph{Keypoint Descriptor}}
-	\item{Casamento de pontos-chaves -- \emph{Keypoint Matching}}
+	\item{Descritor de pontos -- \emph{Keypoint Descriptor}}
+	\item{Casamento de pontos -- \emph{Keypoint Matching}}
 \end{itemize}
 
 
-\subsection*{Detecção de espaço-escala extremos}\label{DiffGaussian}
+\subsection*{Detecção de extremos de espaço-escala}\label{DiffGaussian}
 
 % From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
 
-Em casos com cantos pequenos, a detecção funciona bem. Porém, raramente utilizaremos a mesma janela para detectar pontos-chaves em imagens com diferentes escalas, pois utilizamos imagens grandes e, consequentemente, cantos grandes. Para isso, precisamos de janelas grandes também. 
+Em casos com cantos pequenos, uma detecção clássica de cantos funciona
+bem~\cite{Harris:Stephens:Edge:Corner:Step}. Porém, raramente
+utilizaremos a mesma janela para detectar pontos em imagens com
+diferentes escalas, pois utilizamos também imagens de maior resolução e, consequentemente, cantos
+com mais área de suporte. Para isso, precisamos de janelas grandes também. 
 
-Para resolver este problema, o filtro de escala-espaço é usado: o Laplaciano de Gaussiano (\emph{Laplacian of Gaussian} --  LoG). O LoG atua como um detector de particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de escala). Por exemplo, o núcleo Gaussiano com $\sigma$ baixo, tem como resposta um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto $\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar um máximo local através da escala e o espaço, o que nos fornece uma lista de $(x,y \sigma)$, o que significa que existe um ponto-chave em potencial, com o par $(x,y)$ na escala $\sigma$.
+Para resolver este problema, o filtro de escala-espaço é usado: o laplaciano
+com uma gaussiana (\emph{Laplacian of Gaussian} --  LoG). O LoG atua como um detector de
+particulas em diferentes tamanhos $\sigma$. (Onde $\sigma$ é o parâmetro de
+escala). Por exemplo, o núcleo gaussiano com $\sigma$ baixo, tem como resposta
+um alto valor para um canto pequeno. Enquanto um núcleo gaussiano com alto
+$\sigma$, se encaixa bem para um canto maior. Com esta lógica, podemos encontrar
+um máximo local através da escala e o espaço, o que nos fornece uma lista de
+$(x,y \sigma)$, o que significa que existe um ponto-chave em potencial, com o
+par $(x,y)$ na escala $\sigma$.  Por exemplo, um pixel é comparado com seus 8 vizinhos, assim
+como comparado com os 9 pixels na próxima escala e os 9 pixels na escala
+anterior. Se esse pixel é um local extremo, ele é um ponto-chave em potencial
+nessa escala. Sua posição é posteriormente interpolada e refinada antes de
+produzir os pontos finais.
+
 
 % \begin{equation}
 % LoG(x,y) = - \frac{1}{\pi \sigma ^4 }\left [ 1 - \frac{x^2+y^2}{2 \sigma ^2} \right ]e^{- \frac{x^2+y^2}{2 \sigma ^2}} 
 % \end{equation}
 
-Porém, como o LoG é um pouco custoso, computacionalmente. O SIFT utiliza um algoritmo aproximado do LoG, o DoG (Diferença de Gaussianos -- \emph{Difference of Gaussians}). O DoG é a diferença de um filtro Gaussiano de uma imagem, com dois valores diferentes de escala $\sigma$. 
-
-\newpage
-
-Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
+Como o LoG é um pouco custoso computacionalmente, o SIFT utiliza um
+algoritmo aproximado do LoG, o DoG (Diferença de Gaussianos -- \emph{Difference
+of Gaussians}). O DoG é a diferença de um filtro de borramento gaussiano de uma imagem com
+valores diferentes de escala $\sigma$.
+Uma aplicação prática do filtro DoG é a sequência de imagens na
+Figura~\ref{fig:lenadog}.
 
 \begin{figure} [!h]
 	\centering
@@ -82,132 +101,109 @@ Uma aplicação prática do filtro DoG é a sequência de imagens a seguir:
 	\includegraphics[width=0.20\linewidth]{figs/lenaSigma2.png}(c)
  	\includegraphics[width=0.20\linewidth]{figs/lenaDoG.png} (d)
 	\caption{%
-	É aplicado um filtro gaussiano na imagem original (a), com $\sigma$ = 1, tendo como resultado a imagem (b).
-	Um outro filtro gaussiano é usado, porém, neste caso, o $\sigma$ = 2 (c). Após isso, subtrai-se (b) de (c), obtendo 
-	o filtro DoG (d).
+	Filtro gaussiano aplicado na imagem (a), com $\sigma = 1$, resultando
+  em (b); outra filtragem gaussiana com $\sigma = 2$ (c). Subtrai-se (b)
+  de (c), produzindo o filtro DoG (d).
 	}\label{fig:lenadog}
 \end{figure}
 
-Uma vez que o DoG é aplicado, as iamgens são utilizadas com o espaço e escala extremos. Por exemplo, na imagem \ref{fig:extrema}, um pixel é comparado com seus 8 vizinhos, assim como comparado com os 9 pixels na próxima escala e os 9 pixels na escala anterior. Se esse pixel é um local extremo, ele é um ponto-chave em potencial. Isto é, este ponto-chave é melhor representado nesta escala.
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.35\linewidth]{figs/sift_local_extrema.jpg}
+%  \caption{%
+%  Exemplo de funcionamento de deteccão de espaço-escala extrema
+%  }\label{fig:extrema}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.35\linewidth]{figs/sift_local_extrema.jpg}
-	\caption{%
-	Exemplo de funcionamento de deteccão de espaço-escala extrema
-	}\label{fig:extrema}
-\end{figure}
-
-No caso, as funções ficariam da seguinte forma: 
-
-\begin{equation}
+Em liguagem matemática, o DoG pode ser expresso a partir da seguinte sequência
+de expressões: 
+\begin{align}
 \label{eq:gaussiano}
-	g_\sigma(x) = \frac{1}{2 \pi \sigma ^2} e^{-\frac{1}{2} \frac{x^T x}{\sigma ^2}}
-\end{equation}
-
-\begin{equation}
+	&g_\sigma(x) = \frac{1}{2 \pi \sigma ^2} e^{-\frac{1}{2} \frac{x^T x}{\sigma
+  ^2}}\\
 \label{eq:gaussianScaleSpace}
-	I_\sigma = g_\sigma * I, \sigma \geq 0
-\end{equation}
-
-\begin{equation}
-\label{eq:LoG}
-	\triangledown^2	g_\sigma(x)
-\end{equation}
-
-\begin{equation}
+	&I_\sigma = g_\sigma * I,\ \ \ \sigma \geq 0\\
 \label{eq:DoG}
-	DoG_\sigma(o,s) = I_\sigma(o,s+1) - I_\sigma(o,s)
-\end{equation}
-
-
-Onde \ref{eq:gaussiano} é a função padrão do operador gaussiano (núcleo), a equação \ref{eq:LoG} é o operador LoG,  \ref{eq:DoG} é o operador DoG e $\triangledown^2$ é o operador Laplaciano.
-
-\subsection*{Localização de pontos-chaves}
-
-A localização dos pontos extremos pode cair em um extremo local e não global. Logo, após a utilização do DoG e com os pontos-chaves em potencial localizados, eles precisam ser refinados para melhorar o resultado. Para isso, são utilizadas Séries de Taylor na escala e no espaço, e, se a intensidade nesse extremo é menor que o valor limite, este é rejeitado.
-%TODO: Ver isso 
-Os \emph{frames} do SIFT (pontos-chaves) são extraídos baseados nos extremos locais (picos) a partir do DoG. Numericamente, extremos locais são elementos que possuem um menor (ou maior) valor em uma vizinhança em um espaço 3x3x3 (em escala e espaço).
-Depois de extraídos, estes pontos são interpolados quadraticamente (este passo é muito importante, especialmente nas escalas de menor resolução, para ter uma localização precisa do ponto-chave na resolução completa). Finalmente, eles são filtrados para eliminar respostas de baixo contraste ou respostas próximas as bordas.
-
-%Eliminating low contrast responses
-
-Picos que são pequenos, na maior parte das vezes são gerados a partir de ruídos e necessitam ser descartados também. Isso é feito com uma comparação de valor absoluto do DoG no pico com o valor do pico limite e é descartado caso este valor é menor que o limite.
-
-
-%Eliminating edge responses 
-
-Para eliminar respostas em bordas, normalmente os picos mais rasos ou horizontais, são gerados por bordas e não possuem características estáveis, portanto estes picos precisam ser removidos. Para isso, dado um pico (x, y, $\sigma$), o algoritmo avalia a matriz Hessiana (x,y) do DoG na escala $\sigma$. Então é computado um valor para esta equação (\ref{eq:hessianaDoG}):
-
-\begin{equation}
-	v = \frac{( T_r \ D(x,y,\sigma))^2}{Det \ D(x,y,\sigma)}
-	\label{eq:hessianaDoG}
-\end{equation}
-Onde, $T_r$ é o traço, ou seja, $T_r(H) = D_{xx} + D_{yy}$ e a matriz $D$ é do tipo
-\[D = \begin{bmatrix}
-	\frac{\partial ^2 DoG}{\partial x^2} & \frac{\partial ^2 DoG}{\partial x \partial y} \\ 
-	\frac{\partial ^2 DoG}{\partial x \partial y} & \frac{\partial ^2 DoG}{\partial y^2} 
-\end{bmatrix}
-\]
-
-No caso, v possui um valor mínimo (igual a 4) quando os autovalores da Jacobiana são iguais (pico curvado) e aumentam à medida que um dos autovalores aumenta e os outros permanecem baixos. Os picos são retidos se $v  < \frac{(t_e+1)(t_e+1)}{t_e}$ , onde $t_e$ é o limite da borda. 
+	&DoG_\sigma(o,s) = I_\sigma(o,s+1) - I_\sigma(o,s) \approx \triangledown^2
+  g_\sigma(x),
+\end{align}
+Onde a equação~\ref{eq:gaussiano} é o núcleo gaussiano e $\triangledown^2$ é o operador Laplaciano.
 
 \subsection*{Atribuição de orientação}
 
-Agora, uma orientação é atribuída a cada ponto-chave para obter a invariância à rotação da imagem. 
-Uma vizinhança é obtida, dependente da escala, do gradiente da magnitude \ref{eq:magnitudeSIFT} e da direção \ref{eq:direcaoSIFT} (usando diferenças finitas), ao redor da localização do ponto-chave. 
-
+Uma orientação é atribuída a cada ponto-chave para obter a invariância à rotação da imagem. 
+Ao redor da localização do ponto, uma vizinhança é obtida, dependente da escala,
+com tamanho e orientação definido a partir da magnitude do gradiente,
+Equação~\ref{eq:magnitudeSIFT} e da direção do gradiente,
+Equação~\ref{eq:direcaoSIFT}, 
 \begin{equation}
-	m(x,y) = \sqrt{(L(x+1,y)-L(x-1,y))^2 + (L(x,y+1)-L(x,y-1)^2)}
+	m(x,y) = \sqrt{(L(x+1,y)-L(x-1,y))^2 + (L(x,y+1)-L(x,y-1)^2)},
 	\label{eq:magnitudeSIFT}
 \end{equation}
-
 \begin{equation}
-	\theta = tan^{-1} \left( \frac{(L(x,y+1)-L(x,y-1)}{(L(x+1,y)-L(x-1,y)}\right)
+	\theta = tan^{-1} \left(
+  \frac{(L(x,y+1)-L(x,y-1)}{(L(x+1,y)-L(x-1,y)}\right),
 	\label{eq:direcaoSIFT}
 \end{equation}
-
-Então, um histograma de 36 orientações (\emph{bins}) cobrindo 360 graus é criado. Onde ele é ponderado pelo gradiente da magnitude e por uma janela Gaussiana circular onde $\sigma$ vale $1.5$ em relação à escala do ponto-chave \ref{fig:histogramaOrientado}.
+onde $L(x,y) = I_\sigma(x,y)$ para o valor de $\sigma$ mais próximo possível da
+escala do ponto de interesse em questão.  Em seguida, é montado um histograma de 36
+orientações (\emph{bins}) cobrindo 360, que para cada orientação agrega o número
+de píxels na vizinhança que têm orientação do gradiente compatível. O histograma é ponderado
+pela magnitude do gradiente e por uma Gaussiana circular onde $\sigma$ vale
+$1.5$ em relação à escala do ponto-chave \ref{fig:histogramaOrientado}.
 
 \begin{figure} [!h]
 	\centering
 	\includegraphics[width=0.45\linewidth]{figs/histogramaOrientado.png}
 	\caption{%
-	Exemplo do resultado obtido do histograma orientado
+	Exemplo do resultado obtido do histograma de orientações do gradiente.
 	}\label{fig:histogramaOrientado}
 \end{figure}
 
-O ponto mais do histograma é obtido e qualquer pico acima de 80\% é considerado no cálculo da orientação. 
-Pontos-chaves são criados com a mesma localização e escala, mas em diferentes direções, o que contribui para a establidade da correspondência.
+O ponto mais alto do histograma é obtido e qualquer pico acima de 80\% desse
+valor é considerado no cálculo da orientação final atribuída ao ponto. 
 
-\subsection*{Descritor de pontos-chaves}
+\subsection*{Descritor de pontos}
 
-Com os pontos-chaves criados a partir do histograma orientado, cria-se agora o descritor de pontos-chaves.
-
-Uma vizinhança 16x16 ao redor do ponto-chave é escolhida e esta mesma vizinhaça é dividida em 16 sub-blocos 4x4. Para cada bloco, um histograma orientado com 8 \emph{bin} é criado. Logo, temos 128 valores válidos de \emph{bin}. Esses valores são representados em forma de vetor para expressar o descritor de pontos-chaves \ref{fig:descritorKeypoint}. 
-
-Além disso, são tomadas algumas medidas para deixar o descritor mais robusto,como, por exemplo, invariante à luminosidade, rotação, etc.
+Com os pontos criados e atribuídos com o histograma 
+supracitado de 36 entradas, cria-se agora o descritor de pontos-chaves.
+Uma vizinhança 16x16px ao redor do ponto-chave é escolhida e esta mesma vizinhaça
+é dividida em 16 sub-blocos 4x4px. Para cada bloco, um novo histograma orientado com 8
+\emph{bin} é criado. Logo, temos 128 valores válidos. Esses valores são
+representados em forma de vetor para expressar o descritor de pontos-chaves
+\ref{fig:descritorkeypoint}.  
 
 \begin{figure} [!h]
 	\centering
-	\includegraphics[width=0.45\linewidth]{figs/descritorKeypoint.png}
+	\includegraphics[width=0.45\linewidth]{figs/descritorkeypoint.png}
 	\caption{%
-	Exemplo de um descritor de pontos-chaves, com uma matriz 2x2 e uma região 8x8
-	}\label{fig:descritorKeypoint}
+	Exemplo de um descritor de pontos SIFT, com uma matriz 2x2 e uma região 8x8
+	}\label{fig:descritorkeypoint}
 \end{figure}
 
-\subsection*{Combinação de pontos-chaves}
+\subsection*{Casamento de pontos}
 
-Pontos-chaves entre duas imagens são combinados a partir da identificação da vizinhança mais próxima. Mas, em alguns casos, a segunda combinação mais próxima pode ser parecida com a primeira. Isso se dá por ruídos presentes nas imagens ou algo assim. 
-
-Nesse caso, a razão da distância mais próxima para a segunda distância mais próxima é utilizada. Se essa razão for maior que 0.8, essa combinação é descartada.
-Esse método elimina cerca de 90\% de combinações falsas, enquanto descarta apenas cerca de 5\% de combinações corretas.
+Em sistemas SfM, pontos-chaves são casados entre duas imagens; as imagens são
+todas comparadas, duas a duas, exceto em sistemas aproximados de muito larga escala.
+Tais pontos são casados a partir da identificação da
+vizinhança mais próxima no espaço de atributos 128-Dimensional. Mas, em alguns
+casos, a segunda combinação mais próxima pode ser parecida com a primeira. Isso
+se dá por padrões repetidos e ruídos presentes nas imagens, caso em que os
+sitemas SfM preferem descartar numa primeira instância, e focar apenas em
+correspondências confiáveis (sem confusão em potencial).  Nesse caso, a razão da distância
+mais próxima para a segunda distância mais próxima é utilizada. Se essa razão
+for maior que 0.8, essa combinação é descartada. Apesar de ser uma regra
+simples, é extremamente eficaz para obter as correspondências confiáveis
+necessárias para a estimação das câmeras em sistemas SfM.
 
 \section*{Triangulação -- \emph{Full pair-wise image matching}}
 
-Com os pontos de interesse (\emph{features}) extraídos, podemos agora fazer a triangulação entre os pontos das imagens.
-
-A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, dado pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do \emph{feature} correspondente àquele ponto 3D \ref{fig:triangulacao}.
+Com os pontos de interesse (\emph{features}) extraídos, e alguma forma de
+obter os modelos das câmeras, podemos, a princípio, fazer a
+triangulação entre os pontos das imagens.  
+A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, dado
+pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do
+\emph{feature} correspondente àquele ponto 3D \ref{fig:triangulacao}.
 
 \begin{figure} [!h]
 	\centering
@@ -217,11 +213,16 @@ A triangulação nada mais é que uma estimativa de um ponto em 3 dimensões, da
 	}\label{fig:triangulacao}
 \end{figure}
 
+Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem
+para aumentar a dificuldade da triangulação: ruídos, erro na estimação das
+câmeras, posição inadequada das câmeras, o
+feixe das projeções podem não se encontrar no mesmo ponto 3D, ou não se tem
+informação alguma das câmeras, dentre outros. Entretanto, existem diversos algoritmos
+para resolução de cada um dos problemas enfretados. 
 
-Infelizmente, não é tão simples assim. Existem muitos fatores que contribuem para aumentar a dificuldade da triangulação: ruídos, posição das câmeras, o feixe das projeções não se encontram no mesmo ponto 3D, não se tem informação da projeções nas câmeras, dentre outros. Entretanto, existem diversos algoritmos para resolução de cada um dos problemas enfretados. 
-
-Com a extração dos \emph{features} das imagens selecionadas, as próximas etapas da reconstrução para um dos sistemas se diferem, e a partir de agora, faremos abordagens individuais para cada um deles.
-
+Com a extração dos \emph{features} das imagens selecionadas, as próximas etapas
+da reconstrução para um dos sistemas se diferem, e a partir de agora, faremos
+abordagens individuais para cada um deles.
 
 \input{mve}
 \input{visualsfm}
