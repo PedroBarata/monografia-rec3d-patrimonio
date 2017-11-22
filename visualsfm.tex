@@ -448,22 +448,35 @@ O PMVS-2 pode ser dividido em algumas etapas:
 \end{enumerate}
 
 \noindent\textbf{Detecção de \emph{features}.}
-O PMVS-2 padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris, onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são considerados consistentes para a reconstrução. 
-Após isso cria-se o \emph{patch} onde o $c(p)$ é calculado pela triangulação dos \emph{features} detectados das imagens. A normal $n(p)$ é o cálculo da relação do vetor $c(p)$, multiplicado pela centro óptico da imagem, pelo módulo do numerador. E $R(p)$ é a imagem de referência propriamente dita. São otimizadas as orientações e posições de todos os \emph{patches}.
-Com a inicialização finalizada, temos como resultado a reconstrução esparsa da escultura. No caso do VisualSfM, como a reconstrução esparsa já é feita em passos anteriores (com o PBA \ref{pba}), na realidade o PMVS-2 só é empregado para a reconstrução densa, ou seja, a inicialização não é feita pelo PMVS-2 no VisualSfM.
+O PMVS-2 padrão utiliza o DoG em conjunto com o algoritmo de cantos de Harris,
+onde é criada uma linha epipolar, e todos os pontos em comum nesta linha são
+considerados consistentes para a reconstrução.  Em seguida cria-se o
+\emph{patch},
+onde o $c(p)$ é calculado pela triangulação dos \emph{features} detectados das
+imagens. A normal $n(p)$ é o cálculo da relação do vetor $c(p)$, multiplicado
+pela centro óptico da imagem, pelo módulo do numerador. E $R(p)$ é a imagem de
+referência propriamente dita. São otimizadas as orientações e posições de todos
+os \emph{patches}. Com a inicialização já foi finalizada, temos como parte da
+entrada o resultado da reconstrução esparsa. No caso do VisualSfM, como a
+reconstrução esparsa já é feita em passos anteriores (com o PBA, Seção~\ref{pba}), na
+realidade o código do PMVS-2 só é empregado para a reconstrução densa, ou seja, a
+inicialização (SfM) não é feita pelo PMVS-2 no VisualSfM.
 
 \noindent\textbf{Expansão.}
-Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de expansão (aumento da região). Um \emph{patch} utilizado como semente é expandido da seguinte forma. Um novo \emph{patch} é projetado em uma célula vizinha.
-A posição é definida para a interseção do raio projetado para trás e no plano de seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma imagem de referência.
-Novamente, são otimizadas as orientações e posições, porém, do novo \emph{patch}.	
+Cada ponto 3D na nuvem de pontos é usado como semente para um algoritmo de
+expansão (aumento da região). Um \emph{patch} utilizado como semente é expandido
+da seguinte forma. Um novo \emph{patch} é projetado em uma célula vizinha.  A
+posição é definida para a interseção do raio projetado para trás e no plano de
+seu patch pai, usando a mesma orientação (o vetor normal é propagado) e a mesma
+imagem de referência.  Novamente, são otimizadas as orientações e posições,
+porém, do novo \emph{patch}.	
 
 \noindent\textbf{Filtragem.}
 É aplicada uma consistência de visibilidade global, onde os \emph{patches} que
 não são visíveis pelos centros ópticos das imagens, são descartados (estão
 dentro da superfície). Para isso, são utilizados dois filtros: filtro de
-qualidade e filtro de visibilidade \ref{filtropmvs}.
-
-\begin{figure}[!h]
+qualidade e filtro de visibilidade, Figura~\ref{filtropmvs}.
+\begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{figs/filtropmvs.png}
 	\caption{%
@@ -476,10 +489,34 @@ qualidade e filtro de visibilidade \ref{filtropmvs}.
 \end{figure} 
 
 \noindent\textbf{Filtro de Qualidade.}
-A mesma região de superfície pode ser reconstruída em múltiplos clusters com qualidade de reconstrução variável: grupos próximos produzem pontos densos e precisos, enquanto cachos distantes produzem pontos escassos e ruidosos. Queremos filtrar o último, que é realizado pelo seguinte filtro de qualidade. Assumimos que $P_j$ e $V_j$ denotarem um ponto MVS e suas informações de visibilidade estimadas pelo algoritmo MVS, respectivamente. Supomos que $P_j$ foi reconstruído a partir do \emph{cluster} $C_k$. Primeiramente coletamos pontos MVS ${Q_m}$ e sua informação de visibilidade ${V_m}$ de todos os \emph{clusters} que possuam normais compatíveis com $P_j$, isto é, a diferença de ângulo menores que $90^\circ$ e seus locais projetados estejam dentro de $n$ pixels de $P_j$ em cada imagem em $V_j$, (no caso, experimentalmente, $n=8$). A partir dos pontos MVS obtidos, calculamos um histograma ($H_l$), onde $H_l$ é a soma da acurácia das precisões $f(Q_m,V_m)$ associadas a pontos MVS reconstruídos a partir de $C_l$. Uma vez que um \emph{cluster} possua pontos acurados e densos, este deverá ter um valor significativamente maior do que os outros. $P_j$ é filtrado se o valor do histograma $H_k$ correspondente for inferior a metade do máximo: $Hk < 0,5 max_l H_l$. Repetimos este procedimento examinando cada \emph{cluster} de referência, que pode ser executado em paralelo. 
+A mesma região de superfície pode ser reconstruída em múltiplos clusters com
+qualidade de reconstrução variável: grupos próximos produzem pontos densos e
+precisos, enquanto os distantes produzem pontos escassos e ruidosos.
+Deseja-se filtrar o último.  Sejam $P_j$ e $V_j$ um ponto MVS
+e suas informações de visibilidade estimadas pelo algoritmo MVS,
+respectivamente. Supondo que $P_j$ foi reconstruído a partir do \emph{cluster}
+$C_k$, primeiramente coletamos pontos MVS ${Q_m}$ e a informação de
+visibilidade ${V_m}$ de todos os \emph{clusters} que possuam normais compatíveis
+com $P_j$, isto é, a diferença de ângulo menores que $90^\circ$ e com seus locais
+projetados dentro de $n$ pixels de $P_j$ em cada imagem em $V_j$. A partir dos
+pontos MVS obtidos, calcula-se um histograma ($H_l$), onde $H_l$ é a soma da
+acurácia das precisões $f(Q_m,V_m)$ associadas a pontos MVS reconstruídos a
+partir de $C_l$. Se um \emph{cluster} possui pontos acurados e densos,
+deverá ter um valor significativamente maior do que os outros. $P_j$ é
+filtrado se o valor do histograma $H_k$ correspondente for inferior a metade do
+máximo: $Hk < 0,5 max_l H_l$. Repete-se este procedimento examinando cada
+\emph{cluster} de referência, que pode ser executado em paralelo. 
 
 \noindent\textbf{Filtro de Visibilidade.}
-O filtro de visibilidade reforça a consistência das informações de visibilidade associadas aos pontos MVS durante toda a reconstrução. O filtro é, de fato, muito semelhante ao usado no PMVS [7, 9]. A diferença é que o PMVS reforça a consistência intra-cluster dentro de cada cluster, enquanto nosso filtro reforça a consistência de visibilidade inter-cluster em uma reconstrução inteira comparando as saídas PMVS de todos os clusters. Mais concretamente, para cada ponto MVS, contamos o número de vezes que ele conflita com reconstruções de outros clusters. O ponto é eliminado se a contagem de conflitos~\cite{furukawa2010towards,furukawa2010accurate} for superior a três.
+O filtro de visibilidade reforça a consistência das informações de visibilidade
+associadas aos pontos MVS durante toda a reconstrução. O filtro é, de fato,
+muito semelhante ao usado no PMVS original. A diferença é que o PMVS reforça a
+consistência intra-cluster dentro de cada cluster, enquanto o novo filtro reforça
+a consistência de visibilidade inter-cluster em uma reconstrução inteira
+comparando as saídas PMVS de todos os clusters. Mais concretamente, para cada
+ponto MVS, conta-se o número de vezes que ele conflita com reconstruções de
+outros clusters. O ponto é eliminado se a contagem de
+conflitos for superior a três~\cite{furukawa2010towards,furukawa2010accurate}.
 
 % =================================================================
 
