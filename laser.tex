@@ -2,7 +2,7 @@
 
 \section*{Introdução}
 
-A técnica de reconstrução 3D baseada em \emph{laser} 
+A técnica de reconstrução 3D baseada em laser 
 é conhecida desde o século
 passado, pois oferece uma alta qualidade geométrica de dados, até mesmo para
 regiões sem textura.  Neste capítulo, abordaremos o projeto clássico de escaneamento da
@@ -10,7 +10,7 @@ escultura de Michelangelo, Davi, que utiliza escaneadores
 por laser, também relacionados a técnicas de luz estruturada e
 uma técnica conhecida como \emph{Time of Flight}, ou tempo de voo,
 Figura~\ref{fig:luzestruturada}. Esse processo se baseia em projetar um padrão
-conhecido (muitas vezes, grades ou barras horizontais, via \emph{laser} ou luz infra-vermelho) em uma
+conhecido (muitas vezes, grades ou barras horizontais, via laser ou luz infra-vermelho) em uma
 cena. A forma como o padrão se deforma quando atinge superfícies permite que
 sistemas de visão calculem a profundidade e informações das superfícies dos
 objetos na cena.
@@ -20,7 +20,7 @@ objetos na cena.
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.4\linewidth]{figs/luzestruturada.jpg}
 	\caption{%
-	Um projetor de padrões utilizando um \emph{laser} visível~\cite{luzEstruturada}.
+	Um projetor de padrões utilizando um laser visível~\cite{luzEstruturada}.
 	}\label{fig:luzestruturada}
 \end{figure}
 
@@ -40,16 +40,16 @@ empresas privadas, passaram os anos de 1998 e
 1999 na Itália escaneando esculturas de Michelangelo. 
 
 O principal componente de hardware do sistema é um escaneador de triangulação a
-\emph{laser}, que é composto por quatro eixos motorizados, um projetor a \emph{laser}, uma
+laser, que é composto por quatro eixos motorizados, um projetor a laser, uma
 câmera de profundidade, uma câmera de cores RGB e uma luz
 branca~\ref{fig:cabecaScanner}, isso tudo acrescido de suportes e estruturas
 para o escaneamento de estátuas grandes. O objetivo de um escaneador deste
 porte era capturar marcas menores que um milímetro, das ferramentas utilizadas
 por Michelangelo em suas esculturas, Figura~\ref{fig:cinzeis}.  Para isso, foram testadas diversas
 resoluções, tendo sido decidido um espaçamento Y (ao longo da faixa do
-\emph{laser}) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas
+laser) de 1/4 mm e uma resolução Z (profundidade) de pelo menos duas
 vezes este valor. Isso resultou em uma visualização de 14 cm de largura (ao
-longo da faixa do \emph{laser}) por 14 cm de profundidade. Caso esta resolução
+longo da faixa do laser) por 14 cm de profundidade. Caso esta resolução
 fosse menor, as marcas de cinzel ficariam borradas e, se fosse maior, o
 conjunto de dados produzido seria gigantesco.  Felizmente, a maioria das
 estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em
@@ -110,7 +110,7 @@ David, a calibração foi divida em seis etapas distintas:
 \item{Um mapeamento 2D a partir de coordenadas de \emph{pixels} das imagens da
   câmera de profundidade para localizações físicas na camada de laser}
 \item{Uma transformação rígida 2D/3D do sistema de coordenadas da camada de
-    \emph{laser} para esferas de aço anexadas à cabeça do escaneador}
+    laser para esferas de aço anexadas à cabeça do escaneador}
 \item{Transformação rígida 3D para acomodar o rolamento da cabeça do escaneador 
     em $90^{\circ}$ (ao remontá-lo) em relação ao conjunto \emph{pan-tilt}}
   \item{A localização do eixo de rotação de inclinação \emph{tilt} e o mapeamento não-linear
@@ -156,11 +156,11 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 % Calibração do sistema de cores:
 % Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de \emph{features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
 
-% Para obter um mapeamento da câmera colorida para o escaneador da cabeça, o alvo foi escaneado usando o \emph{laser} e a câmera de alcance. Uma vez que o escaneador retornou a intensidade refletida pelo \emph{laser}, bem como a profundidade, pode-se calcular as coordenadas 3D de cada ponto da \emph{feature}.
+% Para obter um mapeamento da câmera colorida para o escaneador da cabeça, o alvo foi escaneado usando o laser e a câmera de alcance. Uma vez que o escaneador retornou a intensidade refletida pelo laser, bem como a profundidade, pode-se calcular as coordenadas 3D de cada ponto da \emph{feature}.
 
 % Para corrigir os efeitos radiométricos espaciais, incluindo o aspecto de vinheta das lentes, a não uniformidade angular, o declínio da lei quadrada inversa dos holofotes e a não uniformidade espacial na resposta do sensor, foi fotografado um cartão branco sob o holofote e construída uma tabela de correção de intensidade por pixel.
 
-% Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa \emph{laser}) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a \emph{laser} ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
+% Depois de testar várias resoluções, decidimos um espaçamento de amostra Y (ao longo da faixa laser) de 1/4 mm e uma resolução Z (profundidade) pelo menos duas vezes esta multa 1. Isso nos deu uma visão de 14 cm de largura (ao longo da faixa a laser ) por 14 cm de profundidade. Em retrospectiva, ficamos satisfeitos com a resolução que escolhemos; Qualquer coisa menor teria significativamente borrado as marcas de cinzelão de Michelangelo, e qualquer coisa maior teria tornado os nossos conjuntos de dados não gerenciáveis.
 
 \begin{figure}
 	\centering
@@ -180,21 +180,21 @@ quatro fatores:
 \begin{itemize}
 \item{O campo de visão e os limites de movimento do escaneador}
 \item{A  queda na qualidade da varredura com o aumento da obliquidade do laser}
-\item{Oclusões, tanto do \emph{laser} quanto da linha de visão da câmera}
+\item{Oclusões, tanto do laser quanto da linha de visão da câmera}
 \item{Obstruções físicas, como paredes, estátuas ou o próprio equipamento}
 \end{itemize}
 
 Uma vez planejada a varredura, um \emph{script} de digitalização é executado
 automaticamente, levando desde alguns minutos, até horas para terminar,
 dependendo da largura da área a ser coberta.  A partir do \emph{script}, são feitas as
-etapas de escaneamento de profundidade (\emph{laser}) e do escaneamento da fotometria
+etapas de escaneamento de profundidade (laser) e do escaneamento da fotometria
 (câmera digital RGB).
 
 % Range scanning. A typical range scan consisted of several con-
 % centric curved shells separated by translational motion of the scan
 % head along the horizontal table. Each shell in turn consisted of sev-
-% eral horizontally adjacent vertical sweeps of the \emph{laser}, as shown in
-% figure 5. If the \emph{laser} line was turned vertically, then the sweeps were
+% eral horizontally adjacent vertical sweeps of the laser, as shown in
+% figure 5. If the laser line was turned vertically, then the sweeps were
 % horizontal instead. We decided to overlap adjacent sweeps and
 % shells by 40% and 15%, respectively - enough to align them in soft-
 % ware in the absence of precisely calibrated motion. Since scanning
@@ -203,9 +203,9 @@ etapas de escaneamento de profundidade (\emph{laser}) e do escaneamento da fotom
 % tively determined which part of the sweep actually contained data.
 
 %Alcance da varredura
-% Escala de varredura. Uma varredura de varredura típica consistiu em vários reservatórios curvos concêntricos separados pelo movimento de translação da cabeça de varredura ao longo da mesa horizontal. Cada casca, por sua vez, consistiu em vários varredões verticais horizontais adjacentes do \emph{laser}, como mostrado na figura 5. Se a linha do \emph{laser} foi girada verticalmente, então os varreduras estavam em vez da horizontal. Decidimos sobrepor as varreduras e os reservatórios adjacentes em 40% e 15%, respectivamente - o suficiente para alinhá-los no software na ausência de movimento calibrado com precisão. Uma vez que a varredura foi lenta (1 cm por segundo), precedemos cada varredura com uma pré-digitalização de alta velocidade (10 cm por segundo) e de baixa resolução que determinou de forma conservadora qual parte da varredura realmente continha dados.
+% Escala de varredura. Uma varredura de varredura típica consistiu em vários reservatórios curvos concêntricos separados pelo movimento de translação da cabeça de varredura ao longo da mesa horizontal. Cada casca, por sua vez, consistiu em vários varredões verticais horizontais adjacentes do laser, como mostrado na figura 5. Se a linha do laser foi girada verticalmente, então os varreduras estavam em vez da horizontal. Decidimos sobrepor as varreduras e os reservatórios adjacentes em 40% e 15%, respectivamente - o suficiente para alinhá-los no software na ausência de movimento calibrado com precisão. Uma vez que a varredura foi lenta (1 cm por segundo), precedemos cada varredura com uma pré-digitalização de alta velocidade (10 cm por segundo) e de baixa resolução que determinou de forma conservadora qual parte da varredura realmente continha dados.
 
-% O principal componente de hardware do nosso sistema foi um escaneador de triangulação a \emph{laser} e um pórtico motorizado personalizado para digitalizar grandes estátuas. Nossos requisitos para este escaneador eram exigentes; queríamos capturar marcas de cinzelão menores do que um milímetro, queríamos capturá-las a uma distância segura, e queríamos chegar ao topo do David de Michelangelo, que tem 23 pés de altura no pedestal. Nas seções que se seguem, descrevemos os sistemas de aquisição de alcance e cor deste escaneador, seu pórtico mecânico de suporte e nosso procedimento para calibrá-lo.
+% O principal componente de hardware do nosso sistema foi um escaneador de triangulação a laser e um pórtico motorizado personalizado para digitalizar grandes estátuas. Nossos requisitos para este escaneador eram exigentes; queríamos capturar marcas de cinzelão menores do que um milímetro, queríamos capturá-las a uma distância segura, e queríamos chegar ao topo do David de Michelangelo, que tem 23 pés de altura no pedestal. Nas seções que se seguem, descrevemos os sistemas de aquisição de alcance e cor deste escaneador, seu pórtico mecânico de suporte e nosso procedimento para calibrá-lo.
 
 Primeiramente faz-se o escaneamento fotogramétrico da geometria da escultura:
 
