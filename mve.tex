@@ -210,26 +210,26 @@ reconstrução~\ref{fig:mvesfm}.
 Usando as imagens junto com os parâmetros obtidos das câmeras, é possível
 reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a
 interface gráfica (UMVE) ou por linha de comando (\emph{dmrecon}).
-
 O parâmetro mais importante é o nível de resolução em que os mapas de
 profundidade são reconstruídos: Caso seja nível 0 (ou L0), a reconstrução é
 feita usando o tamanho original das imagens. Se for nível 1 (ou L1), a
-reconstrução corresponde a metade do tamanho (um quarto dos números de pixels),
+reconstrução corresponde à metade do tamanho (um quarto dos números de pixels),
 e assim por diante.
 
-Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois
+Com a alta resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois
 geram mapas de profundidade mais dispersos com um custo computacional elevado, o
 que acarreta em dificuldades para encontrar as correspondências densas das
 imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando
-mapas de profundidades completos, já que utiliza imagens menores
-\ref{fig:mvedepth}.
+mapas de profundidades completos, já que utiliza resoluções menores, Figura~\ref{fig:mvedepth}.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=0.4\linewidth]{figs/mvedepth.png}
 	\caption{%
-	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região \protect\cite{mve}.
+  Uma imagem de entrada (à esquerda) e sua correspondência em mapas de
+  profundidade (à direita), onde a parte roxa significa que não foi encontrado
+  nenhum mapa naquela região~\protect\cite{mve}.
 	}\label{fig:mvedepth}
 \end{figure}
 
