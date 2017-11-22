@@ -34,8 +34,8 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 	}\label{fig:pipelineVisualSfM}
 \end{figure}
 
-\noindent \textbf{1 - Adicionar imagens.} Este é o primeiro passo, para
-  começar uma reconstrução: primeiro adiciona-se imagens ao software. Pode ser
+\noindent \textbf{1 - Adicionar imagens.} Este é o primeiro passo para
+  começar uma reconstrução: adiciona-se imagens ao software. Pode ser
   uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou
   então abrir um arquivo de extensão .nvm, que é interpretado como uma
   reconstrução esparsa previamente feita.
@@ -48,52 +48,91 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
   algoritmo de reconstrução esparsa (PBA/MCBA)~\cite{wu2011multicore} em todos
   os pontos de interesse descobertos no passo anterior. 
 
-\textbf{\emph{Bundle Adjustment}}
 
-O termo \emph{Bundle} refere-se aos feixes de luz que refletem em cada \emph{feature} 3D e vão para o centro de cada câmera da cena a ser reconstruída. Com isso, o \emph{Bundle Adjustment} é o problema de refinar uma reconstrução visual para produzir estimativas com a visualização de parâmetros (estimativa e/ou calibração de câmeras), juntamente com as estruturas 3D.
+\subsection*{Bundle Adjustment}
 
-Solucionadores de problemas de \emph{Bundle Adjustment}~\cite{bundleAdjustmentSlide} resumem-se em minimizar o erro de reprojeção \ref{fig:bundleAdjustment} entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é obtida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt~\cite{more1978levenberg,press1992art}, que emprega um método híbrido de iterações de Newton e \emph{Gradient Descent} provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais, na qual, o desafio de se ter uma boa performance é basicamente, escolher uma boa suposição inicial. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do \emph{Bundle Adjustment}, as equações normais tem uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. 
+O termo \emph{Bundle} refere-se aos feixes de luz que refletem em cada
+\emph{feature} 3D e vão para o centro de projeção de cada câmera da cena a ser reconstruída.
+Com isso, o \emph{Bundle Adjustment}, ou BA, é o problema de refinar uma reconstrução
+visual para produzir estimativas de calibração interna e externa de câmeras, juntamente com as estruturas 3D.
 
-A descrição~\ref{fabbri2011multiview} é uma das abordagens mais comuns sobre o \emph{Bundle Adjustment} e por isso, usaremos ela como exemplo. 
+\emph{Solvers} de problemas de BA~\cite{bundleAdjustmentSlide} resumem-se em
+minimizar o erro de reprojeção, Figura~\ref{fig:bundleAdjustment}, entre as posições de
+imagem dos pontos de observados e previstos, o que é expresso como a soma
+de quadrados de um grande número de funções não-lineares de valor real. Assim, a
+minimização é obtida usando algoritmos de mínimos quadrados não-lineares.
+Destes, Levenberg-Marquardt~\cite{more1978levenberg,press1992art}, que emprega
+um método híbrido de iterações de Newton e \emph{Gradient Descent}, provou ser um
+dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma
+estratégia de amortecimento eficaz que lhe confere a capacidade de convergir
+rapidamente de uma ampla gama de suposições iniciais, na qual, o desafio de se
+ter uma boa performance é, basicamente, escolher uma boa suposição inicial. Ao
+linearizar iterativamente a função a ser minimizada na vizinhança da estimativa
+atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares
+denominados equações normais. Ao resolver os problemas de minimização que surgem
+na estrutura do BA, as equações normais têm uma estrutura
+de bloco esparsa devido à falta de interação entre os parâmetros para diferentes
+pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios
+computacionais ao empregar uma variante esparsa do algoritmo de
+Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações
+normais, evitando armazenar e operar em elementos zero.  A seguir detalharemos
+essas etapas e as implementações utilizadas~\cite{fabbri2011multiview}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{figs/bundleAdjustment.png}
 	\caption{
-	Dado um ponto de um objeto 3D $\widehat{X}$, sua reprojeção nas câmeras $C$ e $C'$, são, respectivamente, $x$ e $x'$. Esses pontos possuem um erro de reprojeção $d$ e $d'$ e ao utilizar o PBA/MCBA, os pontos $x$ e $x'$ serão reajustados como $\widehat{x}$ e $\widehat{x'}$, respectivamente. 
-	\protect\cite{3DCompVision2Didier}
+	Dado um ponto de um objeto 3D $\widehat{X}$, sua reprojeção nas câmeras $C$ e
+  $C'$, são, respectivamente, $x$ e $x'$. Esses pontos possuem um erro de
+  reprojeção $d$ e $d'$ e, ao utilizar o PBA/MCBA, os pontos $x$ e $x'$ serão
+  reajustados como $\widehat{x}$ e $\widehat{x'}$, respectivamente.
+  \protect\cite{3DCompVision2Didier}
 	}\label{fig:bundleAdjustment}
 \end{figure}
 
-\textbf{Formulação inicial}
+Consideremos o seguinte problema de estimativa de um conjunto de parâmetros $x
+\in \mathbb{R}^M$ a partir de um conjunto de osbervações $\bar{Z} \in \mathbb{R}^N$, com
+$M \ll N$, relacionados por um modelo $Z(x)$. O objetivo é calcular $x$ tal qual $Z(x)$ é o mais próximo de
+$\bar{Z}$ possível, \ie, para minimizar o erro de previsão residual $|| \Delta Z
+|| = || \bar{Z} - Z(x) ||$.
 
-Consideremos o seguinte problema de estimativa de um conjunto de parâmetros $x \in \mathbb{R}^M$ de um conjunto de osbervações $\bar{Z} \in mathbb{R}^N$, com $M \ll N$. O objetivo é calcular $x$ na qual $Z(x)$ é o mais próximo de $\bar{Z}$ possível, \ie, para minimizar o erro de previsão residual $|| \Delta Z || = || \bar{Z} - Z(x) ||$
+\subsubsection*{PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}}\label{pba}
 
-\textbf{PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}}\label{pba}
-
-Neste caso, o PBA/MCBA~\cite{furukawa2009accurate,wu2011multicore} é um algoritmo que utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais rápido, em CPU e 30 vezes, em GPU, em comparação ao utilizado na conferência ECCV de 2010. É o primeiro sistema publicado, baseado em GPU que escala com maiores problemas de Bundle Adjustments. Isto abriu a porta para resolver problemas ainda maiores. Ele funciona observando o passo inexato de resolução não-linear usando Levenberg Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (Hessiana, complemento de Schur ou Jacobiana) na memória. Para sistemas de núcleo único isso se traduzia em memória de troca por tempo, mas em GPUs, isso leva a um surpreendente ganho, no espaço e no tempo. Outra surpresa é que a aritmética de precisão única, quando combinada com técnicas de normalização adequadas, dá resultados comparáveis aos obtidos por um solucionador de problemas usando aritmética de dupla precisão. Isso resulta em mais espaço e economia de tempo.
-
-Este algoritmo recebe como entrada conjunto de localizações e correspondências de \emph{features} de imagens, o objetivo do \emph{Bundle Adjustment} é encontrar posições de 3 pontos e parâmetros de câmera que minimizem o erro de reprojeção. Esse problema de otimização geralmente é formulado como um problema de mínimos quadrados não-lineares, onde o erro é a norma L2 quadrada da diferença entre a localização da característica observada e a projeção do ponto 3D correspondente no plano da imagem da câmera.
+O PBA/MCBA~\cite{furukawa2009accurate,wu2011multicore} é um algoritmo que
+utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais
+rápido em CPU e 30 vezes em GPU, em comparação ao estado da arte anterior. É o primeiro
+sistema publicado baseado em GPU que escala para maiores problemas de Bundle
+Adjustments. Isto abriu a porta para resolver problemas ainda maiores. Ele
+funciona observando o passo inexato de resolução não-linear usando Levenberg
+Mardquardt, que pode ser implementado sem armazenar nenhuma matriz (hessiana,
+complemento de Schur ou jacobiana) na memória. Para sistemas de núcleo único,
+isso se traduzia em trocar memória por tempo, mas em GPUs, isso leva a um
+surpreendente ganho, no espaço e no tempo. Outra surpresa é que a aritmética de
+precisão única, quando combinada com técnicas de normalização adequadas, dá
+resultados comparáveis aos obtidos por um solucionador de problemas usando
+aritmética de dupla precisão. Isso resulta em mais espaço livre e economia de tempo.
 
 Assumindo que $x$ é um vetor de parâmetros e $f(x) = [f1(x), \dots, f_k(x)]$ é o vetor de erros de projeção de uma reconstrução 3D. O problema de otimização pode ser  formulado como um problema de mínimos quadrados não-linear:
 
 \begin{equation}
-x^* = \underset{x}{\text{argmin}} \sum_{i=1}^k || f_i(x)||^2
+x^* = \underset{x}{\text{argmin}} \sum_{i=1}^k || f_i(x)||^2.
 \end{equation}
 
-O algoritmo de Levenberg-Marquardt (LM) é o mais conhecido para resolução de problemas de mínimos quadrados não-lineares. O LM funciona resolvendo uma série de aproximações lineares regularizadas ao problema não-linear original. Seja $J(x)$ a Jacobiana de $f(x)$, então em cada iteração LM resolve um problema linear de mínimos quadrados da forma:
-
+O Levenberg-Marquadt supracitado funciona resolvendo uma série
+de aproximações lineares regularizadas ao problema não-linear original. Seja
+$J(x)$ a Jacobiana de $f(x)$, então em cada iteração LM resolve um problema
+linear de mínimos quadrados da forma:
 \begin{equation}
 \label{eq:LM}
-\delta* = \underset{\delta}{\text{argmin}} || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2 
+\delta* = \underset{\delta}{\text{argmin}} || J(x)\delta + f(x) ||^2 + \lambda ||D(x)\delta||^2,
 \end{equation}
-e, atualiza $x$, da forma:
+e atualiza $x$ da forma:
 
 \begin{algorithm}
 \label{LMattX}
 \begin{algorithmic}[1]
 \State $\text{caso} (||f(x + \delta^*)|| < || f(x) ||) \text{, então}$
-\markcomment{2}\State	 $x = x + \delta^*$
+\markcomment{2}\State	 $x = x + \delta^*$.
 \end{algorithmic}
 \end{algorithm}
 
@@ -102,17 +141,27 @@ e, atualiza $x$, da forma:
 %\State	$x = x + \delta^*$
 %\end{algorithmic}
 
-Aqui, $D(x)$ é uma matriz diagonal não-negativa, tipicamente a raíz quadrada da diagonal da matriz $J(x)^T J(x)$ e $\lambda$ são parâmetros não-negativos que controlam a limite da regularização, que, por sua vez, é necessária para garantir um algoritmo convergente. O LM atualiza o valor de $\lambda$ a cada passo, baseado no quanto a Jacobiana ($J(x)$) está próxima da função original ($f(x)$).
-Resolver \ref{eq:LM} é equivalente à resolver as equacões normais
+Aqui, $D(x)$ é uma matriz diagonal não-negativa, tipicamente a raíz quadrada da
+diagonal da matriz $J(x)^T J(x)$, e $\lambda$ são parâmetros não-negativos que
+controlam a limite da regularização, que, por sua vez, é necessária para
+garantir um algoritmo convergente. O LM atualiza o valor de $\lambda$ a cada
+passo, baseado no quanto a jacobiana ($J(x)$) está próxima da função original
+($f(x)$).  Resolver \ref{eq:LM} é equivalente à resolver as equacões normais
 \begin{equation}
 \label{eq:LMNormal}
 (J^T J + \lambda D^T D)\delta = -J^T f
 \end{equation}
-onde retiramos a dependência de $x$. A matriz $H_\lambda = J^T J + \lambda D^T D$ é conhecida como a matriz Hessiana aumentada. 
+onde retiramos a dependência de $x$. A matriz $H_\lambda = J^T J + \lambda D^T
+D$ é conhecida como a matriz Hessiana aumentada. 
 
-No \emph{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como $x = [x_c;x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto, respectivamente. 
-Seja $U = J_c^T J_c$, $V = J_p^T J_p$, $U_lambda = U + \lambda D_c^T D_c$, $V_\lambda = V + \lambda D_p^T D_p$ e $W = J_c^T J_p$, então \ref{eq:LMNormal} pode ser re-escrita como um bloco de sistema linear estruturado
-
+No \emph{Bundle Adjustment}, o parâmetro "vetor" é tipicamente organizado como
+$x = [x_c;\,x_p]$, onde $x_c$ é o vetor de parâmetros da câmera e $x_p$ é o vetor
+de parâmetros do ponto. Similarmente para $D$, $\delta$ e $J$, usaremos
+subscritos $c$ e $p$ para denotar parâmetros da câmera e do ponto,
+respectivamente. 
+Seja $U = J_c^T J_c$, $V = J_p^T J_p$, $U_lambda = U + \lambda D_c^T D_c$,
+$V_\lambda = V + \lambda D_p^T D_p$ e $W = J_c^T J_p$, então \ref{eq:LMNormal}
+pode ser re-escrita como um bloco de sistema linear estruturado
 \[
 \begin{bmatrix}
 U_\lambda & W \\
@@ -128,25 +177,28 @@ J_p^T f
 \end{bmatrix}
 \]
 
-Vale ressaltar que, para a maioria dos problemas de \emph{Bundle Adjustment}, $U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está no fundamento do truque do complemento de Schur usado para resolver esse sistema linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros da câmera:
-
+Vale ressaltar que, para a maioria dos problemas de \emph{Bundle Adjustment},
+$U_\lambda$ e $V_\lambda$ são matrizes diagonais de blocos. Esta observação está
+no fundamento do truque do complemento de Schur usado para resolver esse sistema
+linear de forma eficiente, onde, ao aplicar a eliminação Gaussiana nos
+parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetros
+da câmera:
 \begin{equation}
 \label{eq:SchurComplementar}
-(U_\lambda - W V_\lambda^-1 W^T)\delta_c = -J_c^T f + WV_\lambda^-1 J_p^T f
+(U_\lambda - W V_\lambda^-1 W^T)\delta_c = -J_c^T f + WV_\lambda^-1 J_p^T f,
 \end{equation}
-
-Onde $S = U_\lambda - W V_\lambda^-1 W^T$ é o complemento de Schur ou a matriz reduzida da câmera. Com a solução para \ref{eq:SchurComplementar}, conseguimos obter os parâmetros do ponto com substituição regressiva:
-
+onde $S = U_\lambda - W V_\lambda^-1 W^T$ é o complemento de Schur ou a matriz
+reduzida da câmera. Com a solução para a Equação\ref{eq:SchurComplementar}, conseguimos obter os parâmetros do ponto com substituição regressiva:
 \begin{equation}
-\delta_p = -V_\lambda^-1(J_p^T f + W^T \delta_c)
+\delta_p = -V_\lambda^-1(J_p^T f + W^T \delta_c).
 \end{equation}
-
-Caso S for simétrica positiva-definida, a fatorização de Cholesky é indicado para a resolução de \ref{eq:SchurComplementar}. 
-
+Caso S for simétrica positiva-definida, a fatoração de Cholesky é indicada para
+a resolução da Equação~\ref{eq:SchurComplementar}. 
+%
 %No caso do MCBA, ele combina o uso de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos baseados em LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
 %
 %combinando um algoritmo Inexact Step LM e gradientes de conjugado pré-condicionado com alguns pré-condicionadores simples e computacionalmente baratos. O
-
+%
 O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos da GPU e a combinação  de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
 
 
@@ -234,36 +286,47 @@ O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos 
 
 % Hierarchical Merging
 
-\noindent\textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido no próprio VisualSfM.
+\noindent\textbf{4 - Reconstrução densa.} A reconstrução é finalizada
+executando-se o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido
+no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
-CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo version 2})
+\subsubsection*{CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo /
+Patch-based for Multi-view Stereo version 2})}
 
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
 %Ele utiliza conjuntos de imagens e parâmetros de câmera, então reconstrói a estrutura 3D de um objeto, ou a cena visível nas imagens. Um ponto positivo deste software é que ele só reconstrói estruturas rígidas, ou seja, ele ignora automaticamente objetos não rígidos como pessoas na frente de uma construção ou escultura, por exemplo. A saída do software é um conjunto orientado de pontos ao invés de um modelo poligonal (ou malha), onde tanto a coordenada 3D quanto a superfície normal são estimados em cada ponto orientado.
 
-Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande número de imagens de entrada ou em uma alta resolução, pois necessitam de muita memória e recursos computacionais. A palavra-chave do CMVS~\cite{visualSfMPMVS,wu2013towards,li2013improving} é escalabilidade, pois seu propósito é utilizar imagens provenientes de sites na internet, em diferentes resoluções, como o Flickr.com.  
-Ele usa a saída do Structure from Motion -- SfM (mais especificamente a saída do passo anterior, do PBA) e utiliza como entrada. Após isso, decompõe as imagens de entrada como um conjunto de \emph{clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para processar cada \emph{cluster} de forma independente e em paralelo, onde a união das reconstruções de todos os \emph{clusters} não deve perder detalhes que poderiam ser obtidos através do conjunto de imagens.
-
+Muitos algoritmos Multi-View Stereo (MVS) não escalam tão bem com um grande
+número de imagens de entrada ou em uma alta resolução, pois necessitam de muita
+memória e recursos computacionais. A palavra-chave do
+CMVS~\cite{visualSfMPMVS,wu2013towards,li2013improving} é escalabilidade, pois
+seu propósito é utilizar imagens provenientes de sites na internet, em
+diferentes resoluções, como o \texttt{Flickr.com}.  Ele utiliza a saída do structure from
+Motion -- SfM (mais especificamente, a saída do passo anterior, do PBA) 
+como entrada. Após isso, decompõe as imagens de entrada como um conjunto de
+\emph{clusters} de imagens com tamanhos gerenciáveis. O MVS pode ser usado para
+processar cada \emph{cluster} de forma independente e em paralelo, onde a fusão
+das reconstruções de todos os \emph{clusters} não deve perder detalhes que
+poderiam ser obtidos através do conjunto de imagens como um todo.
 A formulação dos \emph{clusters} é projetada para satisfazer três restrições: 
-\begin{itemize}
-\item{(1) as imagens redundantes são excluídas dos \emph{clusters} (compacidade)}
-\item{(2) cada \emph{cluster} é pequeno o suficiente para uma reconstrução MVS (restrição de tamanho)}
-\item{(3) as reconstruções MVS destes \emph{clusters} resultam em uma perda mínima de conteúdo e detalhes em comparação com o que pode ser obtido através do processamento do conjunto completo de imagens (cobertura).}
-\end{itemize}
-
-A compacidade é importante para a eficiência computacional, mas também para melhorar precisão, pois as coleções de fotos da Internet geralmente contêm centenas ou milhares de fotos adquiridas de quase mesmo ponto de vista, ou seja, um conjunto composto inteiramente informações duplicadas.
-
-Em outras palavras, a sobreposição de \emph{clusters} é definida por:
-
+\begin{enumerate}
+\item{As imagens redundantes são excluídas dos \emph{clusters} (compacidade)}
+\item{Cada \emph{cluster} é pequeno o suficiente para uma reconstrução MVS (restrição de tamanho)}
+\item{As reconstruções MVS destes \emph{clusters} resultam em uma perda mínima de conteúdo e detalhes em comparação com o que pode ser obtido através do processamento do conjunto completo de imagens (cobertura).}
+\end{enumerate}
+A compacidade é importante para a eficiência computacional, mas também para
+melhorar precisão, pois as coleções de fotos da Internet ou de vídeo geralmente
+contêm centenas ou milhares de fotos adquiridas de quase mesmo ponto de vista,
+ou seja, um conjunto composto inteiramente informações redundadntes.  A
+sobreposição de \emph{clusters} é definida por:
 \begin{itemize}
 \item Minimizar $\sum_{k} |C_k|$ (compacidade)
-\item $\forall k |C_k| \le \alpha$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho)
-\item $\forall i \frac{\text{ \# pontos cobertos em } I_i}{\text{ \# pontos em } I_i} \ge \delta$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura)
+\item $|C_k| \le \alpha$, $\forall k$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho)
+\item $\frac{\text{ \# pontos cobertos em } I_i}{\text{ \# pontos em } I_i} \ge
+  \delta$, $\forall i$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura)
 \end{itemize}
-
-O CMVS pode ser resumido em quatro passos:
-
+O CMVS pode ser resumido em quatro passos, detalhados adiante:
 \begin{itemize}
 \item Filtro SFM -- agrupamento de pontos SFM
 \item Seleção de imagens -- remove imagens reduntantes
@@ -271,19 +334,19 @@ O CMVS pode ser resumido em quatro passos:
 \item Adição de imagens -- reforça a cobertura
 \end{itemize}
 
-\subsubsection*{Filtro SFM}
+\noindent\textbf{Filtro SFM.}
 A obtenção de medidas precisas de visibilidade de pontos é fundamental para o sucesso do procedimento de visualização baseado em \emph{clusters}. Os recursos da imagem não detectados ou incomparáveis levam a erros nas estimativas de visibilidade do ponto $V_j$ (geralmente na forma de imagens que estão faltando). Obtemos estimativas de visibilidade mais confiáveis ao agregar dados da visibilidade em uma vizinhança local, e mesclando os pontos nessa vizinhança. A posição do ponto mesclado é a média de seus vizinhos, enquanto a visibilidade se torna a união. Este passo também reduz significativamente o número de pontos SFM e melhora o tempo de execução das tres etapas restantes. Especificamente, a partir de um conjunto de pontos SFM, um ponto é selecionado, combinado com seus vizinhos (mesclado) e, este ponto mesclado é emitido, após isso, o ponto original e seus vizinhos são removidos do conjunto de entrada. Esse procedimento é repetido até o conjunto de entrada estar vazio. O conjunto de pontos mesclados torna-se o novo conjunto de pontos, que, pode ser denotado por ${P_j}^2$. %figura 4%
 
-\subsubsection*{Seleção de imagens}
+\noindent\textbf{Seleção de imagens.}
 Começando com o conjunto completo de imagens, cada imagem é testada e removida se a restrição de cobertura ainda for realizada após a remoção. O teste de remoção é realizado para todas as imagens enumeradas em ordem crescente de resolução de imagem (\# de pixels), de modo que as imagens de baixa resolução sejam removidas primeiro. Observe que as imagens são descartadas permanentemente nesta etapa para acelerar as seguintes etapas principais de otimização.
 
-\subsection*{Divisão de \emph{cluster}}
+\noindent\textbf{Divisão de \emph{cluster}.}
 Em seguida, é aplicada a restrição de tamanho dividindo os \emph{clusters}, ignorando a cobertura. Mais especificamente, um \emph{cluster} de imagens é dividido em componentes menores caso viole a restrição de tamanho. A divisão de um \emph{cluster} é realizada pelo algoritmo \emph{Normalized-Cuts} %CITAR#
 [23] em um gráfico de visibilidade, onde os nós são imagens. O peso dA borda entre um par de imagens ($I_l, I_m$) mede o quanto a $I_l$ e $I_m$ contribuem, juntos,  para a reconstrução MVS em pontos SFM relevantes: 
 
 $e_{lm} = \sum_{P_j \in \Theta ^{lm}} \frac{f(Pj,{Il, Im})}{f(Pj, Vj )}$, onde $\Theta ^{lm}$ denota um conjunto de pontos SFM visíveis em $L_l$ e $I_m$. Intuitivamente, as imagens com alta contribuição no MVS têm pesos altos entre eles e são menos propensos a serem cortados. A divisão de um \emph{cluster} se repete até que a restrição de tamanho seja satisfeita para todos os \emph{clusters}.
 
-\subsubsection*{Adição de imagens}
+\noindent\textbf{Adição de imagens.}
 A restrição de cobertura pode ter sido violada na etapa anterior, e agora são adicionadas imagens a cada \emph{cluster} para cobrir mais pontos SFM e restabelecer a cobertura. Nesta etapa, primeiro é construída uma lista de ações possíveis, onde cada ação mede a eficácia de adicionar uma imagem a um \emph{cluster} para aumentar a cobertura. Para cada ponto SFM que está descoberto, $P_j$, deixe $C_k = argmax_{Cl} f(Pj, Cl)$ ser o \emph{cluster} com a máxima precisão de reconstrução. 
 Então, para $P_j$, é criada uma ação ${(I \rightarrow C_k), g}$ que adiciona a imagem $I (\in V_j, \not\in C_k)$ a $C_k$, onde $g$ mede a eficácia. Só são consideradas ações que adicionam imagens ao $C_k$ em vez de cada \emph{cluster} que poderia cobrir $P_j$, para eficiência computacional. Uma vez que as ações com a mesma imagem e com o mesmo \emph{cluster} são geradas a partir de vários pontos SFM, ocorre uma mescla dessas ações ao resumir a eficácia medida $g$. As ações na lista são classificadas em uma ordem decrescente de sua eficácia. Tendo construído uma lista de ações, uma abordagem seria tomar a ação com a pontuação mais alta, então refazer a lista novamente, o que é computacionalmente muito caro. 
 
