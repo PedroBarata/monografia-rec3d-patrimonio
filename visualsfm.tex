@@ -5,20 +5,27 @@
 
 O VisualSfM~\cite{wu2011visualsfm} é um sistema de software baseado em fotogrametria
 que faz todo o processo de reconstrução 3D de um objeto e que pode ser usado por
-linha de comando ou então pela interface gráfica, que é ótima, por sinal. É
+linha de comando ou então pela interface gráfica. No presente projeto, constatou-se
+que a interface gráfica é de fato excelente na prática, sendo
 altamente customizável, podemos utilizar o CUDA da NVIDIA, ou OpenGL,
-especificar a lista de pares para correspondência de imagens, usar detectores de
-\emph{features} próprios, velocidade da detecção de \emph{features}, da
-reconstrução densa, dentre outros parâmetros. Ou seja, é um software
-robusto, que pode ser usado em Linux, Windows ou até mesmo Mac.
-
-Além disso, o VisualSfM é capaz de mostrar a matriz de correspondência de \emph{features}, número de \emph{features}, rodar um \emph{Bundle Adjustment} independente, usar um Level 0 no PVMS, alterar a memória de GPU usada na reconstrução, deletar uma reconstrução indesejável ou até mesmo alterar parâmetros.
+especificar a lista de pares para correspondência de imagens, usar diversos detectores de
+\emph{features} próprios, além de possuir detecção de \emph{features} eficiente, 
+algoritmos de reconstrução densa, dentre outros. Trata-se dum software
+robusto, que pode ser usado em Linux, Windows ou Mac.
+Ademais, o VisualSfM é capaz de mostrar a matriz de correspondência de
+\emph{features}, número de \emph{features}, rodar um \emph{Bundle Adjustment}
+independente, usar PVMS, alterar a memória necessária de GPU usada na
+reconstrução, deletar uma reconstrução indesejável ou até mesmo alterar
+parâmetros.
 
 \subsection*{Procedimento}
 
-Sua linha de reconstrução é parecida com o MVE~\ref{sec:mve}, porém é mais intuitiva. Em sua interface, possui um Log de mensagens e erros que por ventura venham a acontecer e na parte de cima, alguns botões \ref{fig:pipelineVisualSfM}
+O \emph{pipeline} de reconstrução do VisualSfM é parecido com o MVE~\ref{sec:mve}, porém é mais
+intuitivo. Em sua interface, possui um \emph{log} de mensagens e erros que por ventura
+venham a acontecer e, na parte de cima, alguns botões,
+Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 
-\begin{figure}[!h]
+\begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
 	\caption{%
@@ -27,14 +34,19 @@ Sua linha de reconstrução é parecida com o MVE~\ref{sec:mve}, porém é mais 
 	}\label{fig:pipelineVisualSfM}
 \end{figure}
 
-Como demonstrado na imagem \ref{fig:pipelineVisualSfM}, o funcionamento seria da seguinte forma:
+\noindent \textbf{1 - Adicionar imagens.} Este é o primeiro passo, para
+  começar uma reconstrução: primeiro adiciona-se imagens ao software. Pode ser
+  uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou
+  então abrir um arquivo de extensão .nvm, que é interpretado como uma
+  reconstrução esparsa previamente feita.
 
-\begin{itemize}
-\item \textbf{1 - Adicionar algumas imagens.} Este é o primeiro passo, para começar uma reconstrução, primeiro adiciona-se imagens ao software, pode ser uma única foto, um conjunto de fotos, incrementar o conjunto já existente ou então abrir um arquivo de extensão .nvm, que é interpretado como uma reconstrução esparsa previamente feita.
+\noindent \textbf{2 - Correspondência de imagens.} O programa roda o
+  algoritmo SIFT, realizando todas as correspondências entre os pontos de
+  interesse, conforme discutido anteriormente.
 
-\item \textbf{2 - Correspondência de imagens.} Agora, o software roda o algoritmo SIFT, realizando todas as correspondências entre os \emph{features}, que já foi discutido anteriormente.
-
-\item \textbf{3 - Reconstrução esparsa.} Neste passo, o VisualSfM roda o algoritmo de reconstrução esparsa (PBA/MCBA)~\cite{wu2011multicore} em todos os \emph{features} descobertos no passo passado. 
+\noindent \textbf{3 - Reconstrução esparsa.} O VisualSfM roda o
+  algoritmo de reconstrução esparsa (PBA/MCBA)~\cite{wu2011multicore} em todos
+  os pontos de interesse descobertos no passo anterior. 
 
 \textbf{\emph{Bundle Adjustment}}
 
@@ -222,7 +234,7 @@ O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos 
 
 % Hierarchical Merging
 
-\item \textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido no próprio VisualSfM.
+\noindent\textbf{4 - Reconstrução densa.} Finalmente, acaba a reconstrução rodando o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
 CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo / Patch-based for Multi-view Stereo version 2})
@@ -339,6 +351,5 @@ A mesma região de superfície pode ser reconstruída em múltiplos clusters com
 
 O filtro de visibilidade reforça a consistência das informações de visibilidade associadas aos pontos MVS durante toda a reconstrução. O filtro é, de fato, muito semelhante ao usado no PMVS [7, 9]. A diferença é que o PMVS reforça a consistência intra-cluster dentro de cada cluster, enquanto nosso filtro reforça a consistência de visibilidade inter-cluster em uma reconstrução inteira comparando as saídas PMVS de todos os clusters. Mais concretamente, para cada ponto MVS, contamos o número de vezes que ele conflita com reconstruções de outros clusters. O ponto é eliminado se a contagem de conflitos~\cite{furukawa2010towards,furukawa2010accurate} for superior a três.
 
-\end{itemize}
 % =================================================================
 
