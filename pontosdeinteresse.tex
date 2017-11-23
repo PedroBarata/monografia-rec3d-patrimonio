@@ -22,9 +22,8 @@ pipeline SfM+MVS funciona com os seguintes passos, ilustrados na Figura~\ref{fig
 	\centering
 	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
 	\caption{%
-	Procedimento padrão da maioria dos sistemas baseados em SfM. Além dessas
-  etapas, geralmente a reconstrução é densificada usando-se MVS.
-	\protect\cite{theia-manual}.
+	Procedimento da maioria dos sistemas SfM. Além dessas
+  etapas, geralmente a reconstrução é densificada usando-se MVS\protect\cite{theia-manual}.
 	}\label{fig:sfmpipeline}
 \end{figure}
 
@@ -63,7 +62,7 @@ O algoritmo pode ser dividido em cinco etapas:
 % From the image above, it is obvious that we can't use the same window to detect keypoints with different scale. It is OK with small corner. But to detect larger corners we need larger windows. For this, scale-space filtering is used. In it, Laplacian of Gaussian is found for the image with various σ values. LoG acts as a blob detector which detects blobs in various sizes due to change in σ. In short, σ acts as a scaling parameter. For eg, in the above image, gaussian kernel with low σ gives high value for small corner while guassian kernel with high σ fits well for larger corner. So, we can find the local maxima across the scale and space which gives us a list of (x,y,σ) values which means there is a potential keypoint at (x,y) at σ scale.
 
 Em casos com cantos pequenos, uma detecção clássica de cantos funciona
-bem~\cite{Harris:Stephens:Edge:Corner:Step}. Porém, raramente
+bem~\cite{Harris:Stephens:Edge:Corner}. Porém, raramente
 utilizaremos a mesma janela para detectar pontos em imagens com
 diferentes escalas, pois utilizamos também imagens de maior resolução e, consequentemente, cantos
 com mais área de suporte. Para isso, precisamos de janelas grandes também. 

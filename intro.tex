@@ -65,7 +65,7 @@ muito grande.
 Um segundo paradigma, denominado \textbf{reconstrução estéreo
 multiocular ativa}, tem se tornado economicamente viável devido à indústria de videogames, e
 consiste na utilização de sistemas que alteram o funcionamento de câmeras
-convencionais, típicamente usando-se projetores infra-vermelho, \emph{laser} ou câmeras
+convencionais, típicamente usando-se projetores infra-vermelho, laser ou câmeras
 ToF (\emph{Time of Flight}), como no caso dos dispositivos Kinect,
 Figura~\ref{fig:kinect}.
 
@@ -90,7 +90,7 @@ A preservação de patrimônio tem sido realizada tradicionalmente com escaneado
 dedicados de alto custo, como no famoso projeto de escaneamento \emph{in situ} da escultura
 David, chamado \emph{Digital Michelangelo}~\cite{levoy2000digital},
 Figura~\ref{fig:david}.  O projeto teve início em 1992 e tem como objetivo a
-utilização de escaneadores a \emph{laser} de profundidade (\emph{Rangefinder Scanners}),
+utilização de escaneadores a laser de profundidade (\emph{Rangefinder Scanners}),
 aliado a algoritmos que combinam diferentes profundidades e cores da imagem,
 para realizar uma digitalização da parte externa e da superficie de forma
 acurada da estátua de David. Note-se, porém, que esse método pode ser utilizado em diferentes
@@ -100,11 +100,11 @@ utilizado um escaneador de menor escala que faz uma pequena triangulação com
 laser de profundidade.
 
 Mais recentemente, pode-se considerar tecnologias mais acessíveis, similares às
-de altíssimo custo do projeto Digital Michelangelo e popularizadas na última
+de altíssimo custo do projeto \emph{Digital Michelangelo} e popularizadas na última
 década pela indústria de entretenimento, notadamente pelo projeto
 Natal/Kinect~\cite{smisek20133d,wang2015research}. A reconstrução usando-se Kinect (de
 primeira ou segunda geração) usando software atual de super-resolução, é
-inferior à de um sistema a \emph{laser} de alta qualidade, sendo, porém de baixo custo
+inferior à de um sistema a laser de alta qualidade, sendo, porém de baixo custo
 e muito mais versátil devido ao sistema de aquisição manual e a software
 amplamente utilizado e desenvolvido~\cite{wang2015research},
 Figura~\ref{fig:rec3d:comparacao}.
@@ -124,10 +124,8 @@ Figura~\ref{fig:rec3d:comparacao}.
 	\caption{%
     A reconstrução usando-se Kinect (de primeira ou segunda geração) usando
     software atual de super-resolução (c) fornece precisão similar a um sistema estéreo de média
-    resolução, inferior um sistema a \emph{laser} de alta qualidade (d) porém de baixo custo e
-    muito mais versátil devido ao sistema de aquisição manual e a software
-    amplamente utilizado e
-    desenvolvido~\cite{wang2015research}.
+    resolução, inferior um sistema a laser de alta qualidade (d) porém de baixo custo e
+    muito mais versátil~\cite{wang2015research}.
 	}\label{fig:rec3d:comparacao}
 \end{figure}
 
@@ -135,24 +133,24 @@ Figura~\ref{fig:rec3d:comparacao}.
 
 \centering
 
-\subfloat[]{\label{fig:davida}\includegraphics[width=0.18\linewidth]{figs/Proto+Inka+Egypt_light-s.jpg}}
+\subfloat[]{\label{fig:davida}\includegraphics[height=0.38\linewidth]{figs/Proto+Inka+Egypt_light-s.jpg}}
 % \vspace{2ex}
-\subfloat[]{\label{fig:davidb}\includegraphics[width=0.18\linewidth]{figs/gantry-with-david-s.jpg}}
-\subfloat[]{\label{fig:davidc}\includegraphics[width=0.18\linewidth]{figs/scanner-head-and-david-head-s.jpg}}
+\subfloat[]{\label{fig:davidb}\includegraphics[height=0.38\linewidth]{figs/gantry-with-david-s.jpg}}\\
+\subfloat[]{\label{fig:davidc}\includegraphics[height=0.25\linewidth]{figs/scanner-head-and-david-head-s.jpg}}
 % \vspace{2ex}
-\subfloat[]{\label{fig:davidd}\includegraphics[width=0.18\linewidth]{figs/david-classic-leftlight-s.jpg}}
+\subfloat[]{\label{fig:davidd}\includegraphics[height=0.25\linewidth]{figs/david-classic-leftlight-s.jpg}}
 \caption{%
-   Protótipo do escaneador a \emph{laser} de triangulação. O objeto a ser escaneado é uma réplica em tamanho real
-   de um sarcófago egípcio (a). O escaneador foi reconfigurado para escanear objetos maiores, pois 
-   a escultura possui 517 centímetros (b), o da cabeça também sofreu uma reconfiguração, este escaneador gira em 90 graus, 
-   que faz o \emph{laser} rotacionar, da posição horizontal para a vertical e também roda em torno da cabeça como um todo (c).
-   Para a reconstrução, o primeiro passo foi alinhar cerca de 100 scans em
-   diversas posições, após isso, utilizado um 
-   alinhamento automatico em pares dos scans, utilizando um algoritmo modificado de iteracoes de pontos próximos 
-   (ICP - \emph {Iterated-Closest-Points}). Após isso, faz-se um processo de relaxação global a fim de minimizar erros 
-   de alinhamento por toda a estátua. Depois de alinhados, usa-se o algoritmo de profundidade volumétrica de 
-   processamento de imagens (VRIP - \emph {Volumetric Range Image Processing} -
-   de Brian Curless) (d)~\cite{levoy2000digital}}.
+  Protótipo do escaneador a laser do projeto clássico~\emph{Digital
+  Michaelangelo}. Em (a), um objeto típico escaneado por um sistema inicial foi uma réplica em tamanho real
+   de um sarcófago egípcio. O escaneador foi reconfigurado para objetos maiores, pois 
+   a escultura David possui 517 centímetros (b); tabém foi reconfigurado para a cabeça,  
+   para girar em 90 graus, que faz o laser
+   rotacionar da posição horizontal para a vertical e em torno da
+   cabeça como um todo (c). Cerca de 100 \emph{scans}
+   diversas posições foram alinhados automaticamente por um algoritmo 
+   ICP (\emph{iterated-closest-points}). Após uma otimização global para minimizar erros 
+   de alinhamento toda a estátua, usa-se um algoritmo VRIP (\emph {volumetric
+   range image processing}) (d)~\cite{levoy2000digital}}.
   \label{fig:david}
 \end{figure}
 
@@ -165,9 +163,9 @@ Figura~\ref{fig:esculturas}.
 
 \begin{figure} [!h]
 	\centering
-	\includegraphics[width=0.3\linewidth]{figs/jardim-do-nego.jpg}
-	\includegraphics[width=0.3\linewidth]{figs/jardim-do-nego22.jpg}
-	\includegraphics[width=0.35\linewidth]{figs/jardim-do-nego32.jpg}
+	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego.jpg}
+	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego22.jpg}
+	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego32-small.jpg}
 	\caption{Algumas esculturas do Jardim do Nêgo~\cite{JardimDoNego:TheGuardian}}\label{fig:esculturas}
 \end{figure}
 
@@ -191,14 +189,14 @@ Figura~\ref{fig:esculturas}.
 % \end{figure}
 
 
-Idealizado e criado por Geraldo Simplicio (Nêgo), artista cearense que mora no
+O Jardim foi idealizado e criado por Geraldo Simplicio (Nêgo), artista cearense que mora no
 local a mais de 30 anos, e que ganhou notoriedade por suas esculturas de barro,
-com traços singulares e técnicas únicas. Hoje, trabalha para reconstruir o
-Jardim após a tragédia de 2011 na região serrana, onde algumas estruturas foram
-destruídas. Portanto, com o consentimento do Nêgo, surgiu a motivação desta
-pesquisa: além de explorar métodos de reconstrução, também tem o objetivo de
-ajudar a criar sistemas completos para eternizar um patrimônio que é reconhecido
-no mundo todo.
+com traços singulares e técnicas únicas. Hoje, Nêgo -- como gosta de ser chamado
+-- trabalha para reconstruir o Jardim após a tragédia de 2011 na Região Serrana
+do Rio de Janeiro, onde algumas estruturas foram destruídas. Portanto, com o
+consentimento do Nêgo, surgiu a motivação desta pesquisa: além de explorar
+métodos de reconstrução, também tem o objetivo de ajudar a criar sistemas
+completos para eternizar um patrimônio que é reconhecido no mundo todo.
 
 A preservação das esculturas do Jardim do Nêgo se mostra um desafio à pesquisa em
 recontrução 3D, pois apresentam curvas bem delineadas, que são 
@@ -220,7 +218,7 @@ bem-definida de preservação de patrimônio.
 % escaneamentos realizados por escaneadores à mão de baixo custo baseados em Kinect.
 
 O objetivo concreto é explorar as tecnologias supracitadas para
-desenvolver um esquema de escaneamento de patrimônio usando software aberto, câmeras e
+um dia desenvolver um esquema completo de escaneamento de patrimônio usando software aberto, câmeras e
 escaneadores de baixo custo, representando o estado da arte em reconstrução 3D sem
 restrições de aquisição. Perguntas fundamentais a serem respondidas são: que
 nível de detalhe, facilidade e precisão se pode obter usando-se apenas imagens e software
@@ -238,7 +236,7 @@ explicitar suas limitações práticas.
 \section*{Organização deste manuscrito}
 
 Este trabalho foi estruturado da seguinte maneira: Introduzimos
-métodos baseados em reconstrução a \emph{laser} no Capítulo~\ref{cap:laser},
+métodos baseados em reconstrução a laser no Capítulo~\ref{cap:laser},
 apresentando, de uma maneira mais técnica, o projeto \emph{Digital
 Michelangelo} na Seção~\ref{sec:David}, que foi um dos pioneiros na técnica de
 conservação de acervos culturais. No próximo Capítulo~\ref{cap:kinect},
