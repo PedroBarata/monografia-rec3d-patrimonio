@@ -105,7 +105,7 @@
 % ---------------------------------------------------------------------------- %
 % Título
 % ---------------------------------------------------------------------------- %
-\title{\textbf{Aplicações de técnicas atuais em reconstrução 3D fotogramétrica}}
+\title{\textbf{Experimentos com técnicas atuais de reconstrução 3D visando a digitalização prática de esculturas suaves do Jardim do Nêgo}}
 
 \author[Pedro Felipe Pena Barata]{\scriptsize{
     Pedro Felipe Pena Barata \\
@@ -163,26 +163,6 @@ Universidade do Estado do Rio de Janeiro}
 \setbeamertemplate{navigation symbols}{\large {\insertframenumber}}
 
 % ---------------------------------------------------------------------------- %
-%\begin{frame}[plain]
-%\frametitle{}
-%	\hspace*{-0.6cm}
-%	\includegraphics[width=1.1\textwidth]{sota.pdf}
-%\end{frame}
-
-% \begin{frame}[plain]
-% \frametitle{}
-% 	\begin{block}{Algumas perguntas interessantes ...}
-% 		\begin{enumerate}
-% 			\item Questão 1 ...
-% 			\item Questão 2 ...
-% 			\item Questão 3 ...
-% 			\item Questão 4 ...
-% 			\item Questão 5 ...
-% 			\item Questão 6 ...
-% 			\item Questão 7 ...
-% 	\end{enumerate}
-% 	\end{block}
-% \end{frame}
 
 % ---------------------------------------------------------------------------- %
 \begin{frame}
@@ -195,56 +175,37 @@ Universidade do Estado do Rio de Janeiro}
 % ---------------------------------------------------------------------------- %
 \section{Introdução}
 % ---------------------------------------------------------------------------- %
-\begin{frame} 
-%\frametitle{\textbf{Cabeçalho...}}
-	\begin{center}
-		A reconstrucão 3D de cenas gerais a partir de múltiplos pontos de vista, usando-se câmeras convencionais, sem aquisição controlada, é um dos grandes objetivos de pesquisa em visão computacional, ambicioso até mesmo para os dias de hoje.
-	\end{center}
-%COLOCAR IMAGEM IMPRESSORA 3D%
-\end{frame}
 
-\begin{frame} 
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=1\linewidth]{figs/impressora-3d-capa.jpg}
-		\caption{%
-		Impressora 3D \\
-		\tiny{Fonte: http://publicidademarketing.com/impressora-3d/}		
-		}
-	\end{figure}
-\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \subsection{Objetivos}
 % ---------------------------------------------------------------------------- %
-
-\begin{frame} 
-	\begin{center}
-		O objetivo deste trabalho é, por meio de técnicas fotogramétricas, preservar o patrimônio cultural do Jardim do Nêgo, localizado na estrada Teresópolis-Friburgo, Rio de Janeiro. Na qual algumas esculturas passaram por um processo de erosão por conta da tragédia de 2011.
-	\end{center}
-\end{frame}
-
 \begin{frame} 
 	\begin{figure}[!h]
 		\centering
-		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego.jpg}
+		\includegraphics[width=0.45\linewidth]{figs/jardim-do-nego.jpg}
+		\quad 
+		\includegraphics[width=0.5\linewidth]{figs/jardim-do-nego32.jpg}
+		\caption{%
+			Algumas esculturas criadas por Nêgo 
+		}
 	\end{figure}
 \end{frame}
 
-\begin{frame} 
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego22.jpg}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame} 
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.7\linewidth]{figs/jardim-do-nego32.jpg}
-	\end{figure}
-\end{frame}
+%\begin{frame} 
+%	\begin{figure}[!h]
+%		\centering
+%		
+%	\end{figure}
+%\end{frame}
+%
+%
+%\begin{frame} 
+%	\begin{figure}[!h]
+%		\centering
+%		
+%	\end{figure}
+%\end{frame}
 
 \begin{frame}
 
@@ -262,26 +223,13 @@ Perguntas a serem respondidas ao longo deste projeto:
 \section{Reconstrução a laser}
 % ---------------------------------------------------------------------------- %
 
-\begin{frame} 
-	\begin{center}
-    O método de reconstrução 3D baseado em \emph{lasers} é um \textbf{método ótico ativo}, amplamente utilizado, pois oferece uma alta qualidade geométrica de dados, os resultados são em tempo real e requer pouco tempo de captura de dados.
-Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, David, que utiliza escaneadores baseados em superfícies, mais especificamente, utilizando \emph{Time of Flight}, ou tempo de voo.
-	\end{center}
-\end{frame}
-
-
-\begin{frame}
-	\begin{center}
-		\emph{Time of Flight} é uma técnica de escaneamento baseado em um projetor de padrões (muitas vezes, grades ou barras horizontais, via \emph{laser}) em uma cena a ser reconstruída. A forma de como o padrão se deforma quando atinge superfícies permite que sistemas de visão calculem a profundidade e informações das superfícies dos objetos na cena.
-	\end{center}
-\end{frame}
 
 \begin{frame}
 	\begin{figure}
 		\begin{center}
 		\centering
 		\includegraphics[width=0.7\linewidth]{figs/luzestruturada.jpg}
-		\caption{Exemplo de um projetor de padrões de ToF à laser. \\
+		\caption{Exemplo de um projetor à laser. \\
 		\tiny{Fonte: http://www.opto-engineering.com/}
 		}
 	\end{center}
@@ -292,18 +240,6 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 % ---------------------------------------------------------------------------- %
 \subsection{Esculturas de Michelangelo}
 % ---------------------------------------------------------------------------- %
-
-\begin{frame} 
-	\begin{center}
-		Uma motivação para este trabalho é o projeto da Universidade de Stanford, onde um grupo constituído por mais de 30 professores, funcionários e estudantes, este projeto tem como objetivo preservar as esculturas de Michelangelo, na Itália.
-	\end{center}
-\end{frame}
-
-\begin{frame} 
-	\begin{center}
-		Para isso, este grupo contou com sensores de alcance (\emph{range finders}) para triangulação, sensores de alcance baseados em \emph{Time of Flight}, câmeras digitais e um software de calibração.
-	\end{center}
-\end{frame}
 
 \begin{frame} 
 	\begin{figure}[!h]
@@ -319,15 +255,14 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame} 
 	\begin{center}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.7\linewidth]{figs/scanner-head-and-david-head-s.jpg}
-		\caption{%
-		Como foi escaneada a cabeça da escultura. \\
-		\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
-		}
-	\end{figure}
-		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=0.7\linewidth]{figs/scanner-head-and-david-head-s.jpg}
+			\caption{%
+			Exemplo de escaneamento da cabeça de David. \\
+			\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
+			}
+		\end{figure}
 	\end{center}
 \end{frame}
 
@@ -337,7 +272,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 		\begin{figure}[!h]
 			\includegraphics[width=0.7\linewidth]{figs/ferramentasMich.png}
 			\caption{%
-			Exemplos de cinzelões usados por Michelangelo \\
+			Exemplos de cinzéis usados por Michelangelo \\
 			\tiny{Fonte: http://graphics.stanford.edu/projects/mich/}
 			}
 		\end{figure}
@@ -345,24 +280,8 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{\emph{Structure from Motion}}
+\section{\protect\emph{Structure from Motion}}
 % ---------------------------------------------------------------------------- %
-
-\begin{frame}
-	\begin{center}
-	\textbf{Structure from motion -- SfM} é uma técnica fotogramétrica estéreo multiocular passiva, baseada em estimar a posição de estruturas tridimendisionais  a partir de sequencias de imagens em duas dimensões. 
-	\end{center}
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-		\begin{enumerate}
-			\item{Obtenção de imagens;}
-			\item{Processamento dos parâmetros de câmera para cada imagem;}
-			\item{Reconstrução da geometria 3D de uma cena com um conjunto de imagens e seus parâmetros correspondentes.}
-		\end{enumerate}
-	\end{center}
-\end{frame}
 
 \begin{frame}
 	\begin{center}
@@ -376,16 +295,52 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 		\end{figure}	
 	\end{center}
 \end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
+%	\begin{center}		
+%		\begin{figure}[!h]
+%			\centering
+%			\includegraphics[width=1\linewidth]{figs/sift1.png}
+%			\caption{%
+%				Exemplo de correspondências SIFT. \\
+%			\tiny{Fonte: https://www.usna.edu/Users/cs/taylor/courses/si475/index.php?page=class/siftProject.html}
+%			}
+%		\end{figure}
+%	\end{center}
+%\end{frame}
 
 \begin{frame}
 \frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
 	\begin{center}		
 		\begin{figure}[!h]
 			\centering
-			\includegraphics[width=1\linewidth]{figs/sift1.png}
+			\includegraphics[width=0.5\linewidth]{figs/SIFTsapo.jpg}
 			\caption{%
-				Exemplo de interpretação SIFT. \\
-			\tiny{Fonte: https://www.usna.edu/Users/cs/taylor/courses/si475/index.php?page=class/siftProject.html}
+				Exemplo de correspondências SIFT.
+			}
+		\end{figure}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
+	\begin{center}		
+		COLOCAR IMAGEM DE CORRESPONDENICAS DO INDIO
+	\end{center}
+\end{frame}
+
+
+%TODO: COLOCAR IMAGEM DE CORRESPONDENICAS DO INDIO%
+
+\begin{frame}
+\frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
+	\begin{center}		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figs/SIFTsapo2.jpg}
+			\caption{%
+				Exemplo de correspondências SIFT. \\
 			}
 		\end{figure}
 	\end{center}
@@ -406,7 +361,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\subsection{MVE -- \emph{Multi-View Stereo Environment}}
+\subsection{MVE -- \protect\emph{Multi-View Stereo Environment}}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame} 
@@ -422,7 +377,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \end{frame}
 
 \begin{frame}
-\frametitle{\textbf{MVE -- \emph{Multi-View Stereo Environment}}}
+\frametitle{\textbf{MVE -- \protect\emph{Multi-View Stereo Environment}}}
 	\begin{center}
 	\begin{figure}
 		\centering
@@ -439,15 +394,15 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \subsubsection{MVS}
 % ---------------------------------------------------------------------------- %
 
-\begin{frame} 
-\frametitle{\textbf{MVS}}
-	\begin{center}
-		\begin{itemize}
-			\item {Uma estrutura regional-crescente que tem uma fila de candidatos correspondentes, Q, ordenada pelas localizações dos pixels na câmera acrescido de seus valores para profundidade e normais;}
-	\item {Um sistema de correspondências que leva um candidato correspondente como entrada e calcula profundidade, normal e uma confiança de correspondência usando vistas vizinhas fornecidas pela seleção de exibição local.}
-		\end{itemize}
-	\end{center}
-\end{frame}
+%\begin{frame} 
+%\frametitle{\textbf{MVS}}
+%	\begin{center}
+%		\begin{itemize}
+%			\item {Uma estrutura regional-crescente que tem uma fila de candidatos correspondentes, Q, ordenada pelas localizações dos pixels na câmera acrescido de seus valores para profundidade e normais;}
+%	\item {Um sistema de correspondências que leva um candidato correspondente como entrada e calcula profundidade, normal e uma confiança de correspondência usando vistas vizinhas fornecidas pela seleção de exibição local.}
+%		\end{itemize}
+%	\end{center}
+%\end{frame}
 
 \begin{frame}
 \frametitle{\textbf{MVS}}
@@ -477,16 +432,19 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \end{frame}
 
 \begin{frame}
-\frametitle{\textbf{FSSR -- Floating Scale Surface Reconstruction}}
-	\begin{center}
-		\begin{itemize}
-			\item {Utliza uma função implícita e com escala contínua (flutuante);}
-			\item {O FSSR não necessita de muitos parâmetros na sua abordagem abordagem;}
-			\item {A função implícita consegue validar rapidamente os parâmetros de entrada;}
-			\item {Escalável e não requer nenhuma operação global (cortes ou resolução de grandes sistemas de equações).}
-		\end{itemize}
-	\end{center}	  
+VER IMAGENS FSSR OU ALGO DO TIPO
 \end{frame}
+%\begin{frame}
+%\frametitle{\textbf{FSSR -- Floating Scale Surface Reconstruction}}
+%	\begin{center}
+%		\begin{itemize}
+%			\item {Utliza uma função implícita e com escala contínua (flutuante);}
+%			\item {O FSSR não necessita de muitos parâmetros na sua abordagem abordagem;}
+%			\item {A função implícita consegue validar rapidamente os parâmetros de entrada;}
+%			\item {Escalável e não requer nenhuma operação global (cortes ou resolução de grandes sistemas de equações).}
+%		\end{itemize}
+%	\end{center}	  
+%\end{frame}
 %
 %• A reconstrução de uma função implícita contínua e assinada
 %com escala espacialmente contínua (escala flutuante) usando um simples
@@ -521,22 +479,22 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 	\begin{center}
 		\begin{figure}
 			\includegraphics[width=0.6\linewidth]{figs/bundleAdjustment.png}
-			\caption{Exemplo do problema de \emph{Bundle Adjustment}. \\
+			\caption{Exemplo do problema de \protect\emph{Bundle Adjustment}. \\
 			\tiny{Fonte: http://av.dfki.de/members/stricker/}
 			}
 		\end{figure}
 	\end{center}
 \end{frame}
 
-\begin{frame} 
-\frametitle{\textbf{PBA/MCBA}}
-	\begin{center}
-		\begin{itemize}
-			\item Utiliza Levenberg Mardquardt na resolução do \emph{Bundle Adjustment}.
-			\item Multi-núcleos
-		\end{itemize}
-	\end{center}
-\end{frame}
+%\begin{frame} 
+%\frametitle{\textbf{PBA/MCBA}}
+%	\begin{center}
+%		\begin{itemize}
+%			\item Utiliza Levenberg Mardquardt na resolução do \protect\emph{Bundle Adjustment}.
+%			\item Multi-núcleos
+%		\end{itemize}
+%	\end{center}
+%\end{frame}
 
 
 
@@ -548,7 +506,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 \frametitle{\textbf{CMVS/PMVS-2}}
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=0.6\linewidth]{figs/cmvspipe.png}
+			\includegraphics[width=0.8\linewidth]{figs/cmvs.png}
 			\caption{Processo do algoritmo CMVS. \\
 			\tiny{Fonte: http://ieeexplore.ieee.org/abstract/document/5539802/}
 			}
@@ -556,16 +514,29 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 	\end{center}
 \end{frame}
 
+\begin{frame} 
+\frametitle{\textbf{CMVS/PMVS-2}}
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{figs/cmvspipe.png}
+			\caption{Processo do algoritmo CMVS. \\
+			\tiny{Fonte: http://ieeexplore.ieee.org/abstract/document/5539802/}
+			}
+		\end{figure}
+	\end{center}
+\end{frame}
+
+
 % ---------------------------------------------------------------------------- %
 \section{Kinect}
 % ---------------------------------------------------------------------------- %
-
-\begin{frame}
-	\begin{itemize}
-		\item {Baseado em luz estruturada}
-		\item {Baseado em \emph{Time of Flight}}
-	\end{itemize}
-\end{frame}
+%
+%\begin{frame}
+%	\begin{itemize}
+%		\item {Baseado em luz estruturada}
+%		\item {Baseado em \protect\emph{Time of Flight}}
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}
 	\begin{figure}
@@ -573,7 +544,7 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 		\includegraphics[width=0.5\linewidth]{figs/kinect.png}
 		\caption{%
  		 Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR -
- 		 \emph{Infra-Red}), uma câmera RGB e um projetor IR.
+ 		 \protect\emph{Infra-Red}), uma câmera RGB e um projetor IR.
  		 \tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}
 		}
 	\end{figure}
@@ -601,19 +572,18 @@ Neste caso, abordaremos o projeto de escaneamento da escultura de Michelangelo, 
 
 \begin{frame}
 	\begin{figure}
-	\subfloat[Imagem IR iluminada pelo projetor de padrões IR]{\includegraphics[width=0.2\linewidth]{figs/kinect1.png}}
-	\subfloat[Imagem IR com iluminação externa]{\includegraphics[width=0.2\linewidth]{figs/kinect2.png}}
-	\subfloat[Pontos de calibração reproduzidos na imagem RGB]{\includegraphics[width=0.2\linewidth]{figs/kinect3.png}}
-	\subfloat[Pontos de calibração reproduzidos na imagem de profundidade]{\includegraphics[width=0.2\linewidth]{figs/kinect4.png}}
-	\caption{%
-	Método de calibração do Kinect, em imagens IR, RGB e de profundidade.
-	\tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}}
-\end{figure}
-
+		\subfloat[Imagem IR iluminada pelo projetor de padrões IR]{\includegraphics[width=0.2\linewidth]{figs/kinect1.png}}
+		\subfloat[Imagem IR com iluminação externa]{\includegraphics[width=0.2\linewidth]{figs/kinect2.png}}
+		\subfloat[Pontos de calibração reproduzidos na imagem RGB]{\includegraphics[width=0.2\linewidth]{figs/kinect3.png}}
+		\subfloat[Pontos de calibração reproduzidos na imagem de profundidade]{\includegraphics[width=0.2\linewidth]{figs/kinect4.png}}
+		\caption{%
+		Método de calibração do Kinect, em imagens IR, RGB e de profundidade.
+		\tiny{Fonte: http://cmp.felk.cvut.cz/ftp/articles/pajdla/Smisek-CDC4CV-2011.pdf}}
+	\end{figure}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\subsection{Kinect com \emph{Structure from Motion}}
+\subsection{Kinect com \protect\emph{Structure from Motion}}
 % ---------------------------------------------------------------------------- %
 \begin{frame}
 	\begin{center}
@@ -663,35 +633,233 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 	\end{center}
 \end{frame}
 
-
-
 % ---------------------------------------------------------------------------- %
 \section{Experimentos}
 % ---------------------------------------------------------------------------- %
 
 \begin{frame}
 	\begin{figure}
-	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.7\linewidth]{figs/procedimentoscan.png}
-	\caption{%
-	Exemplo de como foi realizada a varredura da escultura
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}
-\end{figure}
-
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/procedimentoscan.png}
+		\caption{%
+		Exemplo de como foi realizada a varredura da escultura
+		}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-	Seguintes conjuntos de dados:
+	Conjuntos de dados:
 	\begin{center}
 		\begin{itemize}
+			\item 2 vídeos em ambiente fechado, com um total de 224 imagens (MVE e VisualSfM);
 			\item 2 vídeos de uma escultura (sapo), resultando em 280 imagens (MVE);
-			\item 1 vídeo de uma esculutra (índio), resultando em 197 imagens (VisualSfM);
-			\item 2 vídeos em ambiente fechado, com um total de 224 imagens (MVE e VisualSfM).
+			\item 1 vídeo de uma esculutra (índio), resultando em 197 imagens (VisualSfM).
 		\end{itemize}
 	\end{center}
 \end{frame}
+
+
+
+% ---------------------------------------------------------------------------- 
+\subsection{Objeto em ambiente fechado}
+% ---------------------------------------------------------------------------- 
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o primeiro video em ambiente fechado}{videos/video1.3gp}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir o segundo video em ambiente fechado}{videos/video2.3gp}
+	\end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------------- 
+\subsubsection{VisualSfM}
+% ---------------------------------------------------------------------------- 
+
+\begin{frame}
+\frametitle{\textbf{VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
+		\caption{%
+		Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software. \\
+		\tiny{Fonte: http://ccwu.me/vsfm/}
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{table}[h!]
+		\caption{Tempos obtidos da reconstrução do objeto com 200 imagens, usando o VisualSfM}
+		\begin{tabular}{|l|l|}
+			\hline
+			Procedimento & Tempo (aprox.) \\ \hline
+			Carregamento de imagens & 50 segundos \\ \hline
+			Calcular pares correspondentes de \protect\emph{features} & 9.540 segundos \\ \hline
+			Gerar a reconstrução esparsa do modelo & 135 segundos \\ \hline
+			Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
+			Total &  11.141 segundos\\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/galinhasparsa.jpg}
+		\caption{%
+		Reconstrução esparsa do objeto no VisualSfM com 200 imagens.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/galinhadense.jpg}
+		\caption{%
+		Reconstrução densa do objeto no VisualSfM com 200 imagens.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
+	GALINHA GIRANDO AQUI 200 IMGS!!!
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{table}[h!]
+		\caption{Tempos obtidos da reconstrução do objeto, com 224 imagens usando o VisualSfM}
+		\begin{tabular}{|l|l|}
+			\hline
+			Procedimento & Tempo (aprox.) \\ \hline
+			Carregamento de imagens & 60 segundos \\ \hline
+			Calcular pares correspondentes de \protect\emph{features} & 10.451 segundos \\ \hline
+			Gerar a reconstrução esparsa do modelo & 162 segundos \\ \hline
+			Gerar a reconstrução densa do modelo & 1920 segundos \\ \hline
+			Total &  12.593 segundos\\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figs/perto_longe_esparsa.jpg}
+		\caption{%
+		Reconstrução esparsa do objeto com 224 imagens no VisualSfM.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	\begin{figure}[!h]
+		\centering
+		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2241}\includegraphics[width=0.45\linewidth]{figs/galinhadense224.jpg}}
+		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2242}\includegraphics[width=0.45\linewidth]{figs/galinhavisualsfm224.jpg}}
+		\caption{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
+	GALINHA GIRANDO AQUI 224 IMGS!!!
+\end{frame}
+% ---------------------------------------------------------------------------- 
+\subsubsection{MVE}
+% ---------------------------------------------------------------------------- 
+
+\begin{frame}
+\frametitle{\textbf{MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{figs/pipelineMVE.jpg}
+		\caption{%
+			Processos no software MVE.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{table}[!h]
+	\centering
+	\caption{Tempos obtidos usando o MVE em um conjunto de dados em ambiente interno com 200 imagens}
+	\label{tab:galinha200mve}
+		\begin{tabular}{|l|l|}
+			\hline
+			Comando            & Tempo (aprox.)         \\ \hline
+			\protect\emph{sfmrecon}  & 371 segundos   \\ \hline
+			\protect\emph{dmrecon}   & 3.716 segundos \\ \hline
+			\protect\emph{scene2pset} & 300 segundos   \\ \hline
+			\protect\emph{fssrecon}  & 1.695 segundos \\ \hline
+			\protect\emph{meshclean} & 45 segundos    \\ \hline
+			Total & 6.127 segundos \\ \hline
+		\end{tabular}
+	\end{table}	
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/galinhadmr.png}
+		\caption{%
+		Resultado da etapa \protect\emph{fssrecon} do MVE
+		}\label{fig:galinhaFssr}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{figs/galinhameshclean.png}
+		\caption{%
+		Resultado da etapa \protect\emph{meshclean}, da etapa anterior \ref{fig:galinhaFssr}.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
+	GALINHA GIRANDO AQUI 200 IMGS MVE!!!
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/mvesfmrecongalinhapertolonge.png}
+		\caption{%
+		Resultado da etapa \protect\emph{sfmrecon}, com todas as imagens.
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
+	\begin{figure}[!h]
+			\centering
+			\includegraphics[width=0.8\linewidth]{figs/mvedmrecongalinhapertolonge.png}
+			\caption{%
+			Resultado da etapa \protect\emph{dmrecon}, com todas as imagens.
+			}
+	\end{figure}
+\end{frame}
+
 
 % ---------------------------------------------------------------------------- %
 \subsection{Escultura do Jardim do Nêgo}
@@ -700,18 +868,6 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 % ---------------------------------------------------------------------------- 
 \subsubsection{VisualSfM}
 % ---------------------------------------------------------------------------- 
-
-\begin{frame}
-\frametitle{\textbf{Escultura com VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
-		\caption{%
-		Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
-		\tiny{Fonte: http://ccwu.me/vsfm/}
-		}\label{fig:pipelineVisualSfM}
-	\end{figure}
-\end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
@@ -724,13 +880,14 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 \frametitle{\textbf{Escultura com VisualSfM}}
 	\begin{table}
 	\caption{Tempos obtidos da reconstrução da escultura do Jardim do Nêgo usando o VisualSfM}
-		\begin{tabular}{|l|p{3cm}|}
+		\begin{tabular}{|l|l|}
 			\hline
 			Procedimento & Tempo (aprox.) \\ \hline
 			Carregamento de imagens & 10 segundos \\ \hline
-			Calcular pares correspondentes de \emph{features} & 6.643 segundos \\ \hline
+			Calcular pares correspondentes de \protect\emph{features} & 6.643 segundos \\ \hline
 			Gerar a reconstrução esparsa do modelo & 220 segundos \\ \hline
 			Gerar a reconstrução densa do modelo & 1.385 segundos \\ \hline
+			Total &  8.258 segundos \\ \hline
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -764,28 +921,18 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 		\includegraphics[width=0.8\linewidth]{figs/guerreirovisualsfmdmr2.jpg}
 		\caption{%
 		Resultados da reconstrução densa da escultura do Jardim do Nêgo usando o VisualSfM, em outro ângulo.
-		}\label{fig:reconstrucaoDensaIndioVisualSFM}
+		}
 	\end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{\textbf{Escultura com VisualSfM}}
+	INDIO GIRANDO AQUI!!!
+\end{frame}
 
 % ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
 % ---------------------------------------------------------------------------- 
-\begin{frame}
-\frametitle{\textbf{MVE}}
-	Comandos utilizados:
-	\begin{center}
-		\begin{enumerate}
-			\item {Cria-se uma cena e adiciona-se imagens a ela;}
-			\item {\emph{sfmrecon};}
-			\item {\emph{dmrecon};}
-			\item {\emph{scene2pset};}
-			\item {\emph{fssrecon};}
-			\item {\emph{meshclean}.}
-		\end{enumerate}
-	\end{center}
-\end{frame}
 
 \begin{frame}
 \frametitle{\textbf{Escultura com MVE}}
@@ -821,11 +968,12 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 		\begin{tabular}{|l|l|}
 			\hline
 			Comando            & Tempo (aprox.)    \\ \hline
-			\emph{sfmrecon}  & 78 segundos     \\ \hline
-			\emph{dmrecon}   & 14.503 segundos \\ \hline
-			\emph{scene2pset} & 600 segundos    \\ \hline
-			\emph{fssrecon}  & 25.293 segundos \\ \hline
-			\emph{meshclean} & 60 segundos     \\ \hline
+			\protect\emph{sfmrecon}  & 78 segundos     \\ \hline
+			\protect\emph{dmrecon}   & 14.503 segundos \\ \hline
+			\protect\emph{scene2pset} & 600 segundos    \\ \hline
+			\protect\emph{fssrecon}  & 25.293 segundos \\ \hline
+			\protect\emph{meshclean} & 60 segundos     \\ \hline
+			Total & 40.534 segundos\\ \hline
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -836,7 +984,7 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 		\centering
 		\includegraphics[width=0.8\linewidth]{figs/mvemeshout.png}
 		\caption{%
-		Malha com ruídos proveniente do comando \emph{fssrecon}.
+		Malha com ruídos proveniente do comando \protect\emph{fssrecon}.
 		}\label{fig:MVEFSSRMesh}
 	\end{figure} 
 \end{frame}
@@ -852,166 +1000,11 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 	\end{figure} 
 \end{frame}
 
-% ---------------------------------------------------------------------------- 
-\subsection{Objeto em ambiente fechado}
-% ---------------------------------------------------------------------------- 
-
 \begin{frame}
-	\begin{center}
-		\movie[width=160px, height=90px, externalviewer]{Assistir o primeiro video em ambiente fechado}{videos/video1.3gp}
-	\end{center}
+\frametitle{\textbf{Escultura com MVE}}
+	SAPO GIRANDO AQUI!!!
 \end{frame}
 
-\begin{frame}
-	\begin{center}
-		\movie[width=160px, height=90px, externalviewer]{Assistir o segundo video em ambiente fechado}{videos/video2.3gp}
-	\end{center}
-\end{frame}
-
-% ---------------------------------------------------------------------------- 
-\subsubsection{VisualSfM}
-% ---------------------------------------------------------------------------- 
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
-	\begin{table}[h!]
-		\caption{Tempos obtidos da reconstrução do objeto com 200 imagens, usando o VisualSfM}
-		\label{tab:temposSfM}
-		\begin{tabular}{|l|p{3cm}|}
-			\hline
-			Procedimento & Tempo (aprox.) \\ \hline
-			Carregamento de imagens & 50 segundos \\ \hline
-			Calcular pares correspondentes de \emph{features} & 9.540 segundos \\ \hline
-			Gerar a reconstrução esparsa do modelo & 135 segundos \\ \hline
-			Gerar a reconstrução densa do modelo & 1.416 segundos \\ \hline
-		\end{tabular}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.8\linewidth]{figs/galinhasparsa.jpg}
-		\caption{%
-		Reconstrução esparsa do objeto no VisualSfM com 200 imagens.
-		}\label{fig:reconstrucaoEsparsaVisualSFM}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.8\linewidth]{figs/galinhadense.jpg}
-		\caption{%
-		Reconstrução densa do objeto no VisualSfM com 200 imagens.
-		}\label{fig:reconstrucaoDensaVisualSFM}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
-	\begin{table}[h!]
-		\caption{Tempos obtidos da reconstrução do objeto, com 224 imagens usando o VisualSfM}
-		\label{tab:temposSfM224}
-		\begin{tabular}{|l|p{3cm}|}
-			\hline
-			Procedimento & Tempo (aprox.) \\ \hline
-			Carregamento de imagens & 60 segundos \\ \hline
-			Calcular pares correspondentes de \emph{features} & 10.451 segundos \\ \hline
-			Gerar a reconstrução esparsa do modelo & 162 segundos \\ \hline
-			Gerar a reconstrução densa do modelo & 1920 segundos \\ \hline
-		\end{tabular}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.7\linewidth]{figs/perto_longe_esparsa.jpg}
-		\caption{%
-		Reconstrução esparsa do objeto com 224 imagens no VisualSfM.
-		}\label{fig:reconstrucaoEsparsaVisualSFM224}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2241}\includegraphics[width=0.45\linewidth]{figs/galinhadense224.jpg}}
-		\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2242}\includegraphics[width=0.45\linewidth]{figs/galinhavisualsfm224.jpg}}
-		\caption{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
-		}
-	\end{figure}
-\end{frame}
-% ---------------------------------------------------------------------------- 
-\subsubsection{MVE}
-% ---------------------------------------------------------------------------- 
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
-	\begin{table}[!h]
-	\centering
-	\caption{Tempos obtidos usando o MVE em um conjunto de dados em ambiente interno com 200 imagens}
-	\label{tab:galinha200mve}
-		\begin{tabular}{|l|l|}
-			\hline
-			Comando            & Tempo (aprox.)         \\ \hline
-			\emph{sfmrecon}  & 371 segundos   \\ \hline
-			\emph{dmrecon}   & 3.716 segundos \\ \hline
-			\emph{scene2pset} & 300 segundos   \\ \hline
-			\emph{fssrecon}  & 1.695 segundos \\ \hline
-			\emph{meshclean} & 45 segundos    \\ \hline
-		\end{tabular}
-	\end{table}	
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.5\linewidth]{figs/galinhadmr.png}
-		\caption{%
-		Resultado da etapa \emph{fssrecon} do MVE
-		}\label{fig:galinhaFssr}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.5\linewidth]{figs/galinhameshclean.png}
-		\caption{%
-		Resultado da etapa \emph{meshclean}, da etapa anterior \ref{fig:galinhaFssr}.
-		}\label{fig:galinhaMeshClean}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.8\linewidth]{figs/mvesfmrecongalinhapertolonge.png}
-		\caption{%
-		Resultado da etapa \emph{sfmrecon}, com todas as imagens.
-		}\label{fig:galinhaSfM224}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Objeto com 224 imagens usando o MVE}}
-	\begin{figure}[!h]
-			\centering
-			\includegraphics[width=0.8\linewidth]{figs/mvedmrecongalinhapertolonge.png}
-			\caption{%
-			Resultado da etapa \emph{dmrecon}, com todas as imagens.
-			}\label{fig:galinhaDMR224}
-	\end{figure}
-\end{frame}
 
 % ---------------------------------------------------------------------------- 
 \section{Conclusão}
@@ -1019,7 +1012,7 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 	\begin{center}
-	Constatamos, que através de métodos \emph{Structure from Motion} combinados com programas de código livre e gratuitos, é possível, a partir de uma câmera comum de celular, obtermos reconstruções 3D qualitativamente satisfatórias.
+	Apresentamos e exploramos técnicas recentes de reconstrução 3D utilizando fotogrametria, relatando problemas e dificuldades encontrados, para justificar a eventual pesquisa em novas técnicas mais avançadas.
 	\end{center}
 \end{frame}
 
@@ -1030,32 +1023,21 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 \begin{frame}
 	\begin{enumerate}
     	\item {Realizar uma varredura com o Kinect.}
- \item {Validação adicional.} 
-\item {Constatar na prática, o melhor método de varredura da escultura.} 
-%\item Automatizar o corte de {\it frames} do vídeo.
-\item {Concretizar o objetivo proposto neste trabalho.}
+		\item {Constatar na prática, o melhor método de varredura da escultura.} 
+		%\item Automatizar o corte de {\it frames} do vídeo.
+		\item {Concretizar o objetivo proposto neste trabalho.}
 	\end{enumerate}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-{%\usebackgroundtemplate{}} 
-\begin{frame}[plain]
-%	\begin{columns}[c]
-%		\column{0.2\textwidth}
-%			\hspace*{+0.5em}
-%			\includegraphics[height=7.90cm]{logo_uerj_cor.jpg}
-%		\column{0.01\textwidth}
-%		\column{0.70\textwidth}
-%			\titlepage
-%	\end{columns}
-%	\addtocounter{framenumber}{-1}
-\begin{center}
-{\huge \bf Obrigado! \\
-Perguntas?}
+\begin{frame}
+	\begin{center}
+	{\huge \bf Obrigado! \\
+	Perguntas?}
 \end{center}
 	
 \end{frame}
-}
+
 
 \end{document}
 
