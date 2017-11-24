@@ -58,7 +58,7 @@ individuais. Produz uma malha superficial globalmente consistente.
 \end{figure}
 
 Como não existem muitas opções para algoritmos de SfM, o MVE permite a
-utilização de \emph{softwares} externos como o
+utilização de softwares externos como o
 \emph{Bundler}~\cite{snavely2010bundler} ou o prório \emph{VisualSfM} para esta
 etapa.  Tendo o SfM feito, partimos para o MVS. Com os parâmetros
 de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos
@@ -106,12 +106,12 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 	\includegraphics[width=0.2\linewidth]{figs/parallaxB.png}(b)
 	\includegraphics[width=0.2\linewidth]{figs/parallaxC.png}(c)
 	\caption{%
-  Caso o espaçamento entre as câmeras seja grande, a informação extraída das
-  imagens em comum será menor (a). Se a angulação do efeito de paralaxe seja
-  baixa, terá a mesma informação sobre um ponto em questão (c). Ou seja
-  utilizando ou (a), ou (c). Pode ser que a reconstrução fique incerta. Para que
-  o efeito paralaxe tenha maior proveito das imagens das câmeras, é necessário
-  que as câmeras estejam dispostas como (b), conseguindo extrair uma boa
+  Com espaçamento grande entre câmeras, a informação extraída das
+  imagens em comum é menor (a). Se a angulação do efeito de paralaxe for
+  baixa, terá a mesma informação sobre um ponto 3D (c).
+  Nesses casos, a reconstrução pode ser incerta. Para que
+  o efeito paralaxe tenha maior proveito das imagens, alguns autores argumentam que
+  câmeras devem estar dispostas como (b), de forma a extrair uma boa
   quantidade e qualidade de informações do ponto.
   \protect\cite{3DCompVision2Didier}
 	}
@@ -210,43 +210,59 @@ reconstrução~\ref{fig:mvesfm}.
 Usando as imagens junto com os parâmetros obtidos das câmeras, é possível
 reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a
 interface gráfica (UMVE) ou por linha de comando (\emph{dmrecon}).
-
 O parâmetro mais importante é o nível de resolução em que os mapas de
 profundidade são reconstruídos: Caso seja nível 0 (ou L0), a reconstrução é
 feita usando o tamanho original das imagens. Se for nível 1 (ou L1), a
-reconstrução corresponde a metade do tamanho (um quarto dos números de pixels),
+reconstrução corresponde à metade do tamanho (um quarto dos números de pixels),
 e assim por diante.
 
-Com a resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois
+Com a alta resolução das câmeras atuais, uma reconstrução L0 é raramente usada, pois
 geram mapas de profundidade mais dispersos com um custo computacional elevado, o
 que acarreta em dificuldades para encontrar as correspondências densas das
 imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando
-mapas de profundidades completos, já que utiliza imagens menores
-\ref{fig:mvedepth}.
+mapas de profundidades completos, já que utiliza resoluções menores, Figura~\ref{fig:mvedepth}.
 
 \begin{figure}[!h]
 	\centering
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.4\linewidth]{figs/mvedepth.png}
+	\includegraphics[width=0.7\linewidth]{figs/mvedepth.png}
 	\caption{%
-	Uma imagem de entrada (à esquerda) e sua correspondência em mapas de profundidade (à direita), onde a parte roxa significa que não foi encontrada nenhum mapa naquela região \protect\cite{mve}.
+  Uma imagem de entrada (esquerda) e correspondência em mapas de
+  profundidade (direita), em roxo as partes sem nenhum mapa naquela região~\protect\cite{mve}.
 	}\label{fig:mvedepth}
 \end{figure}
 
 O MVS pode ser dividido em duas partes:
 \begin{itemize}
-\item {Uma estrutura regional-crescente que tem uma fila de candidatos correspondentes, Q, ordenada pelas localizações dos pixels na câmera acrescido de seus valores para profundidade e normais;}
-\item {Um sistema de correspondências que leva um candidato correspondente como entrada e calcula profundidade, normal e uma confiança de correspondência usando vistas vizinhas fornecidas pela seleção de exibição local. Se a correspondência for bem sucedida, os dados são armazenados em mapas de profundidade, normais e de confiança e os pixels vizinhos na câmera são adicionados como novos candidatos a Q.}
+\item {Uma estrutura regional-crescente que tem uma fila de candidatos
+  correspondentes, $Q$, ordenada pelas localizações dos pixels na câmera
+acrescido de seus valores para profundidade e normais;}
+\item {Um sistema de correspondências que leva um candidato correspondente como
+  entrada e calcula profundidade, normal e uma confiança de correspondência
+usando vistas vizinhas fornecidas pela seleção de exibição local. Se a
+correspondência for bem sucedida, os dados são armazenados em mapas de
+profundidade, normais e de confiança e os pixels vizinhos na câmera são
+adicionados como novos candidatos a $Q$.}
 \end{itemize}
 
-\subsubsection*{Reconstrução de superfícies -- \emph{Surface Reconstruction}}
+\subsubsection*{Reconstrução de Superfícies -- \emph{Surface Reconstruction}}
 
-Utiliza-se a linha de comando \emph{scene2pet}, que combina todos os mapas de profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de escala é atribuído a cada ponto, que indica o tamanho atual da região da superfície na qual o ponto foi mensurado. Esta informação adicional permite o uso de várias propriedades benéficas usando a abordagem de reconstrução de superfície usando FSSR~\cite{fuhrmann2014floating}.  
-A seguir, as ferramentas FSSR calculam uma representação volumétrica de escala múltipla a partir dos pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma malha final é extraída. Esta malha pode parecer desordenada devido à regiões não confiáveis e à componentes isolados, oriundos de medidas imprecisas. Logo, a malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis da superfície. 
+Utiliza-se o programa em linha de comando \texttt{scene2pet}, que combina todos os mapas de
+profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de
+escala é atribuído a cada ponto, que indica o tamanho atual da região da
+superfície na qual o ponto foi mensurado. Esta informação adicional permite o
+uso de várias propriedades benéficas usando a abordagem de reconstrução de
+superfície por FSSR~\cite{fuhrmann2014floating}.  A seguir, as ferramentas
+FSSR calculam uma representação volumétrica de escala múltipla a partir dos
+pontos (na qual não precisa de nenhum ajuste de parâmetros explícitos) e uma
+malha final é extraída. Esta malha pode parecer desordenada devido a regiões não
+confiáveis e a componentes isolados, oriundos de medidas imprecisas. Logo, a
+malha é limpa, retirando pequenos componentes isolados e regiões não confiáveis
+da superfície. 
 
-% Experiência com o MVE: A utilização do \emph{software} é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
+% Experiência com o MVE: A utilização do software é bem intuitiva, seja por linha de comando ou pela interface gráfica (neste modo, fica mais fácil visualizar cada etapa da reconstrução). Amplamente configurável, podendo escolher a vizinhança, escala, manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre outras configurações.
 
-% Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras (\emph{EXIF}) e das imagens e, como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados \emph{frames}, não é possível obter a informação das câmeras \ref{fig:mveexif}, logo o \emph{software} não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
+% Entretanto, para a aplicação proposta neste projeto, não é muito interessante, visto que ele utiliza a informação das câmeras (\emph{EXIF}) e das imagens e, como as imagens empregadas na reconstrução são, tecnicamente, vídeos cortados em determinados \emph{frames}, não é possível obter a informação das câmeras \ref{fig:mveexif}, logo o software não tem tanta aplicabilidade neste caso, pois recai no problema dos parâmetros padrões adotados para as câmeras não serem bons o suficiente para estes conjuntos de dados, a menos que sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja gerar a reconstrução densa, pois dessa forma, as informações necessárias das câmeras estarão armazenadas.
 
 % \begin{figure}[!h]
 % 	\centering
