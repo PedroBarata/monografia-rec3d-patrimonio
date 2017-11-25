@@ -13,7 +13,7 @@
 %\usepackage{movie15}
 %\usepackage{flashmovie}
 \usepackage{multimedia}
-\usepackage{animate}
+\usepackage{xmpmulti}
 \usepackage{hyperref}     % Controla a formacao do indice
 \usepackage{lastpage}       % Usado pela Ficha catalografica
 \usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
@@ -742,8 +742,10 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
-	{Embedded Animation}
-  \animategraphics[loop,controls,width=\linewidth]{12}{gifs/galinha200VisualSFM/galinhaVisualSfm200-}{0}{16}
+
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/galinhaVisualSfm200.webm}
+	\end{center}
 \end{frame}
 
 \begin{frame}
