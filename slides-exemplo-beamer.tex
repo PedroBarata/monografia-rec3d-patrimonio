@@ -13,7 +13,6 @@
 %\usepackage{movie15}
 %\usepackage{flashmovie}
 \usepackage{multimedia}
-\usepackage{xmpmulti}
 \usepackage{hyperref}     % Controla a formacao do indice
 \usepackage{lastpage}       % Usado pela Ficha catalografica
 \usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
@@ -326,13 +325,16 @@ Perguntas a serem respondidas ao longo deste projeto:
 
 \begin{frame}
 \frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
-	\begin{center}		
-		COLOCAR IMAGEM DE CORRESPONDENICAS DO INDIO
+		\begin{center}		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figs/indioSIFT.jpg}
+			\caption{%
+				Exemplo de correspondências SIFT.
+			}
+		\end{figure}
 	\end{center}
 \end{frame}
-
-
-%TODO: COLOCAR IMAGEM DE CORRESPONDENICAS DO INDIO%
 
 \begin{frame}
 \frametitle{\textbf{SIFT -- \emph{Scale Invariant Feature Transform}}}
@@ -433,16 +435,14 @@ Perguntas a serem respondidas ao longo deste projeto:
 \end{frame}
 
 \begin{frame}
-
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.8\linewidth]{figs/michFSSR.png}
-			\caption{
-			Reconstrução da escultura David, de Michelangelo, usando FSSR. \\
-			\tiny{Fonte: http://ai2-s2-pdfs.s3.amazonaws.com/b47d/c834dfdeecca3c8854b2120228c2bd7cc5be.pdf}
-			}
-		\end{figure}
-
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{figs/michFSSR.png}
+		\caption{
+		Reconstrução da escultura David, de Michelangelo, usando FSSR. \\
+		\tiny{Fonte: http://ai2-s2-pdfs.s3.amazonaws.com/b47d/c834dfdeecca3c8854b2120228c2bd7cc5be.pdf}
+		}
+	\end{figure}
 \end{frame}
 %\begin{frame}
 %\frametitle{\textbf{FSSR -- Floating Scale Surface Reconstruction}}
@@ -742,7 +742,6 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Objeto com 200 imagens usando o VisualSfM}}
-
 	\begin{center}
 		\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/galinhaVisualSfm200.webm}
 	\end{center}
@@ -788,7 +787,9 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Objeto com 224 imagens usando o VisualSfM}}
-	GALINHA GIRANDO AQUI 224 IMGS!!!
+		\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/galinhaVisualSFM224.webm}
+	\end{center}
 \end{frame}
 % ---------------------------------------------------------------------------- 
 \subsubsection{MVE}
@@ -848,7 +849,7 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Objeto com 200 imagens usando o MVE}}
-	GALINHA GIRANDO AQUI 200 IMGS MVE!!!
+	\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/galinha200MVE.webm}
 \end{frame}
 
 \begin{frame}
@@ -929,18 +930,9 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Escultura com VisualSfM}}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.8\linewidth]{figs/guerreirovisualsfmdmr2.jpg}
-		\caption{%
-		Resultados da reconstrução densa da escultura do Jardim do Nêgo usando o VisualSfM, em outro ângulo.
-		}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textbf{Escultura com VisualSfM}}
-	INDIO GIRANDO AQUI!!!
+	\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/indioVisualSFM.webm}
+	\end{center}
 \end{frame}
 
 % ---------------------------------------------------------------------------- 
@@ -1015,7 +1007,9 @@ SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\
 
 \begin{frame}
 \frametitle{\textbf{Escultura com MVE}}
-	SAPO GIRANDO AQUI!!!
+		\begin{center}
+		\movie[width=160px, height=90px, externalviewer]{Assistir a animação da reconstrução}{gifs/sapoMVE.webm}
+	\end{center}
 \end{frame}
 
 
