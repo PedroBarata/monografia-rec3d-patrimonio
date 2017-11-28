@@ -1,7 +1,6 @@
 \chapter{Conclusão}
 Técnicas práticas recentes de reconstrução 3D utilizando fotogrametria foram
-apresentadas e exploradas, visando
-ajudar a desenvolver os primórdios de um metodologia prática para digitalizar jardins de esculturas a céu
+apresentadas e exploradas, visando ajudar a desenvolver os primórdios de uma metodologia prática para digitalizar jardins de esculturas a céu
 aberto. A partir dos resultados dos experimentos, averiguamos que é possível, do ponto de vista qualitativo, utilizar softwares de código aberto e apenas uma câmera comum de celular ou uma scanner de baixo custo (Kinect) para conseguirmos ter uma boa reconstrução de uma escultura ou objeto. Um pseudocódigo poderia ser executado da seguinte maneira, com o intuito de gerar uma reconstrução satisfatória:
 
 %PSEUDOCODIGO AQUI%
@@ -22,13 +21,12 @@ Caso utilize o MVE {
   Por linha de comando, executamos {
     Sfmrecon, gerando conjuntos de extensões .mve
     Dmrecon, onde são criados mapas de profundidade nas extensões .mve
-    Scene2pset que combina todos os mapas de profundidade em uma única e grande nuvem de pontos
+    Scene2pset, indicando o nível (escala da reconstrução), que combina todos os mapas de profundidade em uma única e grande nuvem de pontos
     Fssrecon que utiliza a união dos vértices dos mapas de profundidade e gera uma malha superficial do objeto
   }
 Exportar o modelo 3D gerado
 Utilizar algum programa para tratamento do modelo 3D (Blender, Meshlab, entre outros)
 }
-
 
 Foi adquirida experiência sobre a calibração de equipamentos, sistemas
 de software recentes e esquemas para realizar uma boa varredura, cobrindo toda a
@@ -39,7 +37,7 @@ em escaneamento 3D; dessa forma, procuramos relatar as dificuldades e problemas
 encontrados, para justificar a eventual pesquisa em novas técnicas mais
 avançadas. 
 
-Dentre esses problemas, a nível de software, podemos explicitar a dificuldade de instalação do MVE e do VisualSfM pois possuem uma série de algoritmos embutidos no seu passo-a-passo e, portanto, várias bibliotecas deverão ser instaladas, problemas para configuração dos parâmetros (como memória, número de núcleos utilizados na aplicação, número de vizinhos e escala da reconstrução, por exemplo). E a nível prático, temos todo o custo utilização do Kinect na reconstrução das esculturas, necessitando de uma infra-estrutura adequada para seu funcionamento (como computador e alguma fonte de energia próxima).
+Dentre esses problemas, a nível de software, podemos explicitar a dificuldade de instalação do MVE e do VisualSfM pois possuem uma série de algoritmos embutidos no seu passo-a-passo e, portanto, várias bibliotecas deverão ser instaladas e algumas geraram conflitos, problemas para configuração dos parâmetros (como memória, número de núcleos utilizados na aplicação, número de vizinhos e escala da reconstrução, por exemplo). E a nível prático, temos todo o custo utilização do Kinect na reconstrução das esculturas, necessitando de uma infra-estrutura adequada para seu funcionamento (como computador e alguma fonte de energia próxima).
 
 \section{Trabalhos futuros} Identificamos os seguintes caminhos para a evolução deste projeto:
 \begin{itemize}
@@ -78,44 +76,3 @@ bem restringida. Mas será que este é realmente o melhor método?
   \emph{smartphone} faz upload dos vídeos na medida em que são capturados, os
   quais são reconstruídos incrementalmente usando o \emph{cluster} do IPRJ como nuvem computacional.
 \end{itemize}
-%======================================================================================
-%Apresentamos um detector de borda subpíxel e um \textit{linker} de curvas projetado especificamente 
-%para vídeos de água, aprendendo geometria e topologia em um conjunto de treinamento para 
-%uso futuro como entrada para sistemas recentes de fotogrametria com base em curvas 3D.
-%A abordagem modela o problema de forma que generaliza a criação de detectores
-%específicos de \emph{features} geométricas para uma série de aplicações adicionais.
-%As principais características do nosso sistema são: 1) Resolução ancorada nas
-%singularidades para reconstruções nítidas; e 2) Treinamento de distribuições de
-%geometria de contorno que permitem melhorias no rastreamento da água.
-%
-%\section*{Trabalhos futuros} Identificamos os seguintes caminhos para evolução deste trabalho:
-%\begin{itemize}
-%  \item \textbf{Realizar a aprendizagem em 3D.} Isso envolveria a marcação manual 
-%    das bordas confiáveis em 3D, em cima de uma reconstrução de desenho 
-%    3D~\cite{Usumezbas:Fabbri:Kimia:CVPR17,Usumezbas:Fabbri:Kimia:ECCV16}, ou 
-%    marcando correspondências nas imagens. Nosso grupo de pesquisa já possui 
-%    uma GUI para isso, mas a aprendizagem deve ser adaptada. As vantagens de 
-%    fazer a aprendizagem em 3D é que o computador não precisa aprender 
-%    invariantes projetivos e pode se concentrar diretamente na geometria verdadeira.
-%  \item \textbf{Validação adicional.} Seria desejável produzir uma pontuação de erro 
-%    no treinamento e examinar os valores atípicos de forma mais próxima, a fim de 
-%    realizar uma engenharia mais completa do sistema.
-%  \item \textbf{Aplicação em imagens ao ar livre.} Nosso conjunto de dados e 
-%    configuração de aquisição de vídeo foi construído para imagens internas, mas 
-%    gostaríamos de ter um sistema de aquisição ao ar livre. Existem dois cenários:
-%    \begin{itemize}
-%      \item Usuário final em uma praia: tenha quatro smartphones no modo de vídeo dispostos 
-%        verticalmente em um pólo, auto-calibrados e sincronizados por um clique de som.
-%      \item Plataforma de óleo: várias câmeras auto-calibradas monitorando condições do mar.
-%    \end{itemize}
-%  \item \textbf{Escala da arquitetura do sistema.} Seria importante paralelizar o processamento 
-%    dos vídeos além da abordagem quadro a quadro e orientada a E/S descrita
-%    neste trabalho.
-%  \item Automatizar o recorte da região de interesse do vídeo.
-%  \item Tornar os parâmetros de comprimento relativos ao tamanho da imagem.
-%\end{itemize}
-
-% ----------------------------------------------------------
-% ELEMENTOS POS-TEXTUAIS
-% ----------------------------------------------------------
-
