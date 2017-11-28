@@ -45,7 +45,29 @@ processamento. Note-se que será usado o termo curto ``ponto'' para denotar
 
 Primeiramente, calcula-se o SIFT (algoritmo de detecção de pontos de interesse,
 invariante à escala e à transformações, como rotação, translação e iluminação da
-imagem) em cada imagem~\cite{Lowe:IJCV2004}.
+imagem~\ref{}) em cada imagem~\cite{Lowe:IJCV2004}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{figs/indioSIFT.jpg}
+	\includegraphics[width=\linewidth]{figs/SIFTsapo.jpg}
+	\includegraphics[width=\linewidth]{figs/SIFTsapo2.jpg}
+	\caption{%
+	Imagens de correspondências do SIFT, onde cada linha interpreta uma correspondência encontrada entre as duas imagens.
+	}\label{fig:sfmpipeline}
+\end{figure}
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
+	\caption{%
+	Procedimento da maioria dos sistemas SfM. Além dessas
+  etapas, geralmente a reconstrução é densificada usando-se MVS\protect\cite{theia-manual}.
+	}\label{fig:sfmpipeline}
+\end{figure}
+
+
 O algoritmo pode ser dividido em cinco etapas:
 
 \begin{itemize}

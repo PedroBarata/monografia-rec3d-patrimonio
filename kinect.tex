@@ -10,10 +10,9 @@ de um projetor.  Tipicamente, o par projetor-câmera tem a geometria análoga a
 duas câmeras estéreo, e opera no espectro infa-vermelho invisível a olho nu, em
 vez de laser, para que a aparência do objeto possa ser capturada
 simultâneamente por outra câmera RGB.  Um exemplo recente de escaneador de luz
-estruturada de baixo custo é o Kinect versão~\cite{smisek20133d}, que também
+estruturada de baixo custo é o Kinect versão 1~\cite{smisek20133d}, que também
 serve como base para uma série de scanners que utilizam o mesmo hardware. Uma
-vantagem clara em relação aos escaneadores a laser é a velocidade (pois o
-mais padrões são projetados simultaneamente em uma área) e o
+vantagem clara em relação aos escaneadores a laser é a velocidade (pois mais padrões são projetados simultaneamente em uma área) e o
 baixo custo; uma desvantagem em potencial é a precisão, conforme discutido mais adiante.
 Existe também, um outro método fotogramétrico ativo denominado\emph{Time of
 Flight}~\cite{gokturk2004time}, que em vez de padrões infra-vermelho ou laser,
@@ -93,7 +92,7 @@ da imagem IR com o padrão conhecido do projetor.
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
 	\caption{%
-  Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada
+  Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor
   disposta na imagem corresponde à profundidade ou distância da cena para
   o Kinect, e preto corresponde a pontos sem informação confiável.
 	\cite{Silberman:ECCV12}.
@@ -111,8 +110,9 @@ foi modelado como
 q(z)=2.73z^{2}+0.74z-0.58
 \end{equation}
 onde $z$ é a profundidade em metros, e $q$ a quantização, em milímetros.
-O modelo geométrico do Kinect foi criado com um sistema multi-ocular
-(\emph{multi-view}) considerando o RGB, IR e a profundidade.
+O modelo geométrico do Kinect foi modelado com um sistema multi-ocular
+(\emph{multi-view}) considerando o RGB, IR e a profundidade, que projeta um ponto 3D $x$, no ponto de imagem $[u,v]^T$~\ref{eq:matrix}, 
+onde $u$ e $v$ são os pixels da imagem
 \begin{gather} 
 \label{eq:matrix}
 \begin{bmatrix}

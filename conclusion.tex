@@ -2,14 +2,18 @@
 Técnicas práticas recentes de reconstrução 3D utilizando fotogrametria foram
 apresentadas e exploradas, visando
 ajudar a desenvolver os primórdios de um metodologia prática para digitalizar jardins de esculturas a céu
-aberto. Foi adquirida experiência sobre a calibração de equipamentos, sistemas
+aberto. A partir dos resultados dos experimentos, averiguamos que é possível, do ponto de vista qualitativo, utilizar softwares de código aberto e apenas uma câmera comum de celular ou uma scanner de baixo custo (Kinect) para conseguirmos ter uma boa reconstrução de uma escultura ou objeto.
+
+Foi adquirida experiência sobre a calibração de equipamentos, sistemas
 de software recentes e esquemas para realizar uma boa varredura, cobrindo toda a
 escultura com uma câmera comum de celular.  As esculturas Friburguenses visadas neste trabalho
 possuem geometria peculiar, com curvas delineadas e regiões suaves, com pouca
 textura e poucos pontos de interesse, sendo desafiadoras para o estado da arte
 em escaneamento 3D; dessa forma, procuramos relatar as dificuldades e problemas
-encontrados, para justificar a eventual pesquisa em novas técnicas mas
-avançadas.
+encontrados, para justificar a eventual pesquisa em novas técnicas mais
+avançadas. 
+
+Dentre esses problemas, a nível de software, podemos explicitar a dificuldade de instalação do MVE e do VisualSfM pois possuem uma série de algoritmos embutidos no seu passo-a-passo e, portanto, várias bibliotecas deverão ser instaladas, problemas para configuração dos parâmetros (como memória, número de núcleos utilizados na aplicação, número de vizinhos e escala da reconstrução, por exemplo). E a nível prático, temos todo o custo utilização do Kinect na reconstrução das esculturas, necessitando de uma infra-estrutura adequada para seu funcionamento (como computador e alguma fonte de energia próxima).
 
 \section*{Trabalhos futuros} Identificamos os seguintes caminhos para a evolução deste projeto:
 \begin{itemize}
