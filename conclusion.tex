@@ -2,7 +2,33 @@
 Técnicas práticas recentes de reconstrução 3D utilizando fotogrametria foram
 apresentadas e exploradas, visando
 ajudar a desenvolver os primórdios de um metodologia prática para digitalizar jardins de esculturas a céu
-aberto. A partir dos resultados dos experimentos, averiguamos que é possível, do ponto de vista qualitativo, utilizar softwares de código aberto e apenas uma câmera comum de celular ou uma scanner de baixo custo (Kinect) para conseguirmos ter uma boa reconstrução de uma escultura ou objeto.
+aberto. A partir dos resultados dos experimentos, averiguamos que é possível, do ponto de vista qualitativo, utilizar softwares de código aberto e apenas uma câmera comum de celular ou uma scanner de baixo custo (Kinect) para conseguirmos ter uma boa reconstrução de uma escultura ou objeto. Um pseudocódigo poderia ser executado da seguinte maneira, com o intuito de gerar uma reconstrução satisfatória:
+
+%PSEUDOCODIGO AQUI%
+Faz-se um escaneamento prévio da escultura.
+Seleciona-se frames do vídeo
+Se (utilizar o VisualSfM) {
+  Pré-configurar o numero de \emph{cores} e escala da reconstrução a ser feita
+  Adicionar esse conjunto de frames no programa
+  Executar o comando de correspondência entre as imagens
+  Executar o comando da reconstrução esparsa
+  Executar o comando da reconstrução densa
+    Se quiser, podemos usar o modelo de reconstrução densa como entrada no MVE e gerar a reconstrução baseada em superfície
+  }
+
+Caso utilize o MVE {
+  Abrir a interface gráfica (mais fácil visualmente) e cria-se uma cena
+  Adicionar imagens a essa cena criada e fechar a interface gráfica
+  Por linha de comando, executamos {
+    Sfmrecon, gerando conjuntos de extensões .mve
+    Dmrecon, onde são criados mapas de profundidade nas extensões .mve
+    Scene2pset que combina todos os mapas de profundidade em uma única e grande nuvem de pontos
+    Fssrecon que utiliza a união dos vértices dos mapas de profundidade e gera uma malha superficial do objeto
+  }
+Exportar o modelo 3D gerado
+Utilizar algum programa para tratamento do modelo 3D (Blender, Meshlab, entre outros)
+}
+
 
 Foi adquirida experiência sobre a calibração de equipamentos, sistemas
 de software recentes e esquemas para realizar uma boa varredura, cobrindo toda a
