@@ -1,6 +1,6 @@
 \chapter{Experimentos}\label{sec:experiments}
 %======================================================================================
-Os experimentos se concentraram em explorar os objetivos propostos na Seção~\ref{sec:objetivos}.
+Os experimentos se concentram em explorar, ao longo deste Capítulo, os objetivos propostos na Seção~\ref{sec:objetivos}.
 
 \section{Procedimento}
 Primeiramente, foram realizadas filmagens iniciais de algumas esculturas,
@@ -11,14 +11,18 @@ varrer a maioria da superfície da escultura em $360^{\circ}$,
 Figura~\ref{fig:procedimentoscan}.  Em seguida, fizemos mais alguns vídeos,
 capturando alguns pontos que possuíam mais detalhes mais de perto.
 
+Vale ressaltar que no dia das filmagens, estava ensolarado com boa iluminação para a captura das esculturas
+
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+\caption{%
+	Como foi realizada a varredura das esculturas
+	}	
 	\includegraphics[width=0.4\linewidth]{figs/procedimentoscan.png}
-	\caption{%
-	Exemplo de como foi realizada a varredura das esculturas.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:procedimentoscan}
+	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:procedimentoscan}
 \end{figure}
 
 Com este material, foram feitos videoclipes extraindo um subconjunto de
@@ -53,7 +57,7 @@ Para um mesmo conjunto de imagens, foi executado tanto o VisualSfM quanto o MVE.
 \subsection{Resultados da reconstrução com o VisualSfM}
 
 Seguindo o passo-a-passo de reconstrução do software, obtivemos os seguintes
-resultados de tempo, Tabela~\ref{tab:temposSfMJardimDoNego}, para a escultura de
+resultados em relação ao tempo, que é importante para termos um parâmetro de quanto demoraria para reconstruirmos uma escultura com mais, ou com menos imagens, Tabela~\ref{tab:temposSfMJardimDoNego}. Para a escultura de
 197 imagens do Jardim do Nêgo, com as reconstruções mostradas nas
 Figuras~\ref{fig:reconstrucaoEsparsaIndioVisualSFM} e~\ref{fig:reconstrucaoDensaIndioVisualSFM}.
 
@@ -68,37 +72,48 @@ Calcular pares correspondentes de \emph{features} & 1 hora e 50 minutos \\ \hlin
 Gerar a reconstrução esparsa do modelo & 4 minutos \\ \hline
 Gerar a reconstrução densa do modelo & 24 minutos \\ \hline
 \end{tabular}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{table}
 
 Percebe-se que foi gerada uma nuvem de pontos bastante consistente, a partir da
 reconstrução esparsa do algoritmo PBA.  Por conta disso, nossa reconstrução 3D
 densa, empregando o MCBA/PMVS-2, obteve uma qualidade razoável para o conjunto de
-imagens usada, apesar de apresentar ainda ruídos e falta de resolução para uma
+imagens usada, figura~\cite{fig:reconstrucaoEsparsaIndioVisualSFM}, apesar de apresentar ainda ruídos e falta de resolução para uma
 preservação de patrimônio completa como no projeto \emph{Digital Michaelangelo}
 de escaneamento a laser. Nota-se que o resultado é bastante surpreendente, dado que
 apenas os vídeos foram fornecidos, e o software teve que calcular as posições
 das câmeras, além da e reconstrução geométrica e fotométrica.
 %COLOCAR IMAGENS GUERREIRO AQUI%
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.9\linewidth]{figs/guerreiroEsparsa.jpg}
 	\caption{%
 	Reconstrução esparsa da escultura do Jardim do Nêgo no VisualSfM com 197 imagens.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoEsparsaIndioVisualSFM}
+	}
+	\includegraphics[width=0.9\linewidth]{figs/guerreiroEsparsa.jpg}
+		\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:reconstrucaoEsparsaIndioVisualSFM}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Resultados da reconstrução densa da escultura do Jardim do Nêgo}
 	\includegraphics[width=0.40\linewidth]{figs/guerreirovisualsfmdmr.jpg}(a)
 	\includegraphics[width=0.50\linewidth]{figs/guerreirovisualsfmdmr2.jpg}(b)
-	\caption{%
-	Resultados da reconstrução densa da escultura do Jardim do Nêgo usando o VisualSfM, em dois ângulos diferentes (a) e (b).
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoDensaIndioVisualSFM}
+	\legend{%
+		Usando o software VisualSfM, em dois ângulos diferentes (a) e (b).
+	}
+		\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:reconstrucaoDensaIndioVisualSFM}
 \end{figure}
 
 
@@ -118,10 +133,14 @@ Calcular pares correspondentes de \emph{features} & 2 horas e 40 minutos \\ \hli
 Gerar a reconstrução esparsa do modelo & 2 minutos e 25 segundos \\ \hline
 Gerar a reconstrução densa do modelo & 24 minutos \\ \hline
 \end{tabular}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{table}
 
 A Figura~\ref{fig:reconstrucaoEsparsaVisualSFM} mostra o resultado da
-reconstrução esparsa pelo algoritmo PBA. Nota-se que Não é tão nítida como na reconstrução
+reconstrução esparsa pelo algoritmo PBA. Nota-se que não é tão nítida como na reconstrução
 densa, Figura~\ref{fig:reconstrucaoDensaVisualSFM}, dada a quantidade de ruídos
 provenientes de outros objetos presentes na cena (o VisualSfM só identifica
 objetos estáticos). Só é possível limpar a malha manualmente, pressionando a
@@ -131,30 +150,37 @@ por meio de programas externos.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.5\linewidth]{figs/galinhasparsa.jpg}
 	\caption{%
 	Reconstrução esparsa do objeto no VisualSfM com 200 imagens.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoEsparsaVisualSFM}
+	}
+		\includegraphics[width=0.5\linewidth]{figs/galinhasparsa.jpg}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
+	\label{fig:reconstrucaoEsparsaVisualSFM}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=\linewidth]{figs/galinhadense.jpg}
-	\caption{%
+\caption{%
 	Reconstrução densa do objeto no VisualSfM com 200 imagens.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoDensaVisualSFM}
+	}	
+	\includegraphics[width=\linewidth]{figs/galinhadense.jpg}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
+	\label{fig:reconstrucaoDensaVisualSFM}
 \end{figure}
 
 Outra reconstrução também foi realizada neste trabalho, utilizando os dois
-vídeos (gerando 224 imagens).  Quando era usado um conjunto maior, o programa
+vídeos do segundo objeto (cabaça), gerando 224 imagens, onde quando era usado um conjunto maior o programa
 parava de funcionar por falta de memória, mesmo após ajustar parâmetros (como o
 número de vizinhos, número de \emph{cores} do processador, \emph{level} do PMVS,
 entre outros) para tentar melhorar esse problema. Portanto, o experimento seguiu da
 forma: os tempos estão relatados na Tabela~\ref{tab:temposSfM224}.
+
 \begin{table}[h!]
 \caption{Tempos obtidos da reconstrução do objeto, com 224 imagens usando o VisualSfM}
 \label{tab:temposSfM224}
@@ -166,6 +192,10 @@ Calcular pares correspondentes de \emph{features} & 3 horas \\ \hline
 Gerar a reconstrução esparsa do modelo & 3 minutos \\ \hline
 Gerar a reconstrução densa do modelo & 32 minutos \\ \hline
 \end{tabular}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{table}
 
 Percebe-se que não foi tão proveitoso (qualitativamente) usar mais imagens neste
@@ -177,32 +207,45 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=\linewidth]{figs/perto_longe_esparsa.jpg}
-	\caption{%
+\caption{%
 	Reconstrução esparsa do objeto com 224 imagens no VisualSfM.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoEsparsaVisualSFM224}
+	}	
+	\includegraphics[width=\linewidth]{figs/perto_longe_esparsa.jpg}
+	\source{
+   	 O autor,
+   	 (2017).
+  	 }
+	\label{fig:reconstrucaoEsparsaVisualSFM224}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Caso de falha do VisualSfM}
 	\includegraphics[width=\linewidth]{figs/perto_longe_esparsa_2.jpg}
-	\caption{%
-	Caso de falha em que foram gerados dois modelos refletidos esparsos do objeto a partir
+	\legend{%
+	 Foram gerados dois modelos refletidos esparsos do objeto a partir
   do conjunto inicial de 224 imagens, provavelmente, proveniente da falta de
   informações para estimar as câmeras.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:reconstrucaoEsparsaVisualSFM224:2}
+	}
+	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:reconstrucaoEsparsaVisualSFM224:2}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
+	\caption{Resultado das reconstruções densas do objeto}
 	\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2241}\includegraphics[width=0.5\linewidth]{figs/galinhadense224.jpg}}
 	\subfloat[]{\label{fig:reconstrucaoDensaVisualSFM2242}\includegraphics[width=0.5\linewidth]{figs/galinhavisualsfm224.jpg}}
-	\caption{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
+	\legend{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
 	}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{figure}
 
 %------------------ACABOU SFM---------------------------------------------%
@@ -218,10 +261,15 @@ outras configurações.
 
 \begin{figure}[!h]
 	\centering
+	\caption{Procedimento do MVE}
 	\includegraphics[width=0.5\linewidth]{figs/pipelineMVE.jpg}
-	\caption{%
+	\legend{%
 	Processo de reconstrução usando o MVE por linha de comando: O \emph{sfmrecon} executa os passos do SfM no conjunto de imagens e gera um arquivo \emph{.mve} para cada imagem. Após isso, são associados mapas de profundidade a cada \emph{.mve} com o \emph{dmrecon}. Em seguida o \emph{scene2pset} cria uma nuvem de pontos densa com a união de todas as amostras de todos os mapas de profundidade. O \emph{fssrecon} executa o algoritmo de reconstrução de superfícies 3D e gera uma malha daquele objeto a ser reconstruído e, por fim, o \emph{meshclean} limpa os ruídos do modelo e retira algumas triangulações defeituosas da etapa do \emph{fssrecon}.
 	}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{figure}
 
 Entretanto, para a aplicação proposta neste projeto, o MVE não é muito interessante,
@@ -237,14 +285,19 @@ câmeras estarão armazenadas no \emph{EXIF}.
 
 \begin{figure}[!h]
 	\centering
+	\caption{Extensão \emph{EXIF}}
 	\includegraphics[width=0.461\linewidth]{figs/exifumve.png}(a)
 	\includegraphics[width=0.461\linewidth]{figs/exifsemumve.png}(b)
-	\caption{%
+	\legend{%
   (a) Um exemplo onde a imagem possui dados na extensão \emph{EXIF}
   (azul); (b) Um frame de um vídeo, que não
   possui os dados das câmeras (azul).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:mveexif}
+	}
+	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:mveexif}
 \end{figure} 
 
 Foi gerada uma reconstrução no MVE de um vídeo gravado de uma escultura no Jardim do
@@ -265,12 +318,17 @@ o que já estava sendo executado, sem que o primeiro tivesse terminado.
 
 \begin{figure}[!h]
 	\centering
+	\caption{Reconstrução usando a interface gráfica do MVE}
 	\includegraphics[width=\linewidth]{figs/umvedense.png}
-	\caption{%
+	\legend{%
   Reconstrução final via UMVE; percebe-se que alguns pontos não foram
   considerados, mas o resultado geral foi uma nuvem de pontos mais densa.
   %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:UMVEdense}
+	}
+	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:UMVEdense}
 \end{figure} 
 
 \begin{table}[!h]
@@ -286,6 +344,10 @@ Comando            & Tempo (aprox.)    \\ \hline
 \emph{fssrecon}  & 7 horas \\ \hline
 \emph{meshclean} & 1 minuto     \\ \hline
 \end{tabular}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{table}
 
 Na reconstrução por linha de comando também é possível visualizar em qual etapa
@@ -296,17 +358,22 @@ execução. Foram executados os comandos declarados nesta seção.  O
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.45\linewidth]{figs/umve2sfm.png} (a)
-	\includegraphics[width=0.45\linewidth]{figs/umve3sfmfeature.png} (b)
-	\includegraphics[width=0.45\linewidth]{figs/umve4ba.png} (c)
-	\caption{%
+	\caption{Linha de comandos do \emph{sfmrecon}}
+	\includegraphics[width=0.6\linewidth]{figs/umve2sfm.png} (a)
+	\includegraphics[width=0.6\linewidth]{figs/umve3sfmfeature.png} (b)
+	\includegraphics[width=0.6\linewidth]{figs/umve4ba.png} (c)
+	\legend{%
   Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas
   as \emph{features} do conjunto de imagens. Em (b) está computado o
   \emph{pairwise matching} e em (c) está no processo de \emph{Bundle
   Adjustment}~\cite{bundleAdjustmentSlide}, usando condições-padrão para as
   câmeras.
   %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-  }\label{fig:passosMVE}
+  }
+  	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:passosMVE}
 \end{figure} 
 
 % \begin{figure}[h!]
@@ -365,20 +432,27 @@ obtido o resultado~\ref{fig:MVEMeshClean}.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemeshout.png}
 	\caption{%
 	Malha com ruídos proveniente do comando \emph{fssrecon}.
-	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEFSSRMesh}
+	}
+	\includegraphics[width=1\linewidth]{figs/mvemeshout.png}
+		\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:MVEFSSRMesh}
 \end{figure} 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
 	\caption{%
 	Resultado final, após a remoção dos ruídos da malha.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:MVEMeshClean}
+	}
+	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
+		\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:MVEMeshClean}
 \end{figure} 
 
 Para comparação, usou-se o mesmo objeto utilizado na reconstrução do VisualSfM (a
@@ -400,6 +474,10 @@ Comando            & Tempo (aprox.)         \\ \hline
 \emph{fssrecon}  & 29 minutos \\ \hline
 \emph{meshclean} & 45 segundos    \\ \hline
 \end{tabular}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
 \end{table}
 
 % \begin{figure}[!h]
@@ -439,11 +517,15 @@ Comando            & Tempo (aprox.)         \\ \hline
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{figs/galinhameshclean.png}
-	\caption{%
+		\caption{%
 	Resultado da etapa \emph{meshclean}, da etapa anterior \ref{fig:galinhaFssr}
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:galinhaMeshClean}
+	}
+	\includegraphics[width=0.7\linewidth]{figs/galinhameshclean.png}
+		\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:galinhaMeshClean}
 \end{figure}
 
 A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém
@@ -452,7 +534,7 @@ não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir
 disso, o erro se propagou e gerou a reconstrução das Figuras~\ref{fig:galinhaFssr}
 e~\ref{fig:galinhaMeshClean}.  Rodamos também com as 224 fotos, mas só foi possível
 executar o passo \emph{sfmrecon} \ref{fig:galinhaSfM224}, pois o MVE não
-conseguiu rodar o comando \emph{dmrecon} por algum motivo, e não gerou nenhum
+conseguiu rodar o comando \emph{dmrecon} provavelmente o SIFT falhou na correspondências entre as imagens, e não gerou nenhum
 resultado para a continuação do algoritmo, Figura~\ref{fig:galinhaDMR224}.
 
 % \begin{figure}[!h]
