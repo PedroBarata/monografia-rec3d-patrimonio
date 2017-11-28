@@ -1,6 +1,6 @@
 \chapter{Reconstrução 3D Ativa Clássica}\label{cap:laser}
 
-\section*{Introdução}
+\section{Introdução}
 
 A técnica de reconstrução 3D baseada em laser 
 é conhecida desde o século
@@ -17,17 +17,20 @@ objetos na cena.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=0.4\linewidth]{figs/luzestruturada.jpg}
 	\caption{%
-	Um projetor de padrões utilizando um laser visível~\cite{luzEstruturada}.
-	}\label{fig:luzestruturada}
+		Um projetor de padrões utilizando um laser visível.
+	\includegraphics[width=0.4\linewidth]{figs/luzestruturada.jpg}
+	}
+	\source{
+   	 \citeauthor{luzEstruturada},
+   	 \citeyear{luzEstruturada}.
+   }
+	\label{fig:luzestruturada}
 \end{figure}
 
 \section{Projeto de preservação das esculturas de Michelangelo}\label{sec:David}
 
-
-\subsection*{Descrição geral}
+\subsection{Descrição geral}
 
 O projeto Digital Michaelangelo~\cite{levoy2000digital} tem como motivação
 avançar a tecnologia de digitalização 3D e criar um acervo digital sobre alguns
@@ -54,7 +57,7 @@ fosse menor, as marcas de cinzel ficariam borradas e, se fosse maior, o
 conjunto de dados produzido seria gigantesco.  Felizmente, a maioria das
 estátuas feitas por Michelangelo foram esculpidas com um mármore encontrado em
 Carrara, chamado Statuario, uma pedra altamente uniforme, não direcional e constituída
-de grãos finos. Além disso, com exceção de ``Noite''~\ref{fig:noite}, as
+de grãos finos. Além disso, com exceção de ``Noite'', figura~\ref{fig:noite}, as
 esculturas não são polidas e cobertas por terra, o que aumenta a dispersão
 superficial e reduz a abaixo da superfície.  Nesse contexto, a dispersão abaixo
 da superfície causa alguns problemas: não se pode assumir que a superfície é
@@ -64,22 +67,31 @@ dados.
 
 \begin{figure}[!h]
 	\centering
+	\caption{Escaneamento de David}
 	\includegraphics[height=0.52\linewidth]{figs/gantry-and-david4-s.jpg}(a)
 	\includegraphics[height=0.52\linewidth]{figs/mgantry-scannerhead-s.jpg}(b)
-	\caption{%
-	Como era feito o escaneamento da estátua de David (a), composto por dois escaneadores, sendo (b) o escaneador principal (da cabeça) e estruturas para alcançar todos os pontos necessários~\cite{levoy2000digital}.
-	}\label{fig:cabecaScanner}
+	\legend{%
+	Como era feito o escaneamento da estátua de David (a), composto por dois escaneadores, sendo (b) o escaneador principal (da cabeça) e estruturas para alcançar todos os pontos necessários.
+	}
+	\source{
+   	 \citeauthor{levoy2000digital},
+   	 \citeyear{levoy2000digital}.
+   }
+	\label{fig:cabecaScanner}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
+	\capiton{Escultura ``Noite'', de Michelangelo}
 	\includegraphics[width=0.5\linewidth]{figs/michelangelo-notte.jpg}
-	\caption{%
-	Escultura ``Noite'', de Michelangelo.
-	}\label{fig:noite}
+	\source{
+   	 \citeauthor{levoy2000digital},
+   	 \citeyear{levoy2000digital}.
+   }
+   \label{fig:noite}
 \end{figure}
 
-\subsection*{Calibração}
+\subsection{Calibração}
 
 O objetivo de calibrar o aparato era encontrar um mapeamento de coordenadas 2D
 no seu alcance e cores para coordenadas 3D em um quadro de referência global.
@@ -108,17 +120,17 @@ David, a calibração foi divida em seis etapas distintas:
 
 \begin{enumerate}
 \item{Um mapeamento 2D a partir de coordenadas de \emph{pixels} das imagens da
-  câmera de profundidade para localizações físicas na camada de laser}
+  câmera de profundidade para localizações físicas na camada de laser;}
 \item{Uma transformação rígida 2D/3D do sistema de coordenadas da camada de
-    laser para esferas de aço anexadas à cabeça do escaneador}
+    laser para esferas de aço anexadas à cabeça do escaneador;}
 \item{Transformação rígida 3D para acomodar o rolamento da cabeça do escaneador 
     em $90^{\circ}$ (ao remontá-lo) em relação ao conjunto \emph{pan-tilt}}
   \item{A localização do eixo de rotação de inclinação \emph{tilt} e o mapeamento não-linear
-  dos comandos de movimento para ângulos de rotação físicos}
+  dos comandos de movimento para ângulos de rotação físicos;}
 \item{A localização do eixo de rotação \emph{pan} e o mapeamento de seus
-  comandos de movimento para ângulos de rotação físicos}
+  comandos de movimento para ângulos de rotação físicos;}
 \item{A localização do eixo de translação, que também depende de como o
-    conjunto \emph{pan-tilt} está montado no braço horizontal}
+    conjunto \emph{pan-tilt} está montado no braço horizontal.}
 \end{enumerate}
 
 O resultado da calibração pode ser descrito como uma concatenação de seis matrizes 4x4:
@@ -153,6 +165,7 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 \end{bmatrix}.
 \]
 
+\newpage
 % Calibração do sistema de cores:
 % Para corrigir a distorção geométrica na câmera de cores, foi fotografado um alvo de calibração planar que possui um certo número de \emph{features} que, por sua vez, foram usados para calcular os parâmetros intrínsecos da câmera. Estão inclusos no modelo dois termos de distorção radial e dois termos de distorção tangencial que tem uma projeção de perspectiva fora do centro e uma escala possivelmente não uniforme (em X e Y) %CITAR[Heikkila..97].%
 
@@ -164,24 +177,28 @@ O resultado da calibração pode ser descrito como uma concatenação de seis ma
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\linewidth]{figs/ferramentasMich.png}
 	\caption{%
-	Alguns tipos de cinzéis que provavelmente foram usados por Michelangelo na escultura de "St. Matthew".
-	\protect\cite{levoy2000digital}.
-	}\label{fig:cinzeis}
+		Alguns tipos de cinzéis que provavelmente foram usados por Michelangelo na escultura de "St. Matthew".
+	}
+	\includegraphics[width=0.5\linewidth]{figs/ferramentasMich.png}
+	\source{
+   	 \citeauthor{levoy2000digital},
+   	 \citeyear{levoy2000digital}.
+   }
+	\label{fig:cinzeis}
 \end{figure}
 
-\subsection*{Procedimento de digitalização}
+\subsection{Procedimento de digitalização}
 
 Um operador move interativamente a cabeça do escaneador através de uma
 sequência de movimentos, definindo os limites do volume a ser escaneado. O
 volume que pode ser coberto em uma única varredura foi delimitado por conta de
 quatro fatores:
 \begin{itemize}
-\item{O campo de visão e os limites de movimento do escaneador}
-\item{A  queda na qualidade da varredura com o aumento da obliquidade do laser}
-\item{Oclusões, tanto do laser quanto da linha de visão da câmera}
-\item{Obstruções físicas, como paredes, estátuas ou o próprio equipamento}
+\item{O campo de visão e os limites de movimento do escaneador;}
+\item{A  queda na qualidade da varredura com o aumento da obliquidade do laser;}
+\item{Oclusões, tanto do laser quanto da linha de visão da câmera;}
+\item{Obstruções físicas, como paredes, estátuas ou o próprio equipamento.}
 \end{itemize}
 
 Uma vez planejada a varredura, um \emph{script} de digitalização é executado
@@ -210,26 +227,26 @@ etapas de escaneamento de profundidade (laser) e do escaneamento da fotometria
 Primeiramente faz-se o escaneamento fotogramétrico da geometria da escultura:
 
 \begin{enumerate}
-\item{Alinhamento manual}
-\item{ICP -- \emph{Iterative Closest Point} para uma câmera existente} %CITAR ICP AQUI%
-\item{ICP automático para todos os pares sobrepostos}
-\item{Relaxação global para espalhar o erro}
-\item{Reunir utilizando métodos volumétricos}
+\item{Alinhamento manual;}
+\item{ICP -- \emph{Iterative Closest Point} para uma câmera existente;} %CITAR ICP AQUI%
+\item{ICP automático para todos os pares sobrepostos;}
+\item{Relaxação global para espalhar o erro;}
+\item{Reunir utilizando métodos volumétricos.}
 \end{enumerate}
 Após isso, ocorre o escaneamento fotométrico e o processamento das cores da escultura:
 \begin{enumerate}
-\item{Compensação da iluminação do ambiente}
-\item{Descarte de pixels com sombra ou reflexos especulares}
-\item{Mapeia-se os vértices (uma cor por vértice)}
-\item{Correção da irradiância e reflectância difusa}
+\item{Compensação da iluminação do ambiente;}
+\item{Descarte de pixels com sombra ou reflexos especulares;}
+\item{Mapeia-se os vértices (uma cor por vértice);}
+\item{Correção da irradiância e reflectância difusa.}
 \end{enumerate}
 
 Limitações:
 \begin{itemize}
-\item{Inter-reflexões são ignoradas}
-\item{Dispersões subterrâneas (\emph{subsurface scattering}) são ignoradas}
-\item{Tratamento de efeito difuso como Lambertiano} %CITAR TREATED DIFFUSED AS LAMBERTIAN%
-\item{Uso de normais de superfícies suavizadas}
+\item{Inter-reflexões são ignoradas;}
+\item{Dispersões subterrâneas (\emph{subsurface scattering}) são ignoradas;}
+\item{Tratamento de efeito difuso como Lambertiano;} %CITAR TREATED DIFFUSED AS LAMBERTIAN%
+\item{Uso de normais de superfícies suavizadas.}
 \end{itemize}
 
 O projeto não teve mais nenhum avanço desde o verão de 2004, por falta de
@@ -259,6 +276,10 @@ Tempo total de escaneamento                 & 5,.00 horas de trabalho           
 Total de tempo para processamento de dados          & 4.000 horas de trabalho                            \\ \hline
 Custo do projeto                          & \$2.000.000                                         \\ \hline
 \end{tabular}
+\source{
+	\citeauthor{levoy2000digital},
+	\citeyear{levoy2000digital}.
+}
 \end{table}
 
 

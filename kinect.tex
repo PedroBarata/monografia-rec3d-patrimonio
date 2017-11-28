@@ -1,7 +1,7 @@
 \chapter{Técnicas de luz estruturada e \emph{Time Of Flight}}\label{cap:kinect}
 %======================================================================================
 
-\section*{Introdução}
+\section{Introdução}
 
 A técnica de luz estruturada é um
 \textbf{método fotogramétrico ativo} que consegue determinar a localização de
@@ -35,11 +35,11 @@ A seguir, discutimos essas tecnologias de reconstrução 3D ativas em maiores de
 
 \section{Kinect}
 
-\subsection*{Introdução}
+\subsection{Introdução}
 
 Criado pela Microsoft para fins recreativos (como no console de videogame XBox, por
 exemplo), o Kinect se tornou uma das mais conhecidas ferramentas de reconstrução 3D no
-cenário atual. Sua primeira versão (Kinect V1)~\ref{fig:kinectv1}, ainda atual, utiliza uma
+cenário atual. Sua primeira versão (Kinect V1) figura~\ref{fig:kinectv1}, utiliza uma
 técnica similar à empregada no projeto \emph{Digital Michelangelo} da Universidade de Stanford, com luz
 estruturada, porém, diferentemente dos escaners a laser, o Kinect é mais rápido e tem um
 custo monetário baixo, acessível ao público em geral (desde entusiastas
@@ -55,7 +55,7 @@ com diferentes superfícies, diferentes refletâncias, lambertianas ou
 especulares, por exemplo, podem acarretar em problemas ou buracos nas reconstruções. Além
 disso, existem outros obstáculos, como a dificuldade em que o fóton emitido 
 rebate em várias superfícies antes de ser detectado pelo sensor. 
-Portanto, para o uso em áreas externas, a primeira versão do Kinect se sai melhor.
+Portanto, para o uso em áreas externas, a primeira versão do Kinect se sai melhor~\cite{DBLP:journals/corr/FreedmanKSLS14}.
 
 O Kinect versão 1 é composto por duas câmeras: uma RGB apenas para cores e aparência,
 e outra câmera infra-vermelho para profundidade, atuando em sincronia com um projetor de padrões em infra-vermelho (IR ou \emph{infra-red}). O projetor IR lança uma matriz de padrões que já é previamente
@@ -65,22 +65,28 @@ dos sensores ou não. O espectro infra-vermelho é utilizado por não ser perceb
 A resposta é composta por 3 saídas: uma imagem de intensidades IR, uma RGB e a profundidade de cada pixel. 
 
 A seguir, será usado o termo ``Kinect'' para o Kinect versão 1, pois este é ainda
-o modelo mais utilizado na literatura para o escaneamento de objetos, conforme
+o modelo mais utilizado na literatura para o escaneamento de objetos~\cite{doi:10.1177/0278364911434148}, conforme
 é o foco deste trabalho, em vez do rastreamento em tempo real para entretenimento, que é
 dominado pelo Kinect versão 2.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{
+	Imagem de um Kinect V1 aberto
+	}	
 	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
-	\caption{%
-  Imagem de um Kinect V1 aberto, constituído de uma câmera infra-vermelho (IR -
+	\legend{%
+  	Constituído de uma câmera infra-vermelho (IR -
   \emph{Infra-Red}), uma câmera RGB e um projetor IR.
-  \protect\cite{smisek20133d}.
-	}\label{fig:kinectv1}
+  }
+	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
+   \label{fig:kinectv1}
 \end{figure}
 
-\subsection*{Processo de calibração}
+\subsection{Processo de calibração}
 
 A principal saída do Kinect é correspondente à profundidade da
 cena. Na realidade, em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade
@@ -89,14 +95,18 @@ da imagem IR com o padrão conhecido do projetor.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Saída de uma imagem interpretada pelo Kinect}
 	\includegraphics[width=1\linewidth]{figs/profundidadekinect.png}
-	\caption{%
-  Exemplo de como é a saída de uma imagem interpretada pelo Kinect, onde cada cor
+	\legend{%
+	Cada cor
   disposta na imagem corresponde à profundidade ou distância da cena para
   o Kinect, e preto corresponde a pontos sem informação confiável.
-	\cite{Silberman:ECCV12}.
-	}\label{fig:profKinect}
+	}
+	\source{
+   	 \citeauthor{Silberman:ECCV12},
+   	 \citeyear{Silberman:ECCV12}.
+   }
+   \label{fig:profKinect}
 \end{figure}
  
 %TODO: conferir essas contas
@@ -186,19 +196,19 @@ consequentemente, $R_{IR} = I$ (identidade) e $C_{IR} = 0$.  O ponto 3D $X_{IR}$
 é construído a partir da medição de $[x,y,d]^\top$ da equação~\ref{eq:distKinect} e
 produz uma imagem RGB, Equação~\ref{eq:finalKinect}.
 
-Em \ref{eq:distKinect}, $dis$ é a distorção, proveniente de
+Na equação \ref{eq:distKinect}, $dis$ é a distorção, proveniente da equação
 \ref{eq:distorcaoKinect}, $k_{IR}$ e $k_{RGB}$ são, respectivamente, distorção
 relacionada à IR e à RGB.  $K_{IR}$ é a matriz de calibração da câmera IR,
 $K_{RGB}$ é a matriz de calibração da câmera RGB. $R_{RGB}$ e $C_{RGB}$ são, a
 matriz de rotação e de centro da câmera RGB, respectivamente.
 
 A calibração ocorreu usando o mesmo alvo nas câmeras IR e RGB, mesmos pontos 3D,
-e consequentemente, a mesma posição relativa das câmeras.  O sistema de
+e consequentemente, a mesma posição relativa das câmeras~\cite{smisek20133d}.  O sistema de
 coordenadas global do Kinect faz a posição relativa da câmera igual a $R_{RGB}$,
 $C_{RGB}$.
 
 Também foi observado que existe um deslocamento entre imagem IR e a imagem da
-profundidade criada pelo Kinect. Para contornar este problema, uma série de
+profundidade criada pelo Kinect~\cite{smisek20133d}. Para contornar este problema, uma série de
 experimentos foram executados, gerando \ref{tab:deslocamentoKinect}.
 
 \begin{table}[!h]
@@ -211,30 +221,43 @@ Imagem & 1   & 2   & 3   & 4   & Média \\ \hline
 $u_0$  & 2,8 & 2,9 & 3,0 & 3,4 & 3,0   \\ \hline
 $v_0$  & 3,0 & 2,7 & 2,8 & 3,1 & 2,9   \\ \hline
 \end{tabular}
+	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
 \end{table}
 
 \begin{figure}[!h]
 	\centering
+	\caption{Representação visual do acerto do deslocamento}
 	\subfloat[Sem o alinhamento]{\label{fig:deslocamentokinectA}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectA.png}}
 	\subfloat[Com o alinhamento]{\label{fig:deslocamentokinectB}\includegraphics[width=0.3\linewidth]{figs/deslocamentokinectB.png}}
-	\caption{%
-	Representação visual do acerto do deslocamento. A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo.
-	\protect\cite{smisek20133d}
-	}\label{fig:deslocKinect}
+	\legend{%
+	A parte em preto é a imagem IR e o contorno em branco é a imagem de profundidade do alvo.
+	}
+	\source{
+		\citeauthor{smisek20133d},
+   		\citeyear{smisek20133d}.
+   }
+   \label{fig:deslocKinect}
 \end{figure}
 
-Foi observado que após a calibração, o Kinect gerava erros residuais complexos, que para compensar esse erro residual, foi criada uma correção em $z$, onde é subtraído da coordenada $Z_{IR}$ de \ref{eq:distKinect}.
+Foi observado que após a calibração, o Kinect gerava erros residuais complexos, que para compensar esse erro residual, foi criada uma correção em $z$, onde é subtraído da coordenada $Z_{IR}$ da equação \ref{eq:distKinect}.
 Para validar essa correção, a correção-z das imagens foram construídas a partir dos resíduos das imagens ímpares e aplicadas nas pares, e o vice-versa. Depois da aplicação da correção-z , a media dos erros diminuiu aproximadamente 0,25mm.
-Como parâmetro de comparação, foram dispostas 2 câmeras diferentes, no mesmo ambiente do Kinect.
+Como parâmetro de comparação, foram dispostas 2 câmeras, no mesmo ambiente do Kinect.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Ambiente de calibração do modelo geométrico}
 	\includegraphics[width=0.5\linewidth]{figs/ambientekinect.png}
-	\caption{%
+	\legend{%
 	Posição e orientação do Kinect (com as câmeras IR e RGB) e o par estéreo SLR (\emph{Left}, \emph{Right}) em conjunto com pontos de calibração 3D reconstruídos em alvos de calibração planar.
-	\protect\cite{smisek20133d}.
-	}\label{fig:ambienteKinect}
+	}	
+	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
+   \label{fig:ambienteKinect}
 \end{figure}
 
 \begin{table}[htbp]
@@ -250,14 +273,18 @@ Kinect & 2,39 & 1,67 & 8,64 \bigstrut \\ \hline
 SR-4000 & 27,62 & 18,20 & 133,85 \bigstrut \\ 
 \hline
 \end{tabular}
+	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
 \end{center}
 \end{table}
 
-\subsection*{Uso do Kinect com \emph{Structure from Motion}}
+\subsection{Uso do Kinect com \emph{Structure from Motion}}
 
-Com o sistema calibrado, o Kinect foi testado usando técnicas \emph{Structure
+Com o sistema calibrado, da literatura~\cite{smisek20133d}, o Kinect foi testado usando técnicas \emph{Structure
 from Motion}, onde a figura a seguir compara a superfície 3D de nuvem de pontos
-com uma com Kinect~\cite{smisek20133d}.  O resultado é tão bom quanto ao mais
+com uma com Kinect.  O resultado é tão bom quanto ao mais
 acurado resultado de \emph{Multi-View Stereo}.
 
 O Kinect, com o procedimento de calibração, pode ser combinado
@@ -269,26 +296,36 @@ SR-4000 e perto do 3.5M SLR Stereo, figuras~\ref{fig:resultadoKinect1}, \ref{fig
 %COLOCAR IMAGEM COMPARATIVA AQUI%
 \begin{figure}[!h]
 	\centering
+	\caption{%
+	Imagens iniciais para reconstrução 3D usando Kinect com câmeras
+	}
 	\subfloat[Imagem do lado esquerdo da câmera
   SLR]{\label{fig:SLResq}\includegraphics[height=0.2\linewidth]{figs/imagemSLResquerda.png}}
 	\subfloat[Imagem da profundidade do
   Kinect]{\label{fig:KinectDepth}\includegraphics[height=0.2\linewidth]{figs/imagemProfundidadeKinect.png}}
 	\subfloat[Imagem do lado direito da câmera
   SLR]{\label{fig:SLRdir}\includegraphics[height=0.2\linewidth]{figs/imagemSLRdireita.png}}
-	\caption{%
-	Imagens iniciais para reconstrução 3D usando Kinect com câmeras~\cite{smisek20133d}.
-	}\label{fig:resultadoKinect1}
+  	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
+	\label{fig:resultadoKinect1}
 \end{figure}
 
 \newpage
 
 \begin{figure}[!h]
 	\centering
+	\caption{Resultados da reconstrução SfM}
 	\includegraphics[width=0.3\linewidth]{figs/imagemMVS.png}(a)
 	\includegraphics[width=0.3\linewidth]{figs/imagemMVSKinect.png}(b)
-	\caption{%
-	Resultados da reconstrução SfM, onde (a) é a reconstrução do SLR e (b) o resultado do Kinect. Qualitativamente ambas são satisfatórias~\cite{smisek20133d}.
-	}\label{fig:resultadoKinect2}
+	\legend{%
+	(a) é a reconstrução do SLR e (b) o resultado do Kinect. Qualitativamente ambas são satisfatórias.
+	\source{
+   	 \citeauthor{smisek20133d},
+   	 \citeyear{smisek20133d}.
+   }
+	\label{fig:resultadoKinect2}
 \end{figure}
 
 O Kinect é tão utilizado para fins pessoais e empresariais, que existem alguns
@@ -302,27 +339,35 @@ detalhado, Figuras~\ref{fig:KinectFusionPipe} e~\ref{fig:KinectFusionPipe2}.
 
 \begin{figure}[!h]
 	\centering
+	\caption{Funcionamento do Kinect Fusion}
 		\includegraphics[width=1\linewidth]{figs/reconstrucaoKinectFusion.png}
-		\caption{%
-		Funcionamento do Kinect Fusion, adquirindo o mapa de profundidade com a
+		\legend{%
+		Adquirindo o mapa de profundidade com a
     câmera do Kinect, onde há várias falhas devido à falta de dados. Em alguns
     segundos é realizada uma reconstrução 3D realista de uma cena estática
     apenas movendo o Kinect ao redor da cena. Após isso, uma nuvem de pontos ou
     uma malha 3D densa pode ser produzida por técnicas adaptadas de \emph{multiview
     streo} descritas nos próximos
-    capítulos~\cite{Izadi:2011:KRR:2047196.2047270}.
-	}\label{fig:KinectFusionPipe}
+    capítulos.
+	}
+	\source{
+   	 \citeauthor{Izadi:2011:KRR:2047196.2047270},
+   	 \citeyear{Izadi:2011:KRR:2047196.2047270}.
+   }
+   \label{fig:KinectFusionPipe}
 \end{figure}
 
 \newpage
 
 \begin{figure}[!h]
 	\centering
-		\includegraphics[width=1\linewidth]{figs/kinectfusionpipeline.png}
-		\caption{%
-		Processo de escaneamento 3D no Kinect
-    Fusion~\cite{Izadi:2011:KRR:2047196.2047270}.
-	}\label{fig:KinectFusionPipe2}
+	\caption{Processo de escaneamento 3D no Kinect Fusion}
+	\includegraphics[width=1\linewidth]{figs/kinectfusionpipeline.png}	
+	\source{
+	 \citeauthor{Izadi:2011:KRR:2047196.2047270},
+   	 \citeyear{Izadi:2011:KRR:2047196.2047270}.
+   }
+   \label{fig:KinectFusionPipe2}
 \end{figure}
 
 Outro programa conhecido é o \emph{Skanect}, que tem a versão gratuita com a qual é possível fazer escaneamentos
@@ -336,7 +381,7 @@ escolher o numero de faces a ser exportado; e suporte a demais formatos como
 e \emph{VRML}, além de salvar também as cores do modelo.
 
 Entretanto, uma desvantagem que diminui a aplicabilidade do Kinect é que ele foi
-projetado para funcionar bem em espaços fechados, com detecção de formas humanas
+projetado para funcionar bem em espaços fechados~\cite{schmid2013stereo}, com detecção de formas humanas
 e movimentações. Ou seja, numa aplicação \emph{in situ} já não funcionaria muito
 bem, pois além de não conseguir escanear os detalhes em alta definição de uma
 escultura, ele necessita de uma fonte de energia externa, diferentemente de um

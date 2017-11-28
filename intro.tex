@@ -2,7 +2,7 @@
 \chapter{Introdução} \label{cap:intro}
 %======================================================================================
 
-\section*{Introdução e Justificativa}
+\section{Introdução e Justificativa}
 
 A reconstrucão 3D de cenas gerais a partir de múltiplos pontos de vista
 usando-se câmeras convencionais, sem aquisição controlada, é um dos grandes
@@ -56,7 +56,7 @@ Michel Goesele~\cite{mve}, também com código disponível. Tais algoritmos, no
 entanto, apresentam problemas, em particular a reconstrução suaviza partes
 bem-delineadas do objeto, e pode conter buracos em áreas homogêneas. Pode-se,
 portanto, utilizar no futuro a reconstrução 3D de curvas 
-desenvolvida pelo grupo do prof.~Fabbri~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}
+desenvolvida pelo grupo~\cite{Usumezbas:Fabbri:Kimia:ECCV16,Fabbri:Kimia:IJCV2016,Fabbri:Kimia:CVPR10,Fabbri:Giblin:Kimia:ECCV12}
 para auxiliar na reconstrução mais bem-delinada nesses casos problemáticos, bem
 como para ajudar no problema de escalabilidade quando a reconstrução 3D se torna
 muito grande.  
@@ -68,21 +68,25 @@ convencionais, típicamente usando-se projetores infra-vermelho, laser ou câmer
 ToF (\emph{Time of Flight}), como no caso dos dispositivos Kinect,
 Figura~\ref{fig:kinect}.
 
-\begin{figure} [!h]
+\begin{figure} [!htbp]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Exemplos de Kinect}
 	\includegraphics[width=0.45\linewidth]{figs/Xbox-360-Kinect-Standalone.png}(a)
 	\includegraphics[width=0.45\linewidth]{figs/kinect-internals.pdf}(b)
  	\includegraphics[width=0.45\linewidth]{figs/Xbox-One-Kinect.jpg}(c)
  	\includegraphics[width=0.45\linewidth]{figs/kinect-handheld1.png} (d)
-	\caption{%
+	\legend{%
    Kinects de primeira geração (a) consistindo de câmeras e projetores
    infra-vermelho (b) e de segunda geração, consistindo de tecnologia ToF (c). 
    Ambos os kinects são largamente utilizados para escaneamento em tempo real, 
    formando a base de escaneadores manuais (d), porém nem sempre são úteis para 
-   preservação detalhada de patrimônio. Um dos objetivos deste
-   projeto é explorar os limites desta tecnologia.
-	}\label{fig:kinect}
+   preservação detalhada de patrimônio.
+	}
+  \source{
+    \citeauthor{smisek20133d},
+    \citeyear{smisek20133d}.
+  }
+  \label{fig:kinect}
 \end{figure}
 
 A preservação de patrimônio tem sido realizada tradicionalmente com escaneadores
@@ -104,7 +108,7 @@ década pela indústria de entretenimento, notadamente pelo projeto
 Natal/Kinect~\cite{smisek20133d,wang2015research}. A reconstrução usando-se Kinect (de
 primeira ou segunda geração) usando software atual de super-resolução, é
 inferior à de um sistema a laser de alta qualidade, sendo, porém de baixo custo
-e muito mais versátil devido ao sistema de aquisição manual e a software
+e muito mais versátil devido ao sistema de aquisição manual e ao software
 amplamente utilizado e desenvolvido~\cite{wang2015research},
 Figura~\ref{fig:rec3d:comparacao}.
 
@@ -118,29 +122,38 @@ Figura~\ref{fig:rec3d:comparacao}.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Reconstrução 3D com o Kinect}
 	\includegraphics[width=1\linewidth]{figs/kinect-vs-usual.png}
-	\caption{%
+	\legend{%
     A reconstrução usando-se Kinect (de primeira ou segunda geração) usando
     software atual de super-resolução (c) fornece precisão similar a um sistema estéreo de média
     resolução, inferior um sistema a laser de alta qualidade (d) porém de baixo custo e
-    muito mais versátil~\cite{wang2015research}.
-	}\label{fig:rec3d:comparacao}
+    muito mais versátil.
+	}
+  \source{
+  \citeauthor{wang2015research},
+  \citeyear{wang2015research}.
+  }
+  \label{fig:rec3d:comparacao}
 \end{figure}
+
+\newpage
 
 \begin{figure}[!h]
 
 \centering
-
+\caption{
+  Protótipo do escaneador a laser do projeto clássico~\emph{Digital
+  Michaelangelo}
+  }
 \subfloat[]{\label{fig:davida}\includegraphics[height=0.38\linewidth]{figs/Proto+Inka+Egypt_light-s.jpg}}
 % \vspace{2ex}
 \subfloat[]{\label{fig:davidb}\includegraphics[height=0.38\linewidth]{figs/gantry-with-david-s.jpg}}\\
 \subfloat[]{\label{fig:davidc}\includegraphics[height=0.25\linewidth]{figs/scanner-head-and-david-head-s.jpg}}
 % \vspace{2ex}
 \subfloat[]{\label{fig:davidd}\includegraphics[height=0.25\linewidth]{figs/david-classic-leftlight-s.jpg}}
-\caption{%
-  Protótipo do escaneador a laser do projeto clássico~\emph{Digital
-  Michaelangelo}. Em (a), um objeto típico escaneado por um sistema inicial foi uma réplica em tamanho real
+\legend{%
+  Em (a), um objeto típico escaneado por um sistema inicial foi uma réplica em tamanho real
    de um sarcófago egípcio. O escaneador foi reconfigurado para objetos maiores, pois 
    a escultura David possui 517 centímetros (b); tabém foi reconfigurado para a cabeça,  
    para girar em 90 graus, que faz o laser
@@ -149,11 +162,15 @@ Figura~\ref{fig:rec3d:comparacao}.
    diversas posições foram alinhados automaticamente por um algoritmo 
    ICP (\emph{iterated-closest-points}). Após uma otimização global para minimizar erros 
    de alinhamento toda a estátua, usa-se um algoritmo VRIP (\emph {volumetric
-   range image processing}) (d)~\cite{levoy2000digital}}.
+   range image processing}) (d)}.
+   \source{
+    \citeauthor{levoy2000digital},
+    \citeyear{levoy2000digital}.
+   }
   \label{fig:david}
 \end{figure}
 
-\subsection*{O Jardim do Nêgo, Nova Friburgo}
+\section{O Jardim do Nêgo, Nova Friburgo}
 No caso de Nova Friburgo, há a necessidade redobrada de preservação de
 patrimônio a céu aberto, em especial devido às chuvas e deslizamentos inerentes à região.  O
 Jardim do Nêgo consiste em grandes esculturas em encostas, cobertas por um tapete de
@@ -162,10 +179,13 @@ Figura~\ref{fig:esculturas}.
 
 \begin{figure} [!h]
 	\centering
+  \caption{Algumas esculturas do Jardim do Nêgo}
 	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego.jpg}
 	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego22.jpg}
 	\includegraphics[height=0.23\linewidth]{figs/jardim-do-nego32-small.jpg}
-	\caption{Algumas esculturas do Jardim do Nêgo~\cite{JardimDoNego:TheGuardian}}\label{fig:esculturas}
+	\source { O autor,
+            (2017).}
+  \label{fig:esculturas}
 \end{figure}
 
 
@@ -232,7 +252,7 @@ O principal objetivo em termos de pesquisa científica será comparar as
 diferentes abordagens do estado da arte disponíveis para reconstrução 3D e
 explicitar suas limitações práticas.
 
-\section*{Organização deste manuscrito}
+\section{Organização deste manuscrito}
 
 Este trabalho foi estruturado da seguinte maneira: Introduzimos
 métodos baseados em reconstrução a laser no Capítulo~\ref{cap:laser},

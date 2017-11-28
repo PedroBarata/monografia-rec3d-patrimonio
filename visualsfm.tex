@@ -1,7 +1,7 @@
 \section{VisualSfM}\label{sec:visualsfm}
 %======================================================================================
 %
-\subsection*{Introdução}
+\subsection{Introdução}
 
 O VisualSfM~\cite{wu2011visualsfm} é um sistema de software baseado em fotogrametria
 que faz todo o processo de reconstrução 3D de um objeto e que pode ser usado por
@@ -18,7 +18,7 @@ independente, usar PVMS, alterar a memória necessária de GPU usada na
 reconstrução, deletar uma reconstrução indesejável ou até mesmo alterar
 parâmetros.
 
-\subsection*{Procedimento}
+\subsection{Procedimento}
 
 O \emph{pipeline} de reconstrução do VisualSfM é parecido com o MVE~\ref{sec:mve}, porém é mais
 intuitivo. Em sua interface, possui um \emph{log} de mensagens e erros que por ventura
@@ -27,11 +27,16 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 
 \begin{figure}
 	\centering
+  \caption{Interface gráfica do VisualSfM}
 	\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
-	\caption{%
+	\legend{%
 	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
-	\protect\cite{wu2011visualsfm}
-	}\label{fig:pipelineVisualSfM}
+	}
+  \source{
+     \citeauthor{wu2011visualsfm},
+     \citeyear{wu2011visualsfm}.
+   }
+   \label{fig:pipelineVisualSfM}
 \end{figure}
 
 \noindent \textbf{1 - Adicionar imagens.} Este é o primeiro passo para
@@ -49,7 +54,7 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
   os pontos de interesse descobertos no passo anterior. 
 
 
-\subsection*{Bundle Adjustment}
+\subsection{Bundle Adjustment}
 
 O termo \emph{Bundle} refere-se aos feixes de luz que refletem em cada
 \emph{feature} 3D e vão para o centro de projeção de cada câmera da cena a ser reconstruída.
@@ -80,14 +85,19 @@ essas etapas e as implementações utilizadas~\cite{fabbri2011multiview}.
 
 \begin{figure}[!h]
 	\centering
+  \caption{Problema de \emph{Bundle Adjustment}}
 	\includegraphics[width=0.5\linewidth]{figs/bundleAdjustment.png}
-	\caption{
+	\legend{
 	Dado um ponto de um objeto 3D $\widehat{X}$, sua reprojeção nas câmeras $C$ e
   $C'$, são, respectivamente, $x$ e $x'$. Esses pontos possuem um erro de
   reprojeção $d$ e $d'$ e, ao utilizar o PBA/MCBA, os pontos $x$ e $x'$ serão
   reajustados como $\widehat{x}$ e $\widehat{x'}$, respectivamente.
-  \protect\cite{3DCompVision2Didier}
-	}\label{fig:bundleAdjustment}
+	}
+  \source{
+     \citeauthor{3DCompVision2Didier},
+     \citeyear{3DCompVision2Didier}.
+   }
+  \label{fig:bundleAdjustment}
 \end{figure}
 
 Consideremos o seguinte problema de estimativa de um conjunto de parâmetros $x
@@ -96,7 +106,7 @@ $M \ll N$, relacionados por um modelo $Z(x)$. O objetivo é calcular $x$ tal qua
 $\bar{Z}$ possível, \ie, para minimizar o erro de previsão residual $|| \Delta Z
 || = || \bar{Z} - Z(x) ||$.
 
-\subsubsection*{PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}}\label{pba}
+\subsubsection{PBA/MCBA -- \emph{Multi-Core Bundle Adjustment}}\label{pba}
 
 O PBA/MCBA~\cite{furukawa2009accurate,wu2011multicore} é um algoritmo que
 utiliza, de forma eficiente, os núcleos do computador, sendo até 10 vezes mais
@@ -202,96 +212,12 @@ a resolução da Equação~\ref{eq:SchurComplementar}.
 O algoritmo MCBA, une o paralelismo da GPU e técnicas de uso de multi-núcleos da GPU e a combinação  de algoritmos de gradientes de conjugados pré-condicionados e algoritmos inexatos LM para resolução dessas equações  com alguns pré-condicionadores simples e computacionalmente baratos. 
 
 
-% Abordagem geral [editar]
-% O ajuste do pacote resume-se a minimizar o erro de reprojecção entre as posições de imagem dos pontos de imagem observados e previstos, o que é expresso como a soma de quadrados de um grande número de funções não-lineares de valor real. Assim, a minimização é conseguida usando algoritmos de mínimos quadrados não-lineares. Destes, Levenberg-Marquardt provou ser um dos mais bem sucedidos devido à sua facilidade de implementação e ao uso de uma estratégia de amortecimento eficaz que lhe confere a capacidade de convergir rapidamente de uma ampla gama de suposições iniciais. Ao linearizar iterativamente a função a ser minimizada na vizinhança da estimativa atual, o algoritmo de Levenberg-Marquardt envolve a solução de sistemas lineares denominados equações normais. Ao resolver os problemas de minimização que surgem na estrutura do ajuste do feixe, as equações normais têm uma estrutura de bloco esparsa devido à falta de interação entre os parâmetros para diferentes pontos 3D e câmeras. Isso pode ser explorado para obter enormes benefícios computacionais ao empregar uma variante esparsa do algoritmo de Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equações normais, evitando armazenar e operar em elementos zero. [2]: 3
-
-
-
-
-
-
-
-
-
-
-%------------------------------------------------------------------------------------%
-
-% Nos últimos anos, a paralelização baseada em GPU atraiu muita atenção para a pesquisa. Isso inclui o propósito geral
-% bibliotecas como nVidia's Sparse Matrix-Vector Multiplication
-% [3] e o trabalho de Li e Saad em várias GPUs baseadas em GPU
-% algoritmos e técnicas de pré-condicionamento [10]. Embora seja
-% Você pode criar um sistema de ajuste de pacotes usando estes
-% bibliotecas de propósito geral, melhor desempenho é alcançado por
-% construindo um sistema que explora a estrutura do problema
-% tanto quanto possível.
-% No campo da visão computacional, muitos algoritmos têm
-% foi portado para a GPU com ganhos de velocidade significativos. Este
-% inclui detecção de recursos, combinação de recursos e reconstrução estéreo,
-% etc. Uma demonstração impressionante é o multiGPU
-% sistema descrito em [6]. Vale a pena
-% observando, no entanto, que o passo de ajuste do feixe neste sistema
-% ainda foi realizada usando CPUs de um único segmento.
-% Dado os constrangimentos do modelo de programação GPU,
-% não é trivial obter algoritmos de ajuste de pacote para executar
-% em GPUs. Recentemente, Gupta et al [8] tomaram uma abordagem híbrida
-% para executar cálculos de sobreposição em GPU e CPU,
-% onde as matrizes de Hessian e complementos de Schur são
-% construído em GPU. Isso não é prático para grandes problemas
-% (milhares de imagens ou mais), especialmente para a comunidade
-% Coleções de fotos com complementos densos de Schur.
-% Mesmo as GPUs de estação de trabalho da próxima geração têm uma pequena quantidade
-% para armazenar os complementos Schur (mesmo o Hessian
-% matronas ou jacobios), pode não ser viável. Até
-% com memória suficiente, a construção de complementos de Schur
-% ainda seria muito caro para grandes problemas.
-% O PBA é um algoritmo utilizado para minimizar o erro geométrico proveniente da reprojeção de cada \emph{feature} da etapa de triangulação. Implementado em GPU (Graphic Processor Unit) para computar a Distância de Transformação Euclidiana (EDT -- Euclidean Distance Transform) para uma imagem binária em 2D ou em dimensões superiores. Particionando a imagem em pequenas bandas, para serem processadas e, posteriormente, juntando-as simultaneamente, o PBA calcula o EDT exato com ótimo trabalho linear total, alto nível de paralelismo e um bom padrão de acesso à memória. Este algoritmo foi um dos precursores ao tentar explorar o máximo desempenho da GPU no cálculo da EDT exata. 
-
-
-% O PBA é divido em 3 fases:
-
-% \begin{itemize}
-% \item Band Sweeping
-% \item Hierarchical Merging
-% \item Block coloring
-% \end{itemize}
-
-% Band Sweeping
-
-% In this phase, for each row, we want to compute the 1D Voronoi
-% diagram using only those sites in the same row. A trivial approach
-% would be to use a two-pass sweeping (left to right and then right to
-% left sweeping), similar to SKW [Schneider et al. 2009]. This, however,
-% restricts the parallelism to only one thread per row, potentially
-% under-utilizing the GPU. One could also use a 1D JFA [Rong and
-% Tan 2007] with better utilization of the GPU at the cost of higher
-% total work. Another possibility would be to use a method similar
-% to the work efficient parallel prefix sum [Harris et al. 2007]. This
-% approach is too complicated as compared to our following simple,
-% yet work and time efficient approach.
-% Our approach extends the na¨ıve two-pass sweeping approach, with
-% the introduction of bands to effectively increase the level of parallelism.
-% First, we divide the input image into m1 vertical bands
-% of equal size, and use one thread to handle one row in each band,
-% performing the left-right sweeps. Next, for one site to propagate
-% its information to a different band (on the same row), it has to be
-% the closest site to the first or the last pixel of its band. As such, to
-% combine the result of different bands into the needed answer, we
-% first propagate the information among the first and the last pixels
-% of all bands using a parallel prefix approach on these 2m1 pixels.
-% With this, the first and the last pixel of each band have the correct
-% information, whereas other pixels inside a band can then obtain the
-% correct closest sites by updating (if needed) their current information
-% with that of the first and the last pixel of their band. This can
-% be done in parallel in constant time using N threads.
-
-% Hierarchical Merging
-
 \noindent\textbf{4 - Reconstrução densa.} A reconstrução é finalizada
 executando-se o algoritmo de reconstrução densa~\cite{gavadense} CMVS/PMVS-2 embutido
 no próprio VisualSfM.
 
 %FALAR SOBRE O ALGORITMO DE RECONSTRUCAO DENSA == PMVS-2/CMVS%
-\subsubsection*{CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo /
+\subsubsection{CMVS/PMVS-2 (\emph{Clustering Views for Multi-view Stereo /
 Patch-based for Multi-view Stereo version 2})}
 
 %Um dos algoritmos mais utilizados Furukawa o CMVS que possui o PMVS-2 (Patch-based Multi-view Stereo versão 2) implementado dentro dele. O PMVS-2 é uma abordagem automatizada para reconstruções densas de superfícies, baseada em combinações de features de imagens múltiplas e técnicas de correspondência baseadas em áreas, com imagens calibradas.
@@ -321,17 +247,17 @@ contêm centenas ou milhares de fotos adquiridas de quase mesmo ponto de vista,
 ou seja, um conjunto composto inteiramente informações redundadntes.  A
 sobreposição de \emph{clusters} é definida por:
 \begin{itemize}
-\item Minimizar $\sum_{k} |C_k|$ (compacidade)
-\item $|C_k| \le \alpha$, $\forall k$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho)
+\item Minimizar $\sum_{k} |C_k|$ (compacidade);
+\item $|C_k| \le \alpha$, $\forall k$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho);
 \item $\frac{\text{ \# pontos cobertos em } I_i}{\text{ \# pontos em } I_i} \ge
-  \delta$, $\forall i$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura)
+  \delta$, $\forall i$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura).
 \end{itemize}
 O CMVS pode ser resumido em quatro passos, detalhados adiante:
 \begin{itemize}
-\item Filtro SFM -- agrupamento de pontos SFM
-\item Seleção de imagens -- remove imagens reduntantes
-\item Divisão de \emph{cluster} -- reforça a restrição de tamanho
-\item Adição de imagens -- reforça a cobertura
+\item Filtro SFM -- agrupamento de pontos SFM;
+\item Seleção de imagens -- remove imagens reduntantes;
+\item Divisão de \emph{cluster} -- reforça a restrição de tamanho;
+\item Adição de imagens -- reforça a cobertura.
 \end{itemize}
 
 \noindent\textbf{Filtro SFM.}
@@ -390,11 +316,6 @@ classificadas em uma ordem decrescente de sua eficácia. Tendo construído uma
 lista de ações, uma abordagem seria tomar a ação com a pontuação mais alta,
 então refazer a lista novamente, o que é computacionalmente muito caro. 
 
-%O objetivo é minimizar o número total de imagens $\Sigma_k |C_k|$ nos \emph{clusters} de saída, sujeito às restrições: um limite superior no tamanho de cada \emph{cluster} para que um algoritmo MVS possa ser usado para cada \emph{cluster}, independentemente: $\forall k, |C_k| ≤ \alpha$. $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. 
-%O segundo aborda a cobertura das reconstruções MVS finais. Dizemos que um ponto SFM $P_j$ é coberto se for suficientemente reconstruído pelas câmeras em pelo menos um \emph{cluster} $C_k$. Para quantificar esta noção de "bem-construído", apresentamos uma função $f(P, C)$ que mede a precisão de reconstrução esperada alcançada em uma localização 3D $P$ por um conjunto de imagens $C$. Esta função depende dos parâmetros da câmera e das taxas de amostragem de pixels, esta função é abordada em %CITAR CMVS%. 
-%Dizemos que $P_j$ está coberto se a precisão da reconstrução em pelo menos um dos \emph{clusters} $C_k$ é pelo menos $\lambda$ vezes $f (Pj, Vj)$, o que é a precisão esperada obtida ao usar todas as imagens visíveis de $P_j$ ($V_j$): 
-%$P_j$ está coberto se $\underset{k}{max} f(P_j, C_k \cap V_j) \ge \lambda f(Pj, Vj)$, onde $\lambda = 0,7$ nos testes apresentados \cite{CMVS}. A restrição de cobertura é que, para cada conjunto de pontos SFM visíveis em uma imagem, a proporção de pontos cobertos deve ser pelo menos $\delta$ (também definida em 0,7). Note-se que aplicamos essa relação de cobertura em cada imagem, em vez de toda a reconstrução, para incentivar uma boa cobertura espacial e uniformidade.
-
 Alternativamente, são consideradas ações com pontuações maiores que $0,7$ vezes a
 pontuação mais alta na lista; em seguida, repete-se a ação a partir do topo da
 lista. Como uma ação pode alterar a eficácia de outras ações semelhantes, depois
@@ -410,7 +331,7 @@ O passo seguinte, depois de obtido o \emph{cluster} das imagens, é um algoritmo
 de reconstrução MVS, neste caso, o PMVS-2 (Patch-based Multiview Stereo Versão
 2)~\cite{visualSfMPMVS,Li2013,furukawa2010towards}, extensamente utilizado.
 
-\subsubsection*{PMVS-2}
+\subsubsection{PMVS-2}
 
 O PMVS-2 utiliza a técnica de DoG descrita anteriormente e cantos de
 Harris~\cite{Harris:Stephens:Edge:Corner}. O DoG é utilizado para detecção de
@@ -440,11 +361,11 @@ célula, maior será a densidade na nuvem de pontos final.
 
 O PMVS-2 pode ser dividido em algumas etapas:
 \begin{enumerate}
-\item{Inicalização}
-	\subitem{Detecção de \emph{features}}
-	\subitem{Correspondência guiada}
-\item{Expansão}
-\item{Filtragem}
+\item{Inicalização:}
+	\subitem{Detecção de \emph{features};}
+	\subitem{Correspondência guiada;}
+\item{Expansão;}
+\item{Filtragem.}
 \end{enumerate}
 
 \noindent\textbf{Detecção de \emph{features}.}
@@ -478,14 +399,19 @@ dentro da superfície). Para isso, são utilizados dois filtros: filtro de
 qualidade e filtro de visibilidade, Figura~\ref{fig:filtropmvs}.
 \begin{figure}
 	\centering
+  \caption{Descrição da etapa de filtragem}
 	\includegraphics[width=1\linewidth]{figs/filtropmvs.png}
-	\caption{%
+	\legend{%
   Usabilidade dos filtros de qualidade e visibilidade, aplicados fora
   do núcleo, assim como em paralelo. À esquerda, um ponto MVS $P$ é testado
   usando os filtros. À direita, temos pseudocódigos, onde os \emph{loops}
   em azul podem ser executados em paralelo.
-	\protect\cite{furukawa2010towards}.
-	}\label{fig:filtropmvs}
+	}
+  \source{
+     \citeauthor{furukawa2010towards},
+     \citeyear{furukawa2010towards}.
+   }
+  \label{fig:filtropmvs}
 \end{figure} 
 
 \noindent\textbf{Filtro de Qualidade.}

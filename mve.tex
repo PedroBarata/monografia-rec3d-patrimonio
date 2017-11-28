@@ -1,7 +1,7 @@
 \section{MVE -- \emph{Multi-View Reconstruction Environment}}\label{sec:mve}
 %======================================================================================
 %
-\subsection*{Introdução}
+\subsection{Introdução}
 Um dos sistemas de pesquisa de ponta mais utilizados para a técnica de reconstrução densa é o MVE --
 \emph{Multi-View Reconstruction Environment}~\cite{mve}. Este algoritmo utiliza
 fotos e produz uma malha triangular superficial como resultado. Diferentemente
@@ -15,7 +15,7 @@ permite a visualização e inspeção das imagens, mapas de profundidade e
 renderizar cenas e malhas 3D. Sua base de operação é basicamente
 \ref{fig:mvepipeline}:
 \begin{enumerate}
-\item{Estrutura por Movimento -- \emph{Structure-from-Motion} (SfM)}
+\item{Estrutura por Movimento -- \emph{Structure-from-Motion} (SfM):}
 
 \begin{itemize}
 \item{
@@ -25,7 +25,7 @@ esparsas, mas estáveis entre as imagens.
 }
 \end{itemize}
 
-\item{Estereoscopia multiocular -- \emph{Multi-View Stereo} (MVS)}
+\item{Estereoscopia multiocular -- \emph{Multi-View Stereo} (MVS):}
 \begin{itemize}
 \item{
 Utiliza a posição estimada das câmeras, encontrando as correspondências visuais
@@ -33,7 +33,7 @@ nas imagens. Estas correspondências são trianguladas, produzindo a informaçã
 3D, e, consequentemente a reconstrução 3D densa.
 } 
 \end{itemize}
-\item{Reconstrução de superfícies -- \emph{Surface Reconstruction}}
+\item{Reconstrução de superfícies -- \emph{Surface Reconstruction}:}
 \begin{itemize}
 \item{
 Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade
@@ -42,19 +42,25 @@ individuais. Produz uma malha superficial globalmente consistente.
 \end{itemize}
 \end{enumerate}
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Funcionamento do MVE}
 	\includegraphics[width=\linewidth]{figs/mvepipe.png}
-	\caption{%
-  Funcionamento do MVE. Começando com múltiplas imagens, técnicas SfM são
+	\legend{%
+  Começando com múltiplas imagens, técnicas SfM são
   empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos
   esparsos. Mapas de profundidade são computados para cada imagem usando o MVS.
   Finalmente, uma malha colorida é extraída da união de todos os mapas de
   profundidade usando um algoritmo de aproximações de reconstruções de
   superfícies, FSSR -- \emph{Floating Scale Surface Reconstruction}.
-	\protect\cite{mve}
-	}\label{fig:mvepipeline}
+	}
+\source{
+	 \citeauthor{mve},
+   	 \citeyear{mve}.
+   }
+   \label{fig:mvepipeline}
 \end{figure}
 
 Como não existem muitas opções para algoritmos de SfM, o MVE permite a
@@ -76,13 +82,8 @@ mapas de profundidade como representação intermediária é que a geometria é
 parametrizada em seu domínio natural, e os dados por foto (como a cor, por
 exemplo) estão diretamente acessíveis nas imagens.
 
-%Essa redundância excessiva nos mapas de profundidade pode ser pesado. Não com
-%relação ao armazenamento, mas na questão do processamento computacional exigido
-%nos mapas. Porém, esta abordagem foi capaz de produzir uma geometria detalhada e
-%superar o ruído nos mapas de profundidade individuais.
-
-\subsection*{Guia de reconstrução com o MVE}
-Existem algumas recomendações para se ter uma boa reconstrução com o MVE~\cite{pipelinemve,mve}.
+\subsection{Guia de reconstrução com o MVE}
+Existem algumas recomendações para se ter uma boa reconstrução com o MVE~\cite{mve}.
 Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
 
 \begin{itemize}
@@ -102,6 +103,7 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 
 \begin{figure} [!h]
 	\centering
+	\caption{Funcionamento da paralaxe}
 	\includegraphics[width=0.2\linewidth]{figs/parallaxA.png}(a)
 	\includegraphics[width=0.2\linewidth]{figs/parallaxB.png}(b)
 	\includegraphics[width=0.2\linewidth]{figs/parallaxC.png}(c)
@@ -113,8 +115,11 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
   o efeito paralaxe tenha maior proveito das imagens, alguns autores argumentam que
   câmeras devem estar dispostas como (b), de forma a extrair uma boa
   quantidade e qualidade de informações do ponto.
-  \protect\cite{3DCompVision2Didier}
 	}
+	\source{
+   	 \citeauthor{3DCompVision2Didier},
+   	 \citeyear{3DCompVision2Didier}.
+   }
 	\label{fig:parallax}
 \end{figure}
 
@@ -131,7 +136,7 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 % for every photo. This process will also import meta informa-
 % tion from the images (EXIF tags), which is required to get
 % a focal length estimate for every photo. If EXIF tags are not
-\subsubsection*{Criando uma cena}
+\subsubsection{Criando uma cena}
 
 Uma vista (\emph{view}) no MVE contém dados por \emph{viewport} (como imagens,
 mapas de profundidade ou outros dados). Uma cena é uma coleção de vistas que
@@ -151,13 +156,20 @@ disponíveis, uma distância focal padrão é assumida pelo sistema, porém se e
 distância adotada for uma péssima suposição, com relação ao conjunto de dados
 utilizado, podem acontecer erros no SfM.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=\linewidth]{figs/umve1.png}
 	\caption{%
 	Interface gráfica (UMVE)%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:umve:gui}
+	}
+	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\includegraphics[width=\linewidth]{figs/umve1.png}
+	\source{
+   	 O autor,
+   	 (2017).
+   }
+	\label{fig:umve:gui}
 \end{figure}
 % SfM reconstruction: The SfM reconstruction can be con-
 % figured and started using UMVE, or the command line tool
@@ -181,12 +193,15 @@ reconstrução~\ref{fig:mvesfm}.
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
-	\includegraphics[width=\linewidth]{figs/umve5sfm.png}
-	\caption{%
+		\caption{%
   Reconstrução de nuvem de pontos gerada a partir de
   SfM do MVE%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-	}\label{fig:mvesfm}
+	}
+	\includegraphics[width=\linewidth]{figs/umve5sfm.png}
+	\source{
+   	 O autor,
+   	 (2017).
+   }\label{fig:mvesfm}
 \end{figure}
 
 
@@ -205,7 +220,7 @@ reconstrução~\ref{fig:mvesfm}.
 %(we often use L2), the process is faster and depth maps
 %become more complete. See Figure 9 for a depth map computed
 %at L2.
-\subsubsection*{Estereoscopia Multiocular -- \emph{Multi-View Stereo} (MVS)}
+\subsubsection{Estereoscopia Multiocular -- \emph{Multi-View Stereo} (MVS)}
 
 Usando as imagens junto com os parâmetros obtidos das câmeras, é possível
 reconstruir a geometria densa utilizando o MVS. Isso pode ser feito utilizando a
@@ -224,15 +239,21 @@ mapas de profundidades completos, já que utiliza resoluções menores, Figura~\
 
 \begin{figure}[!h]
 	\centering
-	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
+	\caption{Representação do mapa de profundidade do MVS}
 	\includegraphics[width=0.7\linewidth]{figs/mvedepth.png}
-	\caption{%
+	\legend{%
   Uma imagem de entrada (esquerda) e correspondência em mapas de
-  profundidade (direita), em roxo as partes sem nenhum mapa naquela região~\protect\cite{mve}.
-	}\label{fig:mvedepth}
+  profundidade (direita), em roxo as partes sem nenhum mapa naquela região.
+	}
+	\source{
+	 \citeauthor{mve},
+   	 \citeyear{mve}.
+   }
+   \label{fig:mvedepth}
 \end{figure}
 
-O MVS pode ser dividido em duas partes:
+O algoritmo do MVS pode ser dividido em duas partes
+
 \begin{itemize}
 \item {Uma estrutura regional-crescente que tem uma fila de candidatos
   correspondentes, $Q$, ordenada pelas localizações dos pixels na câmera
@@ -245,7 +266,7 @@ profundidade, normais e de confiança e os pixels vizinhos na câmera são
 adicionados como novos candidatos a $Q$.}
 \end{itemize}
 
-\subsubsection*{Reconstrução de Superfícies -- \emph{Surface Reconstruction}}
+\subsubsection{Reconstrução de Superfícies -- \emph{Surface Reconstruction}}
 
 Utiliza-se o programa em linha de comando \texttt{scene2pet}, que combina todos os mapas de
 profundidade em uma única e grande nuvem de pontos. Nesta fase, um valor de
