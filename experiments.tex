@@ -519,14 +519,16 @@ Comando            & Tempo (aprox.)         \\ \hline
 % 	}\label{fig:fssrecon}
 % \end{figure}
 
-% \begin{figure}[!h]
-% 	\centering
-% 	\includegraphics[width=0.7\linewidth]{figs/galinhadmr.png}
-% 	\caption{%
-% 	Resultado da etapa \emph{fssrecon} do MVE
-% 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
-% 	}\label{fig:galinhaFssr}
-% \end{figure}
+ \begin{figure}[!h]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{figs/galinhadmr.png}
+ 	\caption{%
+ 	Resultado da etapa \emph{fssrecon} do MVE
+ 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
+ 	}\label{fig:galinhaFssr}
+ \end{figure}
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -571,11 +573,88 @@ resultado para a continuação do algoritmo.%, Figura~\ref{fig:galinhaDMR224}.
 %Utilizando o Skanect versão gratuita, obtemos os seguintes resultados...%
 
 \subsection{Resultados da reconstrução com o Sense}
-Para a reconstrução com o Kinect, utilizamos uma ferramenta de escaneamento que utiliza o mesmo princípio do Kinect versão 1: o Sense versão 1~\cite{3DSystems}.
-Primeiramente devemos ativar e cadastrar o hardware no \emph{site} do proprietário e a partir disso, podemos baixar o software.
+Para a reconstrução com o Kinect, utilizamos uma ferramenta de escaneamento que utiliza o mesmo princípio do Kinect versão 1 (baseado em luz estruturada): o Sense versão 1~\cite{3DSystems}.
+Primeiramente devemos ativar e cadastrar o hardware no \emph{site} do proprietário e a partir disso, baixar o software.
 
-O software do Sense é de fácil entendimento, caso necessário, pode-se traduzir para o português e possui um \emph{link} para o guia do usuário onde é explicado todo o funcionamento da ferramenta e do seu software, bem como boas práticas para ter um bom resultado na reconstrução. O programa também conta com uma boa customização (como tamanho do objeto a ser escaneado, resolução, orientação, se desejamos reconstruir as cores, entre outros parâmetros). Além disso, ele faz uma rápida avaliação do computador empregado e recomenda fazer a reconstrução a nível de GPU ou CPU, dependendo do resultado.
+O software do Sense é de fácil entendimento (figura~\ref{fig:sense0}), caso necessário, pode-se traduzir para o português e possui um \emph{link} para o guia do usuário onde é explicado todo o funcionamento da ferramenta e do seu software, bem como boas práticas para ter um bom resultado na reconstrução. O programa também conta com uma boa customização (como tamanho do objeto a ser escaneado, resolução, orientação, se desejamos reconstruir as cores, entre outros parâmetros), figura~\ref{fig:sense1}. Além disso, ele faz uma rápida avaliação do computador e recomenda fazer a reconstrução a nível de GPU ou CPU, dependendo do resultado.
 
-Com a ferramenta em mãos, fizemos o escaneamento apenas do objeto em ambiente fechado, e tivemos os resultados:
+\begin{figure}[!h]
+	\centering
+	\caption{Tela inicial do Sense}
+	\includegraphics[width=0.9\linewidth]{figs/boasvindassense.png}
+	\legend{Quando abrimos o Sense, temos à disposição algumas informações, como dicas para um bom escaneamento e guia do usuário, por exemplo. }
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:sense0}
+\end{figure} 
 
-%NAO AVALIAMOS O TEMPO POIS O ESCANEAMENTO É FEITO EM TEMPO REAL!!!%
+\begin{figure}[!h]
+	\centering
+	\caption{Interface do Sense}		
+	\includegraphics[width=0.8\linewidth]{figs/sense1.png}
+	\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:sense1}
+\end{figure} 
+\newpage
+\begin{figure}[!h]
+	\centering
+	\caption{Ferramentas de edição do Sense}
+	\includegraphics[width=1\linewidth]{figs/sense2.png}
+	\legend{Após escanear o objeto, podemos melhorar o resultado com as ferramentas dispostas.}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:sense2}
+\end{figure} 
+
+\begin{figure}[!h]
+	\centering
+	\caption{Opções de compartilhamento do Sense}
+	\includegraphics[width=0.9\linewidth]{figs/sense3.png}
+	\legend{Podemos exportar para alguns formatos, como \texttt{.ply}, \texttt{.obj}, entre outros.}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:sense3}
+\end{figure} 
+
+Para comparação com os softwares que foram descritos anteriormente, fizemos o escaneamento apenas do objeto em ambiente fechado. O Sense tem dificuldades de escaneamento em áreas abertas e pode não funcionar tão bem, como descrito no \emph{site} do proprietário~\cite{3DSystems}. Para a galinha, obtivemos os resultados abaixo:
+
+\begin{figure}[!h]
+	\centering
+	\caption{Resultado da reconstrução usando o Sense}
+	\includegraphics[width=1\linewidth]{figs/sense2.png}
+	\legend{Utilizando as práticas recomendadas para uma boa digitalização (em resumo, fazer uma varredura o objeto por inteiro, em diferentes ângulos), tivemos este resultado.}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:reconSense1}
+\end{figure} 
+
+\begin{figure}[!h]
+	\centering
+	\caption{Resultado após ajustes de edição do modelo}
+	\includegraphics[width=1\linewidth]{figs/sense3.png}
+	\legend{Tratamos o modelo reconstruído preenchendo furos (provenientes da falta de informação daquele ponto).}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:reconSense2}
+\end{figure} 
+
+\clearpage
+
+\begin{figure}[t!]
+	\centering
+	\caption{Resultado final usando o Sense}
+	\includegraphics[width=1\linewidth]{figs/sense3.png}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:reconSense3}
+\end{figure}
+
+Não avaliamos o tempo de reconstrução, pois o Sense (assim como o Kinect) faz o escaneamento em tempo real.

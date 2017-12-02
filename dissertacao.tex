@@ -42,7 +42,9 @@
 \algrenewcommand\algorithmicelse{\textbf{senão}}
 \algrenewcommand\algorithmicreturn{\textbf{devolve}}
 \algrenewcommand\algorithmicfunction{\textbf{função}}
-%
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 % Rearranja os finais de cada estrutura
 \algrenewtext{EndWhile}{\algorithmicend\ \algorithmicwhile}
 \algrenewtext{EndFor}{\algorithmicend\ \algorithmicfor}
@@ -53,8 +55,6 @@
 \algnewcommand\algorithmicto{\textbf{até}}
 \algrenewtext{For}[3]%
 {\algorithmicfor\ #1 $\gets$ #2 \algorithmicto\ #3 \algorithmicdo}
-
-
 \usepackage{setspace}
 \usepackage{caption}
 \captionsetup[table]{singlelinecheck=false}

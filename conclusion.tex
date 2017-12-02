@@ -3,57 +3,81 @@ Técnicas práticas recentes de reconstrução 3D utilizando fotogrametria foram
 apresentadas e exploradas, visando ajudar a desenvolver os primórdios de uma metodologia prática para digitalizar jardins de esculturas a céu
 aberto. A partir dos resultados dos experimentos, averiguamos que é possível, do ponto de vista qualitativo, utilizar softwares de código aberto e apenas uma câmera comum de celular ou uma scanner de baixo custo (Kinect) para conseguirmos ter uma boa reconstrução de uma escultura ou objeto. Um pseudocódigo poderia ser executado da seguinte maneira, com o intuito de gerar uma reconstrução satisfatória:
 
-
 \begin{algorithm}
-\caption{Valor Absoluto}
+\caption{Modelo de escaneamento}
 \begin{algorithmic}[1]
-\Function{Absoluto}{x}
-  \If {$x < 0$}
-    \State \Return $-x$
-  \Else
-    \State \Return $x$
+\If {Utilizarmos o Sense}
+  	\State {Criar uma conta e Baixar o programa no \emph{site} do proprietário (3D Systems)}
+  	\State {Cadastrar e ativar o Sense no próprio software;}
+  	\State {Configurar os parâmetros de acordo com o objeto a ser escaneado (tamanho dos limites do escaneamento, profundidade, entre outros);}
+  	\State {Realizar o escaneamento, usando as dicas de boas práticas de digitalização descritas no guia do usuário;}
+  	\While {A reconstrução não estiver satisfatória}
+  		\State {Usar as ferramentas de edição (como apagar pontos indesejáveis, preencher os furos provenientes do escaneamento para obter um modelo sólido, entre outros);}
+  	\EndWhile
+  	\State {Exportar o modelo criado;}
+\Else 
+	\State {Faz-se um escaneamento da escultura ou do objeto, varrendo toda a superfície visível;}
+	\State {Seleciona-se frames do vídeo;}
+  	\If {Utilizarmos o VisualSfM}
+    	\State {Pré-configurar o numero de \emph{cores} do processador e escala da reconstrução a ser feita;}
+    	\State {Adicionar esse conjunto de frames ao programa;}
+    	\State {Executar o comando de correspondência entre as imagens;}
+   	 	\State {Executar o comando da reconstrução esparsa;}
+    	\State {Executar o comando da reconstrução densa;}
+    	\State \Return {Modelo com pontos densificados;}
+    	\State \If {Utilizar o modelo com pontos densificados como entrada no MVE}
+    		\State {Gerar a reconstrução baseada em superfície;}
+    		\State \Return {Modelo com uma malha baseada em superfícies reconstruída do objeto;}
+    	\EndIf
+ 	\EndIf
+ 	\algstore{bkbreak}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h]
+\ContinuedFloat
+\begin{algorithmic}[1]
+\algrestore{bkbreak}
+  	\If {Utilizarmos o MVE}
+  		\State {Abrir a interface gráfica (pois é mais fácil, se compararmos este passo utilizando linha de comando) e cria-se uma cena;}
+    	\State {Adicionar imagens a essa cena criada e fechar a interface gráfica;}
+    	\While {Não executamos todos os procedimentos por linha de comando}
+    		\State  {Executar \texttt{sfmrecon}, gerando conjuntos de extensões \texttt{.mve};}
+   	 		\State  {Executar \texttt{dmrecon}, onde são criados mapas de profundidade nas extensões \texttt{.mve};}
+    		\State  {Executar \texttt{scene2pset}, indicando o nível (escala da reconstrução), que combina todos os mapas de profundidade em uma única e grande nuvem de pontos;}
+    		\State  {Executar \texttt{fssrecon} que utiliza a união dos vértices dos mapas de profundidade e gera uma malha superficial do objeto;}
+    	\EndWhile
+  	\EndIf
+	\State {Exportar o modelo 3D gerado;}
+	\State {Utilizar algum programa para tratamento do modelo 3D (Blender, Meshlab, entre outros);}
   \EndIf
-\EndFunction
 \end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{Exemplo do \texttt{for}} 
-\begin{algorithmic}[1]
-\For{i}{1}{n} 
-  \State {$A[i] \gets i + 1$} \Comment{Preenche o vetor} 
-\EndFor
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{Exemplo do \texttt{while}}
 \end{algorithm}
 %PSEUDOCODIGO AQUI%
-Faz-se um escaneamento prévio da escultura.
-Seleciona-se frames do vídeo
-Se (utilizar o VisualSfM) {
-  Pré-configurar o numero de \emph{cores} e escala da reconstrução a ser feita
-  Adicionar esse conjunto de frames no programa
-  Executar o comando de correspondência entre as imagens
-  Executar o comando da reconstrução esparsa
-  Executar o comando da reconstrução densa
-    Se quiser, podemos usar o modelo de reconstrução densa como entrada no MVE e gerar a reconstrução baseada em superfície
-  }
-
-Caso utilize o MVE {
-  Abrir a interface gráfica (mais fácil visualmente) e cria-se uma cena
-  Adicionar imagens a essa cena criada e fechar a interface gráfica
-  Por linha de comando, executamos {
-    Sfmrecon, gerando conjuntos de extensões .mve
-    Dmrecon, onde são criados mapas de profundidade nas extensões .mve
-    Scene2pset, indicando o nível (escala da reconstrução), que combina todos os mapas de profundidade em uma única e grande nuvem de pontos
-    Fssrecon que utiliza a união dos vértices dos mapas de profundidade e gera uma malha superficial do objeto
-  }
-Exportar o modelo 3D gerado
-Utilizar algum programa para tratamento do modelo 3D (Blender, Meshlab, entre outros)
-}
-Caso utilize o MVE
+%Faz-se um escaneamento prévio da escultura.
+%Seleciona-se frames do vídeo
+%Se (utilizar o VisualSfM) {
+%  Pré-configurar o numero de \emph{cores} e escala da reconstrução a ser feita
+%  Adicionar esse conjunto de frames no programa
+%  Executar o comando de correspondência entre as imagens
+%  Executar o comando da reconstrução esparsa
+%  Executar o comando da reconstrução densa
+%    Se quiser, podemos usar o modelo de reconstrução densa como entrada no MVE e gerar a reconstrução baseada em superfície
+%  }
+%
+%Caso utilize o MVE {
+%  Abrir a interface gráfica (mais fácil visualmente) e cria-se uma cena
+%  Adicionar imagens a essa cena criada e fechar a interface gráfica
+%  Por linha de comando, executamos {
+%    Sfmrecon, gerando conjuntos de extensões .mve
+%    Dmrecon, onde são criados mapas de profundidade nas extensões .mve
+%    Scene2pset, indicando o nível (escala da reconstrução), que combina todos os mapas de profundidade em uma única e grande nuvem de pontos
+%    Fssrecon que utiliza a união dos vértices dos mapas de profundidade e gera uma malha superficial do objeto
+%  }
+%Exportar o modelo 3D gerado
+%Utilizar algum programa para tratamento do modelo 3D (Blender, Meshlab, entre outros)
+%}
+%Caso utilize o MVE
 
 
 Foi adquirida experiência sobre a calibração de equipamentos, sistemas
@@ -69,7 +93,7 @@ Dentre esses problemas, a nível de software, podemos explicitar a dificuldade d
 
 \section{Trabalhos futuros} Identificamos os seguintes caminhos para a evolução deste projeto:
 \begin{itemize}
-\item \textbf{Realizar uma varredura com o Kinect.} Embora seja relativamente
+\item \textbf{Realizar uma varredura com o Kinect ou com o Sense.} Embora seja relativamente
   custoso, tanto fisicamente quanto computacionalmente, seria interessante ter
   um parâmetro de comparação prática das técnicas fotogramétricas passivas com
 as técnicas de fotogrametria por Kinect, que se mostrou muito promissor em um
