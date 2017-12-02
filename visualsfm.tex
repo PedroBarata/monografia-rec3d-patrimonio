@@ -25,16 +25,16 @@ intuitivo. Em sua interface, possui um \emph{log} de mensagens e erros que por v
 venham a acontecer e, na parte de cima, alguns botões,
 Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
   \caption{Interface gráfica do VisualSfM}
-	\includegraphics[width=1\linewidth]{figs/pipelinevisualsfm.png}
+	\includegraphics[width=0.7\linewidth]{figs/pipelinevisualsfm.png}
 	\legend{%
 	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
 	}
   \source{
-     \citeauthor{wu2011visualsfm},
-     \citeyear{wu2011visualsfm}.
+     \citeauthor{wu2011visualsfm}
+     (\citeyear{wu2011visualsfm}).
    }
    \label{fig:pipelineVisualSfM}
 \end{figure}
@@ -83,6 +83,8 @@ Levenberg-Marquardt que aproveita explicitamente o padrão de zeros de equaçõe
 normais, evitando armazenar e operar em elementos zero.  A seguir detalharemos
 essas etapas e as implementações utilizadas~\cite{fabbri2011multiview}.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
   \caption{Problema de \emph{Bundle Adjustment}}
@@ -94,14 +96,14 @@ essas etapas e as implementações utilizadas~\cite{fabbri2011multiview}.
   reajustados como $\widehat{x}$ e $\widehat{x'}$, respectivamente.
 	}
   \source{
-     \citeauthor{3DCompVision2Didier},
-     \citeyear{3DCompVision2Didier}.
+     \citeauthor{3DCompVision2Didier}
+     (\citeyear{3DCompVision2Didier}).
    }
   \label{fig:bundleAdjustment}
 \end{figure}
 
 Consideremos o seguinte problema de estimativa de um conjunto de parâmetros $x
-\in \mathbb{R}^M$ a partir de um conjunto de osbervações $\bar{Z} \in \mathbb{R}^N$, com
+\in \mathbb{R}^M$ a partir de um conjunto de observações $\bar{Z} \in \mathbb{R}^N$, com
 $M \ll N$, relacionados por um modelo $Z(x)$. O objetivo é calcular $x$ tal qual $Z(x)$ é o mais próximo de
 $\bar{Z}$ possível, \ie, para minimizar o erro de previsão residual $|| \Delta Z
 || = || \bar{Z} - Z(x) ||$.
@@ -195,12 +197,12 @@ parâmetros do ponto, obtemos um sistema linear consistindo apenas nos parâmetr
 da câmera:
 \begin{equation}
 \label{eq:SchurComplementar}
-(U_\lambda - W V_\lambda^-1 W^T)\delta_c = -J_c^T f + WV_\lambda^-1 J_p^T f,
+(U_\lambda - W V_\lambda^{-1} W^T)\delta_c = -J_c^T f + WV_\lambda^{-1} J_p^T f,
 \end{equation}
-onde $S = U_\lambda - W V_\lambda^-1 W^T$ é o complemento de Schur ou a matriz
+onde $S = U_\lambda - W V_\lambda^{-1} W^T$ é o complemento de Schur ou a matriz
 reduzida da câmera. Com a solução para a Equação\ref{eq:SchurComplementar}, conseguimos obter os parâmetros do ponto com substituição regressiva:
 \begin{equation}
-\delta_p = -V_\lambda^-1(J_p^T f + W^T \delta_c).
+\delta_p = -V_\lambda^{-1}(J_p^T f + W^T \delta_c).
 \end{equation}
 Caso S for simétrica positiva-definida, a fatoração de Cholesky é indicada para
 a resolução da Equação~\ref{eq:SchurComplementar}. 
@@ -397,7 +399,7 @@ porém, do novo \emph{patch}.
 não são visíveis pelos centros ópticos das imagens, são descartados (estão
 dentro da superfície). Para isso, são utilizados dois filtros: filtro de
 qualidade e filtro de visibilidade, Figura~\ref{fig:filtropmvs}.
-\begin{figure}
+\begin{figure}[!h]
 	\centering
   \caption{Descrição da etapa de filtragem}
 	\includegraphics[width=1\linewidth]{figs/filtropmvs.png}
@@ -408,8 +410,8 @@ qualidade e filtro de visibilidade, Figura~\ref{fig:filtropmvs}.
   em azul podem ser executados em paralelo.
 	}
   \source{
-     \citeauthor{furukawa2010towards},
-     \citeyear{furukawa2010towards}.
+     \citeauthor{furukawa2010towards}
+     (\citeyear{furukawa2010towards}).
    }
   \label{fig:filtropmvs}
 \end{figure} 

@@ -42,8 +42,6 @@ individuais. Produz uma malha superficial globalmente consistente.
 \end{itemize}
 \end{enumerate}
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\caption{Funcionamento do MVE}
@@ -57,15 +55,15 @@ individuais. Produz uma malha superficial globalmente consistente.
   superfícies, FSSR -- \emph{Floating Scale Surface Reconstruction}.
 	}
 \source{
-	 \citeauthor{mve},
-   	 \citeyear{mve}.
+	 \citeauthor{mve}
+   	 (\citeyear{mve}).
    }
    \label{fig:mvepipeline}
 \end{figure}
 
 Como não existem muitas opções para algoritmos de SfM, o MVE permite a
 utilização de softwares externos como o
-\emph{Bundler}~\cite{snavely2010bundler} ou o prório \emph{VisualSfM} para esta
+\emph{Bundler}~\cite{snavely2010bundler} ou o prório VisualSfM para esta
 etapa.  Tendo o SfM feito, partimos para o MVS. Com os parâmetros
 de câmera conhecidos, a reconstrução densa geométrica é feita. Existem diversos
 algoritmos para a reconstrução densa; o MVE utiliza um algoritmo
@@ -101,6 +99,8 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 
 \end{itemize}
 
+\newpage
+
 \begin{figure} [!h]
 	\centering
 	\caption{Funcionamento da paralaxe}
@@ -117,8 +117,8 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
   quantidade e qualidade de informações do ponto.
 	}
 	\source{
-   	 \citeauthor{3DCompVision2Didier},
-   	 \citeyear{3DCompVision2Didier}.
+   	 \citeauthor{3DCompVision2Didier}
+   	 (\citeyear{3DCompVision2Didier}).
    }
 	\label{fig:parallax}
 \end{figure}
@@ -166,7 +166,7 @@ utilizado, podem acontecer erros no SfM.
 	%   \includegraphics[width=1.0\linewidth]{figs/3d-curve-sketch/system-diagram.eps}
 	\includegraphics[width=\linewidth]{figs/umve1.png}
 	\source{
-   	 O autor,
+   	 O autor
    	 (2017).
    }
 	\label{fig:umve:gui}
@@ -182,7 +182,7 @@ utilizado, podem acontecer erros no SfM.
 % the sparse point cloud and the camera frusta. Note how dense
 % the frusta are spaced around the object to achieve a good re-
 % construction.
-\subsection*{Reconstrução SfM}
+\subsection{Reconstrução SfM}
 
 Pode ser configurada e iniciada a SfM usando a interface gráfica UMVE ou por linha de
 comando (\texttt{sfmrecon}). A interface guia através da detecção de
@@ -190,6 +190,8 @@ comando (\texttt{sfmrecon}). A interface guia através da detecção de
 incremental do SfM. A reconstrução SfM começa a partir de um
 par inicial, e adiciona, de forma incremental, mais vistas à
 reconstrução~\ref{fig:mvesfm}.
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -199,7 +201,7 @@ reconstrução~\ref{fig:mvesfm}.
 	}
 	\includegraphics[width=\linewidth]{figs/umve5sfm.png}
 	\source{
-   	 O autor,
+   	 O autor
    	 (2017).
    }\label{fig:mvesfm}
 \end{figure}
@@ -237,6 +239,8 @@ que acarreta em dificuldades para encontrar as correspondências densas das
 imagens. Geralmente utiliza-se o L2, pois o processo é mais rápido, gerando
 mapas de profundidades completos, já que utiliza resoluções menores, Figura~\ref{fig:mvedepth}.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\caption{Representação do mapa de profundidade do MVS}
@@ -246,8 +250,8 @@ mapas de profundidades completos, já que utiliza resoluções menores, Figura~\
   profundidade (direita), em roxo as partes sem nenhum mapa naquela região.
 	}
 	\source{
-	 \citeauthor{mve},
-   	 \citeyear{mve}.
+	 \citeauthor{mve}
+   	 (\citeyear{mve}).
    }
    \label{fig:mvedepth}
 \end{figure}

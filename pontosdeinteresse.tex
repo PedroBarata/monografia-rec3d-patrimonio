@@ -3,7 +3,7 @@
 %
 \section{Introdução}
 
-A grande maioria dos métodos de reconstrução 3D robusta de estrutura por movimento, ou \emph{Structure
+A maioria dos métodos de reconstrução 3D robusta de estrutura por movimento, ou \emph{Structure
 from Motion} (SfM), tem como base a utilização de pontos de interesse
 (\emph{features}), que são pontos ou áreas em comum entre as imagens a serem
 reconstruídas. Para encontrar estes pontos, diferentes algoritmos são empregados. 
@@ -26,8 +26,8 @@ pipeline SfM+MVS funciona com os seguintes passos, ilustrados na Figura~\ref{fig
 	Além dessas etapas, geralmente a reconstrução é densificada usando-se MVS.
 	}
 	\source{
-	 \citeauthor{theia-manual},
-   	 \citeyear{theia-manual}.
+	 \citeauthor{theia-manual}
+   	 (\citeyear{theia-manual}).
    }
    \label{fig:sfmpipeline}
 \end{figure}
@@ -55,31 +55,15 @@ imagem~\ref{fig:Sift}) em cada imagem~\cite{Lowe:IJCV2004}.
 \begin{figure}[!h]
 	\centering
 	\caption{Imagens de correspondências do SIFT}
-	\includegraphics[width=\linewidth]{figs/indioSIFT.jpg}
-	\includegraphics[width=\linewidth]{figs/SIFTsapo.jpg}
-	\includegraphics[width=\linewidth]{figs/SIFTsapo2.jpg}
-	\legend{Cada linha interpreta uma correspondência encontrada entre as duas imagens.}
-	\source{O autor,
+	\includegraphics[width=0.3\linewidth]{figs/indioSIFT.jpg}
+	\includegraphics[width=0.3\linewidth]{figs/SIFTsapo.jpg}
+	\includegraphics[width=0.3\linewidth]{figs/SIFTsapo2.jpg}
+	\legend{Cada linha pode ser interpretada como uma correspondência encontrada entre as duas imagens.}
+	\source{O autor
 			(2017)
 			}
 	\label{fig:Sift}
 \end{figure}
-
-
-\begin{figure}[!h]
-	\centering
-	\caption{%
-		Procedimento da maioria dos sistemas SfM
-	}
-	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
-	\legend{Além dessas etapas, geralmente a reconstrução é densificada usando-se MVS}
-	\source{
-   	 \citeauthor{theia-manual},
-   	 \citeyear{theia-manual}.
-   }
-	\label{fig:sfmpipeline}
-\end{figure}
-
 
 O algoritmo pode ser dividido em cinco etapas:
 
@@ -140,7 +124,7 @@ Figura~\ref{fig:lenadog}.
   em (b); outra filtragem gaussiana com $\sigma = 2$ (c). Subtrai-se (b)
   de (c), produzindo o filtro DoG (d).
 	}
-	\source{O autor,
+	\source{O autor
 			(2017)}
 	\label{fig:lenadog}
 \end{figure}
@@ -198,8 +182,8 @@ $1.5$ em relação à escala do ponto-chave \ref{fig:histogramaOrientado}.
 	\includegraphics[width=0.45\linewidth]{figs/histogramaOrientado.png}
 	\label{fig:histogramaOrientado}
 	\source{
-   	 \citeauthor{jindal2010sift},
-   	 \citeyear{jindal2010sift}.
+   	 \citeauthor{jindal2010sift}
+   	 (\citeyear{jindal2010sift}).
    }
 \end{figure}
 
@@ -224,8 +208,8 @@ representados em forma de vetor para expressar o descritor de pontos-chaves
 	Usando uma matriz 2x2 e uma região 8x8
 	}
 	\source{
-   	 \citeauthor{jindal2010sift},
-   	 \citeyear{jindal2010sift}.
+   	 \citeauthor{jindal2010sift}
+   	 (\citeyear{jindal2010sift}).
    }
 	\label{fig:descritorkeypoint}
 \end{figure}
@@ -260,7 +244,7 @@ pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do
 	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
 	\caption{%
 	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
-	}\source{Fergus, 
+	}\source{Fergus 
 			(2013)}
 	\label{fig:triangulacao}
 \end{figure}
