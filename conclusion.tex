@@ -9,9 +9,10 @@ aberto. A partir dos resultados dos experimentos, averiguamos que é possível, 
 \If {Utilizarmos o Sense}
   	\State {Criar uma conta e Baixar o programa no \emph{site} do proprietário (3D Systems)}
   	\State {Cadastrar e ativar o Sense no próprio software;}
-  	\State {Configurar os parâmetros de acordo com o objeto a ser escaneado (tamanho dos limites do escaneamento, profundidade, entre outros);}
+  	\State {Configurar os parâmetros de acordo com o objeto a ser escaneado;}
   	\State {Realizar o escaneamento, usando as dicas de boas práticas de digitalização descritas no guia do usuário;}
   	\While {A reconstrução não estiver satisfatória}
+  	\State {Repassar o scanner para tentar preencher as partes com falta de informações;}
   		\State {Usar as ferramentas de edição (como apagar pontos indesejáveis, preencher os furos provenientes do escaneamento para obter um modelo sólido, entre outros);}
   	\EndWhile
   	\State {Exportar o modelo criado;}
