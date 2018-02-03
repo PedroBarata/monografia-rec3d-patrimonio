@@ -547,8 +547,7 @@ A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém
 a reconstrução não foi satisfatória, o software se confundiu, e
 não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir
 disso, o erro se propagou e gerou a reconstrução da Figura~\ref{fig:galinhaMeshClean}.  Rodamos também com as 224 fotos, mas só foi possível
-executar o passo \emph{sfmrecon} %\ref{fig:galinhaSfM224}
-, pois o MVE não
+executar o passo \emph{sfmrecon}, pois o MVE não
 conseguiu rodar o comando \emph{dmrecon} provavelmente o SIFT falhou na correspondências entre as imagens, e não gerou nenhum
 resultado para a continuação do algoritmo.%, Figura~\ref{fig:galinhaDMR224}.
 
@@ -575,6 +574,31 @@ resultado para a continuação do algoritmo.%, Figura~\ref{fig:galinhaDMR224}.
 
 \subsection{Resultados da reconstrução com o Sense}
 Para a reconstrução com o Kinect, utilizamos uma ferramenta de escaneamento que utiliza o mesmo princípio do Kinect versão 1 (baseado em luz estruturada): o Sense versão 1~\cite{3DSystems}.
+
+Seu formato facilita o manuseio do scanner para conseguirmos realizar uma boa varredura (figuras~\ref{fig:fotoSense0}, \ref{fig:fotoSense1}).
+
+\begin{figure}[!h]
+	\centering
+	\caption{Caixa do Sense}
+	\includegraphics[width=0.75\linewidth]{figs/senseFoto1.jpg}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:fotoSense0}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\caption{O Sense}
+	\includegraphics[width=1\linewidth]{figs/senseFoto2.jpg}
+		\source{
+   	 O autor
+   	 (2017).
+   }\label{fig:fotoSense1}
+\end{figure}
+
+\newpage
+
 Primeiramente devemos ativar e cadastrar o hardware no \emph{site} do proprietário e a partir disso, baixar o software.
 
 O software do Sense é de fácil entendimento (figura~\ref{fig:sense0}), caso necessário, pode-se usar a tradução para o português e possui um \emph{link} para o guia do usuário onde é explicado todo o funcionamento da ferramenta e do seu software, bem como boas práticas para ter um bom resultado na reconstrução. O programa também conta com uma boa customização (como tamanho do objeto a ser escaneado, resolução, orientação, se desejamos reconstruir as cores, entre outros parâmetros). Além disso, ele faz uma rápida avaliação do computador e recomenda fazer a reconstrução a nível de GPU ou CPU, dependendo do resultado.
@@ -634,7 +658,7 @@ Para a galinha, obtivemos os resultados abaixo:
 
 Os buracos e a falta de informações são decorrentes da perda de referência do objeto pelo software, solicitando ao usuário que volte ao ponto anterior para retomar a referência do objeto, o que geralmente é mais fácil recomeçar a digitalização do zero pois dificilmente o software consegue achar novamente a referência do objeto. 
 
-Entrando em contato com o suporte do proprietário~\cite{3DSystems} fui notificado de que é necessário um computador com um \emph{Core} i5 ou superior e mesmo assim o software trava constantemente, o que torna o seu uso muito frustrante e que também colabora para a perda de referência do objeto.
+Entrando em contato com o suporte do proprietário~\cite{3DSystems} fui notificado de que é necessário um computador com um processador Intel Core i5 ou superior e mesmo assim o software trava constantemente, o que torna o seu uso muito frustrante e que também colabora para a perda de referência do objeto.
 
 
 %\begin{figure}[!h]
