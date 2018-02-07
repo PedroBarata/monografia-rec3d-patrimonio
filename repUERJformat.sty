@@ -257,6 +257,7 @@
 % ---
 \providecommand{\UERJautor}{}
 \newcommand{\autor}[2]{
+	\fontsize{14}{14}
   \author{#1 #2}
   \newcommand{\UERJautornome}{#1}
   \newcommand{\UERJautorsobrenome}{#2}
@@ -269,6 +270,7 @@
 % ---
 \providecommand{\UERJlocal}{}
 \newcommand{\local}[1]{
+	\fontsize{14}{14}
   \renewcommand{\UERJlocal}{#1}
 }
 % ---
@@ -279,6 +281,7 @@
 \providecommand{\UERJdata}{}
 \newcommand{\data}[3]{
   \date{#1}
+  \fontsize{14}{14}
   \newcommand{\UERJdia}{#1}
   \newcommand{\UERJmes}{#2}
   \newcommand{\UERJano}{#3}
@@ -381,7 +384,7 @@
   \renewcommand{\referencia}{\singlespacing\begin{flushleft}#1\end{flushleft}\vspace*{0.5\baselineskip}}
 }
 % ---
-\cabecalho{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitulo}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso) -- \UERJunidade\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
+\cabecalho{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitulo}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso)\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
 % ---
 \newlength{\hanglength}
 \newcommand{\imprimirchaves}{
@@ -400,7 +403,7 @@
   \renewcommand{\reference}{\singlespacing\begin{flushleft}#1\end{flushleft}\vspace*{0.5\baselineskip}}
 }
 % ---
-\headertext{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitle}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso) -- \UERJunidade\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
+\headertext{\MakeUppercase{\UERJautorsobrenome}, \UERJautornome. \emph{\UERJtitle}. \UERJano. \UERJpaginas\ f. \UERJdocumento\ (\UERJgrau\ em \UERJcurso)\UERJunidadenome, \UERJcentro, \UERJnome, \UERJlocal, \UERJano.}
 % ---
 \newcommand{\printkeys}{
   \vspace{0.3\baselineskip}\onehalfspacing \settowidth{\hanglength}{Keywords: }
