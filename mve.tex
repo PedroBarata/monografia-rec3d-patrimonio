@@ -1,6 +1,8 @@
+\doublespacing
 \section{MVE -- \emph{Multi-View Reconstruction Environment}}\label{sec:mve}
 %======================================================================================
 %
+\doublespacing
 \subsection{Introdução}
 Um dos sistemas de pesquisa de ponta mais utilizados para a técnica de reconstrução densa é o MVE --
 \emph{Multi-View Reconstruction Environment}~\cite{mve}. Este algoritmo utiliza
@@ -46,7 +48,7 @@ individuais. Produz uma malha superficial globalmente consistente.
 	\centering
 	\caption{Funcionamento do MVE}
 	\includegraphics[width=\linewidth]{figs/mvepipe.png}
-	\legend{%
+	\note{%
   Começando com múltiplas imagens, técnicas SfM são
   empregadas para recontruir os parâmetros das câmeras e os conjuntos de pontos
   esparsos. Mapas de profundidade são computados para cada imagem usando o MVS.
@@ -55,8 +57,8 @@ individuais. Produz uma malha superficial globalmente consistente.
   superfícies, FSSR -- \emph{Floating Scale Surface Reconstruction}.
 	}
 \source{
-	 \citeauthor{mve}
-   	 (\citeyear{mve}).
+	 \citeauthor{mve},
+   	 \citeyear{mve}.
    }
    \label{fig:mvepipeline}
 \end{figure}
@@ -107,35 +109,26 @@ Mas terá uma compensação do sistema, no que diz respeito à qualidade e desem
 	\includegraphics[width=0.2\linewidth]{figs/parallaxA.png}(a)
 	\includegraphics[width=0.2\linewidth]{figs/parallaxB.png}(b)
 	\includegraphics[width=0.2\linewidth]{figs/parallaxC.png}(c)
-	\caption{%
-  Com espaçamento grande entre câmeras, a informação extraída das
-  imagens em comum é menor (a). Se a angulação do efeito de paralaxe for
-  baixa, terá a mesma informação sobre um ponto 3D (c).
+	\legend{%
+  (a) - espaçamento grande entre câmeras; (b) - disposição correta das câmeras; (c) - espaçamento pequeno entre câmeras.
+	}
+	\note{%
+		Com espaçamento grande entre câmeras, a informação extraída das
+  imagens em comum é menor. Se a angulação do efeito de paralaxe for
+  baixa, terá a mesma informação sobre um ponto 3D.
   Nesses casos, a reconstrução pode ser incerta. Para que
   o efeito paralaxe tenha maior proveito das imagens, alguns autores argumentam que
-  câmeras devem estar dispostas como (b), de forma a extrair uma boa
+  câmeras devem estar dispostas como, de forma a extrair uma boa
   quantidade e qualidade de informações do ponto.
 	}
 	\source{
-   	 \citeauthor{3DCompVision2Didier}
-   	 (\citeyear{3DCompVision2Didier}).
+   	 \citeauthor{3DCompVision2Didier},
+   	 \citeyear{3DCompVision2Didier}.
    }
 	\label{fig:parallax}
 \end{figure}
 
-% Creating a scene: A view is a container that contains per-
-% viewport data (such as images, depth maps and other data).
-% A scene is a collection of views, which make up the dataset.
-% A new scene is created using either the graphical interface of
-% our software, UMVE, or the command line tool makescene.
-% Technically, the scene appears as a directory in the file sys-
-% tem (with the name of the dataset). It contains another direc-
-% tory views/ with all views stored as files with the extension
-% .mve. Creating a new scene will solely create the views/
-% directory for now. Importing photos will create a .mve file
-% for every photo. This process will also import meta informa-
-% tion from the images (EXIF tags), which is required to get
-% a focal length estimate for every photo. If EXIF tags are not
+
 \subsubsection{Criando uma cena}
 
 Uma vista (\emph{view}) no MVE contém dados por \emph{viewport} (como imagens,

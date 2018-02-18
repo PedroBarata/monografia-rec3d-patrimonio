@@ -1,6 +1,8 @@
+\doublespacing
 \section{VisualSfM}\label{sec:visualsfm}
 %======================================================================================
 %
+\doublespacing
 \subsection{Introdução}
 
 O VisualSfM~\cite{wu2011visualsfm} é um sistema de software baseado em fotogrametria
@@ -33,8 +35,8 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 	Botões na parte superior da interface gráfica, este seria o procedimento padrão de funcionamento do software.
 	}
   \source{
-     \citeauthor{wu2011visualsfm}
-     (\citeyear{wu2011visualsfm}).
+     \citeauthor{wu2011visualsfm},
+     \citeyear{wu2011visualsfm}.
    }
    \label{fig:pipelineVisualSfM}
 \end{figure}
@@ -89,15 +91,15 @@ essas etapas e as implementações utilizadas~\cite{fabbri2011multiview}.
 	\centering
   \caption{Problema de \emph{Bundle Adjustment}}
 	\includegraphics[width=0.5\linewidth]{figs/bundleAdjustment.png}
-	\legend{
+	\note{
 	Dado um ponto de um objeto 3D $\widehat{X}$, sua reprojeção nas câmeras $C$ e
   $C'$, são, respectivamente, $x$ e $x'$. Esses pontos possuem um erro de
   reprojeção $d$ e $d'$ e, ao utilizar o PBA/MCBA, os pontos $x$ e $x'$ serão
   reajustados como $\widehat{x}$ e $\widehat{x'}$, respectivamente.
 	}
   \source{
-     \citeauthor{3DCompVision2Didier}
-     (\citeyear{3DCompVision2Didier}).
+     \citeauthor{3DCompVision2Didier},
+     \citeyear{3DCompVision2Didier}.
    }
   \label{fig:bundleAdjustment}
 \end{figure}
@@ -403,15 +405,15 @@ qualidade e filtro de visibilidade, Figura~\ref{fig:filtropmvs}.
 	\centering
   \caption{Descrição da etapa de filtragem}
 	\includegraphics[width=1\linewidth]{figs/filtropmvs.png}
-	\legend{%
+	\note{%
   Usabilidade dos filtros de qualidade e visibilidade, aplicados fora
   do núcleo, assim como em paralelo. À esquerda, um ponto MVS $P$ é testado
   usando os filtros. À direita, temos pseudocódigos, onde os \emph{loops}
   em azul podem ser executados em paralelo.
 	}
   \source{
-     \citeauthor{furukawa2010towards}
-     (\citeyear{furukawa2010towards}).
+     \citeauthor{furukawa2010towards},
+     \citeyear{furukawa2010towards}.
    }
   \label{fig:filtropmvs}
 \end{figure} 

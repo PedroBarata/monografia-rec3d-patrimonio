@@ -1,4 +1,6 @@
+\doublespacing
 \chapter{Experimentos}\label{sec:experiments}
+\doublespacing
 %======================================================================================
 Os experimentos se concentram em explorar, ao longo deste Capítulo, os objetivos propostos na Seção~\ref{sec:objetivos}.
 
@@ -115,8 +117,8 @@ das câmeras, além da e reconstrução geométrica e fotométrica.
 		Usando o software VisualSfM, em dois ângulos diferentes (a) e (b).
 	}
 		\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:reconstrucaoDensaIndioVisualSFM}
 \end{figure}
 
@@ -232,15 +234,15 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
 	\centering
 	\caption{Caso de falha do VisualSfM}
 	\includegraphics[width=0.9\linewidth]{figs/perto_longe_esparsa_2.jpg}
-	\legend{%
+	\note{%
 	 Foram gerados dois modelos refletidos esparsos do objeto a partir
   do conjunto inicial de 224 imagens, provavelmente, proveniente da falta de
   informações para estimar as câmeras.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:reconstrucaoEsparsaVisualSFM224:2}
 \end{figure}
 
@@ -249,11 +251,14 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
 	\caption{Resultado das reconstruções densas do objeto}
 	{\label{fig:reconstrucaoDensaVisualSFM2241}\includegraphics[width=\linewidth]{figs/galinhadense224.jpg}}(a)
 	{\label{fig:reconstrucaoDensaVisualSFM2242}\includegraphics[width=\linewidth]{figs/galinhavisualsfm224.jpg}}(b)
-	\legend{Reconstruções densas do primeiro (a) e do segundo (b) modelo do objeto no VisualSfM com 224 imagens.
+	\legend{(a) - reconstrução densa do primeiro modelo;(b) - reconstrução densa do segundo modelo.
+	}
+	\note {%
+	Reconstrução do objeto no VisualSFM com 224 imagens.
 	}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{figure}
 
@@ -273,12 +278,12 @@ outras configurações.
 	\centering
 	\caption{Procedimento do MVE}
 	\includegraphics[width=0.5\linewidth]{figs/pipelineMVE.jpg}
-	\legend{%
+	\note{%
 	Processo de reconstrução usando o MVE por linha de comando: O \emph{sfmrecon} executa os passos do SfM no conjunto de imagens e gera um arquivo \emph{.mve} para cada imagem. Após isso, são associados mapas de profundidade a cada \emph{.mve} com o \emph{dmrecon}. Em seguida o \emph{scene2pset} cria uma nuvem de pontos densa com a união de todas as amostras de todos os mapas de profundidade. O \emph{fssrecon} executa o algoritmo de reconstrução de superfícies 3D e gera uma malha daquele objeto a ser reconstruído e, por fim, o \emph{meshclean} limpa os ruídos do modelo e retira algumas triangulações defeituosas da etapa do \emph{fssrecon}.
 	}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{figure}
 
@@ -299,14 +304,14 @@ câmeras estarão armazenadas no \emph{EXIF}.
 	\includegraphics[width=0.35\linewidth]{figs/exifumve.png}(a)
 	\includegraphics[width=0.35\linewidth]{figs/exifsemumve.png}(b)
 	\legend{%
-  (a) Um exemplo onde a imagem possui dados na extensão \emph{EXIF}
-  (em azul); (b) Um frame de um vídeo, que não
+  (a) - imagem com dados na extensão \emph{EXIF}
+  (em azul);(b) -um frame de um vídeo, que não
   possui os dados das câmeras (em azul).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:mveexif}
 \end{figure} 
 
@@ -330,14 +335,14 @@ o que já estava sendo executado, sem que o primeiro tivesse terminado.
 	\centering
 	\caption{Reconstrução usando a interface gráfica do MVE}
 	\includegraphics[width=\linewidth]{figs/umvedense.png}
-	\legend{%
+	\note{%
   Reconstrução final via UMVE; percebe-se que alguns pontos não foram
   considerados, mas o resultado geral foi uma nuvem de pontos mais densa.
   %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:UMVEdense}
 \end{figure} 
 
@@ -373,15 +378,15 @@ execução. Foram executados os comandos declarados nesta seção.  O
 	\caption{Linha de comandos do \emph{sfmrecon}}
 	\subfloat[]{\includegraphics[width=0.5\linewidth]{figs/umve2sfm.png}}
 	\subfloat[]{\includegraphics[width=0.5\linewidth]{figs/umve3sfmfeature.png}}
-	\legend{%
+	\note{%
   Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas
   as \emph{features} do conjunto de imagens e em (b) está computado o
   \emph{pairwise matching}.
   %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
   }
   	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:passosMVE}
 \end{figure} 
 
@@ -580,7 +585,7 @@ Seu formato facilita o manuseio do scanner para conseguirmos realizar uma boa va
 \begin{figure}[!h]
 	\centering
 	\caption{Caixa do Sense}
-	\includegraphics[width=0.75\linewidth]{figs/senseFoto1.jpg}
+	\includegraphics[width=0.75\linewidth]{figs/SenseFoto1.jpg}
 		\source{
    	 O autor
    	 (2017).
@@ -590,7 +595,7 @@ Seu formato facilita o manuseio do scanner para conseguirmos realizar uma boa va
 \begin{figure}[!h]
 	\centering
 	\caption{O Sense}
-	\includegraphics[width=1\linewidth]{figs/senseFoto2.jpg}
+	\includegraphics[width=1\linewidth]{figs/SenseFoto2.jpg}
 		\source{
    	 O autor
    	 (2017).
@@ -607,10 +612,10 @@ O software do Sense é de fácil entendimento (figura~\ref{fig:sense0}), caso ne
 	\centering
 	\caption{Tela inicial do Sense}
 	\includegraphics[width=1\linewidth]{figs/sense2v2.png}
-	\legend{Quando abrimos o Sense, temos à disposição um vídeo explicativo com algumas informações, como dicas para um bom escaneamento e sobre como manusear o software da maneira correta.}
+	\note{Quando abrimos o Sense, temos à disposição um vídeo explicativo com algumas informações, como dicas para um bom escaneamento e sobre como manusear o software da maneira correta.}
 		\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:sense0}
 \end{figure} 
 
@@ -620,10 +625,10 @@ O software do Sense é de fácil entendimento (figura~\ref{fig:sense0}), caso ne
 	\centering
 	\caption{Interface do Sense}		
 	\includegraphics[width=0.8\linewidth]{figs/sense5v2.png}
-	\legend{Assim que passamos o vídeo introdutório, o software nos dá a opção de escanearmos uma pessoa ou um objeto. Onde ao escolhermos um objeto, podemos selecionar o tamanho do objeto a ser escaneado. Notamos que o próprio software indica que os menores objetos seriam um livro ou um laptop, por exemplo.}
+	\note{Assim que passamos o vídeo introdutório, o software nos dá a opção de escanearmos uma pessoa ou um objeto. Onde ao escolhermos um objeto, podemos selecionar o tamanho do objeto a ser escaneado. Notamos que o próprio software indica que os menores objetos seriam um livro ou um laptop, por exemplo.}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:sense1}
 \end{figure} 
 
@@ -637,8 +642,8 @@ Para a galinha, obtivemos os resultados abaixo:
 	\includegraphics[width=0.9\linewidth]{figs/sense7v2.png}
 %	\legend{Como resultado da digitalização, o Sense não se mostrou muito eficaz, pois gerou uma reconstrução com buracos e com poucas informações.}
 		\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:sense3}
 \end{figure} 
 
@@ -648,10 +653,10 @@ Para a galinha, obtivemos os resultados abaixo:
 	\centering
 	\caption{Resultados do escaneamento com o Sense}
 	\includegraphics[width=0.9\linewidth]{figs/sense8v2.png}
-	\legend{Como resultado da digitalização, o Sense não se mostrou muito eficaz, pois gerou uma reconstrução com buracos e com poucas informações.}
+	\note{Como resultado da digitalização, o Sense não se mostrou muito eficaz, pois gerou uma reconstrução com buracos e com poucas informações.}
 		\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:sense3}
 \end{figure} 
 

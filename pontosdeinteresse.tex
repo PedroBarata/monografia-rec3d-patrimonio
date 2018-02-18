@@ -1,6 +1,7 @@
+\doublespacing
 \chapter{Reconstrução 3D passiva}\label{cap:pontosdeinteresse}
 %======================================================================================
-%
+\doublespacing
 \section{Introdução}
 
 A maioria dos métodos de reconstrução 3D robusta de estrutura por movimento, ou \emph{Structure
@@ -59,8 +60,8 @@ imagem~\ref{fig:Sift}) em cada imagem~\cite{Lowe:IJCV2004}.
 	\includegraphics[width=0.3\linewidth]{figs/SIFTsapo.jpg}
 	\includegraphics[width=0.3\linewidth]{figs/SIFTsapo2.jpg}
 	\legend{Cada linha pode ser interpretada como uma correspondência encontrada entre as duas imagens.}
-	\source{O autor
-			(2017)
+	\source{O autor,
+			2017
 			}
 	\label{fig:Sift}
 \end{figure}
@@ -120,12 +121,13 @@ Figura~\ref{fig:lenadog}.
 	\includegraphics[width=0.20\linewidth]{figs/lenaSigma2.png}(c)
  	\includegraphics[width=0.20\linewidth]{figs/lenaDoG.png} (d)
 	\legend{%
-	 Filtro gaussiano aplicado na imagem (a), com $\sigma = 1$, resultando
-  em (b); outra filtragem gaussiana com $\sigma = 2$ (c). Subtrai-se (b)
-  de (c), produzindo o filtro DoG (d).
+	 (a) - filtro gaussiano aplicado na imagem; (b) - resultado do filtro; (c) - outra filtragem gaussiana; (d) - filtro DoG.
 	}
-	\source{O autor
-			(2017)}
+	\note{%
+	O filtro gaussiano é aplicado na imagem, com $\sigma = 1$. Após isso, outra filtragem gaussiana com $\sigma = 2$ é aplicada. Subtrai-se as duas imagens e é obtido o filtro DoG.
+	}
+	\source{O autor,
+			2017}
 	\label{fig:lenadog}
 \end{figure}
 
@@ -203,13 +205,13 @@ representados em forma de vetor para expressar o descritor de pontos-chaves
 \begin{figure} [!h]
 	\centering
 	\caption{Exemplo de um descritor de pontos SIFT}
-	\includegraphics[width=0.45\linewidth]{figs/descritorkeypoint.png}
+	\includegraphics[width=0.45\linewidth]{figs/descritorKeypoint.png}
 	\legend{%
 	Usando uma matriz 2x2 e uma região 8x8
 	}
 	\source{
-   	 \citeauthor{jindal2010sift}
-   	 (\citeyear{jindal2010sift}).
+   	 \citeauthor{jindal2010sift},
+   	 \citeyear{jindal2010sift}.
    }
 	\label{fig:descritorkeypoint}
 \end{figure}
