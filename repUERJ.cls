@@ -16,7 +16,7 @@
 
 % refaz o comando do setspace
 \renewcommand{\singlespacing}{\setstretch {\setspace@singlespace}}
-\newcommand{\note}[1]{\raggedright Nota: #1} 
+\newcommand{\note}[1]{\par \raggedright \hangindent3em Nota: #1} 
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \newif\if@titlepage
