@@ -70,15 +70,13 @@ o modelo mais utilizado na literatura para o escaneamento de objetos~\cite{doi:1
 é o foco deste trabalho, em vez do rastreamento em tempo real para entretenimento, que é
 dominado pelo Kinect versão 2.
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\caption{
 	Imagem de um Kinect V1 aberto
 	}	
 	\includegraphics[width=0.5\linewidth]{figs/kinect.png}
-	\legend{%
+	\note{%
   	Constituído de uma câmera infra-vermelho (IR -
   \emph{Infra-Red}), uma câmera RGB e um projetor IR.
   }
@@ -95,6 +93,8 @@ A principal saída do Kinect é correspondente à profundidade da
 cena. Na realidade, em vez de providenciar uma profundidade $Z$, ele retorna uma profundidade
 inversa, $D$. Essa informação é construída a partir da triangulação
 da imagem IR com o padrão conhecido do projetor.
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -302,20 +302,21 @@ SR-4000 e perto do 3.5M SLR Stereo, figuras~\ref{fig:resultadoKinect1}, \ref{fig
 	\caption{%
 	Imagens iniciais para reconstrução 3D usando Kinect com câmeras
 	}
-	\subfloat[Imagem do lado esquerdo da câmera
-  SLR]{\label{fig:SLResq}\includegraphics[height=0.2\linewidth]{figs/imagemSLResquerda.png}}
-	\subfloat[Imagem da profundidade do
-  Kinect]{\label{fig:KinectDepth}\includegraphics[height=0.2\linewidth]{figs/imagemProfundidadeKinect.png}}
-	\subfloat[Imagem do lado direito da câmera
-  SLR]{\label{fig:SLRdir}\includegraphics[height=0.2\linewidth]{figs/imagemSLRdireita.png}}
+	\subfloat[]{\label{fig:SLResq}\includegraphics[height=0.2\linewidth]{figs/imagemSLResquerda.png}}
+	\subfloat[]{\label{fig:KinectDepth}\includegraphics[height=0.2\linewidth]{figs/imagemProfundidadeKinect.png}}
+	\subfloat[]{\label{fig:SLRdir}\includegraphics[height=0.2\linewidth]{figs/imagemSLRdireita.png}}
+  \legend{
+  (a) - imagem do lado esquerdo da câmera
+  SLR; (b) - imagem da profundidade do
+  Kinect; (c) - imagem do lado direito da câmera
+  SLR.
+  }
   	\source{
    	 \citeauthor{smisek20133d}
    	 (\citeyear{smisek20133d}).
    }
 	\label{fig:resultadoKinect1}
 \end{figure}
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -363,8 +364,6 @@ detalhado, Figuras~\ref{fig:KinectFusionPipe} e~\ref{fig:KinectFusionPipe2}.
    }
    \label{fig:KinectFusionPipe}
 \end{figure}
-
-\newpage
 
 \begin{figure}[!h]
 	\centering

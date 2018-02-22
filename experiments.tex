@@ -2,7 +2,7 @@
 \chapter{Experimentos}\label{sec:experiments}
 \doublespacing
 %======================================================================================
-Os experimentos se concentram em explorar, ao longo deste Capítulo, os objetivos propostos na Seção~\ref{sec:objetivos}.
+Os experimentos se concentram em explorar, ao longo deste Capítulo, os objetivos citados anteriormente, no início deste documento.
 
 \section{Procedimento}
 Primeiramente, foram realizadas filmagens iniciais de algumas esculturas,
@@ -13,7 +13,7 @@ varrer a maioria da superfície da escultura em $360^{\circ}$,
 Figura~\ref{fig:procedimentoscan}.  Em seguida, fizemos mais alguns vídeos,
 capturando alguns pontos que possuíam mais detalhes mais de perto.
 
-Vale ressaltar que no dia das filmagens, estava ensolarado com boa iluminação para a captura das esculturas
+Vale ressaltar que no dia das filmagens, estava ensolarado com boa iluminação para a captura das esculturas.
 
 \begin{figure}[!h]
 	\centering
@@ -22,8 +22,8 @@ Vale ressaltar que no dia das filmagens, estava ensolarado com boa iluminação 
 	}	
 	\includegraphics[width=0.4\linewidth]{figs/procedimentoscan.png}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:procedimentoscan}
 \end{figure}
 
@@ -67,6 +67,8 @@ resultados em relação ao tempo, Tabela~\ref{tab:temposSfMJardimDoNego}. Para a
 197 imagens do Jardim do Nêgo, com as reconstruções mostradas nas
 Figuras~\ref{fig:reconstrucaoEsparsaIndioVisualSFM} e~\ref{fig:reconstrucaoDensaIndioVisualSFM}.
 
+\newpage
+
 \begin{table}[h!]
 \caption{Tempos obtidos da reconstrução da escultura do Jardim do Nêgo usando o VisualSfM}
 \label{tab:temposSfMJardimDoNego}
@@ -79,22 +81,20 @@ Gerar a reconstrução esparsa do modelo & 4 minutos \\ \hline
 Gerar a reconstrução densa do modelo & 24 minutos \\ \hline
 \end{tabular}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{table}
 
 Percebe-se que foi gerada uma nuvem de pontos bastante consistente, a partir da
 reconstrução esparsa do algoritmo PBA.  Por conta disso, nossa reconstrução 3D
 densa, empregando o MCBA/PMVS-2, obteve uma qualidade razoável para o conjunto de
-imagens usado, figura~\cite{fig:reconstrucaoEsparsaIndioVisualSFM}, apesar de apresentar ainda ruídos e falta de resolução para uma
+imagens usado, apesar de apresentar ainda ruídos e falta de resolução para uma
 preservação de patrimônio completa como no projeto \emph{Digital Michaelangelo}
 de escaneamento a laser. Nota-se que o resultado é bastante surpreendente, dado que
 apenas os vídeos foram fornecidos, e o software teve que calcular as posições
 das câmeras, além da e reconstrução geométrica e fotométrica.
 %COLOCAR IMAGENS GUERREIRO AQUI%
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -103,10 +103,12 @@ das câmeras, além da e reconstrução geométrica e fotométrica.
 	}
 	\includegraphics[width=0.9\linewidth]{figs/guerreiroEsparsa.jpg}
 		\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }\label{fig:reconstrucaoEsparsaIndioVisualSFM}
 \end{figure}
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -129,8 +131,6 @@ Com o objeto em ambiente fechado, conseguimos os resultados a seguir.
 Para o primeiro vídeo, convertido em 200 imagens, os tempos estão relatados na
 Tabela~\ref{tab:temposSfM}.
 
-\newpage
-
 \begin{table}[!h]
 \caption{Tempos obtidos da reconstrução do objeto, com 200 imagens usando o VisualSfM}
 \label{tab:temposSfM}
@@ -143,8 +143,8 @@ Gerar a reconstrução esparsa do modelo & 2 minutos e 25 segundos \\ \hline
 Gerar a reconstrução densa do modelo & 24 minutos \\ \hline
 \end{tabular}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{table}
 
@@ -157,30 +157,30 @@ tecla \texttt{F1} e selecionando a área desejada para ser deletada. Não é mui
 pois podemos excluir alguns pontos importantes. O ideal seria fazer esta limpeza
 por meio de programas externos.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\caption{%
 	Reconstrução esparsa do objeto no VisualSfM com 200 imagens.
 	}
-		\includegraphics[width=\linewidth]{figs/galinhasparsa.jpg}
+		\includegraphics[width=0.8\linewidth]{figs/galinhasparsa.jpg}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	2017.
    }
 	\label{fig:reconstrucaoEsparsaVisualSFM}
 \end{figure}
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
 \caption{%
 	Reconstrução densa do objeto no VisualSfM com 200 imagens.
 	}	
-	\includegraphics[width=\linewidth]{figs/galinhadense.jpg}
+	\includegraphics[width=0.8\linewidth]{figs/galinhadense.jpg}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 	\label{fig:reconstrucaoDensaVisualSFM}
 \end{figure}
@@ -204,8 +204,8 @@ Gerar a reconstrução esparsa do modelo & 3 minutos \\ \hline
 Gerar a reconstrução densa do modelo & 32 minutos \\ \hline
 \end{tabular}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{table}
 
@@ -224,9 +224,9 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
 	}	
 	\includegraphics[width=\linewidth]{figs/perto_longe_esparsa.jpg}
 	\source{
-   	 O autor
-   	 (2017).
-  	 }
+   	 O autor,
+   	 2017.
+   }
 	\label{fig:reconstrucaoEsparsaVisualSFM224}
 \end{figure}
 
@@ -245,6 +245,8 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
    	 2017.
    }\label{fig:reconstrucaoEsparsaVisualSFM224:2}
 \end{figure}
+
+\clearpage
 
 \begin{figure}[!h]
 	\centering
@@ -269,17 +271,15 @@ Figuras~\ref{fig:reconstrucaoDensaVisualSFM2241} e~\ref{fig:reconstrucaoDensaVis
 A utilização do software é bem intuitiva, seja por linha de comando ou pela
 interface gráfica (neste modo, fica mais fácil visualizar cada etapa da
 reconstrução). O programa é amplamente configurável, podendo escolher a vizinhança, escala,
-manter o mapa de profundidade, ver os dados \emph{EXIF} de cada imagem, dentre
+manter o mapa de profundidade, ver os dados \texttt{EXIF} de cada imagem, dentre
 outras configurações.
-
-\newpage
 
 \begin{figure}[!htpb]
 	\centering
 	\caption{Procedimento do MVE}
 	\includegraphics[width=0.5\linewidth]{figs/pipelineMVE.jpg}
 	\note{%
-	Processo de reconstrução usando o MVE por linha de comando: O \emph{sfmrecon} executa os passos do SfM no conjunto de imagens e gera um arquivo \emph{.mve} para cada imagem. Após isso, são associados mapas de profundidade a cada \emph{.mve} com o \emph{dmrecon}. Em seguida o \emph{scene2pset} cria uma nuvem de pontos densa com a união de todas as amostras de todos os mapas de profundidade. O \emph{fssrecon} executa o algoritmo de reconstrução de superfícies 3D e gera uma malha daquele objeto a ser reconstruído e, por fim, o \emph{meshclean} limpa os ruídos do modelo e retira algumas triangulações defeituosas da etapa do \emph{fssrecon}.
+	Processo de reconstrução usando o MVE por linha de comando: O \texttt{sfmrecon} executa os passos do SfM no conjunto de imagens e gera um arquivo \texttt{.mve} para cada imagem. Após isso, são associados mapas de profundidade a cada \texttt{.mve} com o \texttt{dmrecon}. Em seguida o \texttt{scene2pset} cria uma nuvem de pontos densa com a união de todas as amostras de todos os mapas de profundidade. O \texttt{fssrecon} executa o algoritmo de reconstrução de superfícies 3D e gera uma malha daquele objeto a ser reconstruído e, por fim, o \texttt{meshclean} limpa os ruídos do modelo e retira algumas triangulações defeituosas da etapa do \texttt{fssrecon}.
 	}
 	\source{
    	 O autor,
@@ -289,23 +289,23 @@ outras configurações.
 
 Entretanto, para a aplicação proposta neste projeto, o MVE não é muito interessante,
 visto que utiliza fortemente a informação \emph{a priori} das câmeras inseridas nas imagens
-(\emph{EXIF}) e, como as imagens empregadas na reconstrução são, tecnicamente,
+(\texttt{EXIF}) e, como as imagens empregadas na reconstrução são, tecnicamente,
 vídeos cortados em determinados \emph{frames}, não é fácil obter essa informação
 das câmeras~\ref{fig:mveexif}. Logo o, software não tem tanta aplicabilidade
 neste caso, pois pode recair no problema dos parâmetros padrões adotados para as
 câmeras não serem bons o suficiente para estes conjuntos de dados. A menos que
 sejam tiradas fotos sequenciais de alguma escultura ou objeto que se deseja
 gerar a reconstrução densa, pois dessa forma, as informações necessárias das
-câmeras estarão armazenadas no \emph{EXIF}. 
+câmeras estarão armazenadas no \texttt{EXIF}. 
 
 \begin{figure}[!htpb]
 	\centering
-	\caption{Extensão \emph{EXIF}}
+	\caption{Extensão \texttt{EXIF}}
 	\includegraphics[width=0.35\linewidth]{figs/exifumve.png}(a)
 	\includegraphics[width=0.35\linewidth]{figs/exifsemumve.png}(b)
 	\legend{%
-  (a) - imagem com dados na extensão \emph{EXIF}
-  (em azul);(b) -um frame de um vídeo, que não
+  (a) - imagem com dados na extensão \texttt{EXIF}
+  (em azul); (b) - um frame de um vídeo, que não
   possui os dados das câmeras (em azul).
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
@@ -318,7 +318,7 @@ câmeras estarão armazenadas no \emph{EXIF}.
 Foi gerada uma reconstrução no MVE de um vídeo gravado de uma escultura no Jardim do
 Nêgo. O  vídeo foi reduzido a \emph{frames} de onde foram selecionadas 200 imagens base,
 com os parâmetros de câmera gerados pelo próprio software, mesmo sem o
-\emph{EXIF} para ajudar na estimativa inicial. 
+\texttt{EXIF} para ajudar na estimativa inicial. 
 A partir disso, foram executados todos os passos de uma reconstrução utilizando o
 MVE, de forma que foram utilizadas as duas opções, tanto por linha de comando,
 quanto pela interface gráfica (UMVE).
@@ -330,6 +330,8 @@ linha de comando, onde, resumindo, tivemos os resultados na Tabela~\ref{tab:mveS
 O UMVE não sinaliza quando o processo em execução termina; a explicação
 para essa discrepância no tempo é devido à execução de outro comando, sobrepondo
 o que já estava sendo executado, sem que o primeiro tivesse terminado.
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -346,8 +348,6 @@ o que já estava sendo executado, sem que o primeiro tivesse terminado.
    }\label{fig:UMVEdense}
 \end{figure} 
 
-\newpage
-
 \begin{table}[!htpb]
 \centering
 \caption{Tempos obtidos usando o MVE em um conjunto de dados do Jardim do Nêgo}
@@ -355,15 +355,15 @@ o que já estava sendo executado, sem que o primeiro tivesse terminado.
 \begin{tabular}{|l|l|}
 \hline
 Comando            & Tempo (aprox.)    \\ \hline
-\emph{sfmrecon}  & 1 minuto e 28 segundos     \\ \hline
-\emph{dmrecon}   & 4 horas \\ \hline
-\emph{scene2pset} & 10 minutos    \\ \hline
-\emph{fssrecon}  & 7 horas \\ \hline
-\emph{meshclean} & 1 minuto     \\ \hline
+\texttt{sfmrecon}  & 1 minuto e 28 segundos     \\ \hline
+\texttt{dmrecon}   & 4 horas \\ \hline
+\texttt{scene2pset} & 10 minutos    \\ \hline
+\texttt{fssrecon}  & 7 horas \\ \hline
+\texttt{meshclean} & 1 minuto     \\ \hline
 \end{tabular}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{table}
 
@@ -373,13 +373,15 @@ parâmetros e inclusive mostrar a porcentagem de progresso do comando em
 execução. Foram executados os comandos declarados nesta seção.  O
 \texttt{sfmrecon} demorou cerca de 1 minuto e meio. %\ref{fig:MVESfM}. 
 
+\clearpage
+
 \begin{figure}[!htpb]
 	\centering
-	\caption{Linha de comandos do \emph{sfmrecon}}
+	\caption{Linha de comandos do \texttt{sfmrecon}}
 	\subfloat[]{\includegraphics[width=0.5\linewidth]{figs/umve2sfm.png}}
 	\subfloat[]{\includegraphics[width=0.5\linewidth]{figs/umve3sfmfeature.png}}
 	\note{%
-  Processos dentro do comando \emph{sfmrecon}, onde (a) estão sendo detectadas
+  Processos dentro do comando \texttt{sfmrecon}, onde (a) estão sendo detectadas
   as \emph{features} do conjunto de imagens e em (b) está computado o
   \emph{pairwise matching}.
   %\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
@@ -449,13 +451,14 @@ obtido o resultado~\ref{fig:MVEMeshClean}.
 \begin{figure}[!h]
 	\centering
 	\caption{%
-	Malha com ruídos proveniente do comando \emph{fssrecon}.
+	Malha com ruídos proveniente do comando \texttt{fssrecon}.
 	}
 	\includegraphics[width=0.95\linewidth]{figs/mvemeshout.png}
-		\source{
-   	 O autor
-   	 (2017).
-   }\label{fig:MVEFSSRMesh}
+	\source{
+   	 O autor,
+   	 2017.
+   }
+   \label{fig:MVEFSSRMesh}
 \end{figure} 
 
 \begin{figure}[!h]
@@ -465,10 +468,11 @@ obtido o resultado~\ref{fig:MVEMeshClean}.
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
 	\includegraphics[width=1\linewidth]{figs/mvemeshclean.png}
-		\source{
-   	 O autor
-   	 (2017).
-   }\label{fig:MVEMeshClean}
+	\source{
+   	 O autor,
+   	 2017.
+   }
+   \label{fig:MVEMeshClean}
 \end{figure} 
 
 \newpage
@@ -477,7 +481,7 @@ Para comparação, usou-se o mesmo objeto utilizado na reconstrução do VisualS
 galinha) e foi feito o passo a passo com o MVE: com a interface gráfica (UMVE),
 criou-se uma nova cena inserido-se, primeiramente, as 200 fotos do objeto. Em
 seguida, utilizando as linhas de comando do MVE, foi feito o procedimento padrão
-de reconstrução do software. Foram obtidos os resultados na Tabela~\ref{tab:galinha200mve}:
+de reconstrução do software. Foram obtidos os resultados na Tabela~\ref{tab:galinha200mve}.
 
 \begin{table}[!h]
 \centering
@@ -486,15 +490,15 @@ de reconstrução do software. Foram obtidos os resultados na Tabela~\ref{tab:ga
 \begin{tabular}{|l|l|}
 \hline
 Comando            & Tempo (aprox.)         \\ \hline
-\emph{sfmrecon}  & 6 minutos   \\ \hline
-\emph{dmrecon}   & 1 hora \\ \hline
-\emph{scene2pset} & 5 minutos   \\ \hline
-\emph{fssrecon}  & 29 minutos \\ \hline
-\emph{meshclean} & 45 segundos    \\ \hline
+\texttt{sfmrecon}  & 6 minutos   \\ \hline
+\texttt{dmrecon}   & 1 hora \\ \hline
+\texttt{scene2pset} & 5 minutos   \\ \hline
+\texttt{fssrecon}  & 29 minutos \\ \hline
+\texttt{meshclean} & 45 segundos    \\ \hline
 \end{tabular}
 	\source{
-   	 O autor
-   	 (2017).
+   	 O autor,
+   	 2017.
    }
 \end{table}
 
@@ -525,12 +529,13 @@ Comando            & Tempo (aprox.)         \\ \hline
 % \end{figure}
 
  \begin{figure}[!h]
- 	\centering
+ 	\centering	
+ 	\caption{Resultado da etapa \texttt{fssrecon} do MVE}
  	\includegraphics[width=0.7\linewidth]{figs/galinhadmr.png}
- 	\caption{%
- 	Resultado da etapa \emph{fssrecon} do MVE
- 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
- 	}\label{fig:galinhaFssr}
+ 	\source{
+ 	O autor, 2017.
+ 	}
+ 	\label{fig:galinhaFssr}
  \end{figure}
 
 \newpage
@@ -538,22 +543,23 @@ Comando            & Tempo (aprox.)         \\ \hline
 \begin{figure}[!h]
 	\centering
 		\caption{%
-	Resultado da etapa \emph{meshclean}, da etapa anterior \ref{fig:galinhaFssr}
+	Resultado da etapa \texttt{meshclean}, da etapa anterior \ref{fig:galinhaFssr}
 	%\cite{Cui:Theobalt:etal:PAMI2013,Pajdla:etal:ICCV2011}.
 	}
 	\includegraphics[width=0.7\linewidth]{figs/galinhameshclean.png}
-		\source{
-   	 O autor
-   	 (2017).
-   }\label{fig:galinhaMeshClean}
+	\source{
+   	 O autor,
+   	 2017.
+   }
+   \label{fig:galinhaMeshClean}
 \end{figure}
 
-A etapa de \emph{scene2pset} demorou cerca de 20 segundos (total). Porém
+A etapa de \texttt{scene2pset} demorou cerca de 20 segundos (total). Porém
 a reconstrução não foi satisfatória, o software se confundiu, e
 não conseguiu obter os parâmetros corretos das câmeras utilizadas. A partir
 disso, o erro se propagou e gerou a reconstrução da Figura~\ref{fig:galinhaMeshClean}.  Rodamos também com as 224 fotos, mas só foi possível
-executar o passo \emph{sfmrecon}, pois o MVE não
-conseguiu rodar o comando \emph{dmrecon} provavelmente o SIFT falhou na correspondências entre as imagens, e não gerou nenhum
+executar o passo \texttt{sfmrecon}, pois o MVE não
+conseguiu rodar o comando \texttt{dmrecon} provavelmente o SIFT falhou na correspondências entre as imagens, e não gerou nenhum
 resultado para a continuação do algoritmo.%, Figura~\ref{fig:galinhaDMR224}.
 
 % \begin{figure}[!h]
@@ -575,7 +581,6 @@ resultado para a continuação do algoritmo.%, Figura~\ref{fig:galinhaDMR224}.
 % \end{figure}
 
 %Utilizando o Skanect versão gratuita, obtemos os seguintes resultados...%
-\newpage
 
 \subsection{Resultados da reconstrução com o Sense}
 Para a reconstrução com o Kinect, utilizamos uma ferramenta de escaneamento que utiliza o mesmo princípio do Kinect versão 1 (baseado em luz estruturada): o Sense versão 1~\cite{3DSystems}.
@@ -586,20 +591,22 @@ Seu formato facilita o manuseio do scanner para conseguirmos realizar uma boa va
 	\centering
 	\caption{Caixa do Sense}
 	\includegraphics[width=0.75\linewidth]{figs/SenseFoto1.jpg}
-		\source{
-   	 O autor
-   	 (2017).
-   }\label{fig:fotoSense0}
+	\source{
+   	 O autor,
+   	 2017.
+   }
+   \label{fig:fotoSense0}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
 	\caption{O Sense}
 	\includegraphics[width=1\linewidth]{figs/SenseFoto2.jpg}
-		\source{
-   	 O autor
-   	 (2017).
-   }\label{fig:fotoSense1}
+	\source{
+   	 O autor,
+   	 2017.
+   }
+   \label{fig:fotoSense1}
 \end{figure}
 
 \newpage
@@ -634,12 +641,12 @@ O software do Sense é de fácil entendimento (figura~\ref{fig:sense0}), caso ne
 
 Para comparação com os softwares que foram descritos anteriormente, fizemos o escaneamento apenas do objeto em ambiente fechado. O Sense tem dificuldades de escaneamento em áreas abertas e pode não funcionar tão bem, como descrito no \emph{site} do proprietário~\cite{3DSystems}. 
 
-Para a galinha, obtivemos os resultados abaixo:
+Para a galinha, obtivemos os seguintes resultados.
 
 \begin{figure}[!h]
 	\centering
 	\caption{Resultados do escaneamento com o Sense}
-	\includegraphics[width=0.9\linewidth]{figs/sense7v2.png}
+	\includegraphics[width=0.8\linewidth]{figs/sense7v2.png}
 %	\legend{Como resultado da digitalização, o Sense não se mostrou muito eficaz, pois gerou uma reconstrução com buracos e com poucas informações.}
 		\source{
    	 O autor,
@@ -663,7 +670,7 @@ Para a galinha, obtivemos os resultados abaixo:
 
 Os buracos e a falta de informações são decorrentes da perda de referência do objeto pelo software, solicitando ao usuário que volte ao ponto anterior para retomar a referência do objeto, o que geralmente é mais fácil recomeçar a digitalização do zero pois dificilmente o software consegue achar novamente a referência do objeto. 
 
-Entrando em contato com o suporte do proprietário~\cite{3DSystems} fui notificado de que é necessário um computador com um processador Intel Core i5 ou superior e mesmo assim o software trava constantemente, o que torna o seu uso muito frustrante e que também colabora para a perda de referência do objeto.
+Entrando em contato com o suporte do fabricante~\cite{3DSystems} fui notificado de que é necessário um computador com um processador Intel Core i5 ou superior e mesmo assim o software trava constantemente, o que torna o seu uso muito frustrante e que também colabora para a perda de referência do objeto.
 
 
 %\begin{figure}[!h]

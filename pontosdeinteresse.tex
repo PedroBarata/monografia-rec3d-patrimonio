@@ -22,8 +22,8 @@ pipeline SfM+MVS funciona com os seguintes passos, ilustrados na Figura~\ref{fig
 \begin{figure}[!h]
 	\centering
 	\caption{Procedimento da maioria dos sistemas SfM}
-	\includegraphics[width=\linewidth]{figs/pipelinesfm.png}
-	\legend{% 
+	\includegraphics[width=0.98\linewidth]{figs/pipelinesfm.png}
+	\note{% 
 	Além dessas etapas, geralmente a reconstrução é densificada usando-se MVS.
 	}
 	\source{
@@ -66,7 +66,9 @@ imagem~\ref{fig:Sift}) em cada imagem~\cite{Lowe:IJCV2004}.
 	\label{fig:Sift}
 \end{figure}
 
-O algoritmo pode ser dividido em cinco etapas:
+\newpage
+
+\noindent O algoritmo pode ser dividido em cinco etapas:
 
 \begin{itemize}
 	\item{Deteccão de extremos no espaço-escala -- \emph{Scale-space Extrema Detection};}
@@ -207,7 +209,7 @@ representados em forma de vetor para expressar o descritor de pontos-chaves
 	\caption{Exemplo de um descritor de pontos SIFT}
 	\includegraphics[width=0.45\linewidth]{figs/descritorKeypoint.png}
 	\legend{%
-	Usando uma matriz 2x2 e uma região 8x8
+	Um descritor usando uma matriz 2x2 e uma região 8x8
 	}
 	\source{
    	 \citeauthor{jindal2010sift},
@@ -245,7 +247,7 @@ pelo menos duas câmeras conhecidas, onde, cada câmera com a projeção do
 	\caption{Exemplo de triangulação}
 	\includegraphics[width=0.45\linewidth]{figs/triangulacao.png}
 	\legend{%
-	Uma triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
+	A imagem acima é um exemplo de triangulação utilizando um ponto qualquer, $X_j$. Onde cada câmera $C_1, C_2, C_3$ possui um \emph{feature} correspondente a cada uma delas, respectivamente, $X_{1j}, X_{2j}, X_{3j}$.
 	}\source{Fergus 
 			(2013)}
 	\label{fig:triangulacao}
