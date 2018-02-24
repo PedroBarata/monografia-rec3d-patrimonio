@@ -36,7 +36,7 @@ Figura~\ref{fig:pipelineVisualSfM}. O funcionamento segue os seguintes passos:
 	}
   \source{
      \citeauthor{wu2011visualsfm},
-     \citeyear{wu2011visualsfm}.
+     2011.
    }
    \label{fig:pipelineVisualSfM}
 \end{figure}
@@ -239,7 +239,7 @@ processar cada \emph{cluster} de forma independente e em paralelo, onde a fusão
 das reconstruções de todos os \emph{clusters} não deve perder detalhes que
 poderiam ser obtidos através do conjunto de imagens como um todo.
 A formulação dos \emph{clusters} é projetada para satisfazer três restrições: 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{As imagens redundantes são excluídas dos \emph{clusters} (compacidade)}
 \item{Cada \emph{cluster} é pequeno o suficiente para uma reconstrução MVS (restrição de tamanho)}
 \item{As reconstruções MVS destes \emph{clusters} resultam em uma perda mínima de conteúdo e detalhes em comparação com o que pode ser obtido através do processamento do conjunto completo de imagens (cobertura).}
@@ -249,14 +249,14 @@ melhorar precisão, pois as coleções de fotos da Internet ou de vídeo geralme
 contêm centenas ou milhares de fotos adquiridas de quase mesmo ponto de vista,
 ou seja, um conjunto composto inteiramente informações redundadntes.  A
 sobreposição de \emph{clusters} é definida por:
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item Minimizar $\sum_{k} |C_k|$ (compacidade);
 \item $|C_k| \le \alpha$, $\forall k$, onde $\alpha$ é determinado por recursos computacionais, principalmente por limitações de memória. (tamanho);
 \item $\frac{\text{ \# pontos cobertos em } I_i}{\text{ \# pontos em } I_i} \ge
   \delta$, $\forall i$, onde $\delta$ é uma constante de proporção de pontos cobertos. (cobertura).
 \end{itemize}
 O CMVS pode ser resumido em quatro passos, detalhados adiante:
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item Filtro SFM -- agrupamento de pontos SFM;
 \item Seleção de imagens -- remove imagens reduntantes;
 \item Divisão de \emph{cluster} -- reforça a restrição de tamanho;
@@ -363,7 +363,7 @@ A imagem é divida em células (\emph{grid}), de $\beta$ x $\beta$ pixels
 célula, maior será a densidade na nuvem de pontos final.
 
 O PMVS-2 pode ser dividido em algumas etapas:
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{Inicalização:}
 	\subitem{Detecção de \emph{features};}
 	\subitem{Correspondência guiada;}

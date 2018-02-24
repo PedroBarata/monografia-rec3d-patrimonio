@@ -123,7 +123,7 @@ suscetível à propagação de erros, pois, caso uma calibração falhasse, seri
 apenas uma parte da calibração e não o sistema como um todo. No projeto de
 David, a calibração foi divida em seis etapas distintas:
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{Um mapeamento 2D a partir de coordenadas de \emph{pixels} das imagens da
   câmera de profundidade para localizações físicas na camada de laser;}
 \item{Uma transformação rígida 2D/3D do sistema de coordenadas da camada de
@@ -199,7 +199,7 @@ Um operador move interativamente a cabeça do escaneador através de uma
 sequência de movimentos, definindo os limites do volume a ser escaneado. O
 volume que pode ser coberto em uma única varredura foi delimitado por conta de
 quatro fatores:
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item{O campo de visão e os limites de movimento do escaneador;}
 \item{A  queda na qualidade da varredura com o aumento da obliquidade do laser;}
 \item{Oclusões, tanto do laser quanto da linha de visão da câmera;}
@@ -231,7 +231,7 @@ etapas de escaneamento de profundidade (laser) e do escaneamento da fotometria
 
 Primeiramente faz-se o escaneamento fotogramétrico da geometria da escultura:
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{Alinhamento manual;}
 \item{ICP -- \emph{Iterative Closest Point} para uma câmera existente;} %CITAR ICP AQUI%
 \item{ICP automático para todos os pares sobrepostos;}
@@ -239,15 +239,14 @@ Primeiramente faz-se o escaneamento fotogramétrico da geometria da escultura:
 \item{Reunir utilizando métodos volumétricos.}
 \end{enumerate}
 Após isso, ocorre o escaneamento fotométrico e o processamento das cores da escultura:
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{Compensação da iluminação do ambiente;}
 \item{Descarte de pixels com sombra ou reflexos especulares;}
 \item{Mapeia-se os vértices (uma cor por vértice);}
 \item{Correção da irradiância e reflectância difusa.}
 \end{enumerate}
-
 Limitações:
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item{Inter-reflexões são ignoradas;}
 \item{Dispersões subterrâneas (\emph{subsurface scattering}) são ignoradas;}
 \item{Tratamento de efeito difuso como Lambertiano;} %CITAR TREATED DIFFUSED AS LAMBERTIAN%

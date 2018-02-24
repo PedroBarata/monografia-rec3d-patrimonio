@@ -18,10 +18,10 @@ reconstrução baseada no SfM, amigável ao usuário e conhecida como UMVE, que
 permite a visualização e inspeção das imagens, mapas de profundidade e
 renderizar cenas e malhas 3D. Sua base de operação é basicamente
 \ref{fig:mvepipeline}:
-\begin{enumerate}
+\begin{enumerate}[leftmargin=2.5cm]
 \item{Estrutura por Movimento -- \emph{Structure-from-Motion} (SfM):}
 
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item{
 Reconstrói os parâmetros externos da câmera (posição e orientação) e seus
 parâmetros internos de calibração (distância focal e distorção radial), encontrando correspondências
@@ -30,7 +30,7 @@ esparsas, mas estáveis entre as imagens.
 \end{itemize}
 
 \item{Estereoscopia multiocular -- \emph{Multi-View Stereo} (MVS):}
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item{
 Utiliza a posição estimada das câmeras, encontrando as correspondências visuais
 nas imagens. Estas correspondências são trianguladas, produzindo a informação
@@ -38,7 +38,7 @@ nas imagens. Estas correspondências são trianguladas, produzindo a informaçã
 } 
 \end{itemize}
 \item{Reconstrução de superfícies -- \emph{Surface Reconstruction}:}
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item{
 Tem como entrada uma densa nuvem de pontos, ou mapas de profundidade
 individuais. Produz uma malha superficial globalmente consistente.
@@ -90,7 +90,7 @@ exemplo) estão diretamente acessíveis nas imagens.
 Existem algumas recomendações para se ter uma boa reconstrução com o MVE~\cite{mve}.
 Um bom conjunto de dados é gerado se algumas regras simples forem seguidas:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 
 \item{Para que o algoritmo MVS consiga fazer uma triangulação com qualquer
   posição 3D, o conjunto de dados terá que ter, no mínimo, cinco fotos.}
@@ -251,7 +251,7 @@ mapas de profundidades completos, já que utiliza resoluções menores, Figura~\
 
 O algoritmo do MVS pode ser dividido em duas partes
 
-\begin{itemize}
+\begin{itemize}[leftmargin=2.5cm]
 \item {Uma estrutura regional-crescente que tem uma fila de candidatos
   correspondentes, $Q$, ordenada pelas localizações dos pixels na câmera
 acrescido de seus valores para profundidade e normais;}
